@@ -1,16 +1,39 @@
 import { View, StyleSheet, Pressable, Text } from "react-native";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { CardStack } from "./components/CardStack";
 import { Dashboard } from "./screens/Dashboard";
 import { Word, SwipeDirection } from "./types";
-import { saveWordWithDifficulty, getSwipeDifficulty } from "./utils/wordUtils";
+import {
+  saveWordWithDifficulty,
+  getSwipeDifficulty,
+  getStoredWords,
+} from "./utils/wordUtils";
+import { selectPracticeWords } from "./utils/practiceUtils";
 
 export default function Page() {
   const [showDashboard, setShowDashboard] = useState(true);
+  const [practiceWords, setPracticeWords] = useState<Word[]>([]);
+
+  const loadPracticeWords = async () => {
+    const allWords = await getStoredWords();
+    if (allWords.length === 0) {
+      setPracticeWords([]);
+      return;
+    }
+
+    // Select 20 words based on our distribution algorithm
+    const selectedWords = selectPracticeWords(allWords, 20);
+    setPracticeWords(selectedWords);
+  };
 
   const handleSwipe = async (word: Word, direction: SwipeDirection) => {
     const difficulty = getSwipeDifficulty(direction);
     await saveWordWithDifficulty(word, difficulty);
+  };
+
+  const handleStartPractice = async () => {
+    await loadPracticeWords();
+    setShowDashboard(false);
   };
 
   return (
@@ -19,8 +42,11 @@ export default function Page() {
         <>
           <Dashboard />
           <Pressable
-            style={styles.floatingButton}
-            onPress={() => setShowDashboard(false)}
+            style={[
+              styles.floatingButton,
+              practiceWords.length === 0 && styles.floatingButtonDisabled,
+            ]}
+            onPress={handleStartPractice}
           >
             <Text style={styles.floatingButtonText}>Start Practice</Text>
           </Pressable>
@@ -33,16 +59,7 @@ export default function Page() {
           >
             <Text style={styles.backButtonText}>← Back to Dashboard</Text>
           </Pressable>
-          <CardStack
-            words={[
-              { id: "1", french: "Bonjour", english: "Hello" },
-              { id: "2", french: "Au revoir", english: "Goodbye" },
-              { id: "3", french: "Merci", english: "Thank you" },
-              { id: "4", french: "S'il vous plaît", english: "Please" },
-              { id: "5", french: "Oui", english: "Yes" },
-            ]}
-            onSwipe={handleSwipe}
-          />
+          <CardStack words={practiceWords} onSwipe={handleSwipe} />
         </>
       )}
     </View>
@@ -70,6 +87,9 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5,
+  },
+  floatingButtonDisabled: {
+    backgroundColor: "#B0BEC5",
   },
   floatingButtonText: {
     color: "white",
