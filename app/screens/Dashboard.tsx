@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, View, Pressable, Text } from "react-native";
+import { StyleSheet, View, Pressable, Text, Alert } from "react-native";
 import { WordList } from "../components/WordList";
 import { AddWordModal } from "../components/AddWordModal";
-import { ImportCSVModal } from "../components/ImportCSVModal";
 import { Word, Difficulty } from "../types";
 import { getStoredWords } from "../utils/wordUtils";
-import { getBacklogWords, moveWordsFromBacklog } from "../utils/backlogUtils";
+import {
+  getBacklogWords,
+  moveWordsFromBacklog,
+  loadWordsFromStatic,
+  saveToBacklog,
+  BACKLOG_STORAGE_KEY,
+} from "../utils/backlogUtils";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const STORAGE_KEY = "@french_cards_words";
@@ -17,7 +22,6 @@ export const Dashboard = () => {
     Difficulty | "all"
   >("all");
   const [isAddModalVisible, setIsAddModalVisible] = useState(false);
-  const [isImportModalVisible, setIsImportModalVisible] = useState(false);
 
   useEffect(() => {
     loadWords();
@@ -56,8 +60,18 @@ export const Dashboard = () => {
     }
   };
 
-  const handleImportComplete = () => {
-    loadBacklogCount();
+  const handleLoadFromStatic = async () => {
+    console.log("Loading from static...");
+    const newWords = await loadWordsFromStatic(10);
+    console.log("Loaded words length:", newWords.length);
+    if (newWords.length > 0) {
+      console.log("Saving to backlog...");
+      await saveToBacklog(newWords);
+      console.log("Loading from backlog immediately...");
+      await handleLoadFromBacklog();
+    } else {
+      console.log("No new words available");
+    }
   };
 
   const handleLoadFromBacklog = async () => {
@@ -83,16 +97,51 @@ export const Dashboard = () => {
     }
   };
 
+  const handleClearStorage = async () => {
+    Alert.alert(
+      "Clear All Data",
+      "Are you sure you want to clear all words? This cannot be undone.",
+      [
+        {
+          text: "Cancel",
+          style: "cancel",
+        },
+        {
+          text: "Clear",
+          style: "destructive",
+          onPress: async () => {
+            try {
+              await AsyncStorage.multiRemove([
+                STORAGE_KEY,
+                BACKLOG_STORAGE_KEY,
+              ]);
+              setWords([]);
+              setBacklogCount(0);
+              console.log("Storage cleared successfully");
+            } catch (error) {
+              console.error("Error clearing storage:", error);
+            }
+          },
+        },
+      ]
+    );
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>French Words</Text>
         <View style={styles.headerButtons}>
           <Pressable
-            style={[styles.button, styles.importButton]}
-            onPress={() => setIsImportModalVisible(true)}
+            style={[styles.button, styles.clearButton]}
+            onPress={handleClearStorage}
           >
-            <Text style={styles.buttonText}>Import CSV</Text>
+            <Text style={styles.buttonText}>Clear All</Text>
+          </Pressable>
+          <Pressable
+            style={[styles.button, styles.importButton]}
+            onPress={handleLoadFromStatic}
+          >
+            <Text style={styles.buttonText}>Load New Words</Text>
           </Pressable>
           <Pressable
             style={[styles.button, styles.addButton]}
@@ -102,14 +151,6 @@ export const Dashboard = () => {
           </Pressable>
         </View>
       </View>
-
-      {backlogCount > 0 && (
-        <Pressable style={styles.backlogButton} onPress={handleLoadFromBacklog}>
-          <Text style={styles.backlogButtonText}>
-            Load 10 words from backlog ({backlogCount} remaining)
-          </Text>
-        </Pressable>
-      )}
 
       <WordList
         words={words}
@@ -121,12 +162,6 @@ export const Dashboard = () => {
         visible={isAddModalVisible}
         onClose={() => setIsAddModalVisible(false)}
         onAdd={handleAddWord}
-      />
-
-      <ImportCSVModal
-        visible={isImportModalVisible}
-        onClose={() => setIsImportModalVisible(false)}
-        onImportComplete={handleImportComplete}
       />
     </View>
   );
@@ -146,10 +181,6 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: "#eee",
   },
-  title: {
-    fontSize: 24,
-    fontWeight: "bold",
-  },
   headerButtons: {
     flexDirection: "row",
   },
@@ -165,20 +196,11 @@ const styles = StyleSheet.create({
   importButton: {
     backgroundColor: "#4CAF50",
   },
+  clearButton: {
+    backgroundColor: "#F44336",
+  },
   buttonText: {
     color: "white",
     fontWeight: "600",
-  },
-  backlogButton: {
-    backgroundColor: "#FF9800",
-    margin: 16,
-    padding: 12,
-    borderRadius: 8,
-    alignItems: "center",
-  },
-  backlogButtonText: {
-    color: "white",
-    fontWeight: "600",
-    fontSize: 16,
   },
 });
