@@ -36,6 +36,21 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "d74f216f-55c5-49e6-8109-d8b5cbab162a"
+      }
+    },
+    "owner": "uriklar",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/d74f216f-55c5-49e6-8109-d8b5cbab162a"
     }
   }
 }
