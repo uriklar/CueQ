@@ -1,6 +1,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Word } from "../types";
 import { words as staticWords } from "../data/words";
+import { getStoredWords } from "./wordUtils";
 
 export const BACKLOG_STORAGE_KEY = "@french_cards_backlog";
 
@@ -9,13 +10,21 @@ export const loadWordsFromStatic = async (
 ): Promise<Omit<Word, "id">[]> => {
   console.log("Static words length:", staticWords.length);
   const backlogWords = await getBacklogWords();
+  const storedWords = await getStoredWords();
   console.log("Backlog words length:", backlogWords.length);
+  console.log("Stored words length:", storedWords.length);
+
   const availableWords = staticWords.filter(
     (word) =>
       !backlogWords.some(
         (backlogWord) =>
           backlogWord.french === word.french &&
           backlogWord.english === word.english
+      ) &&
+      !storedWords.some(
+        (storedWord) =>
+          storedWord.french === word.french &&
+          storedWord.english === word.english
       )
   );
   console.log("Available words length:", availableWords.length);
