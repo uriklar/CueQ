@@ -51,7 +51,8 @@ export const getFrenchExampleSentence = async (
     }
 
     if (examples.length > 0) {
-      return examples[0]; // Return the first example
+      // return the shortest example
+      return examples.sort((a, b) => a.length - b.length)[0];
     } else {
       return "No example sentences found for this word.";
     }
