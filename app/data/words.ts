@@ -3604,4 +3604,20 @@ export const words: Word[] = [
     french: "week-end",
     english: "weekend",
   },
+  {
+    french: "naissance",
+    english: "birth",
+  },
+  {
+    french: "à me nessaince",
+    english: "At my birth, when I was born",
+  },
+  {
+    french: "métier",
+    english: "job",
+  },
+  {
+    french: "s’écrier",
+    english: "to cry out, to exlclain (reflexive verb)",
+  },
 ];
