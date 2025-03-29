@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { Word, SwipeDirection } from "../types";
 import { WordCard } from "./WordCard";
-import { getFrenchExampleSentence } from "../services/wiktionaryService";
+import { getExampleSentence } from "../services/gemini";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("window");
 const CARD_WIDTH = SCREEN_WIDTH * 0.9;
@@ -45,7 +45,7 @@ export const CardStack: React.FC<CardStackProps> = ({ words, onSwipe }) => {
     setSentenceError(null);
 
     try {
-      const sentence = await getFrenchExampleSentence(currentWord.french);
+      const sentence = await getExampleSentence(currentWord.french);
       setExampleSentence(sentence);
     } catch (error) {
       setSentenceError("Failed to fetch example sentence. Please try again.");
