@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, View, Text, FlatList, Pressable } from "react-native";
 import { Word, Difficulty } from "../types";
+import { SearchInput } from "./SearchInput";
 
 interface WordListProps {
   words: Word[];
@@ -44,10 +45,17 @@ export const WordList: React.FC<WordListProps> = ({
   selectedDifficulty,
   onDifficultySelect,
 }) => {
-  const filteredWords =
+  const [search, setSearch] = React.useState("");
+
+  const filteredWords = (
     selectedDifficulty === "all"
       ? words
-      : words.filter((word) => word.difficulty === selectedDifficulty);
+      : words.filter((word) => word.difficulty === selectedDifficulty)
+  ).filter(
+    (word) =>
+      word.french.toLowerCase().includes(search.toLowerCase()) ||
+      word.english.toLowerCase().includes(search.toLowerCase())
+  );
 
   const renderItem = ({ item }: { item: Word }) => (
     <View style={styles.wordItem}>
@@ -69,6 +77,7 @@ export const WordList: React.FC<WordListProps> = ({
         selected={selectedDifficulty}
         onSelect={onDifficultySelect}
       />
+      <SearchInput value={search} onChangeText={setSearch} />
       <FlatList
         data={filteredWords}
         renderItem={renderItem}
