@@ -450,7 +450,7 @@ export const words: Word[] = [
   },
   {
     french: "donner",
-    english: "give",
+    english: "to give",
   },
   {
     french: "notre",
@@ -3620,4 +3620,49 @@ export const words: Word[] = [
     french: "s’écrier",
     english: "to cry out, to exlclain (reflexive verb)",
   },
+  {
+    french: "pourtant",
+    english: "nevertheless",
+  },
+  {
+    french: "avait",
+    english: "had/were (imparfait tense)",
+  },
+  {
+    french: "tout plein de",
+    english: "many, a lot of (informal way of saying)",
+  },
+  {
+    french: "nourrisson",
+    english: "infant, baby (masculine)",
+  },
+  {
+    french: "la pouponnière",
+    english: "nursery",
+  },
+  {
+    french: "file",
+    english: "line, queue",
+  },
+  {
+    french: "tête (feminine)",
+    english: "head",
+  },
+  {
+    french: "imiter",
+    english: "to imitate",
+  },
+  {
+    french: "vraiment",
+    english: "really",
+  },
+  {
+    french: "avis",
+    english: "opinion",
+  },
+  {
+    french: "parfois",
+    english: "sometimes",
+  },
+  
 ];
