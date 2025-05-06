@@ -41,6 +41,13 @@ export const CardStack: React.FC<CardStackProps> = ({ words, onSwipe }) => {
     if (currentIndex >= words.length) return;
 
     const currentWord = words[currentIndex];
+
+    // If we have examples stored, use them instead of making an API call
+    if (currentWord.examples) {
+      setExampleSentence(currentWord.examples);
+      return;
+    }
+
     setIsLoadingSentence(true);
     setSentenceError(null);
 
@@ -72,7 +79,11 @@ export const CardStack: React.FC<CardStackProps> = ({ words, onSwipe }) => {
         disabled={isLoadingSentence}
       >
         <Text style={styles.sentenceButtonText}>
-          {isLoadingSentence ? "Loading..." : "Use it in a sentence"}
+          {isLoadingSentence
+            ? "Loading..."
+            : currentWord.examples
+            ? "Show Examples"
+            : "Use it in a sentence"}
         </Text>
       </Pressable>
 
