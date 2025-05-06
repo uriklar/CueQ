@@ -24,15 +24,18 @@ export const AddWordModal: React.FC<AddWordModalProps> = ({
 }) => {
   const [french, setFrench] = useState("");
   const [english, setEnglish] = useState("");
+  const [examples, setExamples] = useState("");
 
   const handleAdd = () => {
     if (french.trim() && english.trim()) {
       onAdd({
         french: french.trim(),
         english: english.trim(),
+        examples: examples.trim(),
       });
       setFrench("");
       setEnglish("");
+      setExamples("");
       onClose();
     }
   };
@@ -67,6 +70,16 @@ export const AddWordModal: React.FC<AddWordModalProps> = ({
             onChangeText={setEnglish}
             autoCapitalize="none"
             autoCorrect={false}
+          />
+
+          <TextInput
+            style={styles.input}
+            placeholder="Examples (optional)"
+            value={examples}
+            onChangeText={setExamples}
+            autoCapitalize="none"
+            autoCorrect={false}
+            multiline
           />
 
           <View style={styles.buttonContainer}>

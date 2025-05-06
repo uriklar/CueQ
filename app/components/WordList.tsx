@@ -54,7 +54,9 @@ export const WordList: React.FC<WordListProps> = ({
   ).filter(
     (word) =>
       word.french.toLowerCase().includes(search.toLowerCase()) ||
-      word.english.toLowerCase().includes(search.toLowerCase())
+      word.english.toLowerCase().includes(search.toLowerCase()) ||
+      (word.examples &&
+        word.examples.toLowerCase().includes(search.toLowerCase()))
   );
 
   const renderItem = ({ item }: { item: Word }) => (
@@ -62,6 +64,9 @@ export const WordList: React.FC<WordListProps> = ({
       <View style={styles.wordContent}>
         <Text style={styles.frenchText}>{item.french}</Text>
         <Text style={styles.englishText}>{item.english}</Text>
+        {item.examples ? (
+          <Text style={styles.examplesText}>{item.examples}</Text>
+        ) : null}
       </View>
       <View
         style={[styles.difficultyBadge, getDifficultyStyle(item.difficulty)]}
@@ -163,6 +168,12 @@ const styles = StyleSheet.create({
   englishText: {
     fontSize: 16,
     color: "#666",
+  },
+  examplesText: {
+    fontSize: 14,
+    color: "#666",
+    fontStyle: "italic",
+    marginTop: 4,
   },
   difficultyBadge: {
     paddingHorizontal: 12,

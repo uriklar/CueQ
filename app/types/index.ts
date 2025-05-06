@@ -4,6 +4,7 @@ export interface Word {
   id: string;
   french: string;
   english: string;
+  examples?: string;
   difficulty?: Difficulty;
 }
 
