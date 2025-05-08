@@ -22,6 +22,7 @@ export const Dashboard = () => {
     Difficulty | "all"
   >("all");
   const [isAddModalVisible, setIsAddModalVisible] = useState(false);
+  const [editingWord, setEditingWord] = useState<Word | null>(null);
 
   useEffect(() => {
     loadWords();
@@ -38,26 +39,43 @@ export const Dashboard = () => {
     setBacklogCount(backlogWords.length);
   };
 
-  const handleAddWord = async (newWord: Omit<Word, "id">) => {
-    const id = Date.now().toString();
-    const wordWithId: Word = {
-      ...newWord,
-      id,
-    };
-
+  const handleSubmitWord = async (
+    wordData: Word | Omit<Word, "id">,
+    isEdit: boolean
+  ) => {
     try {
       const storedWordsJson = await AsyncStorage.getItem(STORAGE_KEY);
       const storedWords: Record<string, Word> = storedWordsJson
         ? JSON.parse(storedWordsJson)
         : {};
 
-      storedWords[id] = wordWithId;
-      await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(storedWords));
-
-      setWords((current) => [...current, wordWithId]);
+      if (isEdit) {
+        // Ensure wordData has an id if it's an edit
+        const wordToUpdate = wordData as Word;
+        if (!wordToUpdate.id) {
+          console.error("Error updating word: ID is missing for an edit.");
+          return;
+        }
+        storedWords[wordToUpdate.id] = wordToUpdate;
+        await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(storedWords));
+        setWords((currentWords) =>
+          currentWords.map((w) => (w.id === wordToUpdate.id ? wordToUpdate : w))
+        );
+      } else {
+        const id = Date.now().toString();
+        const wordWithId: Word = {
+          ...(wordData as Omit<Word, "id">), // Cast to ensure correct type
+          id,
+        };
+        storedWords[id] = wordWithId;
+        await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(storedWords));
+        setWords((current) => [...current, wordWithId]);
+      }
     } catch (error) {
-      console.error("Error adding word:", error);
+      console.error("Error saving word:", error);
     }
+    // Reset editing state regardless of add or edit
+    setEditingWord(null);
   };
 
   const handleLoadFromStatic = async () => {
@@ -127,6 +145,21 @@ export const Dashboard = () => {
     );
   };
 
+  const handleOpenAddModal = () => {
+    setEditingWord(null); // Ensure we are in 'add' mode
+    setIsAddModalVisible(true);
+  };
+
+  const handleOpenEditModal = (word: Word) => {
+    setEditingWord(word);
+    setIsAddModalVisible(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsAddModalVisible(false);
+    setEditingWord(null); // Clear editing state when modal closes
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -145,7 +178,7 @@ export const Dashboard = () => {
           </Pressable>
           <Pressable
             style={[styles.button, styles.addButton]}
-            onPress={() => setIsAddModalVisible(true)}
+            onPress={handleOpenAddModal}
           >
             <Text style={styles.buttonText}>Add Word</Text>
           </Pressable>
@@ -156,12 +189,14 @@ export const Dashboard = () => {
         words={words}
         selectedDifficulty={selectedDifficulty}
         onDifficultySelect={setSelectedDifficulty}
+        onEditWord={handleOpenEditModal}
       />
 
       <AddWordModal
         visible={isAddModalVisible}
-        onClose={() => setIsAddModalVisible(false)}
-        onAdd={handleAddWord}
+        onClose={handleCloseModal}
+        onSubmit={handleSubmitWord}
+        editingWord={editingWord || undefined}
       />
     </View>
   );

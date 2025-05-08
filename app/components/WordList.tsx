@@ -7,6 +7,7 @@ interface WordListProps {
   words: Word[];
   selectedDifficulty: Difficulty | "all";
   onDifficultySelect: (difficulty: Difficulty | "all") => void;
+  onEditWord: (word: Word) => void;
 }
 
 const DifficultyFilter: React.FC<{
@@ -44,6 +45,7 @@ export const WordList: React.FC<WordListProps> = ({
   words,
   selectedDifficulty,
   onDifficultySelect,
+  onEditWord,
 }) => {
   const [search, setSearch] = React.useState("");
 
@@ -66,23 +68,33 @@ export const WordList: React.FC<WordListProps> = ({
     };
 
     return (
-      <View style={styles.wordItem}>
-        <View style={styles.wordContent}>
-          <Text style={styles.frenchText}>
-            {item.french}
-            {getGenderMark()}
-          </Text>
-          <Text style={styles.englishText}>{item.english}</Text>
-          {item.examples ? (
-            <Text style={styles.examplesText}>{item.examples}</Text>
-          ) : null}
+      <Pressable
+        onPress={() => onEditWord(item)}
+        style={styles.wordItemPressable}
+      >
+        <View style={styles.wordItem}>
+          <View style={styles.wordContent}>
+            <Text style={styles.frenchText}>
+              {item.french}
+              {getGenderMark()}
+            </Text>
+            <Text style={styles.englishText}>{item.english}</Text>
+            {item.examples ? (
+              <Text style={styles.examplesText}>{item.examples}</Text>
+            ) : null}
+          </View>
+          <View
+            style={[
+              styles.difficultyBadge,
+              getDifficultyStyle(item.difficulty),
+            ]}
+          >
+            <Text style={styles.difficultyText}>
+              {item.difficulty || "new"}
+            </Text>
+          </View>
         </View>
-        <View
-          style={[styles.difficultyBadge, getDifficultyStyle(item.difficulty)]}
-        >
-          <Text style={styles.difficultyText}>{item.difficulty || "new"}</Text>
-        </View>
-      </View>
+      </Pressable>
     );
   };
 
@@ -151,12 +163,14 @@ const styles = StyleSheet.create({
   listContent: {
     padding: 16,
   },
+  wordItemPressable: {
+    marginBottom: 8,
+  },
   wordItem: {
     flexDirection: "row",
     backgroundColor: "white",
     padding: 16,
     borderRadius: 8,
-    marginBottom: 8,
     alignItems: "center",
     shadowColor: "#000",
     shadowOffset: {

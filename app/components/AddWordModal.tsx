@@ -14,36 +14,69 @@ import { Word } from "../types";
 interface AddWordModalProps {
   visible: boolean;
   onClose: () => void;
-  onAdd: (word: Omit<Word, "id">) => void;
+  onSubmit: (word: Word | Omit<Word, "id">, isEdit: boolean) => void;
+  editingWord?: Word;
 }
 
 export const AddWordModal: React.FC<AddWordModalProps> = ({
   visible,
   onClose,
-  onAdd,
+  onSubmit,
+  editingWord,
 }) => {
   const [french, setFrench] = useState("");
   const [english, setEnglish] = useState("");
   const [examples, setExamples] = useState("");
   const [gender, setGender] = useState<"masculine" | "feminine" | null>(null);
 
-  const handleAdd = () => {
-    if (french.trim() && english.trim()) {
-      onAdd({
-        french: french.trim(),
-        english: english.trim(),
-        examples: examples.trim(),
-        gender: gender,
-      });
+  React.useEffect(() => {
+    if (editingWord) {
+      setFrench(editingWord.french);
+      setEnglish(editingWord.english);
+      setExamples(editingWord.examples || "");
+      setGender(editingWord.gender ?? null);
+    } else {
+      // Clear fields when modal is opened for adding a new word
       setFrench("");
       setEnglish("");
       setExamples("");
       setGender(null);
+    }
+  }, [editingWord, visible]); // also run when visible changes to reset for 'add new'
+
+  const handleSubmit = () => {
+    if (french.trim() && english.trim()) {
+      if (editingWord) {
+        onSubmit(
+          {
+            ...editingWord,
+            french: french.trim(),
+            english: english.trim(),
+            examples: examples.trim(),
+            gender: gender,
+          },
+          true
+        );
+      } else {
+        onSubmit(
+          {
+            french: french.trim(),
+            english: english.trim(),
+            examples: examples.trim(),
+            gender: gender,
+          },
+          false
+        );
+      }
+      // Don't reset fields here, onClose will handle it or useEffect for new word
       onClose();
     }
   };
 
   const handleClose = () => {
+    // Resetting fields here ensures they are cleared on any close action
+    // including backdrop press or cancel button.
+    // useEffect will repopulate if editingWord is present when modal reopens.
     setFrench("");
     setEnglish("");
     setExamples("");
@@ -71,7 +104,9 @@ export const AddWordModal: React.FC<AddWordModalProps> = ({
         style={styles.modalContainer}
       >
         <View style={styles.modalContent}>
-          <Text style={styles.title}>Add New Word</Text>
+          <Text style={styles.title}>
+            {editingWord ? "Edit Word" : "Add New Word"}
+          </Text>
 
           <TextInput
             style={styles.input}
@@ -147,10 +182,10 @@ export const AddWordModal: React.FC<AddWordModalProps> = ({
 
             <Pressable
               style={[styles.button, styles.addButton]}
-              onPress={handleAdd}
+              onPress={handleSubmit}
             >
               <Text style={[styles.buttonText, styles.addButtonText]}>
-                Add Word
+                {editingWord ? "Save Changes" : "Add Word"}
               </Text>
             </Pressable>
           </View>
