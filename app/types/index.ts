@@ -6,6 +6,7 @@ export interface Word {
   english: string;
   examples?: string;
   difficulty?: Difficulty;
+  gender?: "masculine" | "feminine" | null;
 }
 
 export interface WordCard extends Word {

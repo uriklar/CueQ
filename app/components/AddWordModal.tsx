@@ -25,6 +25,7 @@ export const AddWordModal: React.FC<AddWordModalProps> = ({
   const [french, setFrench] = useState("");
   const [english, setEnglish] = useState("");
   const [examples, setExamples] = useState("");
+  const [gender, setGender] = useState<"masculine" | "feminine" | null>(null);
 
   const handleAdd = () => {
     if (french.trim() && english.trim()) {
@@ -32,11 +33,29 @@ export const AddWordModal: React.FC<AddWordModalProps> = ({
         french: french.trim(),
         english: english.trim(),
         examples: examples.trim(),
+        gender: gender,
       });
       setFrench("");
       setEnglish("");
       setExamples("");
+      setGender(null);
       onClose();
+    }
+  };
+
+  const handleClose = () => {
+    setFrench("");
+    setEnglish("");
+    setExamples("");
+    setGender(null);
+    onClose();
+  };
+
+  const handleGenderSelect = (selectedGender: "masculine" | "feminine") => {
+    if (gender === selectedGender) {
+      setGender(null);
+    } else {
+      setGender(selectedGender);
     }
   };
 
@@ -45,7 +64,7 @@ export const AddWordModal: React.FC<AddWordModalProps> = ({
       visible={visible}
       transparent
       animationType="slide"
-      onRequestClose={onClose}
+      onRequestClose={handleClose}
     >
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -82,10 +101,46 @@ export const AddWordModal: React.FC<AddWordModalProps> = ({
             multiline
           />
 
+          <View style={styles.genderContainer}>
+            <Text style={styles.genderLabel}>Gender:</Text>
+            <Pressable
+              style={[
+                styles.genderButton,
+                gender === "masculine" && styles.genderButtonSelected,
+              ]}
+              onPress={() => handleGenderSelect("masculine")}
+            >
+              <Text
+                style={[
+                  styles.genderButtonText,
+                  gender === "masculine" && styles.genderButtonTextSelected,
+                ]}
+              >
+                Masculine
+              </Text>
+            </Pressable>
+            <Pressable
+              style={[
+                styles.genderButton,
+                gender === "feminine" && styles.genderButtonSelected,
+              ]}
+              onPress={() => handleGenderSelect("feminine")}
+            >
+              <Text
+                style={[
+                  styles.genderButtonText,
+                  gender === "feminine" && styles.genderButtonTextSelected,
+                ]}
+              >
+                Feminine
+              </Text>
+            </Pressable>
+          </View>
+
           <View style={styles.buttonContainer}>
             <Pressable
               style={[styles.button, styles.cancelButton]}
-              onPress={onClose}
+              onPress={handleClose}
             >
               <Text style={styles.buttonText}>Cancel</Text>
             </Pressable>
@@ -132,6 +187,34 @@ const styles = StyleSheet.create({
     padding: 12,
     marginBottom: 16,
     fontSize: 16,
+  },
+  genderContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 16,
+  },
+  genderLabel: {
+    fontSize: 16,
+    marginRight: 8,
+  },
+  genderButton: {
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: "#ddd",
+    marginHorizontal: 4,
+  },
+  genderButtonSelected: {
+    backgroundColor: "#2196F3",
+    borderColor: "#2196F3",
+  },
+  genderButtonText: {
+    fontSize: 14,
+    color: "#666",
+  },
+  genderButtonTextSelected: {
+    color: "white",
   },
   buttonContainer: {
     flexDirection: "row",
