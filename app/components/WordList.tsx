@@ -59,22 +59,32 @@ export const WordList: React.FC<WordListProps> = ({
         word.examples.toLowerCase().includes(search.toLowerCase()))
   );
 
-  const renderItem = ({ item }: { item: Word }) => (
-    <View style={styles.wordItem}>
-      <View style={styles.wordContent}>
-        <Text style={styles.frenchText}>{item.french}</Text>
-        <Text style={styles.englishText}>{item.english}</Text>
-        {item.examples ? (
-          <Text style={styles.examplesText}>{item.examples}</Text>
-        ) : null}
+  const renderItem = ({ item }: { item: Word }) => {
+    const getGenderMark = () => {
+      if (!item.gender) return "";
+      return item.gender === "masculine" ? " (m)" : " (f)";
+    };
+
+    return (
+      <View style={styles.wordItem}>
+        <View style={styles.wordContent}>
+          <Text style={styles.frenchText}>
+            {item.french}
+            {getGenderMark()}
+          </Text>
+          <Text style={styles.englishText}>{item.english}</Text>
+          {item.examples ? (
+            <Text style={styles.examplesText}>{item.examples}</Text>
+          ) : null}
+        </View>
+        <View
+          style={[styles.difficultyBadge, getDifficultyStyle(item.difficulty)]}
+        >
+          <Text style={styles.difficultyText}>{item.difficulty || "new"}</Text>
+        </View>
       </View>
-      <View
-        style={[styles.difficultyBadge, getDifficultyStyle(item.difficulty)]}
-      >
-        <Text style={styles.difficultyText}>{item.difficulty || "new"}</Text>
-      </View>
-    </View>
-  );
+    );
+  };
 
   return (
     <View style={styles.container}>
