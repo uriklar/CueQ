@@ -7,6 +7,7 @@ const CARD_WIDTH = SCREEN_WIDTH * 0.9;
 
 interface WordCardProps extends WordCardType {
   onReveal: () => void;
+  onLongPress?: () => void;
   // gender is already part of WordCardType via Word
 }
 
@@ -15,6 +16,7 @@ export const WordCard: React.FC<WordCardProps> = ({
   english,
   isRevealed,
   onReveal,
+  onLongPress,
   gender,
 }) => {
   const getGenderMark = () => {
@@ -23,7 +25,7 @@ export const WordCard: React.FC<WordCardProps> = ({
   };
 
   return (
-    <Pressable onPress={onReveal} style={styles.card}>
+    <Pressable onPress={onReveal} onLongPress={onLongPress} style={styles.card}>
       <Text style={styles.frenchText}>
         {french}
         {getGenderMark()}

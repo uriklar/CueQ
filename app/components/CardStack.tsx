@@ -10,6 +10,7 @@ import {
 import { Word, SwipeDirection } from "../types";
 import { WordCard } from "./WordCard";
 import { getExampleSentence } from "../services/gemini";
+import { AddWordModal } from "./AddWordModal";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("window");
 const CARD_WIDTH = SCREEN_WIDTH * 0.9;
@@ -17,14 +18,22 @@ const CARD_WIDTH = SCREEN_WIDTH * 0.9;
 interface CardStackProps {
   words: Word[];
   onSwipe: (word: Word, direction: SwipeDirection) => void;
+  onUpdateWord: (updatedWord: Word) => void;
 }
 
-export const CardStack: React.FC<CardStackProps> = ({ words, onSwipe }) => {
+export const CardStack: React.FC<CardStackProps> = ({
+  words,
+  onSwipe,
+  onUpdateWord,
+}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isRevealed, setIsRevealed] = useState(false);
   const [exampleSentence, setExampleSentence] = useState<string | null>(null);
   const [isLoadingSentence, setIsLoadingSentence] = useState(false);
   const [sentenceError, setSentenceError] = useState<string | null>(null);
+
+  const [isEditModalVisible, setIsEditModalVisible] = useState(false);
+  const [wordToEdit, setWordToEdit] = useState<Word | null>(null);
 
   const handleButtonPress = (direction: SwipeDirection) => {
     if (currentIndex < words.length) {
@@ -42,7 +51,6 @@ export const CardStack: React.FC<CardStackProps> = ({ words, onSwipe }) => {
 
     const currentWord = words[currentIndex];
 
-    // If we have examples stored, use them instead of making an API call
     if (currentWord.examples) {
       setExampleSentence(currentWord.examples);
       return;
@@ -59,6 +67,32 @@ export const CardStack: React.FC<CardStackProps> = ({ words, onSwipe }) => {
     } finally {
       setIsLoadingSentence(false);
     }
+  };
+
+  const handleLongPressOnCard = (word: Word) => {
+    setWordToEdit(word);
+    setIsEditModalVisible(true);
+  };
+
+  const handleModalSubmit = (
+    updatedWordData: Word | Omit<Word, "id">,
+    isEdit: boolean
+  ) => {
+    if (isEdit && wordToEdit) {
+      const fullUpdatedWord: Word = {
+        ...wordToEdit,
+        ...(updatedWordData as Partial<Word>),
+        id: wordToEdit.id,
+      };
+      onUpdateWord(fullUpdatedWord);
+    }
+    setIsEditModalVisible(false);
+    setWordToEdit(null);
+  };
+
+  const handleCloseEditModal = () => {
+    setIsEditModalVisible(false);
+    setWordToEdit(null);
   };
 
   if (currentIndex >= words.length) {
@@ -109,6 +143,7 @@ export const CardStack: React.FC<CardStackProps> = ({ words, onSwipe }) => {
         {...currentWord}
         isRevealed={isRevealed}
         onReveal={() => setIsRevealed(!isRevealed)}
+        onLongPress={() => handleLongPressOnCard(currentWord)}
       />
 
       <View style={styles.buttonContainer}>
@@ -131,6 +166,15 @@ export const CardStack: React.FC<CardStackProps> = ({ words, onSwipe }) => {
           <Text style={styles.buttonText}>Know Well</Text>
         </Pressable>
       </View>
+
+      {wordToEdit && (
+        <AddWordModal
+          visible={isEditModalVisible}
+          onClose={handleCloseEditModal}
+          onSubmit={handleModalSubmit}
+          editingWord={wordToEdit}
+        />
+      )}
     </View>
   );
 };
