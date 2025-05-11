@@ -7,6 +7,7 @@ import {
   saveWordWithDifficulty,
   getSwipeDifficulty,
   getStoredWords,
+  updateStoredWord,
 } from "./utils/wordUtils";
 import { selectPracticeWords } from "./utils/practiceUtils";
 
@@ -29,6 +30,21 @@ export default function Page() {
   const handleSwipe = async (word: Word, direction: SwipeDirection) => {
     const difficulty = getSwipeDifficulty(direction);
     await saveWordWithDifficulty(word, difficulty);
+  };
+
+  // Function to handle updating a word
+  const handleUpdateWord = async (updatedWord: Word) => {
+    // Update the word in the practiceWords state
+    setPracticeWords((currentPracticeWords) =>
+      currentPracticeWords.map((w) =>
+        w.id === updatedWord.id ? updatedWord : w
+      )
+    );
+    // Persist the updated word to AsyncStorage
+    await updateStoredWord(updatedWord);
+    // Optionally, reload all words or just update if confident practiceWords reflects all relevant words
+    // For simplicity, we are only updating practiceWords state here.
+    // If practiceWords is a subset of a larger list, you might need to update the larger list too.
   };
 
   const handleStartPractice = async () => {
@@ -59,7 +75,11 @@ export default function Page() {
           >
             <Text style={styles.backButtonText}>← Back to Dashboard</Text>
           </Pressable>
-          <CardStack words={practiceWords} onSwipe={handleSwipe} />
+          <CardStack
+            words={practiceWords}
+            onSwipe={handleSwipe}
+            onUpdateWord={handleUpdateWord}
+          />
         </>
       )}
     </View>

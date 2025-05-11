@@ -49,3 +49,23 @@ export const getStoredWords = async (): Promise<Word[]> => {
     return [];
   }
 };
+
+export const updateStoredWord = async (updatedWord: Word) => {
+  try {
+    const storedWordsJson = await AsyncStorage.getItem(STORAGE_KEY);
+    const storedWords: Record<string, Word> = storedWordsJson
+      ? JSON.parse(storedWordsJson)
+      : {};
+
+    if (!updatedWord.id) {
+      console.error("Error updating word: ID is missing.");
+      return;
+    }
+
+    storedWords[updatedWord.id] = updatedWord;
+
+    await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(storedWords));
+  } catch (error) {
+    console.error("Error updating word in storage:", error);
+  }
+};
