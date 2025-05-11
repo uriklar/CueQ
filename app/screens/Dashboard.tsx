@@ -160,6 +160,42 @@ export const Dashboard = () => {
     setEditingWord(null); // Clear editing state when modal closes
   };
 
+  const handleDeleteWord = async (wordId: string) => {
+    Alert.alert("Delete Word", "Are you sure you want to delete this word?", [
+      {
+        text: "Cancel",
+        style: "cancel",
+      },
+      {
+        text: "Delete",
+        style: "destructive",
+        onPress: async () => {
+          try {
+            const storedWordsJson = await AsyncStorage.getItem(STORAGE_KEY);
+            const storedWords: Record<string, Word> = storedWordsJson
+              ? JSON.parse(storedWordsJson)
+              : {};
+
+            if (storedWords[wordId]) {
+              delete storedWords[wordId];
+              await AsyncStorage.setItem(
+                STORAGE_KEY,
+                JSON.stringify(storedWords)
+              );
+              setWords((currentWords) =>
+                currentWords.filter((word) => word.id !== wordId)
+              );
+            } else {
+              console.warn("Attempted to delete a non-existent word");
+            }
+          } catch (error) {
+            console.error("Error deleting word:", error);
+          }
+        },
+      },
+    ]);
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -190,6 +226,7 @@ export const Dashboard = () => {
         selectedDifficulty={selectedDifficulty}
         onDifficultySelect={setSelectedDifficulty}
         onEditWord={handleOpenEditModal}
+        onDeleteWord={handleDeleteWord}
       />
 
       <AddWordModal

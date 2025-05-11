@@ -1,13 +1,22 @@
 import React from "react";
-import { StyleSheet, View, Text, FlatList, Pressable } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Text,
+  FlatList,
+  Pressable,
+  TouchableOpacity,
+} from "react-native";
 import { Word, Difficulty } from "../types";
 import { SearchInput } from "./SearchInput";
+import { Swipeable } from "react-native-gesture-handler";
 
 interface WordListProps {
   words: Word[];
   selectedDifficulty: Difficulty | "all";
   onDifficultySelect: (difficulty: Difficulty | "all") => void;
   onEditWord: (word: Word) => void;
+  onDeleteWord: (wordId: string) => void;
 }
 
 const DifficultyFilter: React.FC<{
@@ -46,6 +55,7 @@ export const WordList: React.FC<WordListProps> = ({
   selectedDifficulty,
   onDifficultySelect,
   onEditWord,
+  onDeleteWord,
 }) => {
   const [search, setSearch] = React.useState("");
 
@@ -67,34 +77,57 @@ export const WordList: React.FC<WordListProps> = ({
       return item.gender === "masculine" ? " (m)" : " (f)";
     };
 
+    const renderRightActions = (progress, dragX, wordId) => {
+      const trans = dragX.interpolate({
+        inputRange: [-80, 0],
+        outputRange: [0, 80],
+        extrapolate: "clamp",
+      });
+      return (
+        <TouchableOpacity
+          style={styles.deleteButton}
+          onPress={() => onDeleteWord(wordId)}
+        >
+          <Text style={styles.deleteButtonText}>Delete</Text>
+        </TouchableOpacity>
+      );
+    };
+
     return (
-      <Pressable
-        onPress={() => onEditWord(item)}
-        style={styles.wordItemPressable}
+      <Swipeable
+        renderRightActions={(progress, dragX) =>
+          renderRightActions(progress, dragX, item.id)
+        }
+        overshootRight={false}
       >
-        <View style={styles.wordItem}>
-          <View style={styles.wordContent}>
-            <Text style={styles.frenchText}>
-              {item.french}
-              {getGenderMark()}
-            </Text>
-            <Text style={styles.englishText}>{item.english}</Text>
-            {item.examples ? (
-              <Text style={styles.examplesText}>{item.examples}</Text>
-            ) : null}
+        <Pressable
+          onPress={() => onEditWord(item)}
+          style={styles.wordItemPressable}
+        >
+          <View style={styles.wordItem}>
+            <View style={styles.wordContent}>
+              <Text style={styles.frenchText}>
+                {item.french}
+                {getGenderMark()}
+              </Text>
+              <Text style={styles.englishText}>{item.english}</Text>
+              {item.examples ? (
+                <Text style={styles.examplesText}>{item.examples}</Text>
+              ) : null}
+            </View>
+            <View
+              style={[
+                styles.difficultyBadge,
+                getDifficultyStyle(item.difficulty),
+              ]}
+            >
+              <Text style={styles.difficultyText}>
+                {item.difficulty || "new"}
+              </Text>
+            </View>
           </View>
-          <View
-            style={[
-              styles.difficultyBadge,
-              getDifficultyStyle(item.difficulty),
-            ]}
-          >
-            <Text style={styles.difficultyText}>
-              {item.difficulty || "new"}
-            </Text>
-          </View>
-        </View>
-      </Pressable>
+        </Pressable>
+      </Swipeable>
     );
   };
 
@@ -221,5 +254,17 @@ const styles = StyleSheet.create({
   },
   newBadge: {
     backgroundColor: "#9E9E9E",
+  },
+  deleteButton: {
+    backgroundColor: "red",
+    justifyContent: "center",
+    alignItems: "center",
+    width: 80,
+    paddingVertical: 16,
+    borderRadius: 8,
+  },
+  deleteButtonText: {
+    color: "white",
+    fontWeight: "bold",
   },
 });
