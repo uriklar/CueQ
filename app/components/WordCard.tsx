@@ -1,6 +1,15 @@
 import React from "react";
-import { StyleSheet, Text, Dimensions, Pressable } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  Dimensions,
+  Pressable,
+  View,
+  TouchableOpacity,
+} from "react-native";
 import { WordCard as WordCardType } from "../types";
+import * as Speech from "expo-speech";
+import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("window");
 const CARD_WIDTH = SCREEN_WIDTH * 0.9;
@@ -24,12 +33,25 @@ export const WordCard: React.FC<WordCardProps> = ({
     return gender === "masculine" ? " (m)" : " (f)";
   };
 
+  const speakFrench = () => {
+    Speech.speak(french, { language: "fr-FR" });
+  };
+
   return (
     <Pressable onPress={onReveal} onLongPress={onLongPress} style={styles.card}>
-      <Text style={styles.frenchText}>
-        {french}
-        {getGenderMark()}
-      </Text>
+      <View style={styles.frenchRow}>
+        <Text style={styles.frenchText}>
+          {french}
+          {getGenderMark()}
+        </Text>
+        <TouchableOpacity
+          onPress={speakFrench}
+          style={styles.speakerIcon}
+          accessibilityLabel="Play pronunciation"
+        >
+          <MaterialIcons name="volume-up" size={28} color="#2196F3" />
+        </TouchableOpacity>
+      </View>
       {isRevealed && <Text style={styles.englishText}>{english}</Text>}
     </Pressable>
   );
@@ -53,11 +75,20 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
     elevation: 5,
   },
+  frenchRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 20,
+  },
   frenchText: {
     fontSize: 32,
     fontWeight: "bold",
-    marginBottom: 20,
     textAlign: "center",
+  },
+  speakerIcon: {
+    marginLeft: 10,
+    padding: 4,
   },
   englishText: {
     fontSize: 24,
