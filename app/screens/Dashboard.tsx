@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { StyleSheet, View, Pressable, Text, Alert } from "react-native";
 import { WordList } from "../components/WordList";
 import { AddWordModal } from "../components/AddWordModal";
+import { BulkImportModal } from "../components/BulkImportModal";
 import { Word, Difficulty } from "../types";
 import { getStoredWords } from "../utils/wordUtils";
 import {
@@ -22,6 +23,8 @@ export const Dashboard = () => {
     Difficulty | "all"
   >("all");
   const [isAddModalVisible, setIsAddModalVisible] = useState(false);
+  const [isBulkImportModalVisible, setIsBulkImportModalVisible] =
+    useState(false);
   const [editingWord, setEditingWord] = useState<Word | null>(null);
 
   useEffect(() => {
@@ -76,6 +79,48 @@ export const Dashboard = () => {
     }
     // Reset editing state regardless of add or edit
     setEditingWord(null);
+  };
+
+  const handleBulkImport = async (
+    importWords: Omit<Word, "id" | "difficulty">[]
+  ) => {
+    try {
+      const storedWordsJson = await AsyncStorage.getItem(STORAGE_KEY);
+      const storedWords: Record<string, Word> = storedWordsJson
+        ? JSON.parse(storedWordsJson)
+        : {};
+
+      const newWords: Word[] = [];
+
+      // Process each imported word
+      importWords.forEach((wordData) => {
+        const id =
+          Date.now().toString() + Math.random().toString(36).substring(2, 9);
+        const wordWithId: Word = {
+          ...wordData,
+          id,
+        };
+
+        storedWords[id] = wordWithId;
+        newWords.push(wordWithId);
+      });
+
+      // Save to storage
+      await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(storedWords));
+
+      // Update state
+      setWords((current) => [...current, ...newWords]);
+
+      // Show confirmation
+      Alert.alert(
+        "Import Complete",
+        `Successfully imported ${newWords.length} words.`,
+        [{ text: "OK" }]
+      );
+    } catch (error) {
+      console.error("Error importing words:", error);
+      Alert.alert("Import Error", "Failed to import words. Please try again.");
+    }
   };
 
   const handleLoadFromStatic = async () => {
@@ -160,6 +205,14 @@ export const Dashboard = () => {
     setEditingWord(null); // Clear editing state when modal closes
   };
 
+  const handleOpenBulkImportModal = () => {
+    setIsBulkImportModalVisible(true);
+  };
+
+  const handleCloseBulkImportModal = () => {
+    setIsBulkImportModalVisible(false);
+  };
+
   const handleDeleteWord = async (wordId: string) => {
     Alert.alert("Delete Word", "Are you sure you want to delete this word?", [
       {
@@ -208,9 +261,9 @@ export const Dashboard = () => {
           </Pressable>
           <Pressable
             style={[styles.button, styles.importButton]}
-            onPress={handleLoadFromStatic}
+            onPress={handleOpenBulkImportModal}
           >
-            <Text style={styles.buttonText}>Load New Words</Text>
+            <Text style={styles.buttonText}>Bulk Import</Text>
           </Pressable>
           <Pressable
             style={[styles.button, styles.addButton]}
@@ -234,6 +287,12 @@ export const Dashboard = () => {
         onClose={handleCloseModal}
         onSubmit={handleSubmitWord}
         editingWord={editingWord || undefined}
+      />
+
+      <BulkImportModal
+        visible={isBulkImportModalVisible}
+        onClose={handleCloseBulkImportModal}
+        onImport={handleBulkImport}
       />
     </View>
   );
