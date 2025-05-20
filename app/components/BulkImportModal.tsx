@@ -68,7 +68,23 @@ export const BulkImportModal = ({
     >
       <View style={styles.centeredView}>
         <View style={styles.modalView}>
-          <Text style={styles.modalTitle}>Bulk Import Words</Text>
+          <View style={styles.header}>
+            <Text style={styles.modalTitle}>Bulk Import Words</Text>
+            <View style={styles.buttonContainer}>
+              <Pressable
+                style={[styles.button, styles.cancelButton]}
+                onPress={onClose}
+              >
+                <Text style={styles.buttonText}>Cancel</Text>
+              </Pressable>
+              <Pressable
+                style={[styles.button, styles.importButton]}
+                onPress={handleImport}
+              >
+                <Text style={styles.buttonText}>Import</Text>
+              </Pressable>
+            </View>
+          </View>
 
           <Text style={styles.label}>Paste JSON Array of Words</Text>
           <ScrollView style={styles.scrollView}>
@@ -83,21 +99,6 @@ export const BulkImportModal = ({
           </ScrollView>
 
           {error ? <Text style={styles.errorText}>{error}</Text> : null}
-
-          <View style={styles.buttonContainer}>
-            <Pressable
-              style={[styles.button, styles.cancelButton]}
-              onPress={onClose}
-            >
-              <Text style={styles.buttonText}>Cancel</Text>
-            </Pressable>
-            <Pressable
-              style={[styles.button, styles.importButton]}
-              onPress={handleImport}
-            >
-              <Text style={styles.buttonText}>Import</Text>
-            </Pressable>
-          </View>
         </View>
       </View>
     </Modal>
@@ -126,18 +127,23 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
   },
+  header: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 16,
+    width: "100%",
+  },
   modalTitle: {
     fontSize: 20,
     fontWeight: "bold",
-    marginBottom: 16,
-    textAlign: "center",
   },
   label: {
     fontSize: 16,
     marginBottom: 8,
   },
   scrollView: {
-    maxHeight: 300,
+    height: 300,
     borderWidth: 1,
     borderColor: "#ccc",
     borderRadius: 8,
@@ -153,14 +159,12 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     flexDirection: "row",
-    justifyContent: "space-between",
-    marginTop: 16,
   },
   button: {
-    paddingHorizontal: 20,
-    paddingVertical: 10,
+    paddingHorizontal: 16,
+    paddingVertical: 8,
     borderRadius: 8,
-    minWidth: 100,
+    marginLeft: 8,
     alignItems: "center",
   },
   cancelButton: {
