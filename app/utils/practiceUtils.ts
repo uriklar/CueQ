@@ -12,9 +12,9 @@ const shuffleArray = <T>(array: T[]): T[] => {
 
 // Distribution of words by difficulty
 const PRACTICE_DISTRIBUTION = {
-  new: 0.3, // 30% new words
-  hard: 0.4, // 40% hard words
-  medium: 0.2, // 20% medium words
+  new: 0.6, // 60% new words
+  hard: 0.2, // 20% hard words
+  medium: 0.1, // 10% medium words
   easy: 0.1, // 10% easy words
 };
 
