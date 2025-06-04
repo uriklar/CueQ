@@ -129,7 +129,9 @@ export const CardStack: React.FC<CardStackProps> = ({
 
       {exampleSentence && (
         <View style={styles.sentenceContainer}>
-          <Text style={styles.sentenceText}>{exampleSentence}</Text>
+          <Text style={styles.sentenceText} selectable={true}>
+            {exampleSentence}
+          </Text>
         </View>
       )}
 
