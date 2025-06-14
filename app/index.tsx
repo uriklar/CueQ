@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 20,
     right: 20,
-    backgroundColor: "#2196F3",
+    backgroundColor: "#4CAF50",
     paddingHorizontal: 20,
     paddingVertical: 12,
     borderRadius: 25,
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   floatingButtonDisabled: {
-    backgroundColor: "#B0BEC5",
+    backgroundColor: "#81C784",
   },
   floatingButtonText: {
     color: "white",

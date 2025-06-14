@@ -20,7 +20,7 @@ export const Dashboard = () => {
   const [words, setWords] = useState<Word[]>([]);
   const [backlogCount, setBacklogCount] = useState(0);
   const [selectedDifficulty, setSelectedDifficulty] = useState<
-    Difficulty | "all"
+    Difficulty | "all" | "new"
   >("all");
   const [isAddModalVisible, setIsAddModalVisible] = useState(false);
   const [isBulkImportModalVisible, setIsBulkImportModalVisible] =
@@ -254,12 +254,6 @@ export const Dashboard = () => {
       <View style={styles.header}>
         <View style={styles.headerButtons}>
           <Pressable
-            style={[styles.button, styles.clearButton]}
-            onPress={handleClearStorage}
-          >
-            <Text style={styles.buttonText}>Clear All</Text>
-          </Pressable>
-          <Pressable
             style={[styles.button, styles.importButton]}
             onPress={handleOpenBulkImportModal}
           >
@@ -326,9 +320,6 @@ const styles = StyleSheet.create({
   },
   importButton: {
     backgroundColor: "#4CAF50",
-  },
-  clearButton: {
-    backgroundColor: "#F44336",
   },
   buttonText: {
     color: "white",

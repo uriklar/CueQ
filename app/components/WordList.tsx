@@ -13,17 +13,23 @@ import { Swipeable } from "react-native-gesture-handler";
 
 interface WordListProps {
   words: Word[];
-  selectedDifficulty: Difficulty | "all";
-  onDifficultySelect: (difficulty: Difficulty | "all") => void;
+  selectedDifficulty: Difficulty | "all" | "new";
+  onDifficultySelect: (difficulty: Difficulty | "all" | "new") => void;
   onEditWord: (word: Word) => void;
   onDeleteWord: (wordId: string) => void;
 }
 
 const DifficultyFilter: React.FC<{
-  selected: Difficulty | "all";
-  onSelect: (difficulty: Difficulty | "all") => void;
+  selected: Difficulty | "all" | "new";
+  onSelect: (difficulty: Difficulty | "all" | "new") => void;
 }> = ({ selected, onSelect }) => {
-  const filters: (Difficulty | "all")[] = ["all", "easy", "medium", "hard"];
+  const filters: (Difficulty | "all" | "new")[] = [
+    "all",
+    "new",
+    "easy",
+    "medium",
+    "hard",
+  ];
 
   return (
     <View style={styles.filterContainer}>
@@ -59,11 +65,18 @@ export const WordList: React.FC<WordListProps> = ({
 }) => {
   const [search, setSearch] = React.useState("");
 
-  const filteredWords = (
-    selectedDifficulty === "all"
-      ? words
-      : words.filter((word) => word.difficulty === selectedDifficulty)
-  ).filter(
+  let filteredByDifficulty: Word[];
+  if (selectedDifficulty === "all") {
+    filteredByDifficulty = words;
+  } else if (selectedDifficulty === "new") {
+    filteredByDifficulty = words.filter((word) => !word.difficulty);
+  } else {
+    filteredByDifficulty = words.filter(
+      (word) => word.difficulty === selectedDifficulty
+    );
+  }
+
+  const filteredWords = filteredByDifficulty.filter(
     (word) =>
       word.french.toLowerCase().includes(search.toLowerCase()) ||
       word.english.toLowerCase().includes(search.toLowerCase()) ||
