@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, View, Pressable, Text, Alert } from "react-native";
 import { WordList } from "../components/WordList";
-import { AddWordModal } from "../components/AddWordModal";
+import { AddWordModal } from "../components/AddWordModal/index";
 import { BulkImportModal } from "../components/BulkImportModal";
 import { Word, Difficulty } from "../types";
 import { getStoredWords } from "../utils/wordUtils";

@@ -7,10 +7,10 @@ import {
   StyleSheet,
   Pressable,
   ScrollView,
-  Alert,
 } from "react-native";
 import { Omit } from "utility-types";
 import { Word } from "../types";
+import { parseWords } from "../services/bulkImport";
 
 interface BulkImportModalProps {
   visible: boolean;
@@ -28,34 +28,13 @@ export const BulkImportModal = ({
 
   const handleImport = () => {
     try {
-      const parsedData = JSON.parse(jsonInput);
-
-      if (!Array.isArray(parsedData)) {
-        setError("Input must be an array of words");
-        return;
-      }
-
-      // Validate each word has the required properties
-      const isValid = parsedData.every(
-        (word) =>
-          typeof word === "object" &&
-          typeof word.french === "string" &&
-          typeof word.english === "string"
-      );
-
-      if (!isValid) {
-        setError(
-          "Each word must have at least 'french' and 'english' properties"
-        );
-        return;
-      }
-
-      onImport(parsedData);
+      const words = parseWords(jsonInput);
+      onImport(words.map(({ id, difficulty, ...rest }) => rest));
       setJsonInput("");
       setError("");
       onClose();
     } catch (e) {
-      setError("Invalid JSON format");
+      setError((e as Error).message || "Invalid JSON format");
     }
   };
 

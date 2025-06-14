@@ -12,8 +12,8 @@ import {
 } from "react-native";
 import { Word, SwipeDirection } from "../types";
 import { WordCard } from "./WordCard";
-import { getExampleSentence } from "../services/gemini";
-import { AddWordModal } from "./AddWordModal";
+import { useCardStack } from "../hooks/useCardStack";
+import { AddWordModal } from "./AddWordModal/index";
 import { BlurView } from "expo-blur";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("window");
@@ -30,11 +30,17 @@ export const CardStack: React.FC<CardStackProps> = ({
   onSwipe,
   onUpdateWord,
 }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isRevealed, setIsRevealed] = useState(false);
-  const [exampleSentence, setExampleSentence] = useState<string | null>(null);
-  const [isLoadingSentence, setIsLoadingSentence] = useState(false);
-  const [sentenceError, setSentenceError] = useState<string | null>(null);
+  const {
+    currentWord,
+    currentIndex,
+    isRevealed,
+    setIsRevealed,
+    exampleSentence,
+    isLoadingSentence,
+    sentenceError,
+    handleButtonPress,
+    handleGetExampleSentence,
+  } = useCardStack({ words, onSwipe });
 
   const [isEditModalVisible, setIsEditModalVisible] = useState(false);
   const [wordToEdit, setWordToEdit] = useState<Word | null>(null);
@@ -42,40 +48,6 @@ export const CardStack: React.FC<CardStackProps> = ({
   const [containerHeight, setContainerHeight] = useState(0);
   const [contentHeight, setContentHeight] = useState(0);
   const [showBottomBlur, setShowBottomBlur] = useState(false);
-
-  const handleButtonPress = (direction: SwipeDirection) => {
-    if (currentIndex < words.length) {
-      const currentWord = words[currentIndex];
-      onSwipe(currentWord, direction);
-      setCurrentIndex((prev) => prev + 1);
-      setIsRevealed(false);
-      setExampleSentence(null);
-      setSentenceError(null);
-    }
-  };
-
-  const handleGetExampleSentence = async () => {
-    if (currentIndex >= words.length) return;
-
-    const currentWord = words[currentIndex];
-
-    if (currentWord.examples) {
-      setExampleSentence(currentWord.examples);
-      return;
-    }
-
-    setIsLoadingSentence(true);
-    setSentenceError(null);
-
-    try {
-      const sentence = await getExampleSentence(currentWord.french);
-      setExampleSentence(sentence);
-    } catch (error) {
-      setSentenceError("Failed to fetch example sentence. Please try again.");
-    } finally {
-      setIsLoadingSentence(false);
-    }
-  };
 
   const handleLongPressOnCard = (word: Word) => {
     setWordToEdit(word);
@@ -111,8 +83,6 @@ export const CardStack: React.FC<CardStackProps> = ({
     );
   }
 
-  const currentWord = words[currentIndex];
-
   return (
     <SafeAreaView style={styles.safeArea}>
       {/* Top Controls */}
@@ -125,7 +95,7 @@ export const CardStack: React.FC<CardStackProps> = ({
           <Text style={styles.sentenceButtonText}>
             {isLoadingSentence
               ? "Loading..."
-              : currentWord.examples
+              : currentWord?.examples
               ? "Show Examples"
               : "Use it in a sentence"}
           </Text>
@@ -178,12 +148,14 @@ export const CardStack: React.FC<CardStackProps> = ({
 
       {/* Card */}
       <View style={styles.cardWrapper}>
-        <WordCard
-          {...currentWord}
-          isRevealed={isRevealed}
-          onReveal={() => setIsRevealed(!isRevealed)}
-          onLongPress={() => handleLongPressOnCard(currentWord)}
-        />
+        {currentWord && (
+          <WordCard
+            {...currentWord}
+            isRevealed={isRevealed}
+            onReveal={() => setIsRevealed(!isRevealed)}
+            onLongPress={() => handleLongPressOnCard(currentWord)}
+          />
+        )}
       </View>
 
       {/* Bottom Bar */}
