@@ -60,7 +60,6 @@ export const WordCard: React.FC<WordCardProps> = ({
 const styles = StyleSheet.create({
   card: {
     width: CARD_WIDTH,
-    aspectRatio: 1,
     backgroundColor: "white",
     borderRadius: 16,
     padding: 20,
@@ -74,6 +73,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5,
+    minHeight: 220,
+    maxHeight: SCREEN_WIDTH * 1.2, // keep reasonable vertical size
   },
   frenchRow: {
     flexDirection: "row",

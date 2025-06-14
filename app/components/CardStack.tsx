@@ -6,11 +6,15 @@ import {
   Text,
   Dimensions,
   ActivityIndicator,
+  ScrollView,
+  SafeAreaView,
+  Platform,
 } from "react-native";
 import { Word, SwipeDirection } from "../types";
 import { WordCard } from "./WordCard";
 import { getExampleSentence } from "../services/gemini";
 import { AddWordModal } from "./AddWordModal";
+import { BlurView } from "expo-blur";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("window");
 const CARD_WIDTH = SCREEN_WIDTH * 0.9;
@@ -34,6 +38,10 @@ export const CardStack: React.FC<CardStackProps> = ({
 
   const [isEditModalVisible, setIsEditModalVisible] = useState(false);
   const [wordToEdit, setWordToEdit] = useState<Word | null>(null);
+
+  const [containerHeight, setContainerHeight] = useState(0);
+  const [contentHeight, setContentHeight] = useState(0);
+  const [showBottomBlur, setShowBottomBlur] = useState(false);
 
   const handleButtonPress = (direction: SwipeDirection) => {
     if (currentIndex < words.length) {
@@ -97,7 +105,7 @@ export const CardStack: React.FC<CardStackProps> = ({
 
   if (currentIndex >= words.length) {
     return (
-      <View style={styles.container}>
+      <View style={styles.emptyContainer}>
         <Text style={styles.noMoreCards}>No more cards!</Text>
       </View>
     );
@@ -106,69 +114,101 @@ export const CardStack: React.FC<CardStackProps> = ({
   const currentWord = words[currentIndex];
 
   return (
-    <View style={styles.container}>
-      <Pressable
-        style={styles.sentenceButton}
-        onPress={handleGetExampleSentence}
-        disabled={isLoadingSentence}
-      >
-        <Text style={styles.sentenceButtonText}>
-          {isLoadingSentence
-            ? "Loading..."
-            : currentWord.examples
-            ? "Show Examples"
-            : "Use it in a sentence"}
-        </Text>
-      </Pressable>
-
-      {isLoadingSentence && (
-        <View style={styles.loadingContainer}>
-          <ActivityIndicator size="small" color="#0000ff" />
-        </View>
-      )}
-
-      {exampleSentence && (
-        <View style={styles.sentenceContainer}>
-          <Text style={styles.sentenceText} selectable={true}>
-            {exampleSentence}
-          </Text>
-        </View>
-      )}
-
-      {sentenceError && (
-        <View style={styles.errorContainer}>
-          <Text style={styles.errorText}>{sentenceError}</Text>
-        </View>
-      )}
-
-      <WordCard
-        {...currentWord}
-        isRevealed={isRevealed}
-        onReveal={() => setIsRevealed(!isRevealed)}
-        onLongPress={() => handleLongPressOnCard(currentWord)}
-      />
-
-      <View style={styles.buttonContainer}>
+    <SafeAreaView style={styles.safeArea}>
+      {/* Top Controls */}
+      <View style={styles.topControls}>
         <Pressable
-          style={[styles.button, styles.hardButton]}
+          style={styles.sentenceButton}
+          onPress={handleGetExampleSentence}
+          disabled={isLoadingSentence}
+        >
+          <Text style={styles.sentenceButtonText}>
+            {isLoadingSentence
+              ? "Loading..."
+              : currentWord.examples
+              ? "Show Examples"
+              : "Use it in a sentence"}
+          </Text>
+        </Pressable>
+      </View>
+
+      {/* Example & Error Section */}
+      <View style={styles.exampleSection}>
+        {isLoadingSentence && (
+          <View style={styles.loadingContainer}>
+            <ActivityIndicator size="small" color="#0000ff" />
+          </View>
+        )}
+
+        {exampleSentence && (
+          <View
+            style={styles.sentenceContainer}
+            onLayout={(e) => setContainerHeight(e.nativeEvent.layout.height)}
+          >
+            <ScrollView
+              showsVerticalScrollIndicator={true}
+              onContentSizeChange={(w, h) => setContentHeight(h)}
+              onScroll={(e) => {
+                const y = e.nativeEvent.contentOffset.y;
+                setShowBottomBlur(y + containerHeight < contentHeight);
+              }}
+              scrollEventThrottle={16}
+            >
+              <Text style={styles.sentenceText} selectable={true}>
+                {exampleSentence}
+              </Text>
+            </ScrollView>
+            {showBottomBlur && (
+              <BlurView
+                intensity={10}
+                style={styles.bottomBlur}
+                tint="light"
+                pointerEvents="none"
+              />
+            )}
+          </View>
+        )}
+
+        {sentenceError && (
+          <View style={styles.errorContainer}>
+            <Text style={styles.errorText}>{sentenceError}</Text>
+          </View>
+        )}
+      </View>
+
+      {/* Card */}
+      <View style={styles.cardWrapper}>
+        <WordCard
+          {...currentWord}
+          isRevealed={isRevealed}
+          onReveal={() => setIsRevealed(!isRevealed)}
+          onLongPress={() => handleLongPressOnCard(currentWord)}
+        />
+      </View>
+
+      {/* Bottom Bar */}
+      <View style={styles.bottomBar}>
+        <Pressable
+          style={[styles.bottomButton, styles.hardButton]}
           onPress={() => handleButtonPress("left")}
         >
           <Text style={styles.buttonText}>Don't Know</Text>
         </Pressable>
         <Pressable
-          style={[styles.button, styles.mediumButton]}
+          style={[styles.bottomButton, styles.mediumButton]}
           onPress={() => handleButtonPress("up")}
         >
           <Text style={styles.buttonText}>Kind Of</Text>
         </Pressable>
         <Pressable
-          style={[styles.button, styles.easyButton]}
+          style={[styles.bottomButton, styles.easyButton]}
           onPress={() => handleButtonPress("right")}
         >
           <Text style={styles.buttonText}>Know Well</Text>
         </Pressable>
       </View>
 
+      {/* Edit Modal */}
       {wordToEdit && (
         <AddWordModal
           visible={isEditModalVisible}
@@ -177,29 +217,47 @@ export const CardStack: React.FC<CardStackProps> = ({
           editingWord={wordToEdit}
         />
       )}
-    </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
+  safeArea: {
+    flex: 1,
+    backgroundColor: "#f5f5f5",
+  },
+  topControls: {
+    alignItems: "center",
+    marginTop: 8,
+  },
+  exampleSection: {
+    alignItems: "center",
+    paddingHorizontal: 20,
+  },
+  cardWrapper: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
   },
-  buttonContainer: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    width: "100%",
-    paddingHorizontal: 20,
-    position: "absolute",
-    bottom: 50,
+  emptyContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
-  button: {
+  bottomBar: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingHorizontal: 24,
     paddingVertical: 12,
-    paddingHorizontal: 20,
+    backgroundColor: "white",
+    borderTopWidth: StyleSheet.hairlineWidth,
+    borderTopColor: "#ccc",
+  },
+  bottomButton: {
+    flex: 1,
+    marginHorizontal: 4,
+    paddingVertical: 12,
     borderRadius: 8,
-    minWidth: 100,
     alignItems: "center",
   },
   buttonText: {
@@ -225,7 +283,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 8,
-    marginBottom: 20,
+    marginBottom: 12,
   },
   sentenceButtonText: {
     color: "white",
@@ -238,6 +296,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginBottom: 20,
     width: CARD_WIDTH,
+    maxHeight: 180,
   },
   sentenceText: {
     fontSize: 16,
@@ -257,5 +316,15 @@ const styles = StyleSheet.create({
   errorText: {
     color: "#D32F2F",
     fontSize: 14,
+  },
+  bottomBlur: {
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    right: 0,
+    height: 40,
+    borderBottomLeftRadius: 8,
+    borderBottomRightRadius: 8,
+    overflow: "hidden",
   },
 });
