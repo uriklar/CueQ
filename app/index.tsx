@@ -1,5 +1,5 @@
 import { View, StyleSheet, Pressable, Text } from "react-native";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import { CardStack } from "./components/CardStack";
 import { Dashboard } from "./screens/Dashboard";
 import { Word, SwipeDirection } from "./types";
@@ -10,10 +10,31 @@ import {
   updateStoredWord,
 } from "./utils/wordUtils";
 import { selectPracticeWords } from "./utils/practiceUtils";
+import { useNavigation } from "expo-router";
+import {
+  HeaderBackButton,
+  HeaderBackButtonProps,
+} from "@react-navigation/elements";
 
 export default function Page() {
   const [showDashboard, setShowDashboard] = useState(true);
   const [practiceWords, setPracticeWords] = useState<Word[]>([]);
+
+  const navigation = useNavigation();
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerTitle: "CueQ",
+      headerLeft: showDashboard
+        ? undefined
+        : (props: HeaderBackButtonProps) => (
+            <HeaderBackButton
+              {...props}
+              onPress={() => setShowDashboard(true)}
+            />
+          ),
+    });
+  }, [navigation, showDashboard]);
 
   const loadPracticeWords = async () => {
     const allWords = await getStoredWords();
@@ -69,12 +90,6 @@ export default function Page() {
         </>
       ) : (
         <>
-          <Pressable
-            style={styles.backButton}
-            onPress={() => setShowDashboard(true)}
-          >
-            <Text style={styles.backButtonText}>← Back to Dashboard</Text>
-          </Pressable>
           <CardStack
             words={practiceWords}
             onSwipe={handleSwipe}
@@ -113,14 +128,6 @@ const styles = StyleSheet.create({
   },
   floatingButtonText: {
     color: "white",
-    fontSize: 16,
-    fontWeight: "600",
-  },
-  backButton: {
-    padding: 16,
-  },
-  backButtonText: {
-    color: "#2196F3",
     fontSize: 16,
     fontWeight: "600",
   },
