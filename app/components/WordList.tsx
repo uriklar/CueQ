@@ -23,6 +23,11 @@ interface WordListProps {
    * (e.g. Dashboard) to know which words are on screen.
    */
   onVisibleWordsChange?: (visibleWords: Word[]) => void;
+  /**
+   * Called when the user taps on a word's difficulty badge so the parent can
+   * open a picker / modal to change the difficulty.
+   */
+  onDifficultyBadgePress: (word: Word) => void;
 }
 
 const DifficultyFilter: React.FC<{
@@ -69,6 +74,7 @@ export const WordList: React.FC<WordListProps> = ({
   onEditWord,
   onDeleteWord,
   onVisibleWordsChange,
+  onDifficultyBadgePress,
 }) => {
   const [search, setSearch] = React.useState("");
 
@@ -149,7 +155,8 @@ export const WordList: React.FC<WordListProps> = ({
                 <Text style={styles.examplesText}>{item.examples}</Text>
               ) : null}
             </View>
-            <View
+            <Pressable
+              onPress={() => onDifficultyBadgePress(item)}
               style={[
                 styles.difficultyBadge,
                 getDifficultyStyle(item.difficulty),
@@ -158,7 +165,7 @@ export const WordList: React.FC<WordListProps> = ({
               <Text style={styles.difficultyText}>
                 {item.difficulty || "new"}
               </Text>
-            </View>
+            </Pressable>
           </View>
         </Pressable>
       </Swipeable>

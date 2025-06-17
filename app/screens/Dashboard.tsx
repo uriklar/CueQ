@@ -3,6 +3,7 @@ import { StyleSheet, View, Pressable, Text, Alert } from "react-native";
 import { WordList } from "../components/WordList";
 import { AddWordModal } from "../components/AddWordModal/index";
 import { BulkImportModal } from "../components/BulkImportModal";
+import { DifficultyPickerModal } from "../components/DifficultyPickerModal";
 import { Word, Difficulty } from "../types";
 import { getStoredWords } from "../utils/wordUtils";
 import {
@@ -28,6 +29,10 @@ export const Dashboard = () => {
   const [isBulkImportModalVisible, setIsBulkImportModalVisible] =
     useState(false);
   const [editingWord, setEditingWord] = useState<Word | null>(null);
+  const [wordForDifficultyChange, setWordForDifficultyChange] =
+    useState<Word | null>(null);
+  const [isDifficultyPickerVisible, setIsDifficultyPickerVisible] =
+    useState(false);
 
   useEffect(() => {
     loadWords();
@@ -269,6 +274,44 @@ export const Dashboard = () => {
     ]);
   };
 
+  const handleDifficultyBadgePress = (word: Word) => {
+    setWordForDifficultyChange(word);
+    setIsDifficultyPickerVisible(true);
+  };
+
+  const handleSelectDifficulty = async (difficulty: Difficulty | undefined) => {
+    if (!wordForDifficultyChange) return;
+
+    const updatedWord: Word = {
+      ...wordForDifficultyChange,
+      difficulty,
+    };
+
+    try {
+      const storedWordsJson = await AsyncStorage.getItem(STORAGE_KEY);
+      const storedWords: Record<string, Word> = storedWordsJson
+        ? JSON.parse(storedWordsJson)
+        : {};
+
+      storedWords[updatedWord.id] = updatedWord;
+      await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(storedWords));
+
+      setWords((current) =>
+        current.map((w) => (w.id === updatedWord.id ? updatedWord : w))
+      );
+    } catch (error) {
+      console.error("Error updating difficulty:", error);
+    }
+
+    setIsDifficultyPickerVisible(false);
+    setWordForDifficultyChange(null);
+  };
+
+  const handleCloseDifficultyPicker = () => {
+    setIsDifficultyPickerVisible(false);
+    setWordForDifficultyChange(null);
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -301,6 +344,7 @@ export const Dashboard = () => {
         onEditWord={handleOpenEditModal}
         onDeleteWord={handleDeleteWord}
         onVisibleWordsChange={setVisibleWords}
+        onDifficultyBadgePress={handleDifficultyBadgePress}
       />
 
       <AddWordModal
@@ -314,6 +358,13 @@ export const Dashboard = () => {
         visible={isBulkImportModalVisible}
         onClose={handleCloseBulkImportModal}
         onImport={handleBulkImport}
+      />
+
+      <DifficultyPickerModal
+        visible={isDifficultyPickerVisible}
+        currentDifficulty={wordForDifficultyChange?.difficulty}
+        onClose={handleCloseDifficultyPicker}
+        onSelect={handleSelectDifficulty}
       />
     </View>
   );
