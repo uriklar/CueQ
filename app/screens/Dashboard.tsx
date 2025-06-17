@@ -13,12 +13,14 @@ import {
   BACKLOG_STORAGE_KEY,
 } from "../utils/backlogUtils";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import * as Clipboard from "expo-clipboard";
 
 const STORAGE_KEY = "@french_cards_words";
 
 export const Dashboard = () => {
   const [words, setWords] = useState<Word[]>([]);
   const [backlogCount, setBacklogCount] = useState(0);
+  const [visibleWords, setVisibleWords] = useState<Word[]>([]);
   const [selectedDifficulty, setSelectedDifficulty] = useState<
     Difficulty | "all" | "new"
   >("all");
@@ -190,6 +192,24 @@ export const Dashboard = () => {
     );
   };
 
+  const handleCopyVisibleWords = async () => {
+    if (!visibleWords.length) {
+      Alert.alert(
+        "No words to copy",
+        "There are no words in the current filter to copy."
+      );
+      return;
+    }
+    const frenchWords = visibleWords.map((w) => w.french).join(", ");
+    try {
+      await Clipboard.setStringAsync(frenchWords);
+      Alert.alert("Copied", "All visible French words copied to clipboard.");
+    } catch (error) {
+      console.error("Error copying to clipboard", error);
+      Alert.alert("Error", "Failed to copy words to clipboard.");
+    }
+  };
+
   const handleOpenAddModal = () => {
     setEditingWord(null); // Ensure we are in 'add' mode
     setIsAddModalVisible(true);
@@ -265,6 +285,12 @@ export const Dashboard = () => {
           >
             <Text style={styles.buttonText}>Add Word</Text>
           </Pressable>
+          <Pressable
+            style={[styles.button, styles.copyButton]}
+            onPress={handleCopyVisibleWords}
+          >
+            <Text style={styles.buttonText}>Copy Words</Text>
+          </Pressable>
         </View>
       </View>
 
@@ -274,6 +300,7 @@ export const Dashboard = () => {
         onDifficultySelect={setSelectedDifficulty}
         onEditWord={handleOpenEditModal}
         onDeleteWord={handleDeleteWord}
+        onVisibleWordsChange={setVisibleWords}
       />
 
       <AddWordModal
@@ -324,5 +351,8 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "white",
     fontWeight: "600",
+  },
+  copyButton: {
+    backgroundColor: "#FF9800",
   },
 });

@@ -17,6 +17,12 @@ interface WordListProps {
   onDifficultySelect: (difficulty: Difficulty | "all" | "new") => void;
   onEditWord: (word: Word) => void;
   onDeleteWord: (wordId: string) => void;
+  /**
+   * Optional callback that is called whenever the list of words currently visible
+   * after all filters/search are applied changes. Allows parent components
+   * (e.g. Dashboard) to know which words are on screen.
+   */
+  onVisibleWordsChange?: (visibleWords: Word[]) => void;
 }
 
 const DifficultyFilter: React.FC<{
@@ -62,6 +68,7 @@ export const WordList: React.FC<WordListProps> = ({
   onDifficultySelect,
   onEditWord,
   onDeleteWord,
+  onVisibleWordsChange,
 }) => {
   const [search, setSearch] = React.useState("");
 
@@ -84,13 +91,27 @@ export const WordList: React.FC<WordListProps> = ({
         word.examples.toLowerCase().includes(search.toLowerCase()))
   );
 
+  // Notify parent only when the *contents* of the visible words list changes,
+  // not on every render. This avoids triggering an update loop between parent
+  // and child (filteredWords is a new array reference each render).
+  const prevIdsRef = React.useRef<string>("");
+  React.useEffect(() => {
+    if (!onVisibleWordsChange) return;
+
+    const currentIds = filteredWords.map((w) => w.id).join(",");
+    if (currentIds !== prevIdsRef.current) {
+      prevIdsRef.current = currentIds;
+      onVisibleWordsChange(filteredWords);
+    }
+  }, [filteredWords, onVisibleWordsChange]);
+
   const renderItem = ({ item }: { item: Word }) => {
     const getGenderMark = () => {
       if (!item.gender) return "";
       return item.gender === "masculine" ? " (m)" : " (f)";
     };
 
-    const renderRightActions = (progress, dragX, wordId) => {
+    const renderRightActions = (progress: any, dragX: any, wordId: string) => {
       const trans = dragX.interpolate({
         inputRange: [-80, 0],
         outputRange: [0, 80],
