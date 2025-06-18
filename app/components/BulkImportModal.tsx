@@ -108,6 +108,7 @@ const styles = StyleSheet.create({
   },
   header: {
     flexDirection: "row",
+    flexWrap: "wrap",
     justifyContent: "space-between",
     alignItems: "center",
     marginBottom: 16,
@@ -116,6 +117,7 @@ const styles = StyleSheet.create({
   modalTitle: {
     fontSize: 20,
     fontWeight: "bold",
+    flexShrink: 1,
   },
   label: {
     fontSize: 16,
@@ -138,6 +140,8 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     flexDirection: "row",
+    flexShrink: 0,
+    marginTop: 8,
   },
   button: {
     paddingHorizontal: 16,
