@@ -4,7 +4,7 @@ import { WordList } from "../components/WordList";
 import { AddWordModal } from "../components/AddWordModal";
 import { BulkImportModal } from "../components/BulkImportModal";
 import { Word, Difficulty } from "../types";
-import { getStoredWords } from "../utils/wordUtils";
+import { getStoredWords, loadAndMergeWords } from "../utils/wordUtils";
 import {
   getBacklogWords,
   moveWordsFromBacklog,
@@ -26,6 +26,7 @@ export const Dashboard = () => {
   const [isBulkImportModalVisible, setIsBulkImportModalVisible] =
     useState(false);
   const [editingWord, setEditingWord] = useState<Word | null>(null);
+  const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
     loadWords();
@@ -33,8 +34,8 @@ export const Dashboard = () => {
   }, []);
 
   const loadWords = async () => {
-    const storedWords = await getStoredWords();
-    setWords(storedWords);
+    const mergedWords = await loadAndMergeWords();
+    setWords(mergedWords);
   };
 
   const loadBacklogCount = async () => {
@@ -249,6 +250,19 @@ export const Dashboard = () => {
     ]);
   };
 
+  // Compute filtered words count
+  const filteredWords = (
+    selectedDifficulty === "all"
+      ? words
+      : words.filter((word) => word.difficulty === selectedDifficulty)
+  ).filter(
+    (word) =>
+      word.french.toLowerCase().includes(searchText.toLowerCase()) ||
+      word.english.toLowerCase().includes(searchText.toLowerCase()) ||
+      (word.examples &&
+        word.examples.toLowerCase().includes(searchText.toLowerCase()))
+  );
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -280,6 +294,10 @@ export const Dashboard = () => {
         onDifficultySelect={setSelectedDifficulty}
         onEditWord={handleOpenEditModal}
         onDeleteWord={handleDeleteWord}
+        searchText={searchText}
+        onSearchChange={setSearchText}
+        filteredCount={filteredWords.length}
+        totalCount={words.length}
       />
 
       <AddWordModal

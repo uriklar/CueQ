@@ -7,6 +7,8 @@ export interface Word {
   examples?: string;
   difficulty?: Difficulty;
   gender?: "masculine" | "feminine" | null;
+  conjugation?: string;
+  past_particle?: string;
 }
 
 export interface WordCard extends Word {

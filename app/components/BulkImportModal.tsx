@@ -9,7 +9,7 @@ import {
   ScrollView,
   Alert,
 } from "react-native";
-import { Omit } from "utility-types";
+// import { Omit } from "utility-types"; // Built-in TypeScript utility type
 import { Word } from "../types";
 
 interface BulkImportModalProps {

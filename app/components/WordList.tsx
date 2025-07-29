@@ -17,6 +17,10 @@ interface WordListProps {
   onDifficultySelect: (difficulty: Difficulty | "all") => void;
   onEditWord: (word: Word) => void;
   onDeleteWord: (wordId: string) => void;
+  searchText: string;
+  onSearchChange: (text: string) => void;
+  filteredCount: number;
+  totalCount: number;
 }
 
 const DifficultyFilter: React.FC<{
@@ -56,19 +60,21 @@ export const WordList: React.FC<WordListProps> = ({
   onDifficultySelect,
   onEditWord,
   onDeleteWord,
+  searchText,
+  onSearchChange,
+  filteredCount,
+  totalCount,
 }) => {
-  const [search, setSearch] = React.useState("");
-
   const filteredWords = (
     selectedDifficulty === "all"
       ? words
       : words.filter((word) => word.difficulty === selectedDifficulty)
   ).filter(
     (word) =>
-      word.french.toLowerCase().includes(search.toLowerCase()) ||
-      word.english.toLowerCase().includes(search.toLowerCase()) ||
+      word.french.toLowerCase().includes(searchText.toLowerCase()) ||
+      word.english.toLowerCase().includes(searchText.toLowerCase()) ||
       (word.examples &&
-        word.examples.toLowerCase().includes(search.toLowerCase()))
+        word.examples.toLowerCase().includes(searchText.toLowerCase()))
   );
 
   const renderItem = ({ item }: { item: Word }) => {
@@ -137,7 +143,12 @@ export const WordList: React.FC<WordListProps> = ({
         selected={selectedDifficulty}
         onSelect={onDifficultySelect}
       />
-      <SearchInput value={search} onChangeText={setSearch} />
+      <SearchInput value={searchText} onChangeText={onSearchChange} />
+      <View style={styles.wordCount}>
+        <Text style={styles.wordCountText}>
+          {filteredCount} of {totalCount} words
+        </Text>
+      </View>
       <FlatList
         data={filteredWords}
         renderItem={renderItem}
@@ -189,6 +200,17 @@ const styles = StyleSheet.create({
   },
   filterButtonTextSelected: {
     color: "white",
+  },
+  wordCount: {
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    backgroundColor: "white",
+  },
+  wordCountText: {
+    fontSize: 14,
+    fontWeight: "600",
+    color: "#666",
+    textAlign: "center",
   },
   list: {
     flex: 1,
