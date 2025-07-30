@@ -4,6 +4,10 @@ import { words as staticWords } from "../data/words";
 
 const STORAGE_KEY = "@french_cards_words";
 
+export const isVerb = (word: Word): boolean => {
+  return !!(word.conjugation || word.past_particle);
+};
+
 export const getSwipeDifficulty = (direction: SwipeDirection): Difficulty => {
   switch (direction) {
     case "left":

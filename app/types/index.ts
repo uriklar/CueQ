@@ -1,5 +1,11 @@
 export type Difficulty = "hard" | "medium" | "easy";
 
+export type WordInfoMode =
+  | "examples"
+  | "conjugation"
+  | "past_participle"
+  | null;
+
 export interface Word {
   id: string;
   french: string;
