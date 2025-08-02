@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   View,
@@ -23,6 +23,14 @@ export const WordInfoPanel: React.FC<WordInfoPanelProps> = ({ word }) => {
   const [exampleSentence, setExampleSentence] = useState<string | null>(null);
   const [isLoadingSentence, setIsLoadingSentence] = useState(false);
   const [sentenceError, setSentenceError] = useState<string | null>(null);
+
+  // Reset panel state when word changes
+  useEffect(() => {
+    setCurrentMode(null);
+    setExampleSentence(null);
+    setIsLoadingSentence(false);
+    setSentenceError(null);
+  }, [word]);
 
   const wordIsVerb = isVerb(word);
 
