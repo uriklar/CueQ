@@ -23,7 +23,7 @@ export default function Page() {
     }
 
     // Select 20 words based on our distribution algorithm
-    const selectedWords = selectPracticeWords(allWords, 20);
+    const selectedWords = await selectPracticeWords(allWords, 20);
     setPracticeWords(selectedWords);
   };
 

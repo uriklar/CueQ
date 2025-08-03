@@ -19,7 +19,7 @@ describe("selectPracticeWords", () => {
     }, {} as Record<Difficulty | "new", number>);
   };
 
-  it("should select words according to the target distribution when enough words are available", () => {
+  it("should select words according to the target distribution when enough words are available", async () => {
     // Create test data with plenty of words in each category
     const testWords: Word[] = [
       ...Array(50)
@@ -37,7 +37,7 @@ describe("selectPracticeWords", () => {
     ];
 
     const targetCount = 100;
-    const selectedWords = selectPracticeWords(testWords, targetCount);
+    const selectedWords = await selectPracticeWords(testWords, targetCount);
 
     // Check total count
     expect(selectedWords.length).toBe(targetCount);
@@ -45,14 +45,14 @@ describe("selectPracticeWords", () => {
     // Check distribution
     const distribution = countByDifficulty(selectedWords);
 
-    // Expected counts based on PRACTICE_DISTRIBUTION
-    expect(distribution.new).toBeCloseTo(targetCount * 0.3, 0); // 30% new words
-    expect(distribution.hard).toBeCloseTo(targetCount * 0.4, 0); // 40% hard words
-    expect(distribution.medium).toBeCloseTo(targetCount * 0.2, 0); // 20% medium words
+    // Expected counts based on DEFAULT_PRACTICE_DISTRIBUTION
+    expect(distribution.new).toBeCloseTo(targetCount * 0.6, 0); // 60% new words
+    expect(distribution.hard).toBeCloseTo(targetCount * 0.2, 0); // 20% hard words
+    expect(distribution.medium).toBeCloseTo(targetCount * 0.1, 0); // 10% medium words
     expect(distribution.easy).toBeCloseTo(targetCount * 0.1, 0); // 10% easy words
   });
 
-  it("should handle cases when there are not enough words in some categories", () => {
+  it("should handle cases when there are not enough words in some categories", async () => {
     // Create test data with limited words in some categories
     const testWords: Word[] = [
       ...Array(2)
@@ -70,7 +70,7 @@ describe("selectPracticeWords", () => {
     ];
 
     const targetCount = 20;
-    const selectedWords = selectPracticeWords(testWords, targetCount);
+    const selectedWords = await selectPracticeWords(testWords, targetCount);
 
     // Should use all available words since total words (14) < targetCount (20)
     expect(selectedWords.length).toBe(14);
@@ -83,7 +83,7 @@ describe("selectPracticeWords", () => {
     expect(distribution.new).toBe(4); // All new words
   });
 
-  it("should prioritize hard and new words when filling remaining slots", () => {
+  it("should prioritize hard and new words when filling remaining slots", async () => {
     // Create test data with more hard and new words
     const testWords: Word[] = [
       ...Array(2)
@@ -101,7 +101,7 @@ describe("selectPracticeWords", () => {
     ];
 
     const targetCount = 20;
-    const selectedWords = selectPracticeWords(testWords, targetCount);
+    const selectedWords = await selectPracticeWords(testWords, targetCount);
 
     // Check total count
     expect(selectedWords.length).toBe(targetCount);
@@ -113,12 +113,12 @@ describe("selectPracticeWords", () => {
     );
   });
 
-  it("should return shuffled words", () => {
+  it("should return shuffled words", async () => {
     const testWords: Word[] = Array(50)
       .fill(null)
       .map((_, i) => createTestWord(`${i}`, "medium"));
 
-    const selectedWords = selectPracticeWords(testWords, 20);
+    const selectedWords = await selectPracticeWords(testWords, 20);
 
     // Check that words are not in the same order as input
     // Note: This test has a very small chance of failing even when shuffle works correctly
@@ -127,17 +127,17 @@ describe("selectPracticeWords", () => {
     expect(selectedIds).not.toEqual(originalIds);
   });
 
-  it("should handle empty input array", () => {
-    const selectedWords = selectPracticeWords([], 20);
+  it("should handle empty input array", async () => {
+    const selectedWords = await selectPracticeWords([], 20);
     expect(selectedWords).toEqual([]);
   });
 
-  it("should handle target count of 0", () => {
+  it("should handle target count of 0", async () => {
     const testWords: Word[] = Array(10)
       .fill(null)
       .map((_, i) => createTestWord(`${i}`, "medium"));
 
-    const selectedWords = selectPracticeWords(testWords, 0);
+    const selectedWords = await selectPracticeWords(testWords, 0);
     expect(selectedWords).toEqual([]);
   });
 });

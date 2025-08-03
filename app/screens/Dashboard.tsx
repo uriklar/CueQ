@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, View, Pressable, Text, Alert } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 import { WordList } from "../components/WordList";
 import { AddWordModal } from "../components/AddWordModal";
 import { BulkImportModal } from "../components/BulkImportModal";
+import { SettingsModal } from "../components/SettingsModal";
 import { Word, Difficulty } from "../types";
 import { getStoredWords, loadAndMergeWords } from "../utils/wordUtils";
 import {
@@ -12,6 +14,12 @@ import {
   saveToBacklog,
   BACKLOG_STORAGE_KEY,
 } from "../utils/backlogUtils";
+import {
+  saveSettings,
+  loadSettings,
+  PracticeDistribution,
+  DEFAULT_PRACTICE_DISTRIBUTION,
+} from "../utils/settingsUtils";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const STORAGE_KEY = "@french_cards_words";
@@ -25,12 +33,16 @@ export const Dashboard = () => {
   const [isAddModalVisible, setIsAddModalVisible] = useState(false);
   const [isBulkImportModalVisible, setIsBulkImportModalVisible] =
     useState(false);
+  const [isSettingsModalVisible, setIsSettingsModalVisible] = useState(false);
   const [editingWord, setEditingWord] = useState<Word | null>(null);
   const [searchText, setSearchText] = useState("");
+  const [practiceDistribution, setPracticeDistribution] =
+    useState<PracticeDistribution>(DEFAULT_PRACTICE_DISTRIBUTION);
 
   useEffect(() => {
     loadWords();
     loadBacklogCount();
+    loadAppSettings();
   }, []);
 
   const loadWords = async () => {
@@ -41,6 +53,11 @@ export const Dashboard = () => {
   const loadBacklogCount = async () => {
     const backlogWords = await getBacklogWords();
     setBacklogCount(backlogWords.length);
+  };
+
+  const loadAppSettings = async () => {
+    const settings = await loadSettings();
+    setPracticeDistribution(settings.practiceDistribution);
   };
 
   const handleSubmitWord = async (
@@ -214,6 +231,19 @@ export const Dashboard = () => {
     setIsBulkImportModalVisible(false);
   };
 
+  const handleOpenSettingsModal = () => {
+    setIsSettingsModalVisible(true);
+  };
+
+  const handleCloseSettingsModal = () => {
+    setIsSettingsModalVisible(false);
+  };
+
+  const handleSaveSettings = async (newDistribution: PracticeDistribution) => {
+    setPracticeDistribution(newDistribution);
+    await saveSettings({ practiceDistribution: newDistribution });
+  };
+
   const handleDeleteWord = async (wordId: string) => {
     Alert.alert("Delete Word", "Are you sure you want to delete this word?", [
       {
@@ -266,6 +296,12 @@ export const Dashboard = () => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
+        <Pressable
+          style={styles.settingsButton}
+          onPress={handleOpenSettingsModal}
+        >
+          <Ionicons name="settings-outline" size={24} color="#666" />
+        </Pressable>
         <View style={styles.headerButtons}>
           <Pressable
             style={[styles.button, styles.clearButton]}
@@ -312,6 +348,13 @@ export const Dashboard = () => {
         onClose={handleCloseBulkImportModal}
         onImport={handleBulkImport}
       />
+
+      <SettingsModal
+        visible={isSettingsModalVisible}
+        onClose={handleCloseSettingsModal}
+        onSave={handleSaveSettings}
+        initialDistribution={practiceDistribution}
+      />
     </View>
   );
 };
@@ -329,6 +372,10 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     borderBottomWidth: 1,
     borderBottomColor: "#eee",
+  },
+  settingsButton: {
+    padding: 8,
+    borderRadius: 8,
   },
   headerButtons: {
     flexDirection: "row",

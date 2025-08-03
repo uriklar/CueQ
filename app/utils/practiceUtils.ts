@@ -1,4 +1,5 @@
 import { Word, Difficulty } from "../types";
+import { getPracticeDistribution, PracticeDistribution } from "./settingsUtils";
 
 // Helper function to shuffle array
 const shuffleArray = <T>(array: T[]): T[] => {
@@ -10,18 +11,13 @@ const shuffleArray = <T>(array: T[]): T[] => {
   return shuffled;
 };
 
-// Distribution of words by difficulty
-const PRACTICE_DISTRIBUTION = {
-  new: 0.6, // 60% new words
-  hard: 0.2, // 20% hard words
-  medium: 0.1, // 10% medium words
-  easy: 0.1, // 10% easy words
-};
-
-export const selectPracticeWords = (
+export const selectPracticeWords = async (
   allWords: Word[],
   targetCount: number = 20
-): Word[] => {
+): Promise<Word[]> => {
+  // Get current practice distribution settings
+  const practiceDistribution = await getPracticeDistribution();
+
   // Group words by difficulty
   const wordsByDifficulty: Record<Difficulty | "new", Word[]> = {
     easy: [],
@@ -38,10 +34,10 @@ export const selectPracticeWords = (
 
   // Calculate target counts for each difficulty
   const targetCounts = {
-    new: Math.round(targetCount * PRACTICE_DISTRIBUTION.new),
-    hard: Math.round(targetCount * PRACTICE_DISTRIBUTION.hard),
-    medium: Math.round(targetCount * PRACTICE_DISTRIBUTION.medium),
-    easy: Math.round(targetCount * PRACTICE_DISTRIBUTION.easy),
+    new: Math.round(targetCount * practiceDistribution.new),
+    hard: Math.round(targetCount * practiceDistribution.hard),
+    medium: Math.round(targetCount * practiceDistribution.medium),
+    easy: Math.round(targetCount * practiceDistribution.easy),
   };
 
   // Adjust counts if we don't have enough words in some categories
