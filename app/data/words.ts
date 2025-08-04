@@ -4050,9 +4050,8 @@ export const words: Omit<Word, "id">[] = [
   },
   {
     french: "propre",
-    english: "clean / own",
-    examples:
-      "Sa chambre propre et bien rangée reflète parfaitement sa personnalité ordonnée et méthodique.",
+    english: "clean / (my/your/his/her/its) own",
+    examples: "La salle de bain est propre / c'est ma propre salle de bain.",
   },
   {
     french: "sale",
@@ -5031,5 +5030,85 @@ export const words: Omit<Word, "id">[] = [
     conjugation:
       "(présent):\nj'appartiens\ntu appartiens\nil/elle/on appartient\nnous appartenons\nvous appartenez\nils/elles appartiennent",
     past_particle: "appartenu",
+  },
+
+  {
+    french: "remplacer",
+    english: "to replace",
+    examples:
+      "Nous devons remplacer cette pièce défectueuse avant de redémarrer la machine.",
+    conjugation:
+      "(présent):\nje remplace\ntu remplaces\nil/elle/on remplace\nnous remplaçons\nvous remplacez\nils/elles remplacent",
+    past_particle: "remplacé",
+  },
+  {
+    french: "prêt",
+    english: "ready",
+    examples: "Je suis prêt à partir dès que tu es prêt.",
+    gender: "masculine",
+  },
+  {
+    french: "pas de souci",
+    english: "no problem",
+    examples: "— Merci de ton aide ! — Pas de souci, c’est normal.",
+  },
+  {
+    french: "une tasse",
+    english: "a cup",
+    examples: "Elle boit une tasse de thé tous les matins.",
+    gender: "feminine",
+  },
+  {
+    french: "étagère",
+    english: "shelf",
+    examples: "Les livres sont rangés sur l’étagère du haut.",
+    gender: "feminine",
+  },
+  {
+    french: "placard",
+    english: "cupboard / closet",
+    examples: "Il range ses vêtements dans le placard de la chambre.",
+    gender: "masculine",
+  },
+  {
+    french: "une chemise",
+    english: "a shirt",
+    examples: "Il porte une chemise blanche pour l’entretien.",
+    gender: "feminine",
+  },
+  {
+    french: "pantalon",
+    english: "pants / trousers",
+    examples: "Ce pantalon est trop grand pour moi.",
+    gender: "masculine",
+  },
+  {
+    french: "des chaussures",
+    english: "shoes",
+    examples:
+      "Elle met toujours des chaussures confortables pour marcher longtemps.",
+    gender: "feminine",
+  },
+  {
+    french: "un lit",
+    english: "a bed",
+    examples: "Le bébé dort dans un lit à barreaux.",
+    gender: "masculine",
+  },
+  {
+    french: "tard",
+    english: "late",
+    examples: "Je suis rentré tard hier soir.",
+  },
+  {
+    french: "en colère",
+    english: "angry",
+    examples: "Il est en colère parce qu'on a cassé son jouet.",
+  },
+  {
+    french: "effrayé",
+    english: "scared",
+    examples: "Il était effrayé par le bruit soudain.",
+    gender: "masculine",
   },
 ];
