@@ -7,6 +7,11 @@ export interface PracticeDistribution {
   easy: number;
 }
 
+export interface AppSettings {
+  practiceDistribution: PracticeDistribution;
+  openaiApiKey?: string;
+}
+
 const SETTINGS_STORAGE_KEY = "@french_cards_settings";
 
 // Default distribution values
@@ -17,9 +22,7 @@ export const DEFAULT_PRACTICE_DISTRIBUTION: PracticeDistribution = {
   easy: 0.1, // 10% easy words
 };
 
-export const saveSettings = async (settings: {
-  practiceDistribution: PracticeDistribution;
-}) => {
+export const saveSettings = async (settings: AppSettings) => {
   try {
     await AsyncStorage.setItem(SETTINGS_STORAGE_KEY, JSON.stringify(settings));
   } catch (error) {
@@ -27,9 +30,7 @@ export const saveSettings = async (settings: {
   }
 };
 
-export const loadSettings = async (): Promise<{
-  practiceDistribution: PracticeDistribution;
-}> => {
+export const loadSettings = async (): Promise<AppSettings> => {
   try {
     const settingsJson = await AsyncStorage.getItem(SETTINGS_STORAGE_KEY);
     if (settingsJson) {
@@ -37,6 +38,7 @@ export const loadSettings = async (): Promise<{
       return {
         practiceDistribution:
           settings.practiceDistribution || DEFAULT_PRACTICE_DISTRIBUTION,
+        openaiApiKey: settings.openaiApiKey || "",
       };
     }
   } catch (error) {
@@ -45,6 +47,7 @@ export const loadSettings = async (): Promise<{
 
   return {
     practiceDistribution: DEFAULT_PRACTICE_DISTRIBUTION,
+    openaiApiKey: "",
   };
 };
 

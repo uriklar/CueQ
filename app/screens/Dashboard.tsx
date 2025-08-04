@@ -3,6 +3,7 @@ import { StyleSheet, View, Pressable, Text, Alert } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { WordList } from "../components/WordList";
 import { AddWordModal } from "../components/AddWordModal";
+import { AddWordAIModal } from "../components/AddWordAIModal";
 import { BulkImportModal } from "../components/BulkImportModal";
 import { SettingsModal } from "../components/SettingsModal";
 import { Word, Difficulty } from "../types";
@@ -18,8 +19,10 @@ import {
   saveSettings,
   loadSettings,
   PracticeDistribution,
+  AppSettings,
   DEFAULT_PRACTICE_DISTRIBUTION,
 } from "../utils/settingsUtils";
+import { saveOpenAIApiKey, loadOpenAIApiKey } from "../services/openai";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const STORAGE_KEY = "@french_cards_words";
@@ -31,6 +34,7 @@ export const Dashboard = () => {
     Difficulty | "all"
   >("all");
   const [isAddModalVisible, setIsAddModalVisible] = useState(false);
+  const [isAddAIModalVisible, setIsAddAIModalVisible] = useState(false);
   const [isBulkImportModalVisible, setIsBulkImportModalVisible] =
     useState(false);
   const [isSettingsModalVisible, setIsSettingsModalVisible] = useState(false);
@@ -38,6 +42,10 @@ export const Dashboard = () => {
   const [searchText, setSearchText] = useState("");
   const [practiceDistribution, setPracticeDistribution] =
     useState<PracticeDistribution>(DEFAULT_PRACTICE_DISTRIBUTION);
+  const [appSettings, setAppSettings] = useState<AppSettings>({
+    practiceDistribution: DEFAULT_PRACTICE_DISTRIBUTION,
+    openaiApiKey: "",
+  });
 
   useEffect(() => {
     loadWords();
@@ -57,7 +65,20 @@ export const Dashboard = () => {
 
   const loadAppSettings = async () => {
     const settings = await loadSettings();
+
+    // Check if there's an API key in the OpenAI service storage that's not in settings
+    const openaiApiKey = await loadOpenAIApiKey();
+    if (openaiApiKey && !settings.openaiApiKey) {
+      // If OpenAI service has a key but settings don't, update settings
+      settings.openaiApiKey = openaiApiKey;
+      await saveSettings(settings);
+    } else if (settings.openaiApiKey && !openaiApiKey) {
+      // If settings have a key but OpenAI service doesn't, sync it
+      await saveOpenAIApiKey(settings.openaiApiKey);
+    }
+
     setPracticeDistribution(settings.practiceDistribution);
+    setAppSettings(settings);
   };
 
   const handleSubmitWord = async (
@@ -97,6 +118,28 @@ export const Dashboard = () => {
     }
     // Reset editing state regardless of add or edit
     setEditingWord(null);
+  };
+
+  const handleSubmitAIWord = async (wordData: Omit<Word, "id">) => {
+    try {
+      const storedWordsJson = await AsyncStorage.getItem(STORAGE_KEY);
+      const storedWords: Record<string, Word> = storedWordsJson
+        ? JSON.parse(storedWordsJson)
+        : {};
+
+      const id = Date.now().toString();
+      const wordWithId: Word = {
+        ...wordData,
+        id,
+        difficulty: undefined, // undefined means "new" in the practice system
+      };
+
+      storedWords[id] = wordWithId;
+      await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(storedWords));
+      setWords((current) => [...current, wordWithId]);
+    } catch (error) {
+      console.error("Error saving AI word:", error);
+    }
   };
 
   const handleBulkImport = async (
@@ -210,7 +253,13 @@ export const Dashboard = () => {
 
   const handleOpenAddModal = () => {
     setEditingWord(null); // Ensure we are in 'add' mode
-    setIsAddModalVisible(true);
+
+    // Check if user has OpenAI API key to determine which modal to show
+    if (appSettings.openaiApiKey && appSettings.openaiApiKey.trim()) {
+      setIsAddAIModalVisible(true);
+    } else {
+      setIsAddModalVisible(true);
+    }
   };
 
   const handleOpenEditModal = (word: Word) => {
@@ -221,6 +270,10 @@ export const Dashboard = () => {
   const handleCloseModal = () => {
     setIsAddModalVisible(false);
     setEditingWord(null); // Clear editing state when modal closes
+  };
+
+  const handleCloseAIModal = () => {
+    setIsAddAIModalVisible(false);
   };
 
   const handleOpenBulkImportModal = () => {
@@ -239,9 +292,15 @@ export const Dashboard = () => {
     setIsSettingsModalVisible(false);
   };
 
-  const handleSaveSettings = async (newDistribution: PracticeDistribution) => {
-    setPracticeDistribution(newDistribution);
-    await saveSettings({ practiceDistribution: newDistribution });
+  const handleSaveSettings = async (newSettings: AppSettings) => {
+    setPracticeDistribution(newSettings.practiceDistribution);
+    setAppSettings(newSettings);
+    await saveSettings(newSettings);
+
+    // Also save the API key to the OpenAI service storage for consistency
+    if (newSettings.openaiApiKey) {
+      await saveOpenAIApiKey(newSettings.openaiApiKey);
+    }
   };
 
   const handleDeleteWord = async (wordId: string) => {
@@ -343,6 +402,12 @@ export const Dashboard = () => {
         editingWord={editingWord || undefined}
       />
 
+      <AddWordAIModal
+        visible={isAddAIModalVisible}
+        onClose={handleCloseAIModal}
+        onSubmit={handleSubmitAIWord}
+      />
+
       <BulkImportModal
         visible={isBulkImportModalVisible}
         onClose={handleCloseBulkImportModal}
@@ -353,7 +418,7 @@ export const Dashboard = () => {
         visible={isSettingsModalVisible}
         onClose={handleCloseSettingsModal}
         onSave={handleSaveSettings}
-        initialDistribution={practiceDistribution}
+        initialSettings={appSettings}
       />
     </View>
   );

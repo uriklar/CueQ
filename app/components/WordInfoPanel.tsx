@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { Word, WordInfoMode } from "../types";
 import { getExampleSentence } from "../services/gemini";
+import { generateFrenchExample } from "../services/openai";
 import { isVerb } from "../utils/wordUtils";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("window");

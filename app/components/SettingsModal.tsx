@@ -6,28 +6,34 @@ import {
   StyleSheet,
   Pressable,
   ScrollView,
+  TextInput,
 } from "react-native";
-import { PracticeDistribution } from "../utils/settingsUtils";
+import { PracticeDistribution, AppSettings } from "../utils/settingsUtils";
 
 interface SettingsModalProps {
   visible: boolean;
   onClose: () => void;
-  onSave: (distribution: PracticeDistribution) => void;
-  initialDistribution: PracticeDistribution;
+  onSave: (settings: AppSettings) => void;
+  initialSettings: AppSettings;
 }
 
 export const SettingsModal: React.FC<SettingsModalProps> = ({
   visible,
   onClose,
   onSave,
-  initialDistribution,
+  initialSettings,
 }) => {
-  const [distribution, setDistribution] =
-    useState<PracticeDistribution>(initialDistribution);
+  const [distribution, setDistribution] = useState<PracticeDistribution>(
+    initialSettings.practiceDistribution
+  );
+  const [openaiApiKey, setOpenaiApiKey] = useState<string>(
+    initialSettings.openaiApiKey || ""
+  );
 
   useEffect(() => {
-    setDistribution(initialDistribution);
-  }, [initialDistribution, visible]);
+    setDistribution(initialSettings.practiceDistribution);
+    setOpenaiApiKey(initialSettings.openaiApiKey || "");
+  }, [initialSettings, visible]);
 
   const adjustDistribution = (
     type: keyof PracticeDistribution,
@@ -88,12 +94,16 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
   };
 
   const handleSave = () => {
-    onSave(distribution);
+    onSave({
+      practiceDistribution: distribution,
+      openaiApiKey: openaiApiKey,
+    });
     onClose();
   };
 
   const handleClose = () => {
-    setDistribution(initialDistribution);
+    setDistribution(initialSettings.practiceDistribution);
+    setOpenaiApiKey(initialSettings.openaiApiKey || "");
     onClose();
   };
 
@@ -125,6 +135,29 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
           </View>
 
           <ScrollView style={styles.scrollView}>
+            <Text style={styles.sectionTitle}>OpenAI API Configuration</Text>
+            <Text style={styles.sectionDescription}>
+              Enter your OpenAI API key to enable AI-powered features like
+              automatic example generation.
+            </Text>
+
+            <View style={styles.inputContainer}>
+              <Text style={styles.inputLabel}>OpenAI API Key</Text>
+              <TextInput
+                style={styles.textInput}
+                value={openaiApiKey}
+                onChangeText={setOpenaiApiKey}
+                placeholder="sk-..."
+                placeholderTextColor="#999"
+                secureTextEntry={true}
+                autoCapitalize="none"
+                autoCorrect={false}
+              />
+              <Text style={styles.inputHelp}>
+                Get your API key from https://platform.openai.com/api-keys
+              </Text>
+            </View>
+
             <Text style={styles.sectionTitle}>Practice Word Distribution</Text>
             <Text style={styles.sectionDescription}>
               Adjust how words are distributed during practice sessions. All
@@ -441,5 +474,29 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     backgroundColor: "#f8f9fa",
     borderRadius: 8,
+  },
+  inputContainer: {
+    marginBottom: 20,
+  },
+  inputLabel: {
+    fontSize: 16,
+    fontWeight: "500",
+    color: "#333",
+    marginBottom: 8,
+  },
+  textInput: {
+    borderWidth: 1,
+    borderColor: "#ddd",
+    borderRadius: 8,
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+    fontSize: 16,
+    backgroundColor: "#fff",
+    marginBottom: 4,
+  },
+  inputHelp: {
+    fontSize: 12,
+    color: "#666",
+    lineHeight: 16,
   },
 });
