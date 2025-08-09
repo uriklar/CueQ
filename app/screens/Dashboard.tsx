@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { StyleSheet, View, Pressable, Text, Alert } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { WordList } from "../components/WordList";
+import { DifficultyDrawer } from "../components/DifficultyDrawer";
 import { AddWordModal } from "../components/AddWordModal";
 import { AddWordAIModal } from "../components/AddWordAIModal";
 import { BulkImportModal } from "../components/BulkImportModal";
@@ -39,6 +40,11 @@ export const Dashboard = () => {
     useState(false);
   const [isSettingsModalVisible, setIsSettingsModalVisible] = useState(false);
   const [editingWord, setEditingWord] = useState<Word | null>(null);
+  const [isDifficultyDrawerVisible, setIsDifficultyDrawerVisible] =
+    useState(false);
+  const [difficultyTargetWord, setDifficultyTargetWord] = useState<Word | null>(
+    null
+  );
   const [searchText, setSearchText] = useState("");
   const [practiceDistribution, setPracticeDistribution] =
     useState<PracticeDistribution>(DEFAULT_PRACTICE_DISTRIBUTION);
@@ -267,6 +273,40 @@ export const Dashboard = () => {
     setIsAddModalVisible(true);
   };
 
+  const handleOpenDifficultyDrawer = (word: Word) => {
+    setDifficultyTargetWord(word);
+    setIsDifficultyDrawerVisible(true);
+  };
+
+  const handleCloseDifficultyDrawer = () => {
+    setIsDifficultyDrawerVisible(false);
+    setDifficultyTargetWord(null);
+  };
+
+  const handleSelectDifficulty = async (difficulty: Difficulty | undefined) => {
+    if (!difficultyTargetWord) return;
+
+    try {
+      const updated: Word = { ...difficultyTargetWord, difficulty };
+      // Persist to storage
+      const storedWordsJson = await AsyncStorage.getItem(STORAGE_KEY);
+      const storedWords: Record<string, Word> = storedWordsJson
+        ? JSON.parse(storedWordsJson)
+        : {};
+      storedWords[updated.id] = updated;
+      await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(storedWords));
+
+      // Update state
+      setWords((current) =>
+        current.map((w) => (w.id === updated.id ? updated : w))
+      );
+    } catch (e) {
+      console.error("Error setting difficulty:", e);
+    } finally {
+      handleCloseDifficultyDrawer();
+    }
+  };
+
   const handleCloseModal = () => {
     setIsAddModalVisible(false);
     setEditingWord(null); // Clear editing state when modal closes
@@ -389,10 +429,18 @@ export const Dashboard = () => {
         onDifficultySelect={setSelectedDifficulty}
         onEditWord={handleOpenEditModal}
         onDeleteWord={handleDeleteWord}
+        onPressDifficulty={handleOpenDifficultyDrawer}
         searchText={searchText}
         onSearchChange={setSearchText}
         filteredCount={filteredWords.length}
         totalCount={words.length}
+      />
+
+      <DifficultyDrawer
+        visible={isDifficultyDrawerVisible}
+        onClose={handleCloseDifficultyDrawer}
+        onSelect={handleSelectDifficulty}
+        current={difficultyTargetWord?.difficulty}
       />
 
       <AddWordModal

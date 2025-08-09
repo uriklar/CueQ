@@ -17,6 +17,7 @@ interface WordListProps {
   onDifficultySelect: (difficulty: Difficulty | "all") => void;
   onEditWord: (word: Word) => void;
   onDeleteWord: (wordId: string) => void;
+  onPressDifficulty: (word: Word) => void;
   searchText: string;
   onSearchChange: (text: string) => void;
   filteredCount: number;
@@ -60,6 +61,7 @@ export const WordList: React.FC<WordListProps> = ({
   onDifficultySelect,
   onEditWord,
   onDeleteWord,
+  onPressDifficulty,
   searchText,
   onSearchChange,
   filteredCount,
@@ -83,7 +85,11 @@ export const WordList: React.FC<WordListProps> = ({
       return item.gender === "masculine" ? " (m)" : " (f)";
     };
 
-    const renderRightActions = (progress, dragX, wordId) => {
+    const renderRightActions = (
+      progress: unknown,
+      dragX: any,
+      wordId: string
+    ) => {
       const trans = dragX.interpolate({
         inputRange: [-80, 0],
         outputRange: [0, 80],
@@ -121,7 +127,8 @@ export const WordList: React.FC<WordListProps> = ({
                 <Text style={styles.examplesText}>{item.examples}</Text>
               ) : null}
             </View>
-            <View
+            <Pressable
+              onPress={() => onPressDifficulty(item)}
               style={[
                 styles.difficultyBadge,
                 getDifficultyStyle(item.difficulty),
@@ -130,7 +137,7 @@ export const WordList: React.FC<WordListProps> = ({
               <Text style={styles.difficultyText}>
                 {item.difficulty || "new"}
               </Text>
-            </View>
+            </Pressable>
           </View>
         </Pressable>
       </Swipeable>
