@@ -32,7 +32,7 @@ export const Dashboard = () => {
   const [words, setWords] = useState<Word[]>([]);
   const [backlogCount, setBacklogCount] = useState(0);
   const [selectedDifficulty, setSelectedDifficulty] = useState<
-    Difficulty | "all"
+    Difficulty | "all" | "new"
   >("all");
   const [isAddModalVisible, setIsAddModalVisible] = useState(false);
   const [isAddAIModalVisible, setIsAddAIModalVisible] = useState(false);
@@ -383,6 +383,8 @@ export const Dashboard = () => {
   const filteredWords = (
     selectedDifficulty === "all"
       ? words
+      : selectedDifficulty === "new"
+      ? words.filter((word) => !word.difficulty)
       : words.filter((word) => word.difficulty === selectedDifficulty)
   ).filter(
     (word) =>

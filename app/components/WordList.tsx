@@ -13,8 +13,8 @@ import { Swipeable } from "react-native-gesture-handler";
 
 interface WordListProps {
   words: Word[];
-  selectedDifficulty: Difficulty | "all";
-  onDifficultySelect: (difficulty: Difficulty | "all") => void;
+  selectedDifficulty: Difficulty | "all" | "new";
+  onDifficultySelect: (difficulty: Difficulty | "all" | "new") => void;
   onEditWord: (word: Word) => void;
   onDeleteWord: (wordId: string) => void;
   onPressDifficulty: (word: Word) => void;
@@ -25,10 +25,16 @@ interface WordListProps {
 }
 
 const DifficultyFilter: React.FC<{
-  selected: Difficulty | "all";
-  onSelect: (difficulty: Difficulty | "all") => void;
+  selected: Difficulty | "all" | "new";
+  onSelect: (difficulty: Difficulty | "all" | "new") => void;
 }> = ({ selected, onSelect }) => {
-  const filters: (Difficulty | "all")[] = ["all", "easy", "medium", "hard"];
+  const filters: (Difficulty | "all" | "new")[] = [
+    "all",
+    "new",
+    "easy",
+    "medium",
+    "hard",
+  ];
 
   return (
     <View style={styles.filterContainer}>
@@ -70,6 +76,8 @@ export const WordList: React.FC<WordListProps> = ({
   const filteredWords = (
     selectedDifficulty === "all"
       ? words
+      : selectedDifficulty === "new"
+      ? words.filter((word) => !word.difficulty)
       : words.filter((word) => word.difficulty === selectedDifficulty)
   ).filter(
     (word) =>
