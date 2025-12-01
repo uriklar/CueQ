@@ -8,7 +8,11 @@ import { AddWordAIModal } from "../components/AddWordAIModal";
 import { BulkImportModal } from "../components/BulkImportModal";
 import { SettingsModal } from "../components/SettingsModal";
 import { Word, Difficulty } from "../types";
-import { getStoredWords, loadAndMergeWords } from "../utils/wordUtils";
+import {
+  getStoredWords,
+  loadAndMergeWords,
+  deleteWord,
+} from "../utils/wordUtils";
 import {
   getBacklogWords,
   moveWordsFromBacklog,
@@ -344,6 +348,12 @@ export const Dashboard = () => {
   };
 
   const handleDeleteWord = async (wordId: string) => {
+    const wordToDelete = words.find((word) => word.id === wordId);
+    if (!wordToDelete) {
+      console.warn("Attempted to delete a non-existent word");
+      return;
+    }
+
     Alert.alert("Delete Word", "Are you sure you want to delete this word?", [
       {
         text: "Cancel",
@@ -354,25 +364,17 @@ export const Dashboard = () => {
         style: "destructive",
         onPress: async () => {
           try {
-            const storedWordsJson = await AsyncStorage.getItem(STORAGE_KEY);
-            const storedWords: Record<string, Word> = storedWordsJson
-              ? JSON.parse(storedWordsJson)
-              : {};
-
-            if (storedWords[wordId]) {
-              delete storedWords[wordId];
-              await AsyncStorage.setItem(
-                STORAGE_KEY,
-                JSON.stringify(storedWords)
-              );
+            const success = await deleteWord(wordToDelete);
+            if (success) {
               setWords((currentWords) =>
                 currentWords.filter((word) => word.id !== wordId)
               );
             } else {
-              console.warn("Attempted to delete a non-existent word");
+              Alert.alert("Error", "Failed to delete word. Please try again.");
             }
           } catch (error) {
             console.error("Error deleting word:", error);
+            Alert.alert("Error", "Failed to delete word. Please try again.");
           }
         },
       },

@@ -2,18 +2,6 @@ import { Word } from "@/app/types";
 
 export const words: Omit<Word, "id">[] = [
   {
-    french: "allemand(e)",
-    english: "German",
-    examples:
-      "Mon voisin allemand écoute de la musique classique tous les matins.",
-  },
-  {
-    french: "américain(e)",
-    english: "American",
-    examples:
-      "Mon professeur américain adore comparer les cultures avec ses étudiants français.",
-  },
-  {
     french: "ancien",
     english: "ancient / former / old",
     examples:
@@ -67,41 +55,12 @@ export const words: Omit<Word, "id">[] = [
     examples:
       "Ma cousine est très bavarde et raconte toujours de longues histoires amusantes.",
   },
-  {
-    french: "belge",
-    english: "Belgian",
-    examples:
-      "Mon oncle belge cuisine chaque dimanche des gaufres avec du sucre perlé.",
-  },
-  {
-    french: "blond(e)",
-    english: "blond",
-    examples:
-      "La petite fille blonde porte un chapeau rouge lorsqu'elle joue dans le parc.",
-  },
+
   {
     french: "brun(e)",
     english: "brown-haired",
     examples:
       "Son frère brun joue de la guitare lors des fêtes familiales chaque été.",
-  },
-  {
-    french: "brésilien(ne)",
-    english: "Brazilian",
-    examples:
-      "Le musicien brésilien enseigne la samba aux élèves de l'école municipale.",
-  },
-  {
-    french: "chinois(e)",
-    english: "Chinese",
-    examples:
-      "La chef chinoise prépare des raviolis maison pour célébrer le Nouvel An lunaire.",
-  },
-  {
-    french: "coréen(ne)",
-    english: "Korean",
-    examples:
-      "Mon ami coréen me fait découvrir la cuisine traditionnelle de Séoul ce soir.",
   },
   {
     french: "cuisinier(ère)",
@@ -114,12 +73,6 @@ export const words: Omit<Word, "id">[] = [
     english: "single (unmarried)",
     examples:
       "Elle est célibataire et profite de voyager à travers l'Europe chaque été.",
-  },
-  {
-    french: "des chips",
-    english: "potato chips",
-    examples:
-      "Ils ont apporté des chips et des boissons pour regarder le match ensemble.",
   },
   {
     french: "des grands-parents",
@@ -158,28 +111,10 @@ export const words: Omit<Word, "id">[] = [
       "Après dix ans de mariage, ils sont maintenant divorcés mais restent amis.",
   },
   {
-    french: "dynamique",
-    english: "dynamic / energetic",
-    examples:
-      "L'équipe dynamique propose toujours des idées innovantes lors des réunions hebdomadaires.",
-  },
-  {
     french: "en couple",
     english: "in a relationship",
     examples:
       "Ils sont en couple depuis trois ans et planifient un voyage autour du monde.",
-  },
-  {
-    french: "espagnol(e)",
-    english: "Spanish",
-    examples:
-      "Le chanteur espagnol enflamme la scène avec une musique passionnée et rythmée.",
-  },
-  {
-    french: "excellent(e)",
-    english: "excellent",
-    examples:
-      "Elle a obtenu un résultat excellent à son examen de biologie très exigeant.",
   },
   {
     french: "faire du sport",
@@ -192,12 +127,6 @@ export const words: Omit<Word, "id">[] = [
     english: "to do the shopping",
     examples:
       "Nous faisons les courses le samedi afin de remplir le réfrigérateur pour la semaine.",
-  },
-  {
-    french: "français(e)",
-    english: "French",
-    examples:
-      "La cuisine française est célèbre pour ses sauces riches et ses desserts délicats.",
   },
   {
     french: "grand(e)",
@@ -218,22 +147,10 @@ export const words: Omit<Word, "id">[] = [
       "L'ingénieur conçoit un pont innovant capable de résister aux tempêtes fréquentes.",
   },
   {
-    french: "italien(ne)",
-    english: "Italian",
-    examples:
-      "L'art italien de la Renaissance continue d'inspirer les artistes contemporains du monde entier.",
-  },
-  {
     french: "jeune",
     english: "young",
     examples:
       "Le jeune artiste expose ses peintures colorées dans une galerie du centre-ville.",
-  },
-  {
-    french: "journaliste",
-    english: "journalist",
-    examples:
-      "La journaliste enquête sur un sujet complexe et publiera son article demain matin.",
   },
   {
     french: "la chambre",
@@ -243,31 +160,10 @@ export const words: Omit<Word, "id">[] = [
     gender: "feminine",
   },
   {
-    french: "la connexion Internet",
-    english: "the Internet connection",
-    examples:
-      "La connexion Internet est lente ce soir à cause de la tempête de vent.",
-    gender: "feminine",
-  },
-  {
     french: "la cuisine",
     english: "the kitchen",
     examples:
       "La cuisine est spacieuse et équipée d'un four moderne et silencieux.",
-    gender: "feminine",
-  },
-  {
-    french: "la gym",
-    english: "the gym",
-    examples:
-      "Elle va à la gym trois fois par semaine pour améliorer son endurance.",
-    gender: "feminine",
-  },
-  {
-    french: "la musculation",
-    english: "weight training",
-    examples:
-      "La musculation renforce les muscles et aide à prévenir certaines blessures.",
     gender: "feminine",
   },
   {
@@ -317,20 +213,6 @@ export const words: Omit<Word, "id">[] = [
     english: "waiting room",
     examples:
       "La salle d'attente confortable dispose de magazines récents et de sièges moelleux pour les patients.",
-    gender: "feminine",
-  },
-  {
-    french: "la terrasse",
-    english: "the terrace / patio",
-    examples:
-      "Nous prenons le petit-déjeuner sur la terrasse ensoleillée avec vue sur le jardin.",
-    gender: "feminine",
-  },
-  {
-    french: "la téléconsultation",
-    english: "teleconsultation",
-    examples:
-      "La téléconsultation permet de consulter un médecin sans se déplacer de chez soi.",
     gender: "feminine",
   },
   {
@@ -760,56 +642,9 @@ export const words: Omit<Word, "id">[] = [
       "Elle prépare un gâteau au chocolat fondant pour célébrer son anniversaire.",
   },
   {
-    french: "chocolat",
-    english: "chocolate",
-    examples:
-      "Un carré de chocolat noir accompagne parfaitement une tasse de café.",
-  },
-  {
-    french: "café",
-    english: "coffee / café",
-    examples:
-      "Nous buvons un café serré avant de commencer la journée de travail.",
-  },
-  {
-    french: "thé",
-    english: "tea",
-    examples:
-      "Elle préfère le thé vert au jasmin pour ses propriétés relaxantes.",
-  },
-  {
     french: "eau",
     english: "water",
     examples: "Il est important de boire au moins deux litres d'eau par jour.",
-  },
-  {
-    french: "musique",
-    english: "music",
-    examples:
-      "La musique classique l'aide à se concentrer pendant qu'elle étudie.",
-  },
-  {
-    french: "film",
-    english: "film / movie",
-    examples:
-      "Nous avons regardé un film d'aventure plein de rebondissements inattendus.",
-  },
-  {
-    french: "sport",
-    english: "sport",
-    examples:
-      "Faire du sport régulièrement améliore la santé physique et mentale.",
-  },
-  {
-    french: "football",
-    english: "football / soccer",
-    examples:
-      "Le football est le sport le plus populaire dans de nombreux pays.",
-  },
-  {
-    french: "tennis",
-    english: "tennis",
-    examples: "Ils jouent au tennis chaque samedi sur les courts municipaux.",
   },
   {
     french: "vélo",
@@ -820,17 +655,6 @@ export const words: Omit<Word, "id">[] = [
     french: "ordinateur",
     english: "computer",
     examples: "Son nouvel ordinateur portable est léger et très performant.",
-  },
-  {
-    french: "téléphone",
-    english: "phone",
-    examples: "Elle utilise son téléphone pour prendre des photos de voyage.",
-  },
-  {
-    french: "photo",
-    english: "photo / picture",
-    examples:
-      "Cette photo de famille rappelle des souvenirs précieux de vacances.",
   },
   {
     french: "livre",
@@ -849,17 +673,6 @@ export const words: Omit<Word, "id">[] = [
     examples: "Il raconte une histoire fascinante autour du feu de camp.",
   },
   {
-    french: "science",
-    english: "science",
-    examples:
-      "La science progresse grâce aux recherches et aux découvertes constantes.",
-  },
-  {
-    french: "nature",
-    english: "nature",
-    examples: "Ils passent le week-end en pleine nature pour se ressourcer.",
-  },
-  {
     french: "santé",
     english: "health",
     examples:
@@ -870,24 +683,6 @@ export const words: Omit<Word, "id">[] = [
     english: "economy / economics",
     examples:
       "L'économie mondiale subit d'importantes fluctuations cette année.",
-  },
-  {
-    french: "politique",
-    english: "politics / policy",
-    examples:
-      "La politique locale influence directement la vie quotidienne des citoyens.",
-  },
-  {
-    french: "art",
-    english: "art",
-    examples:
-      "Le musée présente une exposition d'art contemporain très appréciée.",
-  },
-  {
-    french: "culture",
-    english: "culture",
-    examples:
-      "Découvrir la culture d'un pays passe souvent par sa cuisine et sa musique.",
   },
   {
     french: "boire",
@@ -1600,12 +1395,6 @@ export const words: Omit<Word, "id">[] = [
       "Elle préfère rester célibataire pour se concentrer entièrement sur sa carrière professionnelle ambitieuse.",
   },
   {
-    french: "divorcé(e)",
-    english: "divorced",
-    examples:
-      "Depuis qu'il est divorcé, il partage la garde de ses enfants une semaine sur deux.",
-  },
-  {
     french: "jeune",
     english: "young",
     examples:
@@ -1991,13 +1780,6 @@ export const words: Omit<Word, "id">[] = [
     gender: "masculine",
   },
   {
-    french: "le code postal",
-    english: "postal code / zip code",
-    examples:
-      "Il faut indiquer le code postal exact pour que la lettre arrive rapidement à destination.",
-    gender: "masculine",
-  },
-  {
     french: "le cœur",
     english: "heart",
     examples:
@@ -2023,13 +1805,6 @@ export const words: Omit<Word, "id">[] = [
     english: "cheese",
     examples:
       "Le fromage français compte plus de quatre cents variétés différentes appréciées dans le monde entier.",
-    gender: "masculine",
-  },
-  {
-    french: "le gaz",
-    english: "gas",
-    examples:
-      "Le gaz naturel chauffe efficacement cette maison écologique construite selon les normes environnementales strictes.",
     gender: "masculine",
   },
   {
@@ -2075,13 +1850,6 @@ export const words: Omit<Word, "id">[] = [
     gender: "masculine",
   },
   {
-    french: "le pilates",
-    english: "pilates",
-    examples:
-      "Le pilates renforce les muscles profonds et améliore la posture de manière progressive et douce.",
-    gender: "masculine",
-  },
-  {
     french: "le poisson",
     english: "fish",
     examples:
@@ -2124,34 +1892,6 @@ export const words: Omit<Word, "id">[] = [
     gender: "masculine",
   },
   {
-    french: "le saumon",
-    english: "salmon",
-    examples:
-      "Le saumon grillé aux herbes fraîches constitue un plat délicieux et riche en oméga-trois.",
-    gender: "masculine",
-  },
-  {
-    french: "le ski",
-    english: "skiing",
-    examples:
-      "Le ski alpin attire chaque hiver des milliers de passionnés dans les stations de montagne.",
-    gender: "masculine",
-  },
-  {
-    french: "le steak",
-    english: "steak",
-    examples:
-      "Le steak grillé à point accompagné de légumes de saison ravit les amateurs de bonne cuisine.",
-    gender: "masculine",
-  },
-  {
-    french: "le studio",
-    english: "studio apartment",
-    examples:
-      "Le studio lumineux situé près de l'université convient parfaitement aux étudiants en recherche de logement.",
-    gender: "masculine",
-  },
-  {
     french: "lumineux(se)",
     english: "bright / luminous",
     examples:
@@ -2162,24 +1902,6 @@ export const words: Omit<Word, "id">[] = [
     english: "married",
     examples:
       "Ils sont mariés depuis quinze ans et vivent toujours un amour sincère et profond.",
-  },
-  {
-    french: "pacsé(e)",
-    english: "in a civil union (PACS)",
-    examples:
-      "Le couple pacsé bénéficie de certains avantages fiscaux et sociaux reconnus par la loi française.",
-  },
-  {
-    french: "roux(sse)",
-    english: "redhead / red-haired",
-    examples:
-      "La fillette rousse aux taches de rousseur sourit timidement à ses nouveaux camarades de classe.",
-  },
-  {
-    french: "russe",
-    english: "Russian",
-    examples:
-      "L'écrivain russe traduit ses œuvres littéraires dans plusieurs langues européennes différentes pour toucher un public international.",
   },
   {
     french: "se détendre",
@@ -2195,12 +1917,6 @@ export const words: Omit<Word, "id">[] = [
     english: "waiter / waitress",
     examples:
       "Le serveur aimable recommande les spécialités de la maison aux clients du restaurant gastronomique.",
-  },
-  {
-    french: "suisse",
-    english: "Swiss",
-    examples:
-      "Le chocolat suisse est réputé dans le monde entier pour sa qualité exceptionnelle et son goût raffiné.",
   },
   {
     french: "séparé(e)",
@@ -2224,12 +1940,6 @@ export const words: Omit<Word, "id">[] = [
     past_particle: "habillé",
   },
   {
-    french: "technicien(ne)",
-    english: "technician",
-    examples:
-      "Le technicien informatique résout rapidement les problèmes de réseau dans l'entreprise grâce à son expertise.",
-  },
-  {
     french: "un fichier",
     english: "file",
     examples:
@@ -2251,31 +1961,10 @@ export const words: Omit<Word, "id">[] = [
     gender: "masculine",
   },
   {
-    french: "un garage",
-    english: "garage",
-    examples:
-      "Le garage spacieux peut accueillir deux voitures et sert également d'atelier pour les bricolages du week-end.",
-    gender: "masculine",
-  },
-  {
     french: "un homme",
     english: "man",
     examples:
       "Cet homme généreux consacre son temps libre à aider les personnes âgées de son quartier.",
-    gender: "masculine",
-  },
-  {
-    french: "un local à poubelles",
-    english: "garbage room / trash room",
-    examples:
-      "Le local à poubelles se trouve au sous-sol de l'immeuble et reste accessible vingt-quatre heures sur vingt-quatre.",
-    gender: "masculine",
-  },
-  {
-    french: "un local à vélos",
-    english: "bike storage / bicycle room",
-    examples:
-      "Le local à vélos sécurisé permet aux résidents de garer leurs bicyclettes en toute tranquillité.",
     gender: "masculine",
   },
   {
@@ -2286,24 +1975,10 @@ export const words: Omit<Word, "id">[] = [
     gender: "masculine",
   },
   {
-    french: "un message",
-    english: "message",
-    examples:
-      "Elle a laissé un message détaillé sur le répondeur pour expliquer son retard inattendu.",
-    gender: "masculine",
-  },
-  {
     french: "un mot",
     english: "word",
     examples:
       "Il ne trouve pas le mot juste pour exprimer ses sentiments profonds dans cette lettre importante.",
-    gender: "masculine",
-  },
-  {
-    french: "un pique-nique",
-    english: "picnic",
-    examples:
-      "La famille organise un pique-nique dominical dans le parc municipal avec des sandwichs et des fruits frais.",
     gender: "masculine",
   },
   {
@@ -2328,20 +2003,6 @@ export const words: Omit<Word, "id">[] = [
     gender: "masculine",
   },
   {
-    french: "un problème de box",
-    english: "internet box problem",
-    examples:
-      "Un problème de box internet prive tout l'immeuble de connexion depuis ce matin très tôt.",
-    gender: "masculine",
-  },
-  {
-    french: "un problème de serrure",
-    english: "lock problem",
-    examples:
-      "Un problème de serrure l'empêche d'entrer chez lui et il doit appeler un serrurier d'urgence.",
-    gender: "masculine",
-  },
-  {
     french: "un père",
     english: "father",
     examples:
@@ -2355,38 +2016,7 @@ export const words: Omit<Word, "id">[] = [
       "Le règlement intérieur de l'immeuble précise clairement les horaires de tranquillité à respecter par tous.",
     gender: "masculine",
   },
-  {
-    french: "un serrurier",
-    english: "locksmith",
-    examples:
-      "Le serrurier professionnel ouvre la porte bloquée en quelques minutes sans endommager la serrure.",
-    gender: "masculine",
-  },
-  {
-    french: "un électricien",
-    english: "electrician",
-    examples:
-      "L'électricien qualifié installe de nouveaux points lumineux dans le salon selon les normes de sécurité.",
-    gender: "masculine",
-  },
-  {
-    french: "un(e) assistant(e)",
-    english: "assistant",
-    examples:
-      "L'assistante efficace organise parfaitement l'agenda chargé du directeur général avec une précision remarquable.",
-  },
-  {
-    french: "un(e) employé(e)",
-    english: "employee",
-    examples:
-      "Chaque employé de cette entreprise bénéficie d'une formation continue pour développer ses compétences professionnelles.",
-  },
-  {
-    french: "un(e) informaticien(ne)",
-    english: "computer specialist / IT person",
-    examples:
-      "L'informaticienne expérimentée développe des applications innovantes pour améliorer la productivité de l'équipe.",
-  },
+
   {
     french: "un(e) malade",
     english: "sick person / patient",
@@ -2414,13 +2044,7 @@ export const words: Omit<Word, "id">[] = [
       "La boîte aux lettres de l'immeuble se trouve dans le hall d'entrée et est relevée quotidiennement.",
     gender: "feminine",
   },
-  {
-    french: "le yoga",
-    english: "yoga",
-    examples:
-      "Le yoga aide à trouver l'équilibre entre le corps et l'esprit grâce à des postures et respirations.",
-    gender: "masculine",
-  },
+
   {
     french: "sombre",
     english: "dark / gloomy",
@@ -2449,20 +2073,7 @@ export const words: Omit<Word, "id">[] = [
       "La cave voûtée de cette maison ancienne conserve parfaitement les bouteilles de vin rouge.",
     gender: "feminine",
   },
-  {
-    french: "une crème caramel",
-    english: "crème caramel / flan",
-    examples:
-      "La crème caramel maison fond délicieusement dans la bouche avec sa texture soyeuse incomparable.",
-    gender: "feminine",
-  },
-  {
-    french: "une fuite d'eau",
-    english: "water leak",
-    examples:
-      "Une fuite d'eau dans la salle de bains nécessite l'intervention rapide d'un plombier qualifié ce matin.",
-    gender: "feminine",
-  },
+
   {
     french: "une glace",
     english: "ice cream / mirror",
@@ -2470,20 +2081,7 @@ export const words: Omit<Word, "id">[] = [
       "En été, les enfants adorent déguster une glace à la vanille en se promenant dans le parc.",
     gender: "feminine",
   },
-  {
-    french: "une panne de chauffage",
-    english: "heating breakdown",
-    examples:
-      "Une panne de chauffage en plein hiver oblige les résidents à utiliser des radiateurs d'appoint.",
-    gender: "feminine",
-  },
-  {
-    french: "une panne de gaz",
-    english: "gas outage",
-    examples:
-      "Une panne de gaz dans le quartier empêche la préparation des repas chauds aujourd'hui.",
-    gender: "feminine",
-  },
+
   {
     french: "une panne électrique",
     english: "power outage",
@@ -2491,20 +2089,7 @@ export const words: Omit<Word, "id">[] = [
       "Une panne électrique générale plonge tout le quartier dans l'obscurité pendant plusieurs heures consécutives.",
     gender: "feminine",
   },
-  {
-    french: "une quiche",
-    english: "quiche",
-    examples:
-      "Cette quiche lorraine traditionnelle se compose d'œufs, de crème fraîche et de lardons fumés.",
-    gender: "feminine",
-  },
-  {
-    french: "une salade de fruits",
-    english: "fruit salad",
-    examples:
-      "Une salade de fruits frais et colorée termine parfaitement ce repas léger d'été au jardin.",
-    gender: "feminine",
-  },
+
   {
     french: "une sœur",
     english: "sister",
@@ -2512,27 +2097,7 @@ export const words: Omit<Word, "id">[] = [
       "Sa sœur cadette étudie l'architecture dans une école prestigieuse de la capitale depuis trois ans.",
     gender: "feminine",
   },
-  {
-    french: "une tarte aux fraises",
-    english: "strawberry tart",
-    examples:
-      "La tarte aux fraises du pâtissier local attire tous les gourmands du quartier chaque week-end.",
-    gender: "feminine",
-  },
-  {
-    french: "une technicienne",
-    english: "technician (female)",
-    examples:
-      "La technicienne spécialisée répare les appareils électroniques avec une précision remarquable et professionnelle.",
-    gender: "feminine",
-  },
-  {
-    french: "une télé",
-    english: "TV / television",
-    examples:
-      "La télé haute définition diffuse les dernières actualités internationales dans le salon familial confortable.",
-    gender: "feminine",
-  },
+
   {
     french: "vendeur(se)",
     english: "salesperson",
@@ -2545,12 +2110,7 @@ export const words: Omit<Word, "id">[] = [
     examples:
       "Depuis qu'elle est veuve, elle trouve du réconfort auprès de sa famille aimante et bienveillante.",
   },
-  {
-    french: "écouter de la musique",
-    english: "to listen to music",
-    examples:
-      "Le soir, elle aime écouter de la musique classique dans son salon confortablement aménagé.",
-  },
+
   {
     french: "étudiant(e)",
     english: "student",
@@ -2611,12 +2171,7 @@ export const words: Omit<Word, "id">[] = [
     examples:
       "Elle se promène avec son chien fidèle tous les matins dans le parc municipal tranquille.",
   },
-  {
-    french: "ils",
-    english: "they",
-    examples:
-      "Ils partent en vacances demain matin très tôt pour éviter les embouteillages sur l'autoroute.",
-  },
+
   {
     french: "être",
     english: "to be",
@@ -2644,18 +2199,7 @@ export const words: Omit<Word, "id">[] = [
     examples:
       "Certains étudiants préfèrent étudier le soir dans le calme de leur chambre personnelle.",
   },
-  {
-    french: "vous",
-    english: "you",
-    examples:
-      "Vous êtes invités à participer à cette soirée festive organisée dans le jardin de l'école.",
-  },
-  {
-    french: "nous",
-    english: "we / us",
-    examples:
-      "Nous partons en voyage la semaine prochaine pour découvrir de nouveaux paysages magnifiques et reposants.",
-  },
+
   {
     french: "boîte",
     english: "box",
@@ -2709,20 +2253,7 @@ export const words: Omit<Word, "id">[] = [
       "L'appartement spacieux se trouve au cinquième étage avec ascenseur et offre une vue magnifique.",
     gender: "masculine",
   },
-  {
-    french: "l'avenue",
-    english: "avenue",
-    examples:
-      "L'avenue bordée d'arbres mène directement au centre commercial de la ville moderne et animée.",
-    gender: "feminine",
-  },
-  {
-    french: "l'hôpital",
-    english: "hospital",
-    examples:
-      "L'hôpital moderne dispose d'équipements médicaux de pointe pour tous les patients qui consultent.",
-    gender: "masculine",
-  },
+
   {
     french: "l'immeuble",
     english: "building",
@@ -2730,13 +2261,7 @@ export const words: Omit<Word, "id">[] = [
       "L'immeuble de bureaux attire l'attention par son architecture contemporaine remarquable et innovante.",
     gender: "masculine",
   },
-  {
-    french: "l'ophtalmologue",
-    english: "ophthalmologist",
-    examples:
-      "L'ophtalmologue examine attentivement les yeux des patients avec des instruments précis et modernes.",
-    gender: "masculine",
-  },
+
   {
     french: "maman",
     english: "mom / mommy",
@@ -2761,12 +2286,7 @@ export const words: Omit<Word, "id">[] = [
     examples:
       "Le petit chat gris se cache sous le canapé pendant l'orage qui gronde au-dehors.",
   },
-  {
-    french: "pharmacien(ne)",
-    english: "pharmacist",
-    examples:
-      "La pharmacienne conseille attentivement les clients sur l'utilisation des médicaments prescrits par leur médecin.",
-  },
+
   {
     french: "professeur(e)",
     english: "teacher / professor",
@@ -2779,13 +2299,7 @@ export const words: Omit<Word, "id">[] = [
     examples:
       "Ce soir, nous regardons un film romantique français sous une couverture douce dans le salon.",
   },
-  {
-    french: "un C.V.",
-    english: "résumé / CV",
-    examples:
-      "Son curriculum vitae impressionnant détaille quinze années d'expérience professionnelle variée dans différents domaines.",
-    gender: "masculine",
-  },
+
   {
     french: "un agenda",
     english: "diary / planner",
@@ -2807,13 +2321,7 @@ export const words: Omit<Word, "id">[] = [
       "L'ascenseur moderne transporte silencieusement les résidents jusqu'au dixième étage de l'immeuble récent.",
     gender: "masculine",
   },
-  {
-    french: "un classeur",
-    english: "binder / filing cabinet",
-    examples:
-      "Le classeur métallique contient tous les documents administratifs importants de l'entreprise familiale.",
-    gender: "masculine",
-  },
+
   {
     french: "un contrat de travail",
     english: "employment contract",
@@ -2863,13 +2371,7 @@ export const words: Omit<Word, "id">[] = [
       "La cuillère en argent étincelle sous la lumière des bougies du dîner romantique aux chandelles.",
     gender: "feminine",
   },
-  {
-    french: "une directrice",
-    english: "director / manager (female)",
-    examples:
-      "La directrice dynamique motive son équipe grâce à sa vision claire et ambitieuse pour l'avenir.",
-    gender: "feminine",
-  },
+
   {
     french: "une femme",
     english: "woman",
@@ -2937,12 +2439,7 @@ export const words: Omit<Word, "id">[] = [
     examples:
       "Ils travaillent ensemble depuis quinze ans dans cette entreprise familiale prospère et harmonieuse.",
   },
-  {
-    french: "trois",
-    english: "three",
-    examples:
-      "Ces trois amis inséparables se rencontrent chaque vendredi soir pour dîner dans leur restaurant préféré.",
-  },
+
   {
     french: "vouloir",
     english: "to want",
@@ -3087,13 +2584,7 @@ export const words: Omit<Word, "id">[] = [
       "J'ai besoin de votre aide urgente pour résoudre ce problème technique complexe qui nous préoccupe.",
     gender: "masculine",
   },
-  {
-    french: "image",
-    english: "image / picture",
-    examples:
-      "Cette image magnifique capture parfaitement l'essence de ce paysage automnal aux couleurs chatoyantes.",
-    gender: "feminine",
-  },
+
   {
     french: "essayer",
     english: "to try",
@@ -3109,20 +2600,7 @@ export const words: Omit<Word, "id">[] = [
     examples:
       "Elle travaille encore tard ce soir pour terminer ce projet important avant la date limite fixée.",
   },
-  {
-    french: "animal",
-    english: "animal",
-    examples:
-      "Cet animal sauvage vit paisiblement dans la forêt protégée loin de toute activité humaine perturbatrice.",
-    gender: "masculine",
-  },
-  {
-    french: "point",
-    english: "point / dot",
-    examples:
-      "Ce point de vue offre une perspective unique sur le problème complexe que nous devons résoudre.",
-    gender: "masculine",
-  },
+
   {
     french: "mère",
     english: "mother",

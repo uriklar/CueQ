@@ -3,6 +3,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { words as staticWords } from "../data/words";
 
 const STORAGE_KEY = "@french_cards_words";
+const DELETED_WORDS_KEY = "@french_cards_deleted_words";
 
 export const isVerb = (word: Word): boolean => {
   return !!(word.conjugation || word.past_particle);
@@ -75,6 +76,77 @@ export const updateStoredWord = async (updatedWord: Word) => {
   }
 };
 
+export const markWordAsDeleted = async (
+  frenchText: string,
+  englishText: string
+) => {
+  try {
+    const deletedWordsJson = await AsyncStorage.getItem(DELETED_WORDS_KEY);
+    const deletedWords: Record<string, boolean> = deletedWordsJson
+      ? JSON.parse(deletedWordsJson)
+      : {};
+
+    const wordKey = `${frenchText}::${englishText}`;
+    deletedWords[wordKey] = true;
+
+    await AsyncStorage.setItem(
+      DELETED_WORDS_KEY,
+      JSON.stringify(deletedWords)
+    );
+  } catch (error) {
+    console.error("Error marking word as deleted:", error);
+  }
+};
+
+export const getDeletedWords = async (): Promise<Set<string>> => {
+  try {
+    const deletedWordsJson = await AsyncStorage.getItem(DELETED_WORDS_KEY);
+    const deletedWords: Record<string, boolean> = deletedWordsJson
+      ? JSON.parse(deletedWordsJson)
+      : {};
+
+    return new Set(Object.keys(deletedWords));
+  } catch (error) {
+    console.error("Error getting deleted words:", error);
+    return new Set();
+  }
+};
+
+export const deleteWord = async (word: Word): Promise<boolean> => {
+  try {
+    const storedWordsJson = await AsyncStorage.getItem(STORAGE_KEY);
+    const storedWords: Record<string, Word> = storedWordsJson
+      ? JSON.parse(storedWordsJson)
+      : {};
+
+    if (!storedWords[word.id]) {
+      console.warn("Attempted to delete a non-existent word");
+      return false;
+    }
+
+    // Check if this word matches a static word
+    const matchesStaticWord = staticWords.some(
+      (staticWord) =>
+        staticWord.french === word.french &&
+        staticWord.english === word.english
+    );
+
+    // If it's a static word, mark it as deleted to prevent re-import
+    if (matchesStaticWord) {
+      await markWordAsDeleted(word.french, word.english);
+    }
+
+    // Remove from storage
+    delete storedWords[word.id];
+    await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(storedWords));
+
+    return true;
+  } catch (error) {
+    console.error("Error deleting word:", error);
+    return false;
+  }
+};
+
 export const loadAndMergeWords = async (): Promise<Word[]> => {
   try {
     // Get stored words from AsyncStorage
@@ -82,6 +154,9 @@ export const loadAndMergeWords = async (): Promise<Word[]> => {
     const storedWordsMap: Record<string, Word> = storedWordsJson
       ? JSON.parse(storedWordsJson)
       : {};
+
+    // Get deleted words to prevent re-adding them
+    const deletedWords = await getDeletedWords();
 
     // Add static words with generated IDs if they don't already exist
     const mergedWordsMap = { ...storedWordsMap };
@@ -94,7 +169,11 @@ export const loadAndMergeWords = async (): Promise<Word[]> => {
           word.english === staticWord.english
       );
 
-      if (!existingWord) {
+      // Check if this word has been deleted by the user
+      const wordKey = `${staticWord.french}::${staticWord.english}`;
+      const isDeleted = deletedWords.has(wordKey);
+
+      if (!existingWord && !isDeleted) {
         // Add the static word with a generated ID
         const id = `static_${index}_${Date.now()}`;
         const wordWithId: Word = {
