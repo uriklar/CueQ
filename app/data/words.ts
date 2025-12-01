@@ -4589,4 +4589,195 @@ export const words: Omit<Word, "id">[] = [
     examples: "Il était effrayé par le bruit soudain.",
     gender: "masculine",
   },
+  {
+    french: "paisible",
+    english: "peaceful / calm",
+    examples: "C’est un village paisible au bord du lac.",
+    gender: "masculine",
+  },
+  {
+    french: "palper",
+    english: "to feel / to palpate",
+    examples: "Le médecin a commencé à palper le ventre du patient.",
+    conjugation:
+      "(présent):\nje palpe\ntu palpes\nil/elle/on palpe\nnous palpons\nvous palpez\nils/elles palpent",
+    past_particle: "palpé",
+  },
+  {
+    french: "nageoire",
+    english: "fin (of a fish)",
+    examples: "La nageoire du dauphin était blessée.",
+    gender: "feminine",
+  },
+  {
+    french: "pamphlet",
+    english: "pamphlet / brochure",
+    examples: "Elle a distribué un pamphlet contre la réforme.",
+    gender: "masculine",
+  },
+  {
+    french: "afin de",
+    english: "in order to",
+    examples: "Il travaille dur afin de réussir ses examens.",
+  },
+  {
+    french: "afin que",
+    english: "so that / in order that",
+    examples: "Il parle lentement afin que tout le monde comprenne.",
+  },
+  {
+    french: "aboutir",
+    english: "to lead to / to succeed / to result in",
+    examples:
+      "Tous ces efforts ont fini par aboutir à une solution satisfaisante.",
+    conjugation:
+      "(présent):\nj’aboutis\ntu aboutis\nil/elle/on aboutit\nnous aboutissons\nvous aboutissez\nils/elles aboutissent",
+    past_particle: "abouti",
+  },
+  {
+    french: "confondre",
+    english: "to confuse / to mix up",
+    examples: "Il ne faut pas confondre vitesse et précipitation.",
+    conjugation:
+      "(présent):\nje confonds\ntu confonds\nil/elle/on confond\nnous confondons\nvous confondez\nils/elles confondent",
+    past_particle: "confondu",
+  },
+  {
+    french: "basculer",
+    english: "to tip over / to shift / to switch",
+    examples: "Le vase a basculé et s’est cassé.",
+    conjugation:
+      "(présent):\nje bascule\ntu bascules\nil/elle/on bascule\nnous basculons\nvous basculez\nils/elles basculent",
+    past_particle: "basculé",
+  },
+  {
+    french: "toutefois",
+    english: "however / nevertheless",
+    examples: "Il fait froid, toutefois le soleil brille.",
+  },
+  {
+    french: "autrefois",
+    english: "in the past / formerly",
+    examples: "Autrefois, ce village était très animé.",
+  },
+  {
+    french: "bon sens",
+    english: "right way / correct direction",
+    examples: "Tu marches enfin dans le bon sens !",
+  },
+  {
+    french: "mauvais sens",
+    english: "wrong way / wrong direction",
+    examples: "Attention, tu es dans le mauvais sens !",
+  },
+  {
+    french: "rédiger",
+    english: "to write / to draft",
+    examples: "L’avocat va rédiger le contrat avant la fin de la semaine.",
+    conjugation:
+      "(présent):\nje rédige\ntu rédiges\nil/elle/on rédige\nnous rédigeons\nvous rédigez\nils/elles rédigent",
+    past_particle: "rédigé",
+  },
+  {
+    french: "exprès",
+    english: "on purpose / intentionally",
+    examples: "Il a renversé le verre exprès pour attirer l’attention.",
+  },
+  {
+    french: "derrière",
+    english: "behind",
+    examples: "Le chat se cache derrière le canapé.",
+  },
+  {
+    french: "désormais",
+    english: "from now on / henceforth",
+    examples: "Désormais, je prendrai le train au lieu de la voiture.",
+  },
+  {
+    french: "davantage",
+    english: "more / further",
+    examples: "Il faut travailler davantage pour réussir cet examen.",
+  },
+  {
+    french: "un bout",
+    english: "a bit / a piece / an end",
+    examples: "Donne-moi un bout de papier, s'il te plaît.",
+    gender: "masculine",
+  },
+  {
+    french: "la boue",
+    english: "mud",
+    examples: "Ses chaussures sont couvertes de boue après la randonnée.",
+    gender: "feminine",
+  },
+  {
+    french: "mieux",
+    english: "better",
+    examples: "Je me sens beaucoup mieux aujourd’hui.",
+  },
+  {
+    french: "mois",
+    english: "month",
+    examples: "Je pars en vacances le mois prochain.",
+    gender: "masculine",
+  },
+  {
+    french: "pire",
+    english: "worse",
+    examples: "C’est la pire journée de ma vie.",
+  },
+  {
+    french: "moins",
+    english: "less",
+    examples: "Je mange moins de sucre qu’avant.",
+  },
+  {
+    french: "concours",
+    english: "competition / contest",
+    examples: "Elle a gagné le premier prix au concours de chant.",
+    gender: "masculine",
+  },
+  {
+    french: "empreinte",
+    english: "footprint / print / mark",
+    examples: "L’empreinte digitale est utilisée pour identifier une personne.",
+    gender: "feminine",
+  },
+  {
+    french: "enrhumé",
+    english: "having a cold / congested",
+    examples: "Je ne peux pas venir, je suis enrhumé depuis hier.",
+    gender: "masculine",
+  },
+
+  {
+    french: "quoique",
+    english: "although / even though",
+    examples: "Quoique fatigué, il a continué à travailler.",
+  },
+  {
+    french: "quelquefois",
+    english: "sometimes",
+    examples: "Je vais quelquefois au cinéma le dimanche.",
+  },
+  {
+    french: "soudain",
+    english: "suddenly",
+    examples: "Soudain, la lumière s’est éteinte.",
+  },
+  {
+    french: "sauf",
+    english: "except",
+    examples: "Tout le monde est venu sauf Paul.",
+  },
+  {
+    french: "selon",
+    english: "according to",
+    examples: "Selon lui, ce projet est irréalisable.",
+  },
+  {
+    french: "sitôt",
+    english: "as soon as",
+    examples: "Il est parti sitôt le travail terminé.",
+  },
 ];
