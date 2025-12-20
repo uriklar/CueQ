@@ -4780,4 +4780,72 @@ export const words: Omit<Word, "id">[] = [
     english: "as soon as",
     examples: "Il est parti sitôt le travail terminé.",
   },
+  {
+    french: "s'endormir",
+    english: "to fall asleep",
+    examples: "Après une longue journée, je m'endors rapidement sur le canapé.",
+    conjugation:
+      "(présent):\nje m'endors\ntu t'endors\nil/elle/on s'endort\nnous nous endormons\nvous vous endormez\nils/elles s'endorment",
+    past_particle: "endormi",
+  },
+  {
+    french: "sommeil",
+    english: "sleep",
+    examples: "J'ai très sommeil après cette semaine fatigante.",
+  },
+  {
+    french: "amener",
+    english: "to bring (someone / something living)",
+    examples: "L'autobus m'a amené jusqu'à Nice pendant que je dormais.",
+    conjugation:
+      "(présent):\nj'amène\ntu amènes\nil/elle/on amène\nnous amenons\nvous amenez\nils/elles amènent",
+    past_particle: "amené",
+  },
+  {
+    french: "coin",
+    english: "corner",
+    examples: "Il y a un petit café sympa au coin de la rue.",
+  },
+  {
+    french: "montre",
+    english: "watch",
+    examples: "Je vérifie ma montre avant de partir.",
+  },
+  {
+    french: "vérifier",
+    english: "to check / to verify",
+    examples: "Je vérifie les horaires avant de quitter la maison.",
+    conjugation:
+      "(présent):\nje vérifie\ntu vérifies\nil/elle/on vérifie\nnous vérifions\nvous vérifiez\nils/elles vérifient",
+    past_particle: "vérifié",
+  },
+  {
+    french: "livrer",
+    english: "to deliver",
+    examples: "On leur livre des légumes toutes les semaines.",
+    conjugation:
+      "(présent):\nje livre\ntu livres\nil/elle/on livre\nnous livrons\nvous livrez\nils/elles livrent",
+    past_particle: "livré",
+  },
+  {
+    french: "démarrer",
+    english: "to start / to pull away",
+    examples: "Le camion démarre lentement au feu vert.",
+    conjugation:
+      "(présent):\nje démarre\ntu démarres\nil/elle/on démarre\nnous démarrons\nvous démarrez\nils/elles démarrent",
+    past_particle: "démarré",
+  },
+  {
+    french: "bouger",
+    english: "to move",
+    examples: "Ne bouge pas pendant la photo.",
+    conjugation:
+      "(présent):\nje bouge\ntu bouges\nil/elle/on bouge\nnous bougeons\nvous bougez\nils/elles bougent",
+    past_particle: "bougé",
+  },
+  {
+    french: "vieillard",
+    english: "old man / elderly man",
+    examples: "Le vieillard marche lentement avec une canne.",
+  },
 ];
