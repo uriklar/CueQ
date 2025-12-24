@@ -10,12 +10,14 @@ interface CardStackProps {
   words: Word[];
   onSwipe: (word: Word, direction: SwipeDirection) => void;
   onUpdateWord: (updatedWord: Word) => void;
+  onDeleteWord?: (word: Word) => void | Promise<void>;
 }
 
 export const CardStack: React.FC<CardStackProps> = ({
   words,
   onSwipe,
   onUpdateWord,
+  onDeleteWord,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isRevealed, setIsRevealed] = useState(false);
@@ -50,6 +52,14 @@ export const CardStack: React.FC<CardStackProps> = ({
     }
     setIsEditModalVisible(false);
     setWordToEdit(null);
+  };
+
+  const handleDeleteWord = async (word: Word) => {
+    if (onDeleteWord) {
+      await onDeleteWord(word);
+      setIsEditModalVisible(false);
+      setWordToEdit(null);
+    }
   };
 
   const handleCloseEditModal = () => {
@@ -90,6 +100,7 @@ export const CardStack: React.FC<CardStackProps> = ({
           onClose={handleCloseEditModal}
           onSubmit={handleModalSubmit}
           editingWord={wordToEdit}
+          onDelete={handleDeleteWord}
         />
       )}
     </View>

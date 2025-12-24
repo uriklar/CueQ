@@ -8,6 +8,7 @@ import {
   getSwipeDifficulty,
   getStoredWords,
   updateStoredWord,
+  deleteWord,
 } from "./utils/wordUtils";
 import { selectPracticeWords } from "./utils/practiceUtils";
 
@@ -47,6 +48,21 @@ export default function Page() {
     // If practiceWords is a subset of a larger list, you might need to update the larger list too.
   };
 
+  // Function to handle deleting a word
+  const handleDeleteWord = async (word: Word) => {
+    try {
+      const success = await deleteWord(word);
+      if (success) {
+        setPracticeWords((currentPracticeWords) => {
+          const filtered = currentPracticeWords.filter((w) => w.id !== word.id);
+          return filtered;
+        });
+      }
+    } catch (error) {
+      console.error("Error deleting word:", error);
+    }
+  };
+
   const handleStartPractice = async () => {
     await loadPracticeWords();
     setShowDashboard(false);
@@ -79,6 +95,7 @@ export default function Page() {
             words={practiceWords}
             onSwipe={handleSwipe}
             onUpdateWord={handleUpdateWord}
+            onDeleteWord={handleDeleteWord}
           />
         </>
       )}

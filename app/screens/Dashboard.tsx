@@ -347,6 +347,22 @@ export const Dashboard = () => {
     }
   };
 
+  const performDeleteWord = async (wordToDelete: Word) => {
+    try {
+      const success = await deleteWord(wordToDelete);
+      if (success) {
+        setWords((currentWords) =>
+          currentWords.filter((word) => word.id !== wordToDelete.id)
+        );
+      } else {
+        Alert.alert("Error", "Failed to delete word. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error deleting word:", error);
+      Alert.alert("Error", "Failed to delete word. Please try again.");
+    }
+  };
+
   const handleDeleteWord = async (wordId: string) => {
     const wordToDelete = words.find((word) => word.id === wordId);
     if (!wordToDelete) {
@@ -362,23 +378,13 @@ export const Dashboard = () => {
       {
         text: "Delete",
         style: "destructive",
-        onPress: async () => {
-          try {
-            const success = await deleteWord(wordToDelete);
-            if (success) {
-              setWords((currentWords) =>
-                currentWords.filter((word) => word.id !== wordId)
-              );
-            } else {
-              Alert.alert("Error", "Failed to delete word. Please try again.");
-            }
-          } catch (error) {
-            console.error("Error deleting word:", error);
-            Alert.alert("Error", "Failed to delete word. Please try again.");
-          }
-        },
+        onPress: () => performDeleteWord(wordToDelete),
       },
     ]);
+  };
+
+  const handleDeleteWordFromModal = async (word: Word) => {
+    await performDeleteWord(word);
   };
 
   // Compute filtered words count
@@ -452,6 +458,7 @@ export const Dashboard = () => {
         onClose={handleCloseModal}
         onSubmit={handleSubmitWord}
         editingWord={editingWord || undefined}
+        onDelete={editingWord ? handleDeleteWordFromModal : undefined}
       />
 
       <AddWordAIModal

@@ -8,6 +8,7 @@ import {
   Pressable,
   KeyboardAvoidingView,
   Platform,
+  Alert,
 } from "react-native";
 import { Word } from "../types";
 
@@ -16,6 +17,7 @@ interface AddWordModalProps {
   onClose: () => void;
   onSubmit: (word: Word | Omit<Word, "id">, isEdit: boolean) => void;
   editingWord?: Word;
+  onDelete?: (word: Word) => void | Promise<void>;
 }
 
 export const AddWordModal: React.FC<AddWordModalProps> = ({
@@ -23,6 +25,7 @@ export const AddWordModal: React.FC<AddWordModalProps> = ({
   onClose,
   onSubmit,
   editingWord,
+  onDelete,
 }) => {
   const [french, setFrench] = useState("");
   const [english, setEnglish] = useState("");
@@ -90,6 +93,25 @@ export const AddWordModal: React.FC<AddWordModalProps> = ({
     } else {
       setGender(selectedGender);
     }
+  };
+
+  const handleDelete = () => {
+    if (!editingWord || !onDelete) return;
+
+    Alert.alert("Delete Word", "Are you sure you want to delete this word?", [
+      {
+        text: "Cancel",
+        style: "cancel",
+      },
+      {
+        text: "Delete",
+        style: "destructive",
+        onPress: async () => {
+          await onDelete(editingWord);
+          handleClose();
+        },
+      },
+    ]);
   };
 
   return (
@@ -171,6 +193,15 @@ export const AddWordModal: React.FC<AddWordModalProps> = ({
               </Text>
             </Pressable>
           </View>
+
+          {editingWord && onDelete && (
+            <Pressable
+              style={styles.deleteButton}
+              onPress={handleDelete}
+            >
+              <Text style={styles.deleteButtonText}>Delete Word</Text>
+            </Pressable>
+          )}
 
           <View style={styles.buttonContainer}>
             <Pressable
@@ -275,6 +306,18 @@ const styles = StyleSheet.create({
     color: "#666",
   },
   addButtonText: {
+    color: "white",
+  },
+  deleteButton: {
+    padding: 12,
+    borderRadius: 8,
+    backgroundColor: "#F44336",
+    alignItems: "center",
+    marginBottom: 16,
+  },
+  deleteButtonText: {
+    fontSize: 16,
+    fontWeight: "600",
     color: "white",
   },
 });
