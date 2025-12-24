@@ -4848,4 +4848,53 @@ export const words: Omit<Word, "id">[] = [
     english: "old man / elderly man",
     examples: "Le vieillard marche lentement avec une canne.",
   },
+  {
+    french: "sécher",
+    english: "to dry (something) / to dry out",
+    examples: "Je fais sécher mes vêtements après la pluie.",
+    conjugation:
+      "(présent):\nje sèche\ntu sèches\nil/elle/on sèche\nnous séchons\nvous séchez\nils/elles sèchent",
+    past_particle: "séché",
+  },
+  {
+    french: "pénible",
+    english: "painful",
+    examples: "Ce travail est pénible mais nécessaire.",
+  },
+  {
+    french: "étrange",
+    english: "strange",
+    examples: "Il y a quelque chose d’étrange dans cette histoire.",
+  },
+  {
+    french: "loyal",
+    english: "loyal",
+    examples: "C’est un ami loyal sur qui je peux compter.",
+  },
+  {
+    french: "riche",
+    english: "wealthy",
+    examples: "Il est riche grâce à son entreprise.",
+  },
+
+  {
+    french: "dès que",
+    english: "as soon as",
+    examples: "dès que j'arrive, je t'appelle.",
+  },
+  {
+    french: "désormais",
+    english: "from now on",
+    examples: "désormais, je travaillerai à distance.",
+  },
+  {
+    french: "dorénavant",
+    english: "from now on",
+    examples: "dorénavant, il faudra réserver à l'avance.",
+  },
+  {
+    french: "franchement",
+    english: "frankly",
+    examples: "franchement, je ne suis pas d'accord.",
+  },
 ];
