@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, View, Pressable, Text, Alert } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import * as Clipboard from "expo-clipboard";
 import { WordList } from "../components/WordList";
 import { DifficultyDrawer } from "../components/DifficultyDrawer";
 import { AddWordModal } from "../components/AddWordModal";
@@ -231,34 +232,34 @@ export const Dashboard = () => {
     }
   };
 
-  const handleClearStorage = async () => {
-    Alert.alert(
-      "Clear All Data",
-      "Are you sure you want to clear all words? This cannot be undone.",
-      [
-        {
-          text: "Cancel",
-          style: "cancel",
-        },
-        {
-          text: "Clear",
-          style: "destructive",
-          onPress: async () => {
-            try {
-              await AsyncStorage.multiRemove([
-                STORAGE_KEY,
-                BACKLOG_STORAGE_KEY,
-              ]);
-              setWords([]);
-              setBacklogCount(0);
-              console.log("Storage cleared successfully");
-            } catch (error) {
-              console.error("Error clearing storage:", error);
-            }
-          },
-        },
-      ]
-    );
+  const handleExportWords = async () => {
+    const difficultyFilteredWords =
+      selectedDifficulty === "all"
+        ? words
+        : selectedDifficulty === "new"
+        ? words.filter((word) => !word.difficulty)
+        : words.filter((word) => word.difficulty === selectedDifficulty);
+
+    if (difficultyFilteredWords.length === 0) {
+      Alert.alert("Export", "Nothing to export.");
+      return;
+    }
+
+    const exportString = difficultyFilteredWords
+      .map((word) => word.french.trim())
+      .filter(Boolean)
+      .join(", ");
+
+    try {
+      await Clipboard.setStringAsync(exportString);
+      Alert.alert(
+        "Export Complete",
+        `Copied ${difficultyFilteredWords.length} words to clipboard.`
+      );
+    } catch (error) {
+      console.error("Error copying to clipboard:", error);
+      Alert.alert("Export Error", "Failed to copy words to clipboard.");
+    }
   };
 
   const handleOpenAddModal = () => {
@@ -413,10 +414,10 @@ export const Dashboard = () => {
         </Pressable>
         <View style={styles.headerButtons}>
           <Pressable
-            style={[styles.button, styles.clearButton]}
-            onPress={handleClearStorage}
+            style={[styles.button, styles.exportButton]}
+            onPress={handleExportWords}
           >
-            <Text style={styles.buttonText}>Clear All</Text>
+            <Text style={styles.buttonText}>Export</Text>
           </Pressable>
           <Pressable
             style={[styles.button, styles.importButton]}
@@ -516,8 +517,8 @@ const styles = StyleSheet.create({
   importButton: {
     backgroundColor: "#4CAF50",
   },
-  clearButton: {
-    backgroundColor: "#F44336",
+  exportButton: {
+    backgroundColor: "#FF9800",
   },
   buttonText: {
     color: "white",
