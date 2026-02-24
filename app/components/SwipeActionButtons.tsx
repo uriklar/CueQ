@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Pressable, Text } from "react-native";
+import { StyleSheet, View, Pressable } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { SwipeDirection } from "../types";
 import { colors, spacing, borderRadius } from "../theme";
@@ -17,22 +17,19 @@ export const SwipeActionButtons: React.FC<SwipeActionButtonsProps> = ({
         style={[styles.button, styles.hardButton]}
         onPress={() => onSwipe("left")}
       >
-        <MaterialIcons name="thumb-down" size={20} color={colors.surface} />
-        <Text style={styles.buttonText}>Don't Know</Text>
+        <MaterialIcons name="thumb-down" size={28} color={colors.surface} />
       </Pressable>
       <Pressable
         style={[styles.button, styles.mediumButton]}
         onPress={() => onSwipe("up")}
       >
-        <MaterialIcons name="sentiment-neutral" size={20} color={colors.surface} />
-        <Text style={styles.buttonText}>Kind Of</Text>
+        <MaterialIcons name="sentiment-neutral" size={28} color={colors.surface} />
       </Pressable>
       <Pressable
         style={[styles.button, styles.easyButton]}
         onPress={() => onSwipe("right")}
       >
-        <MaterialIcons name="thumb-up" size={20} color={colors.surface} />
-        <Text style={styles.buttonText}>Know Well</Text>
+        <MaterialIcons name="thumb-up" size={28} color={colors.surface} />
       </Pressable>
     </View>
   );
@@ -41,24 +38,19 @@ export const SwipeActionButtons: React.FC<SwipeActionButtonsProps> = ({
 const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: "row",
-    justifyContent: "space-around",
+    justifyContent: "center",
     width: "100%",
     paddingHorizontal: spacing.xl,
     position: "absolute",
     bottom: 50,
+    gap: spacing.xxl,
   },
   button: {
-    paddingVertical: spacing.md,
-    paddingHorizontal: spacing.xl,
-    borderRadius: borderRadius.lg,
-    minWidth: 100,
+    width: 56,
+    height: 56,
+    borderRadius: borderRadius.full,
     alignItems: "center",
-    gap: spacing.xs,
-  },
-  buttonText: {
-    color: colors.surface,
-    fontSize: 14,
-    fontWeight: "600",
+    justifyContent: "center",
   },
   hardButton: {
     backgroundColor: colors.danger,
