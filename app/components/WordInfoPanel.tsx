@@ -14,6 +14,7 @@ import { generateFrenchExample } from "../services/openai";
 import { isVerb } from "../utils/wordUtils";
 import * as Speech from "expo-speech";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import { colors, shadows, spacing, borderRadius } from "../theme";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("window");
 const CARD_WIDTH = SCREEN_WIDTH * 0.9;
@@ -121,7 +122,7 @@ export const WordInfoPanel: React.FC<WordInfoPanelProps> = ({ word }) => {
     if (isLoadingSentence) {
       return (
         <View style={styles.loadingContainer}>
-          <ActivityIndicator size="small" color="#0000ff" />
+          <ActivityIndicator size="small" color={colors.primary} />
         </View>
       );
     }
@@ -146,7 +147,7 @@ export const WordInfoPanel: React.FC<WordInfoPanelProps> = ({ word }) => {
                 style={styles.speakerIcon}
                 accessibilityLabel="Play example pronunciation"
               >
-                <MaterialIcons name="volume-up" size={22} color="#2196F3" />
+                <MaterialIcons name="volume-up" size={22} color={colors.primary} />
               </TouchableOpacity>
             </View>
             {translatedExample ? (
@@ -158,7 +159,7 @@ export const WordInfoPanel: React.FC<WordInfoPanelProps> = ({ word }) => {
                 disabled={isTranslating}
               >
                 {isTranslating ? (
-                  <ActivityIndicator size="small" color="white" />
+                  <ActivityIndicator size="small" color={colors.surface} />
                 ) : (
                   <Text style={styles.translateButtonText}>Translate</Text>
                 )}
@@ -307,27 +308,21 @@ export const WordInfoPanel: React.FC<WordInfoPanelProps> = ({ word }) => {
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",
-    marginBottom: 10,
+    marginBottom: spacing.md,
   },
   buttonGroup: {
     flexDirection: "row",
-    backgroundColor: "#E0E0E0",
-    borderRadius: 8,
+    backgroundColor: colors.neutral200,
+    borderRadius: borderRadius.sm,
     padding: 2,
-    marginBottom: 10,
+    marginBottom: spacing.md,
     borderWidth: 1,
-    borderColor: "#D0D0D0",
-    alignSelf: "center",
-  },
-  singleButtonGroup: {
-    backgroundColor: "transparent",
-    padding: 0,
-    borderWidth: 0,
+    borderColor: colors.neutral200,
     alignSelf: "center",
   },
   groupButton: {
-    paddingVertical: 8,
-    paddingHorizontal: 12,
+    paddingVertical: spacing.sm,
+    paddingHorizontal: spacing.md,
     backgroundColor: "transparent",
     alignItems: "center",
     justifyContent: "center",
@@ -335,80 +330,73 @@ const styles = StyleSheet.create({
     minWidth: 80,
   },
   firstButton: {
-    borderTopLeftRadius: 6,
-    borderBottomLeftRadius: 6,
+    borderTopLeftRadius: borderRadius.sm,
+    borderBottomLeftRadius: borderRadius.sm,
   },
   lastButton: {
-    borderTopRightRadius: 6,
-    borderBottomRightRadius: 6,
+    borderTopRightRadius: borderRadius.sm,
+    borderBottomRightRadius: borderRadius.sm,
   },
   singleButton: {
-    backgroundColor: "#9C27B0",
-    borderRadius: 8,
-    paddingVertical: 8,
-    paddingHorizontal: 16,
+    backgroundColor: colors.primary,
+    borderRadius: borderRadius.sm,
+    paddingVertical: spacing.sm,
+    paddingHorizontal: spacing.lg,
     minWidth: 140,
     alignItems: "center",
     justifyContent: "center",
     minHeight: 40,
-    marginBottom: 10,
+    marginBottom: spacing.md,
   },
   singleButtonSelected: {
-    backgroundColor: "#7B1FA2",
+    backgroundColor: colors.primaryLight,
   },
   singleButtonText: {
-    color: "white",
+    color: colors.surface,
     fontSize: 14,
     fontWeight: "600",
     textAlign: "center",
   },
   selectedGroupButton: {
-    backgroundColor: "#9C27B0",
-    borderRadius: 6,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.15,
-    shadowRadius: 3,
-    elevation: 3,
+    backgroundColor: colors.primary,
+    borderRadius: borderRadius.sm,
+    ...shadows.sm,
   },
   disabledButton: {
     opacity: 0.6,
   },
   groupButtonText: {
-    color: "#666",
+    color: colors.neutral500,
     fontSize: 13,
     fontWeight: "600",
     textAlign: "center",
   },
   selectedButtonText: {
-    color: "white",
+    color: colors.surface,
     fontWeight: "700",
   },
   disabledButtonText: {
-    color: "#999",
+    color: colors.neutral300,
   },
   loadingContainer: {
     paddingVertical: 15,
   },
   contentContainer: {
-    backgroundColor: "#F5F5F5",
-    padding: 8,
-    borderRadius: 8,
+    backgroundColor: colors.neutral50,
+    padding: spacing.sm,
+    borderRadius: borderRadius.sm,
     width: CARD_WIDTH,
     marginTop: 0,
   },
   contentLabel: {
     fontSize: 14,
     fontWeight: "600",
-    color: "#666",
-    marginBottom: 4,
+    color: colors.neutral500,
+    marginBottom: spacing.xs,
   },
   contentText: {
     fontSize: 16,
-    color: "#333",
+    color: colors.neutral700,
     lineHeight: 20,
   },
   exampleRow: {
@@ -416,40 +404,40 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
   },
   speakerIcon: {
-    marginLeft: 8,
+    marginLeft: spacing.sm,
     paddingTop: 2,
   },
   translateButton: {
-    marginTop: 10,
-    backgroundColor: "#FF9800",
-    paddingVertical: 6,
-    paddingHorizontal: 14,
-    borderRadius: 6,
+    marginTop: spacing.md,
+    backgroundColor: colors.accent,
+    paddingVertical: spacing.sm,
+    paddingHorizontal: spacing.lg,
+    borderRadius: borderRadius.sm,
     alignSelf: "flex-start",
     minWidth: 80,
     alignItems: "center",
   },
   translateButtonText: {
-    color: "white",
+    color: colors.surface,
     fontSize: 13,
     fontWeight: "600",
   },
   translationText: {
-    marginTop: 8,
+    marginTop: spacing.sm,
     fontSize: 14,
-    color: "#555",
+    color: colors.neutral500,
     fontStyle: "italic",
     lineHeight: 20,
   },
   errorContainer: {
-    backgroundColor: "#FFEBEE",
-    padding: 8,
-    borderRadius: 8,
+    backgroundColor: colors.dangerLight,
+    padding: spacing.sm,
+    borderRadius: borderRadius.sm,
     width: CARD_WIDTH,
     marginTop: 0,
   },
   errorText: {
-    color: "#D32F2F",
+    color: colors.danger,
     fontSize: 14,
   },
 });

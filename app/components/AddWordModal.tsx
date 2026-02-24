@@ -11,6 +11,7 @@ import {
   Alert,
 } from "react-native";
 import { Word } from "../types";
+import { colors, shadows, spacing, borderRadius } from "../theme";
 
 interface AddWordModalProps {
   visible: boolean;
@@ -71,15 +72,11 @@ export const AddWordModal: React.FC<AddWordModalProps> = ({
           false
         );
       }
-      // Don't reset fields here, onClose will handle it or useEffect for new word
       onClose();
     }
   };
 
   const handleClose = () => {
-    // Resetting fields here ensures they are cleared on any close action
-    // including backdrop press or cancel button.
-    // useEffect will repopulate if editingWord is present when modal reopens.
     setFrench("");
     setEnglish("");
     setExamples("");
@@ -133,6 +130,7 @@ export const AddWordModal: React.FC<AddWordModalProps> = ({
           <TextInput
             style={styles.input}
             placeholder="French word"
+            placeholderTextColor={colors.neutral300}
             value={french}
             onChangeText={setFrench}
             autoCapitalize="none"
@@ -142,6 +140,7 @@ export const AddWordModal: React.FC<AddWordModalProps> = ({
           <TextInput
             style={styles.input}
             placeholder="English translation"
+            placeholderTextColor={colors.neutral300}
             value={english}
             onChangeText={setEnglish}
             autoCapitalize="none"
@@ -151,6 +150,7 @@ export const AddWordModal: React.FC<AddWordModalProps> = ({
           <TextInput
             style={styles.input}
             placeholder="Examples (optional)"
+            placeholderTextColor={colors.neutral300}
             value={examples}
             onChangeText={setExamples}
             autoCapitalize="none"
@@ -208,14 +208,14 @@ export const AddWordModal: React.FC<AddWordModalProps> = ({
               style={[styles.button, styles.cancelButton]}
               onPress={handleClose}
             >
-              <Text style={styles.buttonText}>Cancel</Text>
+              <Text style={styles.cancelButtonText}>Cancel</Text>
             </Pressable>
 
             <Pressable
               style={[styles.button, styles.addButton]}
               onPress={handleSubmit}
             >
-              <Text style={[styles.buttonText, styles.addButtonText]}>
+              <Text style={styles.addButtonText}>
                 {editingWord ? "Save Changes" : "Add Word"}
               </Text>
             </Pressable>
@@ -231,93 +231,102 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    backgroundColor: colors.overlay,
   },
   modalContent: {
-    backgroundColor: "white",
-    borderRadius: 16,
-    padding: 20,
+    backgroundColor: colors.surface,
+    borderRadius: borderRadius.xl,
+    padding: spacing.xl,
     width: "90%",
     maxWidth: 400,
+    ...shadows.lg,
   },
   title: {
     fontSize: 24,
-    fontWeight: "bold",
-    marginBottom: 20,
+    fontWeight: "700",
+    marginBottom: spacing.xl,
     textAlign: "center",
+    color: colors.neutral900,
   },
   input: {
     borderWidth: 1,
-    borderColor: "#ddd",
-    borderRadius: 8,
-    padding: 12,
-    marginBottom: 16,
+    borderColor: colors.neutral200,
+    borderRadius: borderRadius.md,
+    padding: spacing.md,
+    marginBottom: spacing.lg,
     fontSize: 16,
+    color: colors.neutral700,
+    backgroundColor: colors.neutral50,
   },
   genderContainer: {
     flexDirection: "row",
     alignItems: "center",
-    marginBottom: 16,
+    marginBottom: spacing.lg,
   },
   genderLabel: {
     fontSize: 16,
-    marginRight: 8,
+    marginRight: spacing.sm,
+    color: colors.neutral700,
   },
   genderButton: {
-    paddingVertical: 8,
-    paddingHorizontal: 12,
-    borderRadius: 8,
+    paddingVertical: spacing.sm,
+    paddingHorizontal: spacing.md,
+    borderRadius: borderRadius.sm,
     borderWidth: 1,
-    borderColor: "#ddd",
-    marginHorizontal: 4,
+    borderColor: colors.neutral200,
+    marginHorizontal: spacing.xs,
+    backgroundColor: colors.neutral50,
   },
   genderButtonSelected: {
-    backgroundColor: "#2196F3",
-    borderColor: "#2196F3",
+    backgroundColor: colors.primarySurface,
+    borderColor: colors.primaryLight,
   },
   genderButtonText: {
     fontSize: 14,
-    color: "#666",
+    color: colors.neutral500,
   },
   genderButtonTextSelected: {
-    color: "white",
+    color: colors.primary,
+    fontWeight: "600",
   },
   buttonContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginTop: 8,
+    marginTop: spacing.sm,
   },
   button: {
     flex: 1,
-    padding: 12,
-    borderRadius: 8,
-    marginHorizontal: 8,
+    padding: spacing.md,
+    borderRadius: borderRadius.md,
+    marginHorizontal: spacing.sm,
     alignItems: "center",
   },
   cancelButton: {
-    backgroundColor: "#f0f0f0",
+    backgroundColor: colors.neutral100,
   },
-  addButton: {
-    backgroundColor: "#2196F3",
-  },
-  buttonText: {
+  cancelButtonText: {
     fontSize: 16,
     fontWeight: "600",
-    color: "#666",
+    color: colors.neutral700,
+  },
+  addButton: {
+    backgroundColor: colors.primary,
   },
   addButtonText: {
-    color: "white",
+    fontSize: 16,
+    fontWeight: "600",
+    color: colors.surface,
   },
   deleteButton: {
-    padding: 12,
-    borderRadius: 8,
-    backgroundColor: "#F44336",
+    padding: spacing.md,
+    borderRadius: borderRadius.md,
+    backgroundColor: colors.danger,
     alignItems: "center",
-    marginBottom: 16,
+    marginBottom: spacing.lg,
   },
   deleteButtonText: {
     fontSize: 16,
     fontWeight: "600",
-    color: "white",
+    color: colors.surface,
   },
 });

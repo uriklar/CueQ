@@ -1,5 +1,7 @@
 import { View, StyleSheet, Pressable, Text } from "react-native";
 import React, { useState, useEffect } from "react";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { MaterialIcons } from "@expo/vector-icons";
 import { CardStack } from "./components/CardStack";
 import { Dashboard } from "./screens/Dashboard";
 import { Word, SwipeDirection } from "./types";
@@ -11,6 +13,7 @@ import {
   deleteWord,
 } from "./utils/wordUtils";
 import { selectPracticeWords } from "./utils/practiceUtils";
+import { colors, shadows, borderRadius, spacing } from "./theme";
 
 export default function Page() {
   const [showDashboard, setShowDashboard] = useState(true);
@@ -43,9 +46,6 @@ export default function Page() {
     );
     // Persist the updated word to AsyncStorage
     await updateStoredWord(updatedWord);
-    // Optionally, reload all words or just update if confident practiceWords reflects all relevant words
-    // For simplicity, we are only updating practiceWords state here.
-    // If practiceWords is a subset of a larger list, you might need to update the larger list too.
   };
 
   // Function to handle deleting a word
@@ -69,7 +69,7 @@ export default function Page() {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       {showDashboard ? (
         <>
           <Dashboard />
@@ -89,7 +89,8 @@ export default function Page() {
             style={styles.backButton}
             onPress={() => setShowDashboard(true)}
           >
-            <Text style={styles.backButtonText}>← Back to Dashboard</Text>
+            <MaterialIcons name="arrow-back" size={20} color={colors.primary} />
+            <Text style={styles.backButtonText}>Back to Dashboard</Text>
           </Pressable>
           <CardStack
             words={practiceWords}
@@ -99,45 +100,41 @@ export default function Page() {
           />
         </>
       )}
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f5f5f5",
+    backgroundColor: colors.neutral50,
   },
   floatingButton: {
     position: "absolute",
     bottom: 20,
     right: 20,
-    backgroundColor: "#2196F3",
-    paddingHorizontal: 20,
-    paddingVertical: 12,
-    borderRadius: 25,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
+    backgroundColor: colors.accent,
+    paddingHorizontal: spacing.xl,
+    paddingVertical: spacing.md,
+    borderRadius: borderRadius.full,
+    ...shadows.lg,
   },
   floatingButtonDisabled: {
-    backgroundColor: "#B0BEC5",
+    backgroundColor: colors.neutral300,
   },
   floatingButtonText: {
-    color: "white",
+    color: colors.surface,
     fontSize: 16,
     fontWeight: "600",
   },
   backButton: {
-    padding: 16,
+    flexDirection: "row",
+    alignItems: "center",
+    padding: spacing.lg,
+    gap: spacing.sm,
   },
   backButtonText: {
-    color: "#2196F3",
+    color: colors.primary,
     fontSize: 16,
     fontWeight: "600",
   },

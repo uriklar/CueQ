@@ -1,6 +1,7 @@
 import React from "react";
 import { Modal, View, Text, Pressable, StyleSheet } from "react-native";
 import { Difficulty } from "../types";
+import { colors, shadows, spacing, borderRadius } from "../theme";
 
 interface DifficultyDrawerProps {
   visible: boolean;
@@ -9,12 +10,32 @@ interface DifficultyDrawerProps {
   current?: Difficulty | undefined;
 }
 
+const getDifficultyDot = (difficulty: Difficulty | undefined) => {
+  switch (difficulty) {
+    case "easy":
+      return colors.success;
+    case "medium":
+      return colors.warning;
+    case "hard":
+      return colors.danger;
+    default:
+      return colors.neutral300;
+  }
+};
+
 export const DifficultyDrawer: React.FC<DifficultyDrawerProps> = ({
   visible,
   onClose,
   onSelect,
   current,
 }) => {
+  const options: { label: string; value: Difficulty | undefined }[] = [
+    { label: "New", value: undefined },
+    { label: "Easy", value: "easy" },
+    { label: "Medium", value: "medium" },
+    { label: "Hard", value: "hard" },
+  ];
+
   return (
     <Modal
       animationType="slide"
@@ -29,58 +50,31 @@ export const DifficultyDrawer: React.FC<DifficultyDrawerProps> = ({
           <Text style={styles.title}>Set difficulty</Text>
 
           <View style={styles.optionsRow}>
-            <Pressable
-              style={[styles.option, current === undefined && styles.selected]}
-              onPress={() => onSelect(undefined)}
-            >
-              <Text
-                style={[
-                  styles.optionText,
-                  current === undefined && styles.optionTextSelected,
-                ]}
-              >
-                New
-              </Text>
-            </Pressable>
-            <Pressable
-              style={[styles.option, current === "easy" && styles.selected]}
-              onPress={() => onSelect("easy")}
-            >
-              <Text
-                style={[
-                  styles.optionText,
-                  current === "easy" && styles.optionTextSelected,
-                ]}
-              >
-                Easy
-              </Text>
-            </Pressable>
-            <Pressable
-              style={[styles.option, current === "medium" && styles.selected]}
-              onPress={() => onSelect("medium")}
-            >
-              <Text
-                style={[
-                  styles.optionText,
-                  current === "medium" && styles.optionTextSelected,
-                ]}
-              >
-                Medium
-              </Text>
-            </Pressable>
-            <Pressable
-              style={[styles.option, current === "hard" && styles.selected]}
-              onPress={() => onSelect("hard")}
-            >
-              <Text
-                style={[
-                  styles.optionText,
-                  current === "hard" && styles.optionTextSelected,
-                ]}
-              >
-                Hard
-              </Text>
-            </Pressable>
+            {options.map((option) => {
+              const isSelected = current === option.value;
+              return (
+                <Pressable
+                  key={option.label}
+                  style={[styles.option, isSelected && styles.selected]}
+                  onPress={() => onSelect(option.value)}
+                >
+                  <View
+                    style={[
+                      styles.dot,
+                      { backgroundColor: getDifficultyDot(option.value) },
+                    ]}
+                  />
+                  <Text
+                    style={[
+                      styles.optionText,
+                      isSelected && styles.optionTextSelected,
+                    ]}
+                  >
+                    {option.label}
+                  </Text>
+                </Pressable>
+              );
+            })}
           </View>
 
           <Pressable style={styles.cancel} onPress={onClose}>
@@ -96,53 +90,65 @@ const styles = StyleSheet.create({
   container: { flex: 1, justifyContent: "flex-end" },
   backdrop: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: "rgba(0,0,0,0.3)",
+    backgroundColor: colors.overlay,
   },
   sheet: {
-    backgroundColor: "white",
-    padding: 16,
-    borderTopLeftRadius: 16,
-    borderTopRightRadius: 16,
+    backgroundColor: colors.surface,
+    padding: spacing.lg,
+    borderTopLeftRadius: borderRadius.xl,
+    borderTopRightRadius: borderRadius.xl,
+    ...shadows.lg,
   },
   title: {
     fontSize: 18,
     fontWeight: "700",
-    marginBottom: 12,
+    marginBottom: spacing.md,
     textAlign: "center",
+    color: colors.neutral900,
   },
   optionsRow: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginBottom: 8,
+    marginBottom: spacing.sm,
   },
   option: {
     flex: 1,
-    marginHorizontal: 4,
-    paddingVertical: 12,
-    backgroundColor: "#f0f0f0",
-    borderRadius: 12,
+    marginHorizontal: spacing.xs,
+    paddingVertical: spacing.md,
+    backgroundColor: colors.neutral100,
+    borderRadius: borderRadius.md,
     alignItems: "center",
+    flexDirection: "row",
+    justifyContent: "center",
+    gap: spacing.sm,
   },
   selected: {
-    backgroundColor: "#2196F3",
+    backgroundColor: colors.primarySurface,
+    borderWidth: 1,
+    borderColor: colors.primaryLight,
+  },
+  dot: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
   },
   optionText: {
-    color: "#333",
+    color: colors.neutral700,
     fontWeight: "600",
   },
   optionTextSelected: {
-    color: "white",
+    color: colors.primary,
   },
   cancel: {
-    marginTop: 8,
-    paddingVertical: 12,
+    marginTop: spacing.sm,
+    paddingVertical: spacing.md,
     alignItems: "center",
-    backgroundColor: "#eee",
-    borderRadius: 12,
+    backgroundColor: colors.neutral100,
+    borderRadius: borderRadius.md,
   },
   cancelText: {
     fontWeight: "600",
-    color: "#333",
+    color: colors.neutral700,
   },
 });
 

@@ -13,6 +13,7 @@ import {
 } from "react-native";
 import { Word } from "../types";
 import { getWordInfo } from "../services/openai";
+import { colors, shadows, spacing, borderRadius } from "../theme";
 
 interface AddWordAIModalProps {
   visible: boolean;
@@ -99,6 +100,7 @@ export const AddWordAIModal: React.FC<AddWordAIModalProps> = ({
           <TextInput
             style={styles.input}
             placeholder="Enter word"
+            placeholderTextColor={colors.neutral300}
             value={word}
             onChangeText={setWord}
             autoCapitalize="none"
@@ -154,7 +156,7 @@ export const AddWordAIModal: React.FC<AddWordAIModalProps> = ({
               onPress={handleClose}
               disabled={isLoading}
             >
-              <Text style={styles.buttonText}>Cancel</Text>
+              <Text style={styles.cancelButtonText}>Cancel</Text>
             </Pressable>
 
             <Pressable
@@ -167,11 +169,9 @@ export const AddWordAIModal: React.FC<AddWordAIModalProps> = ({
               disabled={isLoading}
             >
               {isLoading ? (
-                <ActivityIndicator color="white" size="small" />
+                <ActivityIndicator color={colors.surface} size="small" />
               ) : (
-                <Text style={[styles.buttonText, styles.addButtonText]}>
-                  Add Word
-                </Text>
+                <Text style={styles.addButtonText}>Add Word</Text>
               )}
             </Pressable>
           </View>
@@ -186,66 +186,73 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    backgroundColor: colors.overlay,
   },
   modalContent: {
-    backgroundColor: "white",
-    borderRadius: 16,
-    padding: 20,
+    backgroundColor: colors.surface,
+    borderRadius: borderRadius.xl,
+    padding: spacing.xl,
     width: "90%",
     maxWidth: 400,
+    ...shadows.lg,
   },
   title: {
     fontSize: 24,
-    fontWeight: "bold",
-    marginBottom: 8,
+    fontWeight: "700",
+    marginBottom: spacing.sm,
     textAlign: "center",
+    color: colors.neutral900,
   },
   subtitle: {
     fontSize: 14,
-    color: "#666",
+    color: colors.neutral500,
     textAlign: "center",
-    marginBottom: 20,
+    marginBottom: spacing.xl,
   },
   input: {
     borderWidth: 1,
-    borderColor: "#ddd",
-    borderRadius: 8,
-    padding: 12,
-    marginBottom: 16,
+    borderColor: colors.neutral200,
+    borderRadius: borderRadius.md,
+    padding: spacing.md,
+    marginBottom: spacing.lg,
     fontSize: 16,
+    color: colors.neutral700,
+    backgroundColor: colors.neutral50,
   },
   languageContainer: {
     flexDirection: "row",
     alignItems: "center",
-    marginBottom: 24,
+    marginBottom: spacing.xxl,
   },
   languageLabel: {
     fontSize: 16,
-    marginRight: 12,
+    marginRight: spacing.md,
     fontWeight: "500",
+    color: colors.neutral700,
   },
   languageButton: {
-    paddingVertical: 10,
-    paddingHorizontal: 16,
-    borderRadius: 8,
+    paddingVertical: spacing.md,
+    paddingHorizontal: spacing.lg,
+    borderRadius: borderRadius.sm,
     borderWidth: 1,
-    borderColor: "#ddd",
-    marginHorizontal: 4,
+    borderColor: colors.neutral200,
+    marginHorizontal: spacing.xs,
     minWidth: 80,
     alignItems: "center",
+    backgroundColor: colors.neutral50,
   },
   languageButtonSelected: {
-    backgroundColor: "#2196F3",
-    borderColor: "#2196F3",
+    backgroundColor: colors.primarySurface,
+    borderColor: colors.primaryLight,
   },
   languageButtonText: {
     fontSize: 14,
-    color: "#666",
+    color: colors.neutral500,
     fontWeight: "500",
   },
   languageButtonTextSelected: {
-    color: "white",
+    color: colors.primary,
+    fontWeight: "600",
   },
   buttonContainer: {
     flexDirection: "row",
@@ -253,28 +260,30 @@ const styles = StyleSheet.create({
   },
   button: {
     flex: 1,
-    padding: 12,
-    borderRadius: 8,
-    marginHorizontal: 8,
+    padding: spacing.md,
+    borderRadius: borderRadius.md,
+    marginHorizontal: spacing.sm,
     alignItems: "center",
     justifyContent: "center",
     minHeight: 44,
   },
   cancelButton: {
-    backgroundColor: "#f0f0f0",
+    backgroundColor: colors.neutral100,
+  },
+  cancelButtonText: {
+    fontSize: 16,
+    fontWeight: "600",
+    color: colors.neutral700,
   },
   addButton: {
-    backgroundColor: "#2196F3",
+    backgroundColor: colors.primary,
+  },
+  addButtonText: {
+    fontSize: 16,
+    fontWeight: "600",
+    color: colors.surface,
   },
   buttonDisabled: {
     opacity: 0.6,
-  },
-  buttonText: {
-    fontSize: 16,
-    fontWeight: "600",
-    color: "#666",
-  },
-  addButtonText: {
-    color: "white",
   },
 });
