@@ -6,11 +6,14 @@ import {
   Text,
   Dimensions,
   ActivityIndicator,
+  TouchableOpacity,
 } from "react-native";
 import { Word, WordInfoMode } from "../types";
 import { getExampleSentence } from "../services/gemini";
 import { generateFrenchExample } from "../services/openai";
 import { isVerb } from "../utils/wordUtils";
+import * as Speech from "expo-speech";
+import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("window");
 const CARD_WIDTH = SCREEN_WIDTH * 0.9;
@@ -24,6 +27,8 @@ export const WordInfoPanel: React.FC<WordInfoPanelProps> = ({ word }) => {
   const [exampleSentence, setExampleSentence] = useState<string | null>(null);
   const [isLoadingSentence, setIsLoadingSentence] = useState(false);
   const [sentenceError, setSentenceError] = useState<string | null>(null);
+  const [translatedExample, setTranslatedExample] = useState<string | null>(null);
+  const [isTranslating, setIsTranslating] = useState(false);
 
   // Reset panel state when word changes
   useEffect(() => {
@@ -31,7 +36,33 @@ export const WordInfoPanel: React.FC<WordInfoPanelProps> = ({ word }) => {
     setExampleSentence(null);
     setIsLoadingSentence(false);
     setSentenceError(null);
+    setTranslatedExample(null);
+    setIsTranslating(false);
   }, [word]);
+
+  const handleSpeakExample = () => {
+    if (exampleSentence) {
+      Speech.speak(exampleSentence, { language: "fr-FR" });
+    }
+  };
+
+  const handleTranslateExample = async () => {
+    if (!exampleSentence) return;
+    setIsTranslating(true);
+    try {
+      const encoded = encodeURIComponent(exampleSentence);
+      const res = await fetch(
+        `https://api.mymemory.translated.net/get?q=${encoded}&langpair=fr|en`
+      );
+      const data = await res.json();
+      const translation = data?.responseData?.translatedText;
+      setTranslatedExample(translation || "Translation unavailable");
+    } catch {
+      setTranslatedExample("Translation failed. Try again.");
+    } finally {
+      setIsTranslating(false);
+    }
+  };
 
   const wordIsVerb = isVerb(word);
 
@@ -66,24 +97,24 @@ export const WordInfoPanel: React.FC<WordInfoPanelProps> = ({ word }) => {
 
   const handleShowConjugation = async () => {
     if (currentMode === "conjugation") {
-      // Toggle off if already selected
       setCurrentMode(null);
     } else {
       setCurrentMode("conjugation");
     }
     setExampleSentence(null);
     setSentenceError(null);
+    setTranslatedExample(null);
   };
 
   const handleShowPastParticiple = async () => {
     if (currentMode === "past_participle") {
-      // Toggle off if already selected
       setCurrentMode(null);
     } else {
       setCurrentMode("past_participle");
     }
     setExampleSentence(null);
     setSentenceError(null);
+    setTranslatedExample(null);
   };
 
   const renderContent = () => {
@@ -106,9 +137,33 @@ export const WordInfoPanel: React.FC<WordInfoPanelProps> = ({ word }) => {
       if (exampleSentence) {
         return (
           <View style={styles.contentContainer}>
-            <Text style={styles.contentText} selectable={true}>
-              {exampleSentence}
-            </Text>
+            <View style={styles.exampleRow}>
+              <Text style={[styles.contentText, { flex: 1 }]} selectable={true}>
+                {exampleSentence}
+              </Text>
+              <TouchableOpacity
+                onPress={handleSpeakExample}
+                style={styles.speakerIcon}
+                accessibilityLabel="Play example pronunciation"
+              >
+                <MaterialIcons name="volume-up" size={22} color="#2196F3" />
+              </TouchableOpacity>
+            </View>
+            {translatedExample ? (
+              <Text style={styles.translationText}>{translatedExample}</Text>
+            ) : (
+              <TouchableOpacity
+                style={styles.translateButton}
+                onPress={handleTranslateExample}
+                disabled={isTranslating}
+              >
+                {isTranslating ? (
+                  <ActivityIndicator size="small" color="white" />
+                ) : (
+                  <Text style={styles.translateButtonText}>Translate</Text>
+                )}
+              </TouchableOpacity>
+            )}
           </View>
         );
       }
@@ -354,6 +409,36 @@ const styles = StyleSheet.create({
   contentText: {
     fontSize: 16,
     color: "#333",
+    lineHeight: 20,
+  },
+  exampleRow: {
+    flexDirection: "row",
+    alignItems: "flex-start",
+  },
+  speakerIcon: {
+    marginLeft: 8,
+    paddingTop: 2,
+  },
+  translateButton: {
+    marginTop: 10,
+    backgroundColor: "#FF9800",
+    paddingVertical: 6,
+    paddingHorizontal: 14,
+    borderRadius: 6,
+    alignSelf: "flex-start",
+    minWidth: 80,
+    alignItems: "center",
+  },
+  translateButtonText: {
+    color: "white",
+    fontSize: 13,
+    fontWeight: "600",
+  },
+  translationText: {
+    marginTop: 8,
+    fontSize: 14,
+    color: "#555",
+    fontStyle: "italic",
     lineHeight: 20,
   },
   errorContainer: {
