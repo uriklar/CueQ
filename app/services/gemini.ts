@@ -7,7 +7,7 @@ console.log(
 );
 
 const BASE_URL = "https://generativelanguage.googleapis.com/v1beta";
-const MODEL = "gemini-2.0-flash-lite";
+const MODEL = "gemini-2.5-flash";
 
 interface GeminiResponse {
   candidates: Array<{
@@ -54,7 +54,15 @@ export const translateSentence = async (
 
     return translation.trim().replace(/^["']|["']$/g, "");
   } catch (error) {
-    console.error("Error translating sentence with Gemini:", error);
+    if (axios.isAxiosError(error)) {
+      console.error("Translation error details:", {
+        status: error.response?.status,
+        statusText: error.response?.statusText,
+        data: JSON.stringify(error.response?.data),
+      });
+    } else {
+      console.error("Error translating sentence with Gemini:", error);
+    }
     throw error;
   }
 };
