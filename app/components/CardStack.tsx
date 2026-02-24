@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   View,
@@ -9,12 +9,15 @@ import {
   ScrollView,
   SafeAreaView,
   Platform,
+  TouchableOpacity,
 } from "react-native";
 import { Word, SwipeDirection } from "../types";
 import { WordCard } from "./WordCard";
 import { useCardStack } from "../hooks/useCardStack";
 import { AddWordModal } from "./AddWordModal/index";
 import { BlurView } from "expo-blur";
+import * as Speech from "expo-speech";
+import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("window");
 const CARD_WIDTH = SCREEN_WIDTH * 0.9;
@@ -48,6 +51,39 @@ export const CardStack: React.FC<CardStackProps> = ({
   const [containerHeight, setContainerHeight] = useState(0);
   const [contentHeight, setContentHeight] = useState(0);
   const [showBottomBlur, setShowBottomBlur] = useState(false);
+
+  const [translatedExample, setTranslatedExample] = useState<string | null>(null);
+  const [isTranslating, setIsTranslating] = useState(false);
+
+  // Reset translation when example changes
+  useEffect(() => {
+    setTranslatedExample(null);
+    setIsTranslating(false);
+  }, [exampleSentence]);
+
+  const handleSpeakExample = () => {
+    if (exampleSentence) {
+      Speech.speak(exampleSentence, { language: "fr-FR" });
+    }
+  };
+
+  const handleTranslateExample = async () => {
+    if (!exampleSentence) return;
+    setIsTranslating(true);
+    try {
+      const encoded = encodeURIComponent(exampleSentence);
+      const res = await fetch(
+        `https://api.mymemory.translated.net/get?q=${encoded}&langpair=fr|en`
+      );
+      const data = await res.json();
+      const translation = data?.responseData?.translatedText;
+      setTranslatedExample(translation || "Translation unavailable");
+    } catch {
+      setTranslatedExample("Translation failed. Try again.");
+    } finally {
+      setIsTranslating(false);
+    }
+  };
 
   const handleLongPressOnCard = (word: Word) => {
     setWordToEdit(word);
@@ -115,19 +151,51 @@ export const CardStack: React.FC<CardStackProps> = ({
             style={styles.sentenceContainer}
             onLayout={(e) => setContainerHeight(e.nativeEvent.layout.height)}
           >
-            <ScrollView
-              showsVerticalScrollIndicator={true}
-              onContentSizeChange={(w, h) => setContentHeight(h)}
-              onScroll={(e) => {
-                const y = e.nativeEvent.contentOffset.y;
-                setShowBottomBlur(y + containerHeight < contentHeight);
-              }}
-              scrollEventThrottle={16}
-            >
-              <Text style={styles.sentenceText} selectable={true}>
-                {exampleSentence}
-              </Text>
-            </ScrollView>
+            {/* Example text row with speaker icon */}
+            <View style={styles.exampleRow}>
+              <ScrollView
+                style={styles.exampleScrollView}
+                showsVerticalScrollIndicator={true}
+                onContentSizeChange={(w, h) => setContentHeight(h)}
+                onScroll={(e) => {
+                  const y = e.nativeEvent.contentOffset.y;
+                  setShowBottomBlur(y + containerHeight < contentHeight);
+                }}
+                scrollEventThrottle={16}
+              >
+                <Text style={styles.sentenceText} selectable={true}>
+                  {exampleSentence}
+                </Text>
+              </ScrollView>
+              <TouchableOpacity
+                onPress={handleSpeakExample}
+                style={styles.speakerIcon}
+                accessibilityLabel="Play example pronunciation"
+              >
+                <MaterialIcons name="volume-up" size={24} color="#2196F3" />
+              </TouchableOpacity>
+            </View>
+
+            {/* Translation */}
+            {translatedExample && (
+              <Text style={styles.translationText}>{translatedExample}</Text>
+            )}
+
+            {/* Translate button */}
+            {!translatedExample && (
+              <TouchableOpacity
+                style={styles.translateButton}
+                onPress={handleTranslateExample}
+                disabled={isTranslating}
+              >
+                {isTranslating ? (
+                  <ActivityIndicator size="small" color="white" />
+                ) : (
+                  <Text style={styles.translateButtonText}>Translate</Text>
+                )}
+              </TouchableOpacity>
+            )}
+
             {showBottomBlur && (
               <BlurView
                 intensity={10}
@@ -238,13 +306,13 @@ const styles = StyleSheet.create({
     fontWeight: "600",
   },
   hardButton: {
-    backgroundColor: "#F44336", // Red
+    backgroundColor: "#F44336",
   },
   mediumButton: {
-    backgroundColor: "#2196F3", // Blue
+    backgroundColor: "#2196F3",
   },
   easyButton: {
-    backgroundColor: "#4CAF50", // Green
+    backgroundColor: "#4CAF50",
   },
   noMoreCards: {
     fontSize: 24,
@@ -268,12 +336,46 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginBottom: 20,
     width: CARD_WIDTH,
-    maxHeight: 180,
+    maxHeight: 220,
+  },
+  exampleRow: {
+    flexDirection: "row",
+    alignItems: "flex-start",
+  },
+  exampleScrollView: {
+    flex: 1,
+    maxHeight: 100,
   },
   sentenceText: {
     fontSize: 16,
     color: "#333",
     lineHeight: 24,
+  },
+  speakerIcon: {
+    marginLeft: 8,
+    paddingTop: 2,
+  },
+  translateButton: {
+    marginTop: 10,
+    backgroundColor: "#FF9800",
+    paddingVertical: 6,
+    paddingHorizontal: 14,
+    borderRadius: 6,
+    alignSelf: "flex-start",
+    minWidth: 80,
+    alignItems: "center",
+  },
+  translateButtonText: {
+    color: "white",
+    fontSize: 13,
+    fontWeight: "600",
+  },
+  translationText: {
+    marginTop: 8,
+    fontSize: 14,
+    color: "#555",
+    fontStyle: "italic",
+    lineHeight: 20,
   },
   loadingContainer: {
     marginBottom: 20,
