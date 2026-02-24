@@ -30,6 +30,7 @@ import {
 } from "../utils/settingsUtils";
 import { saveOpenAIApiKey, loadOpenAIApiKey } from "../services/openai";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { colors, shadows, spacing, borderRadius } from "../theme";
 
 const STORAGE_KEY = "@french_cards_words";
 
@@ -410,26 +411,26 @@ export const Dashboard = () => {
           style={styles.settingsButton}
           onPress={handleOpenSettingsModal}
         >
-          <Ionicons name="settings-outline" size={24} color="#666" />
+          <Ionicons name="settings-outline" size={24} color={colors.neutral500} />
         </Pressable>
         <View style={styles.headerButtons}>
           <Pressable
-            style={[styles.button, styles.exportButton]}
+            style={[styles.button, styles.secondaryButton]}
             onPress={handleExportWords}
           >
-            <Text style={styles.buttonText}>Export</Text>
+            <Text style={styles.secondaryButtonText}>Export</Text>
           </Pressable>
           <Pressable
-            style={[styles.button, styles.importButton]}
+            style={[styles.button, styles.secondaryButton]}
             onPress={handleOpenBulkImportModal}
           >
-            <Text style={styles.buttonText}>Bulk Import</Text>
+            <Text style={styles.secondaryButtonText}>Bulk Import</Text>
           </Pressable>
           <Pressable
             style={[styles.button, styles.addButton]}
             onPress={handleOpenAddModal}
           >
-            <Text style={styles.buttonText}>Add Word</Text>
+            <Text style={styles.addButtonText}>Add Word</Text>
           </Pressable>
         </View>
       </View>
@@ -487,41 +488,41 @@ export const Dashboard = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f5f5f5",
+    backgroundColor: colors.neutral50,
   },
   header: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    padding: 16,
-    backgroundColor: "white",
-    borderBottomWidth: 1,
-    borderBottomColor: "#eee",
+    padding: spacing.lg,
+    backgroundColor: colors.surface,
+    ...shadows.sm,
   },
   settingsButton: {
-    padding: 8,
-    borderRadius: 8,
+    padding: spacing.sm,
+    borderRadius: borderRadius.sm,
   },
   headerButtons: {
     flexDirection: "row",
   },
   button: {
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    borderRadius: 8,
-    marginLeft: 8,
+    paddingHorizontal: spacing.lg,
+    paddingVertical: spacing.sm,
+    borderRadius: borderRadius.sm,
+    marginLeft: spacing.sm,
+  },
+  secondaryButton: {
+    backgroundColor: colors.neutral100,
+  },
+  secondaryButtonText: {
+    color: colors.neutral700,
+    fontWeight: "600",
   },
   addButton: {
-    backgroundColor: "#2196F3",
+    backgroundColor: colors.primary,
   },
-  importButton: {
-    backgroundColor: "#4CAF50",
-  },
-  exportButton: {
-    backgroundColor: "#FF9800",
-  },
-  buttonText: {
-    color: "white",
+  addButtonText: {
+    color: colors.surface,
     fontWeight: "600",
   },
 });

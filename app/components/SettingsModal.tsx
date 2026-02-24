@@ -9,6 +9,7 @@ import {
   TextInput,
 } from "react-native";
 import { PracticeDistribution, AppSettings } from "../utils/settingsUtils";
+import { colors, shadows, spacing, borderRadius } from "../theme";
 
 interface SettingsModalProps {
   visible: boolean;
@@ -107,6 +108,21 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
     onClose();
   };
 
+  const getSliderColor = (type: string) => {
+    switch (type) {
+      case "new":
+        return colors.primaryLight;
+      case "hard":
+        return colors.danger;
+      case "medium":
+        return colors.warning;
+      case "easy":
+        return colors.success;
+      default:
+        return colors.neutral300;
+    }
+  };
+
   return (
     <Modal
       animationType="slide"
@@ -123,13 +139,13 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                 style={[styles.button, styles.cancelButton]}
                 onPress={handleClose}
               >
-                <Text style={styles.buttonText}>Cancel</Text>
+                <Text style={styles.cancelButtonText}>Cancel</Text>
               </Pressable>
               <Pressable
                 style={[styles.button, styles.saveButton]}
                 onPress={handleSave}
               >
-                <Text style={styles.buttonText}>Save</Text>
+                <Text style={styles.saveButtonText}>Save</Text>
               </Pressable>
             </View>
           </View>
@@ -148,7 +164,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                 value={openaiApiKey}
                 onChangeText={setOpenaiApiKey}
                 placeholder="sk-..."
-                placeholderTextColor="#999"
+                placeholderTextColor={colors.neutral300}
                 secureTextEntry={true}
                 autoCapitalize="none"
                 autoCorrect={false}
@@ -165,169 +181,49 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
             </Text>
 
             <View style={styles.sliderContainer}>
-              <View style={styles.sliderRow}>
-                <Text style={styles.sliderLabel}>
-                  New Words: {Math.round(distribution.new * 100)}%
-                </Text>
-                <View style={styles.sliderControls}>
-                  <Pressable
-                    style={[styles.sliderButton, styles.decreaseButton]}
-                    onPress={() =>
-                      adjustDistribution(
-                        "new",
-                        Math.max(0, distribution.new - 0.05)
-                      )
-                    }
-                  >
-                    <Text style={styles.sliderButtonText}>-</Text>
-                  </Pressable>
-                  <View style={styles.sliderTrack}>
-                    <View
-                      style={[
-                        styles.sliderFill,
-                        {
-                          width: `${distribution.new * 100}%`,
-                          backgroundColor: "#2196F3",
-                        },
-                      ]}
-                    />
+              {(["new", "hard", "medium", "easy"] as const).map((type) => (
+                <View key={type} style={styles.sliderRow}>
+                  <Text style={styles.sliderLabel}>
+                    {type.charAt(0).toUpperCase() + type.slice(1)} Words:{" "}
+                    {Math.round(distribution[type] * 100)}%
+                  </Text>
+                  <View style={styles.sliderControls}>
+                    <Pressable
+                      style={[styles.sliderButton, styles.decreaseButton]}
+                      onPress={() =>
+                        adjustDistribution(
+                          type,
+                          Math.max(0, distribution[type] - 0.05)
+                        )
+                      }
+                    >
+                      <Text style={styles.sliderButtonText}>-</Text>
+                    </Pressable>
+                    <View style={styles.sliderTrack}>
+                      <View
+                        style={[
+                          styles.sliderFill,
+                          {
+                            width: `${distribution[type] * 100}%`,
+                            backgroundColor: getSliderColor(type),
+                          },
+                        ]}
+                      />
+                    </View>
+                    <Pressable
+                      style={[styles.sliderButton, styles.increaseButton]}
+                      onPress={() =>
+                        adjustDistribution(
+                          type,
+                          Math.min(1, distribution[type] + 0.05)
+                        )
+                      }
+                    >
+                      <Text style={styles.sliderButtonText}>+</Text>
+                    </Pressable>
                   </View>
-                  <Pressable
-                    style={[styles.sliderButton, styles.increaseButton]}
-                    onPress={() =>
-                      adjustDistribution(
-                        "new",
-                        Math.min(1, distribution.new + 0.05)
-                      )
-                    }
-                  >
-                    <Text style={styles.sliderButtonText}>+</Text>
-                  </Pressable>
                 </View>
-              </View>
-
-              <View style={styles.sliderRow}>
-                <Text style={styles.sliderLabel}>
-                  Hard Words: {Math.round(distribution.hard * 100)}%
-                </Text>
-                <View style={styles.sliderControls}>
-                  <Pressable
-                    style={[styles.sliderButton, styles.decreaseButton]}
-                    onPress={() =>
-                      adjustDistribution(
-                        "hard",
-                        Math.max(0, distribution.hard - 0.05)
-                      )
-                    }
-                  >
-                    <Text style={styles.sliderButtonText}>-</Text>
-                  </Pressable>
-                  <View style={styles.sliderTrack}>
-                    <View
-                      style={[
-                        styles.sliderFill,
-                        {
-                          width: `${distribution.hard * 100}%`,
-                          backgroundColor: "#F44336",
-                        },
-                      ]}
-                    />
-                  </View>
-                  <Pressable
-                    style={[styles.sliderButton, styles.increaseButton]}
-                    onPress={() =>
-                      adjustDistribution(
-                        "hard",
-                        Math.min(1, distribution.hard + 0.05)
-                      )
-                    }
-                  >
-                    <Text style={styles.sliderButtonText}>+</Text>
-                  </Pressable>
-                </View>
-              </View>
-
-              <View style={styles.sliderRow}>
-                <Text style={styles.sliderLabel}>
-                  Medium Words: {Math.round(distribution.medium * 100)}%
-                </Text>
-                <View style={styles.sliderControls}>
-                  <Pressable
-                    style={[styles.sliderButton, styles.decreaseButton]}
-                    onPress={() =>
-                      adjustDistribution(
-                        "medium",
-                        Math.max(0, distribution.medium - 0.05)
-                      )
-                    }
-                  >
-                    <Text style={styles.sliderButtonText}>-</Text>
-                  </Pressable>
-                  <View style={styles.sliderTrack}>
-                    <View
-                      style={[
-                        styles.sliderFill,
-                        {
-                          width: `${distribution.medium * 100}%`,
-                          backgroundColor: "#FF9800",
-                        },
-                      ]}
-                    />
-                  </View>
-                  <Pressable
-                    style={[styles.sliderButton, styles.increaseButton]}
-                    onPress={() =>
-                      adjustDistribution(
-                        "medium",
-                        Math.min(1, distribution.medium + 0.05)
-                      )
-                    }
-                  >
-                    <Text style={styles.sliderButtonText}>+</Text>
-                  </Pressable>
-                </View>
-              </View>
-
-              <View style={styles.sliderRow}>
-                <Text style={styles.sliderLabel}>
-                  Easy Words: {Math.round(distribution.easy * 100)}%
-                </Text>
-                <View style={styles.sliderControls}>
-                  <Pressable
-                    style={[styles.sliderButton, styles.decreaseButton]}
-                    onPress={() =>
-                      adjustDistribution(
-                        "easy",
-                        Math.max(0, distribution.easy - 0.05)
-                      )
-                    }
-                  >
-                    <Text style={styles.sliderButtonText}>-</Text>
-                  </Pressable>
-                  <View style={styles.sliderTrack}>
-                    <View
-                      style={[
-                        styles.sliderFill,
-                        {
-                          width: `${distribution.easy * 100}%`,
-                          backgroundColor: "#4CAF50",
-                        },
-                      ]}
-                    />
-                  </View>
-                  <Pressable
-                    style={[styles.sliderButton, styles.increaseButton]}
-                    onPress={() =>
-                      adjustDistribution(
-                        "easy",
-                        Math.min(1, distribution.easy + 0.05)
-                      )
-                    }
-                  >
-                    <Text style={styles.sliderButtonText}>+</Text>
-                  </Pressable>
-                </View>
-              </View>
+              ))}
             </View>
 
             <Text style={styles.totalText}>
@@ -353,83 +249,80 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "rgba(0,0,0,0.5)",
+    backgroundColor: colors.overlay,
   },
   modalView: {
     width: "90%",
     maxHeight: "80%",
-    backgroundColor: "white",
-    borderRadius: 20,
-    paddingVertical: 20,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
+    backgroundColor: colors.surface,
+    borderRadius: borderRadius.xl,
+    paddingVertical: spacing.xl,
+    ...shadows.lg,
   },
   header: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    paddingHorizontal: 20,
-    paddingBottom: 20,
+    paddingHorizontal: spacing.xl,
+    paddingBottom: spacing.xl,
     borderBottomWidth: 1,
-    borderBottomColor: "#eee",
+    borderBottomColor: colors.neutral200,
   },
   modalTitle: {
     fontSize: 20,
-    fontWeight: "bold",
-    color: "#333",
+    fontWeight: "700",
+    color: colors.neutral900,
   },
   buttonContainer: {
     flexDirection: "row",
   },
   button: {
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    borderRadius: 8,
-    marginLeft: 8,
+    paddingHorizontal: spacing.lg,
+    paddingVertical: spacing.sm,
+    borderRadius: borderRadius.sm,
+    marginLeft: spacing.sm,
   },
   cancelButton: {
-    backgroundColor: "#6c757d",
+    backgroundColor: colors.neutral100,
+  },
+  cancelButtonText: {
+    color: colors.neutral700,
+    fontWeight: "600",
   },
   saveButton: {
-    backgroundColor: "#2196F3",
+    backgroundColor: colors.primary,
   },
-  buttonText: {
-    color: "white",
+  saveButtonText: {
+    color: colors.surface,
     fontWeight: "600",
   },
   scrollView: {
-    paddingHorizontal: 20,
+    paddingHorizontal: spacing.xl,
   },
   sectionTitle: {
     fontSize: 18,
     fontWeight: "600",
-    color: "#333",
-    marginTop: 20,
-    marginBottom: 8,
+    color: colors.neutral900,
+    marginTop: spacing.xl,
+    marginBottom: spacing.sm,
   },
   sectionDescription: {
     fontSize: 14,
-    color: "#666",
-    marginBottom: 20,
+    color: colors.neutral500,
+    marginBottom: spacing.xl,
     lineHeight: 20,
   },
   sliderContainer: {
-    marginBottom: 20,
+    marginBottom: spacing.xl,
   },
   sliderRow: {
-    marginBottom: 24,
+    marginBottom: spacing.xxl,
   },
   sliderLabel: {
     fontSize: 16,
     fontWeight: "500",
-    color: "#333",
-    marginBottom: 8,
+    color: colors.neutral700,
+    marginBottom: spacing.sm,
   },
   sliderControls: {
     flexDirection: "row",
@@ -444,22 +337,22 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   decreaseButton: {
-    backgroundColor: "#FF6B6B",
+    backgroundColor: colors.neutral300,
   },
   increaseButton: {
-    backgroundColor: "#4ECDC4",
+    backgroundColor: colors.primary,
   },
   sliderButtonText: {
-    color: "white",
+    color: colors.surface,
     fontSize: 20,
     fontWeight: "bold",
   },
   sliderTrack: {
     flex: 1,
     height: 8,
-    backgroundColor: "#ddd",
+    backgroundColor: colors.neutral200,
     borderRadius: 4,
-    marginHorizontal: 12,
+    marginHorizontal: spacing.md,
     overflow: "hidden",
   },
   sliderFill: {
@@ -469,34 +362,35 @@ const styles = StyleSheet.create({
   totalText: {
     fontSize: 16,
     fontWeight: "600",
-    color: "#333",
+    color: colors.neutral700,
     textAlign: "center",
-    paddingVertical: 10,
-    backgroundColor: "#f8f9fa",
-    borderRadius: 8,
+    paddingVertical: spacing.md,
+    backgroundColor: colors.neutral100,
+    borderRadius: borderRadius.sm,
   },
   inputContainer: {
-    marginBottom: 20,
+    marginBottom: spacing.xl,
   },
   inputLabel: {
     fontSize: 16,
     fontWeight: "500",
-    color: "#333",
-    marginBottom: 8,
+    color: colors.neutral700,
+    marginBottom: spacing.sm,
   },
   textInput: {
     borderWidth: 1,
-    borderColor: "#ddd",
-    borderRadius: 8,
-    paddingHorizontal: 12,
-    paddingVertical: 10,
+    borderColor: colors.neutral200,
+    borderRadius: borderRadius.md,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.md,
     fontSize: 16,
-    backgroundColor: "#fff",
-    marginBottom: 4,
+    backgroundColor: colors.neutral50,
+    color: colors.neutral700,
+    marginBottom: spacing.xs,
   },
   inputHelp: {
     fontSize: 12,
-    color: "#666",
+    color: colors.neutral500,
     lineHeight: 16,
   },
 });

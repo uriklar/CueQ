@@ -9,8 +9,8 @@ import {
   ScrollView,
   Alert,
 } from "react-native";
-// import { Omit } from "utility-types"; // Built-in TypeScript utility type
 import { Word } from "../types";
+import { colors, shadows, spacing, borderRadius } from "../theme";
 
 interface BulkImportModalProps {
   visible: boolean;
@@ -75,13 +75,13 @@ export const BulkImportModal = ({
                 style={[styles.button, styles.cancelButton]}
                 onPress={onClose}
               >
-                <Text style={styles.buttonText}>Cancel</Text>
+                <Text style={styles.cancelButtonText}>Cancel</Text>
               </Pressable>
               <Pressable
                 style={[styles.button, styles.importButton]}
                 onPress={handleImport}
               >
-                <Text style={styles.buttonText}>Import</Text>
+                <Text style={styles.importButtonText}>Import</Text>
               </Pressable>
             </View>
           </View>
@@ -95,6 +95,7 @@ export const BulkImportModal = ({
               value={jsonInput}
               onChangeText={setJsonInput}
               placeholder="Paste your JSON array here"
+              placeholderTextColor={colors.neutral300}
             />
           </ScrollView>
 
@@ -110,71 +111,72 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    backgroundColor: colors.overlay,
   },
   modalView: {
     width: "90%",
     maxHeight: "80%",
-    backgroundColor: "white",
-    borderRadius: 16,
-    padding: 20,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
+    backgroundColor: colors.surface,
+    borderRadius: borderRadius.xl,
+    padding: spacing.xl,
+    ...shadows.lg,
   },
   header: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginBottom: 16,
+    marginBottom: spacing.lg,
     width: "100%",
   },
   modalTitle: {
     fontSize: 20,
-    fontWeight: "bold",
+    fontWeight: "700",
+    color: colors.neutral900,
   },
   label: {
     fontSize: 16,
-    marginBottom: 8,
+    marginBottom: spacing.sm,
+    color: colors.neutral700,
   },
   scrollView: {
     height: 300,
     borderWidth: 1,
-    borderColor: "#ccc",
-    borderRadius: 8,
-    padding: 8,
+    borderColor: colors.neutral200,
+    borderRadius: borderRadius.md,
+    padding: spacing.sm,
+    backgroundColor: colors.neutral50,
   },
   textInput: {
     fontSize: 14,
     textAlignVertical: "top",
+    color: colors.neutral700,
   },
   errorText: {
-    color: "red",
-    marginTop: 8,
+    color: colors.danger,
+    marginTop: spacing.sm,
   },
   buttonContainer: {
     flexDirection: "row",
   },
   button: {
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    borderRadius: 8,
-    marginLeft: 8,
+    paddingHorizontal: spacing.lg,
+    paddingVertical: spacing.sm,
+    borderRadius: borderRadius.sm,
+    marginLeft: spacing.sm,
     alignItems: "center",
   },
   cancelButton: {
-    backgroundColor: "#ccc",
+    backgroundColor: colors.neutral100,
+  },
+  cancelButtonText: {
+    color: colors.neutral700,
+    fontWeight: "600",
   },
   importButton: {
-    backgroundColor: "#4CAF50",
+    backgroundColor: colors.success,
   },
-  buttonText: {
-    color: "white",
+  importButtonText: {
+    color: colors.surface,
     fontWeight: "600",
   },
 });

@@ -5,6 +5,7 @@ import { WordCard } from "./WordCard";
 import { WordInfoPanel } from "./WordInfoPanel";
 import { SwipeActionButtons } from "./SwipeActionButtons";
 import { AddWordModal } from "./AddWordModal";
+import { colors, spacing } from "../theme";
 
 interface CardStackProps {
   words: Word[];
@@ -111,22 +112,23 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    paddingTop: 20,
-    paddingHorizontal: 20,
+    paddingTop: spacing.xl,
+    paddingHorizontal: spacing.xl,
+    backgroundColor: colors.neutral50,
   },
   cardContainer: {
     flex: 1,
     width: "100%",
     alignItems: "center",
     justifyContent: "center",
-    paddingVertical: 20,
+    paddingVertical: spacing.xl,
   },
   spacer: {
-    height: 20,
+    height: spacing.xl,
   },
   noMoreCards: {
     fontSize: 24,
-    color: "#666",
+    color: colors.neutral500,
     marginTop: "50%",
   },
 });

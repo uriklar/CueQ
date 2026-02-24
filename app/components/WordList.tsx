@@ -10,6 +10,7 @@ import {
 import { Word, Difficulty } from "../types";
 import { SearchInput } from "./SearchInput";
 import { Swipeable } from "react-native-gesture-handler";
+import { colors, shadows, spacing, borderRadius } from "../theme";
 
 interface WordListProps {
   words: Word[];
@@ -113,6 +114,21 @@ export const WordList: React.FC<WordListProps> = ({
       );
     };
 
+    const getDifficultyBadgeStyle = () => {
+      switch (item.difficulty) {
+        case "easy":
+          return { bg: colors.successLight, text: colors.success };
+        case "medium":
+          return { bg: colors.warningLight, text: colors.warning };
+        case "hard":
+          return { bg: colors.dangerLight, text: colors.danger };
+        default:
+          return { bg: colors.neutral200, text: colors.neutral500 };
+      }
+    };
+
+    const badgeColors = getDifficultyBadgeStyle();
+
     return (
       <Swipeable
         renderRightActions={(progress, dragX) =>
@@ -125,6 +141,7 @@ export const WordList: React.FC<WordListProps> = ({
           style={styles.wordItemPressable}
         >
           <View style={styles.wordItem}>
+            <View style={styles.wordAccent} />
             <View style={styles.wordContent}>
               <Text style={styles.frenchText}>
                 {item.french}
@@ -139,10 +156,10 @@ export const WordList: React.FC<WordListProps> = ({
               onPress={() => onPressDifficulty(item)}
               style={[
                 styles.difficultyBadge,
-                getDifficultyStyle(item.difficulty),
+                { backgroundColor: badgeColors.bg },
               ]}
             >
-              <Text style={styles.difficultyText}>
+              <Text style={[styles.difficultyText, { color: badgeColors.text }]}>
                 {item.difficulty || "new"}
               </Text>
             </Pressable>
@@ -175,19 +192,6 @@ export const WordList: React.FC<WordListProps> = ({
   );
 };
 
-const getDifficultyStyle = (difficulty?: Difficulty) => {
-  switch (difficulty) {
-    case "easy":
-      return styles.easyBadge;
-    case "medium":
-      return styles.mediumBadge;
-    case "hard":
-      return styles.hardBadge;
-    default:
-      return styles.newBadge;
-  }
-};
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -195,61 +199,65 @@ const styles = StyleSheet.create({
   },
   filterContainer: {
     flexDirection: "row",
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    backgroundColor: "white",
+    paddingHorizontal: spacing.lg,
+    paddingVertical: spacing.sm,
+    backgroundColor: colors.surface,
   },
   filterButton: {
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    marginRight: 8,
-    borderRadius: 16,
-    backgroundColor: "#f0f0f0",
+    paddingHorizontal: spacing.lg,
+    paddingVertical: spacing.sm,
+    marginRight: spacing.sm,
+    borderRadius: borderRadius.full,
+    backgroundColor: colors.neutral100,
+    borderWidth: 1,
+    borderColor: colors.neutral200,
   },
   filterButtonSelected: {
-    backgroundColor: "#2196F3",
+    backgroundColor: colors.primarySurface,
+    borderColor: colors.primaryLight,
   },
   filterButtonText: {
-    color: "#666",
+    color: colors.neutral500,
     fontWeight: "600",
   },
   filterButtonTextSelected: {
-    color: "white",
+    color: colors.primary,
   },
   wordCount: {
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    backgroundColor: "white",
+    paddingHorizontal: spacing.lg,
+    paddingVertical: spacing.sm,
+    backgroundColor: colors.surface,
   },
   wordCountText: {
     fontSize: 14,
     fontWeight: "600",
-    color: "#666",
+    color: colors.neutral500,
     textAlign: "center",
   },
   list: {
     flex: 1,
   },
   listContent: {
-    padding: 16,
+    padding: spacing.lg,
   },
   wordItemPressable: {
-    marginBottom: 8,
+    marginBottom: spacing.sm,
   },
   wordItem: {
     flexDirection: "row",
-    backgroundColor: "white",
-    padding: 16,
-    borderRadius: 8,
+    backgroundColor: colors.surface,
+    padding: spacing.lg,
+    borderRadius: borderRadius.md,
     alignItems: "center",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.2,
-    shadowRadius: 1.41,
-    elevation: 2,
+    overflow: "hidden",
+    ...shadows.md,
+  },
+  wordAccent: {
+    width: 3,
+    alignSelf: "stretch",
+    backgroundColor: colors.primaryLight,
+    borderRadius: 2,
+    marginRight: spacing.md,
   },
   wordContent: {
     flex: 1,
@@ -257,51 +265,39 @@ const styles = StyleSheet.create({
   frenchText: {
     fontSize: 18,
     fontWeight: "bold",
-    marginBottom: 4,
+    color: colors.neutral900,
+    marginBottom: spacing.xs,
   },
   englishText: {
     fontSize: 16,
-    color: "#666",
+    color: colors.neutral500,
   },
   examplesText: {
     fontSize: 14,
-    color: "#666",
+    color: colors.neutral500,
     fontStyle: "italic",
-    marginTop: 4,
+    marginTop: spacing.xs,
   },
   difficultyBadge: {
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderRadius: 12,
-    marginLeft: 8,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    borderRadius: borderRadius.sm,
+    marginLeft: spacing.sm,
   },
   difficultyText: {
-    color: "white",
     fontSize: 12,
     fontWeight: "600",
   },
-  easyBadge: {
-    backgroundColor: "#4CAF50",
-  },
-  mediumBadge: {
-    backgroundColor: "#2196F3",
-  },
-  hardBadge: {
-    backgroundColor: "#F44336",
-  },
-  newBadge: {
-    backgroundColor: "#9E9E9E",
-  },
   deleteButton: {
-    backgroundColor: "red",
+    backgroundColor: colors.danger,
     justifyContent: "center",
     alignItems: "center",
     width: 80,
-    paddingVertical: 16,
-    borderRadius: 8,
+    paddingVertical: spacing.lg,
+    borderRadius: borderRadius.md,
   },
   deleteButtonText: {
-    color: "white",
+    color: colors.surface,
     fontWeight: "bold",
   },
 });

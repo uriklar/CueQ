@@ -1,6 +1,8 @@
 import React from "react";
 import { StyleSheet, View, Pressable, Text } from "react-native";
+import { MaterialIcons } from "@expo/vector-icons";
 import { SwipeDirection } from "../types";
+import { colors, spacing, borderRadius } from "../theme";
 
 interface SwipeActionButtonsProps {
   onSwipe: (direction: SwipeDirection) => void;
@@ -15,18 +17,21 @@ export const SwipeActionButtons: React.FC<SwipeActionButtonsProps> = ({
         style={[styles.button, styles.hardButton]}
         onPress={() => onSwipe("left")}
       >
+        <MaterialIcons name="thumb-down" size={20} color={colors.surface} />
         <Text style={styles.buttonText}>Don't Know</Text>
       </Pressable>
       <Pressable
         style={[styles.button, styles.mediumButton]}
         onPress={() => onSwipe("up")}
       >
+        <MaterialIcons name="sentiment-neutral" size={20} color={colors.surface} />
         <Text style={styles.buttonText}>Kind Of</Text>
       </Pressable>
       <Pressable
         style={[styles.button, styles.easyButton]}
         onPress={() => onSwipe("right")}
       >
+        <MaterialIcons name="thumb-up" size={20} color={colors.surface} />
         <Text style={styles.buttonText}>Know Well</Text>
       </Pressable>
     </View>
@@ -38,29 +43,30 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     width: "100%",
-    paddingHorizontal: 20,
+    paddingHorizontal: spacing.xl,
     position: "absolute",
     bottom: 50,
   },
   button: {
-    paddingVertical: 12,
-    paddingHorizontal: 20,
-    borderRadius: 8,
+    paddingVertical: spacing.md,
+    paddingHorizontal: spacing.xl,
+    borderRadius: borderRadius.lg,
     minWidth: 100,
     alignItems: "center",
+    gap: spacing.xs,
   },
   buttonText: {
-    color: "white",
-    fontSize: 16,
+    color: colors.surface,
+    fontSize: 14,
     fontWeight: "600",
   },
   hardButton: {
-    backgroundColor: "#F44336", // Red
+    backgroundColor: colors.danger,
   },
   mediumButton: {
-    backgroundColor: "#2196F3", // Blue
+    backgroundColor: colors.accent,
   },
   easyButton: {
-    backgroundColor: "#4CAF50", // Green
+    backgroundColor: colors.success,
   },
 });
