@@ -19,6 +19,46 @@ interface GeminiResponse {
   }>;
 }
 
+export const translateSentence = async (
+  sentence: string
+): Promise<string> => {
+  if (!GEMINI_API_KEY) {
+    throw new Error("GEMINI_API_KEY is not set in environment variables");
+  }
+
+  const url = `${BASE_URL}/models/${MODEL}:generateContent?key=${GEMINI_API_KEY}`;
+
+  const requestBody = {
+    contents: [
+      {
+        parts: [
+          {
+            text: `Translate the following French sentence to English. Return only the English translation, nothing else:\n\n${sentence}`,
+          },
+        ],
+      },
+    ],
+  };
+
+  try {
+    const response = await axios.post<GeminiResponse>(url, requestBody, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const translation = response.data.candidates[0]?.content.parts[0]?.text;
+    if (!translation) {
+      throw new Error("No translation generated");
+    }
+
+    return translation.trim().replace(/^["']|["']$/g, "");
+  } catch (error) {
+    console.error("Error translating sentence with Gemini:", error);
+    throw error;
+  }
+};
+
 export const getExampleSentence = async (word: string): Promise<string> => {
   if (!GEMINI_API_KEY) {
     console.error("Environment variables:", process.env);

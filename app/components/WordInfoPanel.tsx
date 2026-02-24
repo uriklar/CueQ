@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { Word, WordInfoMode } from "../types";
-import { getExampleSentence } from "../services/gemini";
+import { getExampleSentence, translateSentence } from "../services/gemini";
 import { generateFrenchExample } from "../services/openai";
 import { isVerb } from "../utils/wordUtils";
 import * as Speech from "expo-speech";
@@ -51,13 +51,8 @@ export const WordInfoPanel: React.FC<WordInfoPanelProps> = ({ word }) => {
     if (!exampleSentence) return;
     setIsTranslating(true);
     try {
-      const encoded = encodeURIComponent(exampleSentence);
-      const res = await fetch(
-        `https://api.mymemory.translated.net/get?q=${encoded}&langpair=fr|en`
-      );
-      const data = await res.json();
-      const translation = data?.responseData?.translatedText;
-      setTranslatedExample(translation || "Translation unavailable");
+      const translation = await translateSentence(exampleSentence);
+      setTranslatedExample(translation);
     } catch {
       setTranslatedExample("Translation failed. Try again.");
     } finally {
