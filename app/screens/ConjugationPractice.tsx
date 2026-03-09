@@ -10,6 +10,7 @@ import {
 import {
   checkAnswer, getVerbsForSession, emptyAnswers, emptyResults
 } from "../utils/conjugationUtils";
+import { translateSentence } from "../services/gemini";
 
 export function ConjugationPractice() {
   const { tense, sessionSize } = useLocalSearchParams<{ tense: string; sessionSize: string }>();
@@ -24,6 +25,8 @@ export function ConjugationPractice() {
   const [sessionScore, setSessionScore] = useState<{ verb: string; correct: number }[]>([]);
   const [isComplete, setIsComplete] = useState(false);
   const [showTenseInfo, setShowTenseInfo] = useState(false);
+  const [translation, setTranslation] = useState<string | null>(null);
+  const [isTranslating, setIsTranslating] = useState(false);
 
   useEffect(() => {
     const verbs = getVerbsForSession(tenseKey, size);
@@ -55,7 +58,19 @@ export function ConjugationPractice() {
       setAnswers(emptyAnswers());
       setResults(emptyResults());
       setIsChecked(false);
+      setTranslation(null);
     }
+  };
+
+  const handleTranslate = async () => {
+    setIsTranslating(true);
+    try {
+      const result = await translateSentence(currentVerb);
+      setTranslation(result);
+    } catch {
+      setTranslation("(translation failed)");
+    }
+    setIsTranslating(false);
   };
 
   const reset = () => {
@@ -67,6 +82,7 @@ export function ConjugationPractice() {
     setIsChecked(false);
     setSessionScore([]);
     setIsComplete(false);
+    setTranslation(null);
   };
 
   // Score screen
@@ -122,45 +138,53 @@ export function ConjugationPractice() {
           <Text style={styles.infoIcon}>  i</Text>
         </Pressable>
 
+        {/* Translate button */}
+        <View style={styles.translateWrap}>
+          <Pressable style={styles.translateBtn} onPress={handleTranslate} disabled={isTranslating}>
+            <Text style={styles.translateBtnText}>{isTranslating ? "Translating..." : "Translate"}</Text>
+          </Pressable>
+          {translation && <Text style={styles.translationText}>{translation}</Text>}
+        </View>
+
         {/* Input rows */}
-        {PRONOUN_KEYS.map((p) => {
+        {PRONOUN_KEYS.map((p, index) => {
           const result = results[p];
           const correct = correctTable?.[p] ?? "";
           return (
             <View key={p} style={styles.inputRow}>
               <Text style={styles.pronounLabel}>{PRONOUN_LABELS[p]}</Text>
-              <View style={styles.inputWrap}>
-                <TextInput
-                  style={[
-                    styles.input,
-                    result === true && styles.inputCorrect,
-                    result === false && styles.inputWrong,
-                  ]}
-                  value={answers[p]}
-                  onChangeText={val => setAnswers(prev => ({ ...prev, [p]: val }))}
-                  editable={!isChecked}
-                  autoCapitalize="none"
-                  autoCorrect={false}
-                  placeholder="..."
-                  placeholderTextColor={colors.neutral300}
-                />
-                {result === false && (
-                  <Text style={styles.correctAnswer}>{correct}</Text>
+              <View style={styles.inputWithCopy}>
+                <View style={styles.inputWrap}>
+                  <TextInput
+                    style={[
+                      styles.input,
+                      result === true && styles.inputCorrect,
+                      result === false && styles.inputWrong,
+                    ]}
+                    value={answers[p]}
+                    onChangeText={val => setAnswers(prev => ({ ...prev, [p]: val }))}
+                    editable={!isChecked}
+                    autoCapitalize="none"
+                    autoCorrect={false}
+                    placeholder="..."
+                    placeholderTextColor={colors.neutral300}
+                  />
+                  {result === false && (
+                    <Text style={styles.correctAnswer}>{correct}</Text>
+                  )}
+                </View>
+                {index > 0 && !isChecked && (
+                  <Pressable
+                    style={styles.copyDownBtn}
+                    onPress={() => setAnswers(prev => ({ ...prev, [p]: prev[PRONOUN_KEYS[index - 1]] }))}
+                  >
+                    <Text style={styles.copyDownBtnText}>↓</Text>
+                  </Pressable>
                 )}
               </View>
             </View>
           );
         })}
-
-        {/* Copy button */}
-        {!isChecked && (
-          <Pressable
-            style={styles.copyBtn}
-            onPress={() => setAnswers(prev => ({ ...prev, ils: prev.je }))}
-          >
-            <Text style={styles.copyBtnText}>Copy je → ils/elles</Text>
-          </Pressable>
-        )}
       </ScrollView>
 
       {/* Check / Next button */}
@@ -198,15 +222,20 @@ const styles = StyleSheet.create({
   tenseBadge: { flexDirection: "row", alignItems: "center", justifyContent: "center", marginBottom: spacing.xl },
   tenseBadgeText: { fontSize: 14, fontWeight: "600", color: colors.neutral700, backgroundColor: colors.neutral100, paddingHorizontal: spacing.md, paddingVertical: spacing.xs, borderRadius: 12 },
   infoIcon: { fontSize: 14 },
+  translateWrap: { alignItems: "center", marginBottom: spacing.lg },
+  translateBtn: { backgroundColor: colors.neutral100, paddingHorizontal: spacing.md, paddingVertical: spacing.xs, borderRadius: 12 },
+  translateBtnText: { fontSize: 14, fontWeight: "600", color: colors.neutral700 },
+  translationText: { fontSize: 14, color: colors.neutral500, marginTop: spacing.xs },
   inputRow: { flexDirection: "row", alignItems: "flex-start", marginBottom: spacing.md },
   pronounLabel: { width: 90, paddingTop: 10, fontSize: 14, color: colors.neutral500, fontStyle: "italic" },
+  inputWithCopy: { flex: 1, flexDirection: "row", alignItems: "flex-start" },
   inputWrap: { flex: 1 },
+  copyDownBtn: { width: 32, height: 40, alignItems: "center", justifyContent: "center", marginLeft: 4 },
+  copyDownBtnText: { fontSize: 18, color: colors.primaryLight },
   input: { borderWidth: 1.5, borderColor: colors.neutral200, borderRadius: 8, padding: spacing.md, fontSize: 16, color: colors.neutral900, backgroundColor: colors.surface },
   inputCorrect: { borderColor: colors.success, backgroundColor: colors.successLight },
   inputWrong: { borderColor: colors.danger, backgroundColor: colors.dangerLight },
   correctAnswer: { fontSize: 13, color: colors.danger, marginTop: 2, paddingLeft: 2 },
-  copyBtn: { alignSelf: "center", marginVertical: spacing.sm, padding: spacing.sm },
-  copyBtnText: { fontSize: 13, color: colors.primaryLight },
   mainBtn: { margin: spacing.lg, padding: spacing.lg, borderRadius: 12, backgroundColor: colors.primary, alignItems: "center" },
   mainBtnText: { color: colors.surface, fontSize: 17, fontWeight: "700" },
   scoreCard: { flex: 1, padding: spacing.xxl, alignItems: "center" },
