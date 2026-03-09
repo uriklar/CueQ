@@ -2,6 +2,7 @@ import { View, StyleSheet, Pressable, Text } from "react-native";
 import React, { useState, useEffect } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { MaterialIcons } from "@expo/vector-icons";
+import { router } from "expo-router";
 import { CardStack } from "./components/CardStack";
 import { Dashboard } from "./screens/Dashboard";
 import { Word, SwipeDirection } from "./types";
@@ -73,15 +74,23 @@ export default function Page() {
       {showDashboard ? (
         <>
           <Dashboard />
-          <Pressable
-            style={[
-              styles.floatingButton,
-              practiceWords.length === 0 && styles.floatingButtonDisabled,
-            ]}
-            onPress={handleStartPractice}
-          >
-            <Text style={styles.floatingButtonText}>Start Practice</Text>
-          </Pressable>
+          <View style={styles.floatingButtons}>
+            <Pressable
+              style={styles.conjugationButton}
+              onPress={() => router.push("/conjugation-setup")}
+            >
+              <Text style={styles.conjugationButtonText}>Conjugation</Text>
+            </Pressable>
+            <Pressable
+              style={[
+                styles.floatingButton,
+                practiceWords.length === 0 && styles.floatingButtonDisabled,
+              ]}
+              onPress={handleStartPractice}
+            >
+              <Text style={styles.floatingButtonText}>Start Practice</Text>
+            </Pressable>
+          </View>
         </>
       ) : (
         <>
@@ -109,10 +118,26 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.neutral50,
   },
-  floatingButton: {
+  floatingButtons: {
     position: "absolute",
     bottom: 20,
     right: 20,
+    alignItems: "flex-end",
+    gap: spacing.sm,
+  },
+  conjugationButton: {
+    backgroundColor: colors.accentLight,
+    paddingHorizontal: spacing.xl,
+    paddingVertical: spacing.md,
+    borderRadius: borderRadius.full,
+    ...shadows.lg,
+  },
+  conjugationButtonText: {
+    color: colors.neutral900,
+    fontSize: 15,
+    fontWeight: "600",
+  },
+  floatingButton: {
     backgroundColor: colors.accent,
     paddingHorizontal: spacing.xl,
     paddingVertical: spacing.md,
