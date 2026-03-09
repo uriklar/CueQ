@@ -129,22 +129,20 @@ export function ConjugationPractice() {
       </View>
 
       <ScrollView style={styles.scroll} keyboardShouldPersistTaps="handled">
-        {/* Verb */}
-        <Text style={styles.verbTitle}>{currentVerb}</Text>
+        {/* Verb + translate icon */}
+        <View style={styles.verbRow}>
+          <Text style={styles.verbTitle}>{currentVerb}</Text>
+          <Pressable onPress={handleTranslate} disabled={isTranslating} style={styles.translateIcon}>
+            <Text style={styles.translateIconText}>{isTranslating ? "..." : "🌐"}</Text>
+          </Pressable>
+        </View>
+        {translation && <Text style={styles.translationText}>{translation}</Text>}
 
         {/* Tense badge */}
         <Pressable style={styles.tenseBadge} onPress={() => setShowTenseInfo(true)}>
           <Text style={styles.tenseBadgeText}>{TENSE_LABELS[tenseKey]}</Text>
           <Text style={styles.infoIcon}>  i</Text>
         </Pressable>
-
-        {/* Translate button */}
-        <View style={styles.translateWrap}>
-          <Pressable style={styles.translateBtn} onPress={handleTranslate} disabled={isTranslating}>
-            <Text style={styles.translateBtnText}>{isTranslating ? "Translating..." : "Translate"}</Text>
-          </Pressable>
-          {translation && <Text style={styles.translationText}>{translation}</Text>}
-        </View>
 
         {/* Input rows */}
         {PRONOUN_KEYS.map((p, index) => {
@@ -218,14 +216,14 @@ const styles = StyleSheet.create({
   headerTitle: { fontSize: 16, fontWeight: "600", color: colors.neutral900 },
   closeBtn: { fontSize: 18, color: colors.neutral500, width: 50, textAlign: "right" },
   scroll: { flex: 1, padding: spacing.lg },
-  verbTitle: { fontSize: 32, fontWeight: "700", color: colors.primary, textAlign: "center", marginVertical: spacing.lg },
+  verbRow: { flexDirection: "row", alignItems: "center", justifyContent: "center", marginVertical: spacing.lg },
+  verbTitle: { fontSize: 32, fontWeight: "700", color: colors.primary },
+  translateIcon: { marginLeft: spacing.sm, padding: spacing.xs },
+  translateIconText: { fontSize: 20 },
+  translationText: { fontSize: 14, color: colors.neutral500, textAlign: "center", marginBottom: spacing.sm },
   tenseBadge: { flexDirection: "row", alignItems: "center", justifyContent: "center", marginBottom: spacing.xl },
   tenseBadgeText: { fontSize: 14, fontWeight: "600", color: colors.neutral700, backgroundColor: colors.neutral100, paddingHorizontal: spacing.md, paddingVertical: spacing.xs, borderRadius: 12 },
   infoIcon: { fontSize: 14 },
-  translateWrap: { alignItems: "center", marginBottom: spacing.lg },
-  translateBtn: { backgroundColor: colors.neutral100, paddingHorizontal: spacing.md, paddingVertical: spacing.xs, borderRadius: 12 },
-  translateBtnText: { fontSize: 14, fontWeight: "600", color: colors.neutral700 },
-  translationText: { fontSize: 14, color: colors.neutral500, marginTop: spacing.xs },
   inputRow: { flexDirection: "row", alignItems: "flex-start", marginBottom: spacing.md },
   pronounLabel: { width: 90, paddingTop: 10, fontSize: 14, color: colors.neutral500, fontStyle: "italic" },
   inputWithCopy: { flex: 1, flexDirection: "row", alignItems: "flex-start" },
