@@ -73,6 +73,13 @@ export function ConjugationSetup() {
       >
         <Text style={styles.startBtnText}>START</Text>
       </Pressable>
+
+      <Pressable
+        onPress={() => router.push("/mistakes-report" as any)}
+        style={styles.weaknessBtn}
+      >
+        <Text style={styles.weaknessBtnText}>View My Weaknesses</Text>
+      </Pressable>
     </View>
   );
 }
@@ -98,4 +105,6 @@ const styles = StyleSheet.create({
   startBtn: { margin: spacing.lg, padding: spacing.lg, borderRadius: 12, backgroundColor: colors.primary, alignItems: "center" },
   startBtnDisabled: { backgroundColor: colors.neutral300 },
   startBtnText: { color: colors.surface, fontSize: 17, fontWeight: "700", letterSpacing: 0.5 },
+  weaknessBtn: { marginHorizontal: spacing.lg, marginBottom: spacing.lg, padding: spacing.lg, borderRadius: 12, borderWidth: 1.5, borderColor: colors.primary, alignItems: "center" },
+  weaknessBtnText: { color: colors.primary, fontSize: 16, fontWeight: "600" },
 });

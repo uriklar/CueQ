@@ -27,3 +27,12 @@ export interface Position {
   x: number;
   y: number;
 }
+
+export interface ConjugationMistake {
+  verb: string;
+  tense: string;
+  pronoun: string;
+  userAnswer: string;
+  correctAnswer: string;
+  timestamp: number;
+}

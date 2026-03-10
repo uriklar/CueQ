@@ -11,6 +11,7 @@ import {
   checkAnswer, getVerbsForSession, emptyAnswers, emptyResults
 } from "../utils/conjugationUtils";
 import { translateSentence } from "../services/gemini";
+import { saveMistake } from "../utils/mistakesTracker";
 
 export function ConjugationPractice() {
   const { tense, sessionSize } = useLocalSearchParams<{ tense: string; sessionSize: string }>();
@@ -44,6 +45,20 @@ export function ConjugationPractice() {
     });
     setResults(newResults);
     setIsChecked(true);
+
+    // Track mistakes for wrong non-empty answers
+    PRONOUN_KEYS.forEach(p => {
+      if (!newResults[p] && answers[p].trim() !== "") {
+        saveMistake({
+          verb: currentVerb,
+          tense: tenseKey,
+          pronoun: p,
+          userAnswer: answers[p].trim(),
+          correctAnswer: correctTable[p],
+          timestamp: Date.now(),
+        });
+      }
+    });
   };
 
   const advance = () => {
