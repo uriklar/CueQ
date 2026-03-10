@@ -8,34 +8,35 @@ import {
   VERBS_DATA, TENSE_LABELS, TENSE_DESCRIPTIONS, PRONOUN_LABELS, PRONOUN_KEYS, TenseKey, PronounKey
 } from "../data/verbsData";
 import {
-  checkAnswer, getVerbsForSession, emptyAnswers, emptyResults
+  checkAnswer, getVerbsForMultiTenseSession, emptyAnswers, emptyResults
 } from "../utils/conjugationUtils";
 import { translateSentence } from "../services/gemini";
 import { saveMistake } from "../utils/mistakesTracker";
 
 export function ConjugationPractice() {
-  const { tense, sessionSize } = useLocalSearchParams<{ tense: string; sessionSize: string }>();
-  const tenseKey = tense as TenseKey;
+  const { tenses, sessionSize } = useLocalSearchParams<{ tenses: string; sessionSize: string }>();
+  const tenseKeys = (tenses ?? "").split(",") as TenseKey[];
   const size = Number(sessionSize) || 5;
 
-  const [sessionVerbs, setSessionVerbs] = useState<string[]>([]);
+  const [sessionVerbs, setSessionVerbs] = useState<{ verb: string; tense: TenseKey }[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<PronounKey, string>>(emptyAnswers());
   const [results, setResults] = useState<Record<PronounKey, boolean | null>>(emptyResults());
   const [isChecked, setIsChecked] = useState(false);
-  const [sessionScore, setSessionScore] = useState<{ verb: string; correct: number }[]>([]);
+  const [sessionScore, setSessionScore] = useState<{ verb: string; tense: TenseKey; correct: number }[]>([]);
   const [isComplete, setIsComplete] = useState(false);
   const [showTenseInfo, setShowTenseInfo] = useState(false);
   const [translation, setTranslation] = useState<string | null>(null);
   const [isTranslating, setIsTranslating] = useState(false);
 
   useEffect(() => {
-    const verbs = getVerbsForSession(tenseKey, size);
-    setSessionVerbs(verbs);
+    setSessionVerbs(getVerbsForMultiTenseSession(tenseKeys, size));
   }, []);
 
-  const currentVerb = sessionVerbs[currentIndex] ?? "";
-  const correctTable = VERBS_DATA[currentVerb]?.[tenseKey];
+  const currentEntry = sessionVerbs[currentIndex];
+  const currentVerb = currentEntry?.verb ?? "";
+  const currentTense = currentEntry?.tense ?? tenseKeys[0];
+  const correctTable = VERBS_DATA[currentVerb]?.[currentTense];
 
   const checkAllAnswers = () => {
     if (!correctTable) return;
@@ -51,7 +52,7 @@ export function ConjugationPractice() {
       if (!newResults[p] && answers[p].trim() !== "") {
         saveMistake({
           verb: currentVerb,
-          tense: tenseKey,
+          tense: currentTense,
           pronoun: p,
           userAnswer: answers[p].trim(),
           correctAnswer: correctTable[p],
@@ -63,7 +64,7 @@ export function ConjugationPractice() {
 
   const advance = () => {
     const correctCount = Object.values(results).filter(Boolean).length;
-    const newScore = [...sessionScore, { verb: currentVerb, correct: correctCount }];
+    const newScore = [...sessionScore, { verb: currentVerb, tense: currentTense, correct: correctCount }];
     setSessionScore(newScore);
 
     if (currentIndex + 1 >= sessionVerbs.length) {
@@ -89,8 +90,7 @@ export function ConjugationPractice() {
   };
 
   const reset = () => {
-    const verbs = getVerbsForSession(tenseKey, size);
-    setSessionVerbs(verbs);
+    setSessionVerbs(getVerbsForMultiTenseSession(tenseKeys, size));
     setCurrentIndex(0);
     setAnswers(emptyAnswers());
     setResults(emptyResults());
@@ -113,7 +113,12 @@ export function ConjugationPractice() {
           <Text style={styles.scoreSubtitle}>{totalCorrect} / {total} forms correct</Text>
           {sessionScore.map((s, i) => (
             <View key={i} style={styles.scoreRow}>
-              <Text style={styles.scoreVerb}>{s.verb}</Text>
+              <View style={styles.scoreVerbCol}>
+                <Text style={styles.scoreVerb}>{s.verb}</Text>
+                {tenseKeys.length > 1 && (
+                  <Text style={styles.scoreTense}>{TENSE_LABELS[s.tense]}</Text>
+                )}
+              </View>
               <Text style={styles.scoreCount}>{s.correct}/6</Text>
             </View>
           ))}
@@ -155,7 +160,7 @@ export function ConjugationPractice() {
 
         {/* Tense badge */}
         <Pressable style={styles.tenseBadge} onPress={() => setShowTenseInfo(true)}>
-          <Text style={styles.tenseBadgeText}>{TENSE_LABELS[tenseKey]}</Text>
+          <Text style={styles.tenseBadgeText}>{TENSE_LABELS[currentTense]}</Text>
           <Text style={styles.infoIcon}>  i</Text>
         </Pressable>
 
@@ -212,8 +217,8 @@ export function ConjugationPractice() {
       <Modal visible={showTenseInfo} transparent animationType="fade">
         <Pressable style={styles.modalOverlay} onPress={() => setShowTenseInfo(false)}>
           <View style={styles.modalCard}>
-            <Text style={styles.modalTitle}>{TENSE_LABELS[tenseKey]}</Text>
-            <Text style={styles.modalBody}>{TENSE_DESCRIPTIONS[tenseKey]}</Text>
+            <Text style={styles.modalTitle}>{TENSE_LABELS[currentTense]}</Text>
+            <Text style={styles.modalBody}>{TENSE_DESCRIPTIONS[currentTense]}</Text>
             <Pressable onPress={() => setShowTenseInfo(false)} style={styles.modalClose}>
               <Text style={styles.modalCloseText}>Got it</Text>
             </Pressable>
@@ -256,7 +261,9 @@ const styles = StyleSheet.create({
   scoreBig: { fontSize: 64, fontWeight: "700", color: colors.primary, marginBottom: spacing.sm },
   scoreSubtitle: { fontSize: 16, color: colors.neutral500, marginBottom: spacing.xxl },
   scoreRow: { flexDirection: "row", justifyContent: "space-between", width: "100%", paddingVertical: spacing.sm, borderBottomWidth: 1, borderColor: colors.neutral100 },
+  scoreVerbCol: { flex: 1 },
   scoreVerb: { fontSize: 16, color: colors.neutral700 },
+  scoreTense: { fontSize: 12, color: colors.neutral400, marginTop: 2 },
   scoreCount: { fontSize: 16, fontWeight: "600", color: colors.primary },
   scoreButtons: { flexDirection: "row", gap: spacing.md, padding: spacing.lg },
   btnSecondary: { flex: 1, padding: spacing.lg, borderRadius: 12, borderWidth: 1.5, borderColor: colors.primary, alignItems: "center" },

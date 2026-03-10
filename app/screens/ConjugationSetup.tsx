@@ -8,16 +8,25 @@ const TENSES: TenseKey[] = ["présent", "imparfait", "futur", "passé_composé",
 const SESSION_SIZES = [5, 10, 15];
 
 export function ConjugationSetup() {
-  const [selectedTense, setSelectedTense] = useState<TenseKey | null>(null);
+  const [selectedTenses, setSelectedTenses] = useState<Set<TenseKey>>(new Set());
   const [sessionSize, setSessionSize] = useState(5);
 
-  const canStart = selectedTense !== null;
+  const canStart = selectedTenses.size > 0;
+
+  const toggleTense = (t: TenseKey) => {
+    setSelectedTenses(prev => {
+      const next = new Set(prev);
+      if (next.has(t)) next.delete(t);
+      else next.add(t);
+      return next;
+    });
+  };
 
   const handleStart = () => {
-    if (!selectedTense) return;
+    if (selectedTenses.size === 0) return;
     router.push({
       pathname: "/conjugation-practice",
-      params: { tense: selectedTense, sessionSize: String(sessionSize) },
+      params: { tenses: Array.from(selectedTenses).join(","), sessionSize: String(sessionSize) },
     });
   };
 
@@ -33,15 +42,15 @@ export function ConjugationSetup() {
 
       <ScrollView style={styles.scroll} showsVerticalScrollIndicator={false}>
         {/* Tense picker */}
-        <Text style={styles.sectionLabel}>Choose a tense</Text>
+        <Text style={styles.sectionLabel}>Choose tenses</Text>
         <View style={styles.pillRow}>
           {TENSES.map(t => (
             <Pressable
               key={t}
-              onPress={() => setSelectedTense(t)}
-              style={[styles.pill, selectedTense === t && styles.pillSelected]}
+              onPress={() => toggleTense(t)}
+              style={[styles.pill, selectedTenses.has(t) && styles.pillSelected]}
             >
-              <Text style={[styles.pillText, selectedTense === t && styles.pillTextSelected]}>
+              <Text style={[styles.pillText, selectedTenses.has(t) && styles.pillTextSelected]}>
                 {TENSE_LABELS[t]}
               </Text>
             </Pressable>
