@@ -4897,4 +4897,804 @@ export const words: Omit<Word, "id">[] = [
     english: "frankly",
     examples: "franchement, je ne suis pas d'accord.",
   },
+  {
+    french: "s'inscrire",
+    english: "to register / to enroll",
+    examples: "Elle envisage de s'inscrire à cette université dès la rentrée prochaine.",
+  },
+  {
+    french: "envisager",
+    english: "to consider / to plan",
+    examples: "Il envisage de déménager à Lyon pour se rapprocher de son travail.",
+  },
+  {
+    french: "le processus",
+    english: "the process",
+    examples: "Le processus d'admission à l'université peut prendre plusieurs semaines.",
+  },
+  {
+    french: "les interrogations",
+    english: "questions / doubts",
+    examples: "Le professeur a répondu à toutes nos interrogations avec patience et clarté.",
+  },
+  {
+    french: "enchanté(e)",
+    english: "pleased to meet you / delighted",
+    examples: "Enchanté de vous rencontrer, j'espère que nous collaborerons souvent.",
+  },
+  {
+    french: "se demander",
+    english: "to wonder",
+    examples: "Je me demande si elle viendra à la fête ce soir.",
+  },
+  {
+    french: "passer chercher",
+    english: "to pick up / to come and get",
+    examples: "Il passera te chercher à 19h30 avant le film.",
+  },
+  {
+    french: "être en retard",
+    english: "to be late",
+    examples: "Le bus est souvent en retard pendant les heures de pointe.",
+  },
+  {
+    french: "la circulation",
+    english: "traffic",
+    examples: "La circulation est très dense ce soir à cause d'un accident sur l'autoroute.",
+  },
+  {
+    french: "l'heure de pointe",
+    english: "rush hour",
+    examples: "Il vaut mieux éviter le métro pendant l'heure de pointe.",
+  },
+  {
+    french: "se garer",
+    english: "to park",
+    examples: "Nous avons du mal à nous garer près du restaurant le week-end.",
+  },
+  {
+    french: "l'imprimante",
+    english: "printer",
+    examples: "L'imprimante du bureau est en panne depuis ce matin.",
+  },
+  {
+    french: "la réception",
+    english: "reception / signal",
+    examples: "La réception téléphonique est mauvaise dans ce tunnel.",
+  },
+  {
+    french: "le front froid",
+    english: "cold front",
+    examples: "Un front froid arrive demain, les températures vont chuter.",
+  },
+  {
+    french: "geler",
+    english: "to freeze",
+    examples: "Il gèle dehors ce matin, mets un manteau chaud avant de sortir.",
+  },
+  {
+    french: "s'engourdir",
+    english: "to go numb",
+    examples: "Après une heure dans la neige, mes doigts commencent à s'engourdir.",
+  },
+  {
+    french: "le serveur",
+    english: "waiter",
+    examples: "Le serveur nous a recommandé le plat du jour qui était délicieux.",
+  },
+  {
+    french: "commander",
+    english: "to order (food)",
+    examples: "Je voudrais commander une soupe aux tomates et un rôti de bœuf.",
+  },
+  {
+    french: "la soupe",
+    english: "soup",
+    examples: "Par temps froid, rien de tel qu'une bonne soupe chaude aux légumes.",
+  },
+  {
+    french: "le rôti",
+    english: "roast",
+    examples: "Le rôti de bœuf est cuit à point, tendre et savoureux.",
+  },
+  {
+    french: "la purée de pommes de terre",
+    english: "mashed potatoes",
+    examples: "La purée de pommes de terre maison accompagne parfaitement le rôti.",
+  },
+  {
+    french: "bien cuit",
+    english: "well done (meat)",
+    examples: "Elle préfère son steak bien cuit plutôt que saignant.",
+  },
+  {
+    french: "la toux",
+    english: "cough",
+    examples: "Il a une mauvaise toux depuis trois jours et doit voir un médecin.",
+  },
+  {
+    french: "les symptômes",
+    english: "symptoms",
+    examples: "Les symptômes de la grippe incluent la fièvre, la toux et la fatigue.",
+  },
+  {
+    french: "la grippe",
+    english: "the flu",
+    examples: "Elle a attrapé la grippe et doit rester au lit quelques jours.",
+  },
+  {
+    french: "l'aspirine",
+    english: "aspirin",
+    examples: "Prenez de l'aspirine toutes les quatre heures pour faire tomber la fièvre.",
+  },
+  {
+    french: "les liquides",
+    english: "fluids / liquids",
+    examples: "Quand on est malade, il faut boire beaucoup de liquides pour se réhydrater.",
+  },
+  {
+    french: "la bibliothèque",
+    english: "library",
+    examples: "La bibliothèque municipale est ouverte tous les jours sauf le lundi.",
+  },
+  {
+    french: "tourner à droite",
+    english: "to turn right",
+    examples: "Allez tout droit, puis tournez à droite au feu rouge.",
+  },
+  {
+    french: "en face de",
+    english: "across from / opposite",
+    examples: "La boulangerie est en face de la banque, juste au coin de la rue.",
+  },
+  {
+    french: "emménager",
+    english: "to move in",
+    examples: "Nous avons emménagé dans notre nouvel appartement le mois dernier.",
+  },
+  {
+    french: "signaler",
+    english: "to report",
+    examples: "Il faut signaler immédiatement tout accident à la police.",
+  },
+  {
+    french: "l'ambulance",
+    english: "ambulance",
+    examples: "Une ambulance est arrivée sur les lieux de l'accident en cinq minutes.",
+  },
+  {
+    french: "blessé(e)",
+    english: "injured / hurt",
+    examples: "Heureusement, personne n'a été grièvement blessé dans cet accident.",
+  },
+  {
+    french: "prudent(e)",
+    english: "careful / cautious",
+    examples: "Il faut être prudent quand on conduit sous la pluie.",
+  },
+  {
+    french: "la recette",
+    english: "recipe",
+    examples: "Cette recette de gâteau aux carottes est transmise de génération en génération.",
+  },
+  {
+    french: "la farine",
+    english: "flour",
+    examples: "Pour faire du pain, on a besoin de farine, d'eau, de sel et de levure.",
+  },
+  {
+    french: "le sucre",
+    english: "sugar",
+    examples: "Il ajoute trop de sucre dans son café, ce n'est pas bon pour la santé.",
+  },
+  {
+    french: "le beurre",
+    english: "butter",
+    examples: "Elle tartine une épaisse couche de beurre sur sa baguette du matin.",
+  },
+  {
+    french: "les pépites de chocolat",
+    english: "chocolate chips",
+    examples: "Les enfants adorent les cookies aux pépites de chocolat faits maison.",
+  },
+  {
+    french: "la section réfrigérée",
+    english: "refrigerated section",
+    examples: "Le yaourt se trouve dans la section réfrigérée du supermarché.",
+  },
+  {
+    french: "la caisse",
+    english: "checkout / cash register",
+    examples: "Il y a une longue file d'attente à la caisse du supermarché ce soir.",
+  },
+  {
+    french: "se faire couper les cheveux",
+    english: "to get a haircut",
+    examples: "Elle se fait couper les cheveux tous les deux mois chez son coiffeur habituel.",
+  },
+  {
+    french: "le salon de coiffure",
+    english: "hair salon",
+    examples: "Le salon de coiffure du quartier est très apprécié pour ses prix raisonnables.",
+  },
+  {
+    french: "le tailleur",
+    english: "tailor",
+    examples: "Le tailleur a retouché mon costume en seulement deux jours.",
+  },
+  {
+    french: "le mécanicien",
+    english: "mechanic",
+    examples: "Un bon mécanicien peut diagnostiquer le problème de votre voiture rapidement.",
+  },
+  {
+    french: "le paquet",
+    english: "package / parcel",
+    examples: "J'ai envoyé un paquet à ma famille par courrier express.",
+  },
+  {
+    french: "le courrier express",
+    english: "express mail",
+    examples: "Le courrier express garantit la livraison du paquet le lendemain.",
+  },
+  {
+    french: "les timbres",
+    english: "stamps",
+    examples: "J'ai besoin d'un carnet de timbres pour envoyer ces lettres.",
+  },
+  {
+    french: "peser",
+    english: "to weigh",
+    examples: "Ce paquet pèse environ cinq kilos, l'envoi sera assez coûteux.",
+  },
+  {
+    french: "l'examen",
+    english: "exam / test",
+    examples: "Il a révisé toute la nuit pour son examen de physique.",
+  },
+  {
+    french: "les notes",
+    english: "notes / grades",
+    examples: "Elle prend des notes pendant tous les cours pour bien réviser ensuite.",
+  },
+  {
+    french: "le pull",
+    english: "sweater / jumper",
+    examples: "Ce pull en laine bleue te tient chaud pendant les hivers canadiens.",
+  },
+  {
+    french: "essayer",
+    english: "to try on / to try",
+    examples: "Puis-je essayer cette veste en taille medium, s'il vous plaît ?",
+  },
+  {
+    french: "la taille",
+    english: "size / waist",
+    examples: "Quelle est votre taille ? Je cherche un manteau en large.",
+  },
+  {
+    french: "taxes comprises",
+    english: "tax included",
+    examples: "Le prix affiché est de cinquante euros, taxes comprises.",
+  },
+  {
+    french: "l'arrêt de bus",
+    english: "bus stop",
+    examples: "L'arrêt de bus est à deux minutes à pied de chez moi.",
+  },
+  {
+    french: "rater",
+    english: "to miss (bus, train)",
+    examples: "Nous avons raté le dernier bus et avons dû rentrer à pied.",
+  },
+  {
+    french: "l'anniversaire",
+    english: "birthday",
+    examples: "Nous organisons une fête surprise pour l'anniversaire de notre ami.",
+  },
+  {
+    french: "la comédie musicale",
+    english: "musical",
+    examples: "La comédie musicale a reçu des critiques enthousiastes de toute la presse.",
+  },
+  {
+    french: "la chorégraphie",
+    english: "choreography",
+    examples: "La chorégraphie de ce spectacle est époustouflante, les danseurs sont remarquables.",
+  },
+  {
+    french: "la ballerine",
+    english: "ballerina",
+    examples: "Elle a été ballerine professionnelle pendant quinze ans avant de devenir professeure.",
+  },
+  {
+    french: "le billet",
+    english: "ticket",
+    examples: "J'ai acheté deux billets pour le concert de demain soir.",
+  },
+  {
+    french: "l'œil rouge",
+    english: "red-eye flight",
+    examples: "J'ai pris l'œil rouge pour économiser sur le billet d'avion.",
+  },
+  {
+    french: "se détendre",
+    english: "to relax",
+    examples: "Après une semaine chargée, je veux juste me détendre à la plage.",
+  },
+  {
+    french: "loyal(e)",
+    english: "loyal",
+    examples: "Les chiens sont réputés pour être des animaux fidèles et loyaux.",
+  },
+  {
+    french: "l'aquarium",
+    english: "fish tank / aquarium",
+    examples: "L'aquarium du salon contient des poissons tropicaux aux couleurs vives.",
+  },
+  {
+    french: "l'animal de compagnie",
+    english: "pet",
+    examples: "Quel animal de compagnie souhaitez-vous adopter, un chat ou un chien ?",
+  },
+  {
+    french: "louer",
+    english: "to rent",
+    examples: "Ils ont loué un chalet à la montagne pour les vacances d'hiver.",
+  },
+  {
+    french: "le chalet",
+    english: "cabin / chalet",
+    examples: "Ce chalet en bois est parfait pour passer une semaine au bord du lac.",
+  },
+  {
+    french: "faire des compromis",
+    english: "to compromise",
+    examples: "Dans une relation, il est important de savoir faire des compromis.",
+  },
+  {
+    french: "la station de ski",
+    english: "ski resort",
+    examples: "Cette station de ski dans les Alpes est parmi les plus fréquentées d'Europe.",
+  },
+  {
+    french: "faire des recherches",
+    english: "to do research",
+    examples: "Avant d'acheter une voiture, il faut faire des recherches sur les différents modèles.",
+  },
+  {
+    french: "les examens de mi-session",
+    english: "midterm exams",
+    examples: "Les examens de mi-session approchent et les étudiants révisent intensément.",
+  },
+  {
+    french: "le canoë-kayak",
+    english: "canoeing / kayaking",
+    examples: "Nous avons fait du canoë-kayak sur la rivière pendant le week-end.",
+  },
+  {
+    french: "l'appareil photo",
+    english: "camera",
+    examples: "Il emporte toujours son appareil photo pour immortaliser ses voyages.",
+  },
+  {
+    french: "la mariée",
+    english: "bride",
+    examples: "La mariée portait une robe blanche magnifique brodée de dentelle fine.",
+  },
+  {
+    french: "le marié",
+    english: "groom",
+    examples: "Le marié était ému aux larmes en voyant arriver sa future femme.",
+  },
+  {
+    french: "les fiançailles",
+    english: "engagement",
+    examples: "Ils ont annoncé leurs fiançailles lors d'un dîner romantique à Paris.",
+  },
+  {
+    french: "demander en mariage",
+    english: "to propose marriage",
+    examples: "Il l'a demandée en mariage lors d'un coucher de soleil sur la plage.",
+  },
+  {
+    french: "la lune de miel",
+    english: "honeymoon",
+    examples: "Ils ont passé leur lune de miel au Japon, un voyage inoubliable.",
+  },
+  {
+    french: "donner des conseils",
+    english: "to give advice",
+    examples: "Il sait toujours donner les bons conseils dans les moments difficiles.",
+  },
+  {
+    french: "se plaindre",
+    english: "to complain",
+    examples: "Il se plaint constamment du temps sans jamais rien faire pour changer.",
+  },
+  {
+    french: "convaincre",
+    english: "to convince",
+    examples: "Elle a réussi à convaincre son patron de lui accorder une augmentation.",
+  },
+  {
+    french: "épuisant(e)",
+    english: "exhausting",
+    examples: "Cette journée de travail a été épuisante, j'ai besoin de dormir.",
+  },
+  {
+    french: "chuchoter",
+    english: "to whisper",
+    examples: "Il a chuchoté quelques mots doux à son oreille pour la rassurer.",
+  },
+  {
+    french: "crier",
+    english: "to shout / to yell",
+    examples: "Ne crie pas comme ça, tu vas effrayer les enfants.",
+  },
+  {
+    french: "la raquette",
+    english: "racket",
+    examples: "Il m'a montré comment tenir la raquette de tennis correctement.",
+  },
+  {
+    french: "frapper",
+    english: "to hit / to strike",
+    examples: "Elle a frappé la balle par-dessus le filet avec beaucoup de puissance.",
+  },
+  {
+    french: "le givre",
+    english: "frost",
+    examples: "Ce matin, il y avait du givre sur le pare-brise de la voiture.",
+  },
+  {
+    french: "le pare-brise",
+    english: "windshield",
+    examples: "Il a fallu gratter le givre sur le pare-brise avant de partir.",
+  },
+  {
+    french: "le brouillard",
+    english: "fog",
+    examples: "Un épais brouillard couvre la ville ce matin, la visibilité est réduite.",
+  },
+  {
+    french: "le tonnerre",
+    english: "thunder",
+    examples: "Le tonnerre gronde au loin, un orage se prépare.",
+  },
+  {
+    french: "les éclairs",
+    english: "lightning",
+    examples: "Les éclairs illuminaient le ciel nocturne pendant toute la tempête.",
+  },
+  {
+    french: "humide",
+    english: "wet / humid",
+    examples: "Le temps humide de novembre rend les promenades moins agréables.",
+  },
+  {
+    french: "les muffins",
+    english: "muffins",
+    examples: "Elle a préparé des muffins aux myrtilles pour le petit-déjeuner.",
+  },
+  {
+    french: "la soupe à la crème de champignons",
+    english: "cream of mushroom soup",
+    examples: "La soupe à la crème de champignons est un plat réconfortant par temps froid.",
+  },
+  {
+    french: "le vélo d'exercice",
+    english: "exercise bike",
+    examples: "Elle fait trente minutes de vélo d'exercice chaque matin avant le travail.",
+  },
+  {
+    french: "la garantie",
+    english: "warranty / guarantee",
+    examples: "Ce téléphone est couvert par une garantie de deux ans contre les défauts.",
+  },
+  {
+    french: "le technicien",
+    english: "technician",
+    examples: "Un technicien viendra réparer la machine à laver demain après-midi.",
+  },
+  {
+    french: "la main-d'œuvre",
+    english: "labor / workforce",
+    examples: "Les coûts de main-d'œuvre sont élevés dans ce secteur spécialisé.",
+  },
+  {
+    french: "la pâte",
+    english: "pasta / dough / paste",
+    examples: "Ce restaurant propose une délicieuse pâte fraîche faite maison chaque jour.",
+  },
+  {
+    french: "avoir hâte",
+    english: "to look forward to / to be eager",
+    examples: "J'ai hâte de partir en vacances, cela fait des mois que j'attends ça.",
+  },
+  {
+    french: "le coffre",
+    english: "trunk (car) / chest",
+    examples: "Mets tes bagages dans le coffre de la voiture avant de partir.",
+  },
+  {
+    french: "le centre d'appels",
+    english: "call center",
+    examples: "Elle travaille dans un centre d'appels et gère des dizaines de clients par jour.",
+  },
+  {
+    french: "la vente",
+    english: "sales / selling",
+    examples: "Il travaille dans la vente depuis dix ans et connaît bien ses clients.",
+  },
+  {
+    french: "les migraines",
+    english: "migraines",
+    examples: "Elle souffre de migraines sévères depuis plusieurs années.",
+  },
+  {
+    french: "le régime alimentaire",
+    english: "diet",
+    examples: "Son médecin lui a recommandé de changer son régime alimentaire.",
+  },
+  {
+    french: "l'insomnie",
+    english: "insomnia",
+    examples: "Il souffre d'insomnie et ne dort que quelques heures par nuit.",
+  },
+  {
+    french: "la pneumonie",
+    english: "pneumonia",
+    examples: "Elle a été hospitalisée à cause d'une pneumonie sévère.",
+  },
+  {
+    french: "l'ordonnance",
+    english: "prescription",
+    examples: "Le médecin lui a donné une ordonnance pour des antibiotiques.",
+  },
+  {
+    french: "allergique",
+    english: "allergic",
+    examples: "Il est allergique aux arachides et doit vérifier les étiquettes alimentaires.",
+  },
+  {
+    french: "les provisions",
+    english: "groceries / supplies",
+    examples: "Elle a acheté assez de provisions pour tenir toute la semaine.",
+  },
+  {
+    french: "les collations",
+    english: "snacks",
+    examples: "Les enfants adorent grignoter des collations après l'école.",
+  },
+  {
+    french: "le porridge",
+    english: "oatmeal / porridge",
+    examples: "Il mange du porridge chaque matin pour commencer la journée sainement.",
+  },
+  {
+    french: "les crêpes",
+    english: "pancakes / crepes",
+    examples: "Le dimanche, nous faisons des crêpes avec du sirop d'érable.",
+  },
+  {
+    french: "le sirop",
+    english: "syrup",
+    examples: "Il verse du sirop d'érable sur ses crêpes pour le petit-déjeuner.",
+  },
+  {
+    french: "sans gluten",
+    english: "gluten-free",
+    examples: "Elle achète des produits sans gluten pour sa santé digestive.",
+  },
+  {
+    french: "les chips",
+    english: "chips / crisps",
+    examples: "Il mange des chips en regardant le match de football.",
+  },
+  {
+    french: "louer un appartement",
+    english: "to rent an apartment",
+    examples: "Il cherche à louer un appartement proche de son lieu de travail.",
+  },
+  {
+    french: "le dortoir",
+    english: "dormitory",
+    examples: "En première année à l'université, beaucoup d'étudiants vivent dans les dortoirs.",
+  },
+  {
+    french: "partager",
+    english: "to share",
+    examples: "Ils ont décidé de partager un appartement pour réduire les dépenses.",
+  },
+  {
+    french: "la bière",
+    english: "beer",
+    examples: "Il commande une bière fraîche avec ses amis après le travail.",
+  },
+  {
+    french: "la tarte",
+    english: "pie / tart",
+    examples: "Grand-mère fait une tarte aux pommes irrésistible pour le dessert.",
+  },
+  {
+    french: "les myrtilles",
+    english: "blueberries",
+    examples: "Les myrtilles fraîches sont délicieuses dans un yaourt ou sur des crêpes.",
+  },
+  {
+    french: "emprunter",
+    english: "to borrow",
+    examples: "Puis-je emprunter ton stylo pour signer ce document ?",
+  },
+  {
+    french: "le portable",
+    english: "cell phone / laptop",
+    examples: "Elle a oublié son portable à la maison et ne peut pas être jointe.",
+  },
+  {
+    french: "le CV",
+    english: "resume / CV",
+    examples: "Il a soigneusement rédigé son CV avant d'envoyer sa candidature.",
+  },
+  {
+    french: "le marché du travail",
+    english: "job market",
+    examples: "Le marché du travail est favorable aux ingénieurs en ce moment.",
+  },
+  {
+    french: "l'analyste financier",
+    english: "financial analyst",
+    examples: "Elle travaille comme analyste financière dans une grande banque internationale.",
+  },
+  {
+    french: "l'entretien d'emploi",
+    english: "job interview",
+    examples: "Il s'est bien préparé pour son entretien d'emploi et a été embauché.",
+  },
+  {
+    french: "le responsable",
+    english: "manager / person in charge",
+    examples: "Le responsable logistique coordonne toutes les livraisons de l'entreprise.",
+  },
+  {
+    french: "le département",
+    english: "department",
+    examples: "Elle travaille dans le département des ressources humaines depuis trois ans.",
+  },
+  {
+    french: "la formation",
+    english: "training",
+    examples: "Il suivra une formation en cours d'emploi pour apprendre le nouveau logiciel.",
+  },
+  {
+    french: "supporter la pression",
+    english: "to handle pressure",
+    examples: "Ce poste exige de pouvoir supporter la pression lors des périodes chargées.",
+  },
+  {
+    french: "le réchauffement climatique",
+    english: "global warming",
+    examples: "Le réchauffement climatique est l'un des grands défis de notre époque.",
+  },
+  {
+    french: "le public",
+    english: "audience / public",
+    examples: "Le conférencier a répondu aux questions du public avec beaucoup de pédagogie.",
+  },
+  {
+    french: "crédible",
+    english: "credible",
+    examples: "Pour être crédible, une présentation doit s'appuyer sur des faits vérifiables.",
+  },
+  {
+    french: "le bouquet",
+    english: "bouquet",
+    examples: "Il lui a offert un magnifique bouquet de roses rouges pour la Saint-Valentin.",
+  },
+  {
+    french: "le diplôme",
+    english: "diploma / degree",
+    examples: "Elle a obtenu son diplôme d'ingénieure avec mention très bien.",
+  },
+  {
+    french: "être diplômé(e)",
+    english: "to graduate / to hold a degree",
+    examples: "Il est diplômé de l'École Polytechnique, l'une des plus prestigieuses de France.",
+  },
+  {
+    french: "se déguiser",
+    english: "to dress up / to wear a costume",
+    examples: "Les enfants adorent se déguiser en sorcières ou en vampires pour Halloween.",
+  },
+  {
+    french: "le costume",
+    english: "costume / suit",
+    examples: "Elle a choisi un costume de fée pour le bal masqué.",
+  },
+  {
+    french: "la réservation",
+    english: "reservation / booking",
+    examples: "Avez-vous une réservation ? La salle est complète ce soir.",
+  },
+  {
+    french: "la carte de crédit",
+    english: "credit card",
+    examples: "Puis-je payer par carte de crédit ou seulement en espèces ?",
+  },
+  {
+    french: "le vol",
+    english: "flight",
+    examples: "Mon vol pour Paris a été retardé de deux heures à cause du mauvais temps.",
+  },
+  {
+    french: "être retardé",
+    english: "to be delayed",
+    examples: "Le train a été retardé d'une heure en raison de travaux sur la voie.",
+  },
+  {
+    french: "le collier",
+    english: "necklace",
+    examples: "Elle portait un beau collier en or au dîner de gala.",
+  },
+  {
+    french: "procrastiner",
+    english: "to procrastinate",
+    examples: "Il a tendance à procrastiner et remet toujours ses tâches au lendemain.",
+  },
+  {
+    french: "le rapport de recherche",
+    english: "research report",
+    examples: "Le rapport de recherche doit être rendu avant la fin du mois.",
+  },
+  {
+    french: "le tuteur",
+    english: "tutor",
+    examples: "Elle a engagé un tuteur pour aider son fils en mathématiques.",
+  },
+  {
+    french: "échouer",
+    english: "to fail",
+    examples: "Il risque d'échouer à l'examen s'il ne révise pas sérieusement.",
+  },
+  {
+    french: "proactif(ve)",
+    english: "proactive",
+    examples: "Pour réussir dans sa carrière, il faut être proactif et prendre des initiatives.",
+  },
+  {
+    french: "la foule",
+    english: "crowd",
+    examples: "Il est difficile de se repérer dans une grande foule pendant les fêtes.",
+  },
+  {
+    french: "la veste",
+    english: "jacket",
+    examples: "Il porte une veste bleue et un pantalon noir pour l'entretien.",
+  },
+  {
+    french: "le magasin de jouets",
+    english: "toy store",
+    examples: "Les enfants adorent se promener dans le magasin de jouets avant Noël.",
+  },
+  {
+    french: "garder un œil sur",
+    english: "to keep an eye on",
+    examples: "Garde un œil sur le four, le gâteau ne doit pas brûler.",
+  },
+  {
+    french: "la coïncidence",
+    english: "coincidence",
+    examples: "Quelle coïncidence de se retrouver dans le même avion sans s'être donné rendez-vous !",
+  },
+  {
+    french: "avoir bon goût",
+    english: "to have good taste",
+    examples: "Tu as toujours eu bon goût en matière de mode et de décoration.",
+  },
+  {
+    french: "le refroidissement éolien",
+    english: "wind chill",
+    examples: "Le refroidissement éolien fait paraître la température beaucoup plus froide qu'elle ne l'est.",
+  },
 ];
