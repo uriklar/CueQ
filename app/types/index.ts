@@ -6,7 +6,7 @@ export type WordInfoMode =
   | "past_participle"
   | null;
 
-export type WordSource = "static" | "manual" | "ai";
+export type WordSource = "static" | "manual" | "ai" | "remote";
 
 export interface Word {
   id: string;

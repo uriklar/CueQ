@@ -1,12 +1,17 @@
 import { Word, Difficulty, SwipeDirection } from "../types";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { words as staticWords } from "../data/words";
+import { fetchRemoteWords } from "../services/remoteWords";
 
 const STORAGE_KEY = "@french_cards_words";
 const DELETED_WORDS_KEY = "@french_cards_deleted_words";
 
 export function generateStableId(french: string): string {
   return `static:${french.toLowerCase().trim()}`;
+}
+
+export function generateRemoteId(french: string): string {
+  return `remote:${french.toLowerCase().trim()}`;
 }
 
 export const isVerb = (word: Word): boolean => {
@@ -124,8 +129,8 @@ export const deleteWord = async (word: Word): Promise<boolean> => {
       return false;
     }
 
-    // If this is a static word, mark it as deleted to prevent re-import
-    if (word.id.startsWith("static:")) {
+    // If this is a static or remote word, mark it as deleted to prevent re-import
+    if (word.id.startsWith("static:") || word.id.startsWith("remote:")) {
       await markWordAsDeleted(word.id);
     }
 
@@ -167,6 +172,24 @@ export const loadAndMergeWords = async (): Promise<Word[]> => {
         source: "static",
       };
       hasNewWords = true;
+    }
+
+    // Merge remote words (fetch from GitHub, fallback to cache)
+    const remoteWords = await fetchRemoteWords();
+    if (remoteWords) {
+      for (const remoteWord of remoteWords) {
+        const remoteId = generateRemoteId(remoteWord.french);
+
+        if (mergedWordsMap[remoteId]) continue;
+        if (deletedWords.has(remoteId)) continue;
+
+        mergedWordsMap[remoteId] = {
+          ...remoteWord,
+          id: remoteId,
+          source: "remote",
+        };
+        hasNewWords = true;
+      }
     }
 
     // Only write back if we added new words
