@@ -34,15 +34,18 @@ jobs:
 
       - name: Update redirect page
         run: |
+          GROUP_ID="${{ steps.eas-update.outputs.group_id }}"
+          PREVIEW_URL="https://expo.dev/preview/update?message=CueQ&updateRuntimeVersion=1.0.0&createdAt=$(date -u +%Y-%m-%dT%H:%M:%S.000Z)&slug=CueQ&projectId=d74f216f-55c5-49e6-8109-d8b5cbab162a&group=${GROUP_ID}"
+
           mkdir -p docs
-          cat > docs/index.html << 'HEREDOC'
+          cat > docs/index.html <<EOF
           <!DOCTYPE html>
           <html>
           <head>
             <meta charset="utf-8">
             <title>CueQ</title>
             <meta name="viewport" content="width=device-width, initial-scale=1">
-            <meta http-equiv="refresh" content="0;url=PREVIEW_URL">
+            <meta http-equiv="refresh" content="0;url=${PREVIEW_URL}">
             <style>
               body { font-family: -apple-system, sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; background: #f5f5f5; }
               .card { text-align: center; padding: 2rem; }
@@ -53,14 +56,11 @@ jobs:
             <div class="card">
               <h1>CueQ</h1>
               <p>Opening in Expo Go...</p>
-              <p><a href="PREVIEW_URL">Tap here if it didn't open automatically</a></p>
+              <p><a href="${PREVIEW_URL}">Tap here if it didn't open automatically</a></p>
             </div>
           </body>
           </html>
-          HEREDOC
-
-          PREVIEW_URL="https://expo.dev/preview/update?message=$(echo '${{ github.event.head_commit.message }}' | head -c 50 | jq -sRr @uri)&updateRuntimeVersion=1.0.0&createdAt=$(date -u +%Y-%m-%dT%H:%M:%S.000Z)&slug=CueQ&projectId=d74f216f-55c5-49e6-8109-d8b5cbab162a&group=${{ steps.eas-update.outputs.group_id }}"
-          sed -i "s|PREVIEW_URL|${PREVIEW_URL}|g" docs/index.html
+          EOF
 
       - name: Commit and push redirect page
         run: |
