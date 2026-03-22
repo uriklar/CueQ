@@ -6,6 +6,8 @@ export type WordInfoMode =
   | "past_participle"
   | null;
 
+export type WordSource = "static" | "manual" | "ai";
+
 export interface Word {
   id: string;
   french: string;
@@ -14,7 +16,8 @@ export interface Word {
   difficulty?: Difficulty;
   gender?: "masculine" | "feminine" | null;
   conjugation?: string;
-  past_particle?: string;
+  past_participle?: string;
+  source?: WordSource;
 }
 
 export interface WordCard extends Word {

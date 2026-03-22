@@ -10,7 +10,8 @@
     "web": "expo start --web",
     "test": "jest --watchAll",
     "lint": "expo lint",
-    "deploy": "eas update --message"
+    "deploy": "eas update --message",
+    "check-duplicates": "npx tsx scripts/check-duplicates.ts"
   },
   "jest": {
     "preset": "jest-expo"

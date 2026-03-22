@@ -176,12 +176,12 @@ export const WordInfoPanel: React.FC<WordInfoPanelProps> = ({ word }) => {
       );
     }
 
-    if (currentMode === "past_participle" && word.past_particle) {
+    if (currentMode === "past_participle" && word.past_participle) {
       return (
         <View style={styles.contentContainer}>
           <Text style={styles.contentLabel}>Past Participle:</Text>
           <Text style={styles.contentText} selectable={true}>
-            {word.past_particle}
+            {word.past_participle}
           </Text>
         </View>
       );
@@ -210,7 +210,7 @@ export const WordInfoPanel: React.FC<WordInfoPanelProps> = ({ word }) => {
       });
     }
 
-    if (wordIsVerb && word.past_particle) {
+    if (wordIsVerb && word.past_participle) {
       buttons.push({
         key: "past_participle",
         label: "Past Participle",

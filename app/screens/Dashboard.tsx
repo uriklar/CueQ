@@ -14,6 +14,7 @@ import {
   loadAndMergeWords,
   deleteWord,
 } from "../utils/wordUtils";
+import { runMigrations } from "../utils/migrations";
 import {
   getBacklogWords,
   moveWordsFromBacklog,
@@ -66,6 +67,7 @@ export const Dashboard = () => {
   }, []);
 
   const loadWords = async () => {
+    await runMigrations();
     const mergedWords = await loadAndMergeWords();
     setWords(mergedWords);
   };
@@ -118,8 +120,9 @@ export const Dashboard = () => {
       } else {
         const id = Date.now().toString();
         const wordWithId: Word = {
-          ...(wordData as Omit<Word, "id">), // Cast to ensure correct type
+          ...(wordData as Omit<Word, "id">),
           id,
+          source: "manual",
         };
         storedWords[id] = wordWithId;
         await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(storedWords));
@@ -143,7 +146,8 @@ export const Dashboard = () => {
       const wordWithId: Word = {
         ...wordData,
         id,
-        difficulty: undefined, // undefined means "new" in the practice system
+        source: "ai",
+        difficulty: undefined,
       };
 
       storedWords[id] = wordWithId;
@@ -172,6 +176,7 @@ export const Dashboard = () => {
         const wordWithId: Word = {
           ...wordData,
           id,
+          source: "manual",
         };
 
         storedWords[id] = wordWithId;

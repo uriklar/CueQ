@@ -5,8 +5,12 @@ import { words as staticWords } from "../data/words";
 const STORAGE_KEY = "@french_cards_words";
 const DELETED_WORDS_KEY = "@french_cards_deleted_words";
 
+export function generateStableId(french: string): string {
+  return `static:${french.toLowerCase().trim()}`;
+}
+
 export const isVerb = (word: Word): boolean => {
-  return !!(word.conjugation || word.past_particle);
+  return !!(word.conjugation || word.past_participle);
 };
 
 export const getSwipeDifficulty = (direction: SwipeDirection): Difficulty => {
@@ -76,18 +80,14 @@ export const updateStoredWord = async (updatedWord: Word) => {
   }
 };
 
-export const markWordAsDeleted = async (
-  frenchText: string,
-  englishText: string
-) => {
+export const markWordAsDeleted = async (wordId: string) => {
   try {
     const deletedWordsJson = await AsyncStorage.getItem(DELETED_WORDS_KEY);
     const deletedWords: Record<string, boolean> = deletedWordsJson
       ? JSON.parse(deletedWordsJson)
       : {};
 
-    const wordKey = `${frenchText}::${englishText}`;
-    deletedWords[wordKey] = true;
+    deletedWords[wordId] = true;
 
     await AsyncStorage.setItem(
       DELETED_WORDS_KEY,
@@ -124,16 +124,9 @@ export const deleteWord = async (word: Word): Promise<boolean> => {
       return false;
     }
 
-    // Check if this word matches a static word
-    const matchesStaticWord = staticWords.some(
-      (staticWord) =>
-        staticWord.french === word.french &&
-        staticWord.english === word.english
-    );
-
-    // If it's a static word, mark it as deleted to prevent re-import
-    if (matchesStaticWord) {
-      await markWordAsDeleted(word.french, word.english);
+    // If this is a static word, mark it as deleted to prevent re-import
+    if (word.id.startsWith("static:")) {
+      await markWordAsDeleted(word.id);
     }
 
     // Remove from storage
@@ -149,48 +142,41 @@ export const deleteWord = async (word: Word): Promise<boolean> => {
 
 export const loadAndMergeWords = async (): Promise<Word[]> => {
   try {
-    // Get stored words from AsyncStorage
     const storedWordsJson = await AsyncStorage.getItem(STORAGE_KEY);
     const storedWordsMap: Record<string, Word> = storedWordsJson
       ? JSON.parse(storedWordsJson)
       : {};
 
-    // Get deleted words to prevent re-adding them
     const deletedWords = await getDeletedWords();
 
-    // Add static words with generated IDs if they don't already exist
     const mergedWordsMap = { ...storedWordsMap };
+    let hasNewWords = false;
 
-    staticWords.forEach((staticWord, index) => {
-      // Check if this word already exists in stored words
-      const existingWord = Object.values(storedWordsMap).find(
-        (word) =>
-          word.french === staticWord.french &&
-          word.english === staticWord.english
-      );
+    for (const staticWord of staticWords) {
+      const stableId = generateStableId(staticWord.french);
 
-      // Check if this word has been deleted by the user
-      const wordKey = `${staticWord.french}::${staticWord.english}`;
-      const isDeleted = deletedWords.has(wordKey);
+      // O(1) lookup by key
+      if (mergedWordsMap[stableId]) continue;
 
-      if (!existingWord && !isDeleted) {
-        // Add the static word with a generated ID
-        const id = `static_${index}_${Date.now()}`;
-        const wordWithId: Word = {
-          ...staticWord,
-          id,
-        };
-        mergedWordsMap[id] = wordWithId;
-      }
-    });
+      // Check if deleted
+      if (deletedWords.has(stableId)) continue;
 
-    // Save the merged words back to storage
-    await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(mergedWordsMap));
+      mergedWordsMap[stableId] = {
+        ...staticWord,
+        id: stableId,
+        source: "static",
+      };
+      hasNewWords = true;
+    }
+
+    // Only write back if we added new words
+    if (hasNewWords) {
+      await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(mergedWordsMap));
+    }
 
     return Object.values(mergedWordsMap);
   } catch (error) {
     console.error("Error loading and merging words:", error);
-    // Fallback to stored words only
     return await getStoredWords();
   }
 };

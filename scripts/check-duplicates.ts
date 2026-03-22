@@ -84,6 +84,10 @@ function checkDuplicates() {
   console.log(`\nTotal words: ${words.length}`);
   console.log(`Unique french keys: ${seen.size}`);
   console.log(`Unique english keys: ${seenEnglish.size}`);
+
+  if (duplicates.length > 0) {
+    process.exit(1);
+  }
 }
 
 checkDuplicates();

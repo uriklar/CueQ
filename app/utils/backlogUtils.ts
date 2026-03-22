@@ -1,33 +1,28 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Word } from "../types";
 import { words as staticWords } from "../data/words";
-import { getStoredWords } from "./wordUtils";
+import { getStoredWords, generateStableId } from "./wordUtils";
 
 export const BACKLOG_STORAGE_KEY = "@french_cards_backlog";
 
 export const loadWordsFromStatic = async (
   count: number = 10
 ): Promise<Omit<Word, "id">[]> => {
-  console.log("Static words length:", staticWords.length);
   const backlogWords = await getBacklogWords();
   const storedWords = await getStoredWords();
-  console.log("Backlog words length:", backlogWords.length);
-  console.log("Stored words length:", storedWords.length);
 
-  const availableWords = staticWords.filter(
-    (word) =>
-      !backlogWords.some(
-        (backlogWord) =>
-          backlogWord.french === word.french &&
-          backlogWord.english === word.english
-      ) &&
-      !storedWords.some(
-        (storedWord) =>
-          storedWord.french === word.french &&
-          storedWord.english === word.english
-      )
+  // Build Sets for O(1) lookup instead of O(n) .some() scans
+  const backlogKeys = new Set(
+    backlogWords.map((w) => w.french.toLowerCase().trim())
   );
-  console.log("Available words length:", availableWords.length);
+  const storedKeys = new Set(
+    storedWords.map((w) => w.french.toLowerCase().trim())
+  );
+
+  const availableWords = staticWords.filter((word) => {
+    const key = word.french.toLowerCase().trim();
+    return !backlogKeys.has(key) && !storedKeys.has(key);
+  });
 
   return availableWords.slice(0, count);
 };
@@ -47,7 +42,8 @@ export const saveToBacklog = async (words: Omit<Word, "id">[]) => {
     const existingWords = await getBacklogWords();
     const newWords = words.map((word) => ({
       ...word,
-      id: Date.now().toString() + Math.random().toString(36).substr(2, 9),
+      id: generateStableId(word.french),
+      source: "static" as const,
     }));
 
     await AsyncStorage.setItem(

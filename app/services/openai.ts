@@ -219,12 +219,12 @@ export const getWordInfo = async (
   const systemPrompt = `You are a helpful French language teacher. You will receive a word in either English or French and need to provide comprehensive information about it.
 
 Rules:
-- If it's a verb, include conjugation and past_particle
+- If it's a verb, include conjugation and past_participle
 - If it's a noun, include gender (masculine/feminine) if applicable, otherwise set to null
 - For adjectives that agree with gender, show both forms like "français(e)"
 - Examples should be natural, simple sentences, but not too simple.
 - Keep conjugations in the exact format: (présent):\\nje verb\\n tu verbs\\n il/elle/on verb\\n nous verbs\\n vous verbs\\n ils/elles verbs
-- Set conjugation and past_particle to null for non-verbs
+- Set conjugation and past_participle to null for non-verbs
 - Set gender to null for verbs and adjectives`;
 
   const userPrompt = `Provide comprehensive information for the ${language} word: "${word}"`;
@@ -268,7 +268,7 @@ Rules:
         description:
           "Present tense conjugation for verbs in format: (présent):\\nje verb\\n tu verbs\\n il/elle/on verb\\n nous verbs\\n vous verbs\\n ils/elles verbs",
       },
-      past_particle: {
+      past_participle: {
         type: ["string", "null"],
         description: "Past participle form for verbs only",
       },
@@ -279,7 +279,7 @@ Rules:
       "examples",
       "gender",
       "conjugation",
-      "past_particle",
+      "past_participle",
     ],
     additionalProperties: false,
   };
@@ -340,7 +340,7 @@ Rules:
             {
               role: "user",
               content:
-                'Please respond with valid JSON only, following this exact format: {"french": "word", "english": "translation", "examples": "sentence", "gender": "masculine|feminine|null", "conjugation": "string|null", "past_particle": "string|null"}',
+                'Please respond with valid JSON only, following this exact format: {"french": "word", "english": "translation", "examples": "sentence", "gender": "masculine|feminine|null", "conjugation": "string|null", "past_participle": "string|null"}',
             },
           ],
           max_tokens: 500,
