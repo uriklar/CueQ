@@ -1,1 +1,71 @@
-[]
+[
+  {
+    "french": "un poste",
+    "english": "a job / position / post",
+    "examples": "Elle a obtenu un poste de directrice dans une grande entreprise internationale.",
+    "gender": "masculine"
+  },
+  {
+    "french": "assez",
+    "english": "enough / quite / rather",
+    "examples": "Il a assez d'expérience pour occuper ce poste sans formation supplémentaire."
+  },
+  {
+    "french": "ailleurs",
+    "english": "elsewhere / somewhere else",
+    "examples": "Si tu n'es pas heureux ici, tu peux chercher un emploi ailleurs."
+  },
+  {
+    "french": "valoir",
+    "english": "to be worth",
+    "examples": "Ça vaut vraiment la peine de visiter ce musée, les collections sont exceptionnelles.",
+    "conjugation": "(présent):\nje vaux\ntu vaux\nil/elle/on vaut\nnous valons\nvous valez\nils/elles valent",
+    "past_particle": "valu"
+  },
+  {
+    "french": "prouver",
+    "english": "to prove",
+    "examples": "Elle veut prouver à son équipe qu'elle est capable de diriger ce projet ambitieux.",
+    "conjugation": "(présent):\nje prouve\ntu prouves\nil/elle/on prouve\nnous prouvons\nvous prouvez\nils/elles prouvent",
+    "past_particle": "prouvé"
+  },
+  {
+    "french": "la notoriété",
+    "english": "fame / notoriety / reputation",
+    "examples": "Sa notoriété dans le monde de la mode a grandi rapidement après ce défilé remarqué.",
+    "gender": "feminine"
+  },
+  {
+    "french": "remettre",
+    "english": "to hand in / to postpone / to put back",
+    "examples": "Il doit remettre son rapport avant vendredi sinon le projet sera retardé.",
+    "conjugation": "(présent):\nje remets\ntu remets\nil/elle/on remet\nnous remettons\nvous remettez\nils/elles remettent",
+    "past_particle": "remis"
+  },
+  {
+    "french": "les métaux",
+    "english": "metals",
+    "examples": "Ces métaux précieux sont utilisés dans la fabrication de composants électroniques de haute qualité.",
+    "gender": "masculine"
+  },
+  {
+    "french": "soutenir",
+    "english": "to support / to uphold",
+    "examples": "Ses amis l'ont soutenu tout au long de cette période difficile avec beaucoup de bienveillance.",
+    "conjugation": "(présent):\nje soutiens\ntu soutiens\nil/elle/on soutient\nnous soutenons\nvous soutenez\nils/elles soutiennent",
+    "past_particle": "soutenu"
+  },
+  {
+    "french": "un coup de cœur",
+    "english": "love at first sight / favourite find",
+    "examples": "Ce roman a été un vrai coup de cœur, je l'ai lu d'une traite en une nuit.",
+    "gender": "masculine"
+  },
+  {
+    "french": "traiter",
+    "english": "to treat / to deal with / to process",
+    "examples": "Il faut traiter ce problème rapidement avant qu'il ne devienne incontrôlable.",
+    "conjugation": "(présent):\nje traite\ntu traites\nil/elle/on traite\nnous traitons\nvous traitez\nils/elles traitent",
+    "past_particle": "traité"
+  }
+]
