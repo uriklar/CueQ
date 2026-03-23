@@ -89,5 +89,12 @@
     "french": "avoir du mal à faire quelque chose",
     "english": "to have trouble doing something / to find it hard to do something",
     "examples": "J'ai du mal à comprendre la grammaire française, mais je continue à pratiquer."
+  },
+  {
+    "french": "s'accroître",
+    "english": "to increase, to grow, to rise",
+    "examples": "Le nombre d'étudiants qui apprennent le français s'accroît chaque année.",
+    "conjugation": "je m'accrois\ntu t'accrois\nil/elle s'accroît\nnous nous accroissons\nvous vous accroissez\nils/elles s'accroissent",
+    "past_particle": "accru"
   }
 ]
