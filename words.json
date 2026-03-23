@@ -67,5 +67,15 @@
     "examples": "Il faut traiter ce problème rapidement avant qu'il ne devienne incontrôlable.",
     "conjugation": "(présent):\nje traite\ntu traites\nil/elle/on traite\nnous traitons\nvous traitez\nils/elles traitent",
     "past_particle": "traité"
+  },
+  {
+    "french": "lorsque",
+    "english": "when / at the time when",
+    "examples": "Lorsque j'étais enfant, nous passions tous les étés au bord de la mer."
+  },
+  {
+    "french": "à nouveau",
+    "english": "again / once more",
+    "examples": "Après une longue pause, il a recommencé à jouer de la guitare à nouveau."
   }
 ]
