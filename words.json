@@ -96,5 +96,12 @@
     "examples": "Le nombre d'étudiants qui apprennent le français s'accroît chaque année.",
     "conjugation": "je m'accrois\ntu t'accrois\nil/elle s'accroît\nnous nous accroissons\nvous vous accroissez\nils/elles s'accroissent",
     "past_particle": "accru"
+  },
+  {
+    "french": "rentrer",
+    "english": "to go back home / to return",
+    "examples": "Je rentre à la maison après le travail.",
+    "conjugation": "(présent):\nje rentre\ntu rentres\nil/elle/on rentre\nnous rentrons\nvous rentrez\nils/elles rentrent",
+    "past_particle": "rentré"
   }
 ]
