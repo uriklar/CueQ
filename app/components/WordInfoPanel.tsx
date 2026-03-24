@@ -53,8 +53,24 @@ export const WordInfoPanel: React.FC<WordInfoPanelProps> = ({ word }) => {
     try {
       const translation = await translateSentence(exampleSentence);
       setTranslatedExample(translation);
-    } catch {
-      setTranslatedExample("Translation failed. Try again.");
+    } catch (error: unknown) {
+      let errorMsg = "Translation failed. Try again.";
+      if (error instanceof Error) {
+        errorMsg = `Error: ${error.message}`;
+      }
+      if (
+        error &&
+        typeof error === "object" &&
+        "response" in error
+      ) {
+        const axiosErr = error as {
+          response?: { status?: number; data?: unknown };
+        };
+        const status = axiosErr.response?.status;
+        const data = axiosErr.response?.data;
+        errorMsg = `HTTP ${status}: ${JSON.stringify(data)}`;
+      }
+      setTranslatedExample(errorMsg);
     } finally {
       setIsTranslating(false);
     }
