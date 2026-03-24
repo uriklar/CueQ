@@ -3,11 +3,11 @@ import axios from "axios";
 const GEMINI_API_KEY = process.env.EXPO_PUBLIC_GEMINI_API_KEY;
 console.log(
   "API Key loaded:",
-  GEMINI_API_KEY ? "Yes (length: " + GEMINI_API_KEY.length + ")" : "No"
+  GEMINI_API_KEY ? "Yes (length: " + GEMINI_API_KEY.length + ")" : "No",
 );
 
 const BASE_URL = "https://generativelanguage.googleapis.com/v1beta";
-const MODEL = "gemini-2.0-flash";
+const MODEL = "gemini-2.5-flash";
 
 interface GeminiResponse {
   candidates: Array<{
@@ -19,9 +19,7 @@ interface GeminiResponse {
   }>;
 }
 
-export const translateSentence = async (
-  sentence: string
-): Promise<string> => {
+export const translateSentence = async (sentence: string): Promise<string> => {
   if (!GEMINI_API_KEY) {
     throw new Error("GEMINI_API_KEY is not set in environment variables");
   }

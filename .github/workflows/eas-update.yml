@@ -26,6 +26,8 @@ jobs:
 
       - name: Run EAS Update
         id: eas-update
+        env:
+          EXPO_PUBLIC_GEMINI_API_KEY: ${{ secrets.EXPO_PUBLIC_GEMINI_API_KEY }}
         run: |
           OUTPUT=$(eas update --branch production --message "${{ github.event.head_commit.message }}" --non-interactive --json)
           echo "$OUTPUT"
