@@ -103,5 +103,10 @@
     "examples": "Je rentre à la maison après le travail.",
     "conjugation": "(présent):\nje rentre\ntu rentres\nil/elle/on rentre\nnous rentrons\nvous rentrez\nils/elles rentrent",
     "past_particle": "rentré"
+  },
+  {
+    "french": "pas mal",
+    "english": "quite a bit / not bad (in context: a fair amount)",
+    "examples": "Il a travaillé pas mal ces derniers temps."
   }
 ]
