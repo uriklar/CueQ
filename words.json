@@ -115,5 +115,26 @@
     "examples": "Tu es censé arriver à neuf heures, pas à dix.",
     "conjugation": "je suis censé(e)\ntu es censé(e)\nil/elle est censé(e)\nnous sommes censé(e)s\nvous êtes censé(e)s\nils/elles sont censé(e)s",
     "past_particle": "été censé"
+  },
+  {
+    "french": "ce qui compte",
+    "english": "what matters / what counts",
+    "examples": "Ce qui compte, c'est de faire de son mieux."
+  },
+  {
+    "french": "à tout prix",
+    "english": "at all costs / no matter what",
+    "examples": "Il voulait réussir à tout prix, même si cela prenait du temps."
+  },
+  {
+    "french": "en tout cas",
+    "english": "in any case / anyway / at any rate",
+    "examples": "En tout cas, nous devons prendre une décision avant demain."
+  },
+  {
+    "french": "œuvre",
+    "english": "work (artistic/literary) / masterpiece",
+    "examples": "Ce tableau est l'œuvre la plus célèbre du musée.",
+    "gender": "feminine"
   }
 ]
