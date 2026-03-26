@@ -108,5 +108,12 @@
     "french": "pas mal",
     "english": "quite a bit / not bad (in context: a fair amount)",
     "examples": "Il a travaillé pas mal ces derniers temps."
+  },
+  {
+    "french": "être censé",
+    "english": "to be supposed to / to be expected to",
+    "examples": "Tu es censé arriver à neuf heures, pas à dix.",
+    "conjugation": "je suis censé(e)\ntu es censé(e)\nil/elle est censé(e)\nnous sommes censé(e)s\nvous êtes censé(e)s\nils/elles sont censé(e)s",
+    "past_particle": "été censé"
   }
 ]
