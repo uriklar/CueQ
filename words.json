@@ -136,5 +136,27 @@
     "english": "work (artistic/literary) / masterpiece",
     "examples": "Ce tableau est l'œuvre la plus célèbre du musée.",
     "gender": "feminine"
+  },
+  {
+    "french": "un lien",
+    "english": "a link / a bond / a connection",
+    "examples": "Il y a un lien fort entre ces deux événements.",
+    "gender": "masculine"
+  },
+  {
+    "french": "récolté",
+    "english": "harvested / collected / gathered",
+    "examples": "Les agriculteurs ont récolté une grande quantité de blé cette année."
+  },
+  {
+    "french": "une citoyenne",
+    "english": "a citizen (female)",
+    "examples": "Elle est une citoyenne engagée qui participe à toutes les élections.",
+    "gender": "feminine"
+  },
+  {
+    "french": "ainsi",
+    "english": "thus / so / in this way",
+    "examples": "Il a travaillé dur et ainsi il a réussi son examen."
   }
 ]
