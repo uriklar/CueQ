@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - "words.json"
 
 jobs:
   eas-update:
