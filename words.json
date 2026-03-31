@@ -202,5 +202,10 @@
     "french": "attendu",
     "english": "expected / awaited",
     "examples": "Le résultat attendu n'était pas au rendez-vous cette fois-ci."
+  },
+  {
+    "french": "comme vous le savez",
+    "english": "as you know",
+    "examples": "Comme vous le savez, l'examen aura lieu la semaine prochaine."
   }
 ]
