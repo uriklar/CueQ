@@ -173,5 +173,34 @@
     "french": "au plus vite",
     "english": "as soon as possible / ASAP",
     "examples": "Il faut résoudre ce problème au plus vite."
+  },
+  {
+    "french": "exprimer",
+    "english": "to express",
+    "examples": "Il est important d'exprimer ses émotions clairement.",
+    "conjugation": "j'exprime\ntu exprimes\nil exprime\nnous exprimons\nvous exprimez\nils expriment",
+    "past_particle": "exprimé"
+  },
+  {
+    "french": "une épreuve",
+    "english": "a trial / test / ordeal",
+    "examples": "Le TCF est une épreuve difficile qui demande beaucoup de préparation.",
+    "gender": "feminine"
+  },
+  {
+    "french": "une consigne",
+    "english": "an instruction / rule / guideline",
+    "examples": "Lisez bien les consignes avant de commencer l'exercice.",
+    "gender": "feminine"
+  },
+  {
+    "french": "d'un coup",
+    "english": "all at once / suddenly",
+    "examples": "D'un coup, il a compris la réponse à la question."
+  },
+  {
+    "french": "attendu",
+    "english": "expected / awaited",
+    "examples": "Le résultat attendu n'était pas au rendez-vous cette fois-ci."
   }
 ]
