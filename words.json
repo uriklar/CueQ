@@ -212,5 +212,15 @@
     "french": "en commun",
     "english": "in common / shared",
     "examples": "Nous avons beaucoup de choses en commun, comme la musique et le sport."
+  },
+  {
+    "french": "en revanche",
+    "english": "on the other hand / however",
+    "examples": "Il n'aime pas la lecture. En revanche, il adore regarder des documentaires."
+  },
+  {
+    "french": "étant donné que",
+    "english": "given that / since",
+    "examples": "Étant donné que tu parles français, tu peux nous aider à traduire ce texte."
   }
 ]
