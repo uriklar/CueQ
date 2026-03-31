@@ -222,5 +222,10 @@
     "french": "étant donné que",
     "english": "given that / since",
     "examples": "Étant donné que tu parles français, tu peux nous aider à traduire ce texte."
+  },
+  {
+    "french": "à qui cela peut concerner",
+    "english": "to whom it may concern",
+    "examples": "À qui cela peut concerner, veuillez trouver ci-joint mon dossier de candidature."
   }
 ]
