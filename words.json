@@ -243,5 +243,11 @@
     "english": "an amount / a sum",
     "examples": "Le montant total de la facture s'élève à trois cents euros.",
     "gender": "masculine"
+  },
+  {
+    "french": "la vérité",
+    "english": "the truth",
+    "examples": "Il faut toujours dire la vérité, même quand c'est difficile.",
+    "gender": "feminine"
   }
 ]
