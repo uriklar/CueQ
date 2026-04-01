@@ -249,5 +249,10 @@
     "english": "the truth",
     "examples": "Il faut toujours dire la vérité, même quand c'est difficile.",
     "gender": "feminine"
+  },
+  {
+    "french": "la vérité est entre les deux",
+    "english": "the truth is somewhere in between",
+    "examples": "L'un dit oui, l'autre dit non — la vérité est entre les deux."
   }
 ]
