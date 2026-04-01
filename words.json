@@ -254,5 +254,11 @@
     "french": "la vérité est entre les deux",
     "english": "the truth is somewhere in between",
     "examples": "L'un dit oui, l'autre dit non — la vérité est entre les deux."
+  },
+  {
+    "french": "l'équilibre",
+    "english": "balance / equilibrium",
+    "examples": "Trouver l'équilibre entre le travail et la vie personnelle est important.",
+    "gender": "masculine"
   }
 ]
