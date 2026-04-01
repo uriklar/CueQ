@@ -53,6 +53,12 @@ export const Dashboard = () => {
     null
   );
   const [searchText, setSearchText] = useState("");
+  const [selectionMode, setSelectionMode] = useState(false);
+  const [selectedWordIds, setSelectedWordIds] = useState<Set<string>>(
+    new Set()
+  );
+  const [isBulkDifficultyDrawerVisible, setIsBulkDifficultyDrawerVisible] =
+    useState(false);
   const [practiceDistribution, setPracticeDistribution] =
     useState<PracticeDistribution>(DEFAULT_PRACTICE_DISTRIBUTION);
   const [appSettings, setAppSettings] = useState<AppSettings>({
@@ -394,6 +400,104 @@ export const Dashboard = () => {
     await performDeleteWord(word);
   };
 
+  // Selection mode handlers
+  const handleEnterSelectionMode = (wordId: string) => {
+    setSelectionMode(true);
+    setSelectedWordIds(new Set([wordId]));
+  };
+
+  const handleToggleSelection = (wordId: string) => {
+    setSelectedWordIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(wordId)) {
+        next.delete(wordId);
+      } else {
+        next.add(wordId);
+      }
+      return next;
+    });
+  };
+
+  const handleExitSelectionMode = () => {
+    setSelectionMode(false);
+    setSelectedWordIds(new Set());
+  };
+
+  const handleBulkDelete = () => {
+    if (selectedWordIds.size === 0) return;
+
+    Alert.alert(
+      "Delete Words",
+      `Are you sure you want to delete ${selectedWordIds.size} word${selectedWordIds.size > 1 ? "s" : ""}?`,
+      [
+        { text: "Cancel", style: "cancel" },
+        {
+          text: "Delete",
+          style: "destructive",
+          onPress: async () => {
+            try {
+              const wordsToDelete = words.filter((w) =>
+                selectedWordIds.has(w.id)
+              );
+              let allSucceeded = true;
+              for (const word of wordsToDelete) {
+                const success = await deleteWord(word);
+                if (!success) allSucceeded = false;
+              }
+              if (allSucceeded) {
+                setWords((current) =>
+                  current.filter((w) => !selectedWordIds.has(w.id))
+                );
+              } else {
+                // Reload to get accurate state
+                await loadWords();
+              }
+              handleExitSelectionMode();
+            } catch (error) {
+              console.error("Error bulk deleting words:", error);
+              Alert.alert("Error", "Failed to delete some words.");
+            }
+          },
+        },
+      ]
+    );
+  };
+
+  const handleBulkMoveDifficulty = () => {
+    if (selectedWordIds.size === 0) return;
+    setIsBulkDifficultyDrawerVisible(true);
+  };
+
+  const handleBulkSelectDifficulty = async (
+    difficulty: Difficulty | undefined
+  ) => {
+    try {
+      const storedWordsJson = await AsyncStorage.getItem(STORAGE_KEY);
+      const storedWords: Record<string, Word> = storedWordsJson
+        ? JSON.parse(storedWordsJson)
+        : {};
+
+      const updatedIds = new Set<string>();
+      for (const wordId of selectedWordIds) {
+        if (storedWords[wordId]) {
+          storedWords[wordId] = { ...storedWords[wordId], difficulty };
+          updatedIds.add(wordId);
+        }
+      }
+
+      await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(storedWords));
+
+      setWords((current) =>
+        current.map((w) => (updatedIds.has(w.id) ? { ...w, difficulty } : w))
+      );
+    } catch (e) {
+      console.error("Error bulk setting difficulty:", e);
+    } finally {
+      setIsBulkDifficultyDrawerVisible(false);
+      handleExitSelectionMode();
+    }
+  };
+
   // Compute filtered words count
   const filteredWords = (
     selectedDifficulty === "all"
@@ -408,6 +512,14 @@ export const Dashboard = () => {
       (word.examples &&
         word.examples.toLowerCase().includes(searchText.toLowerCase()))
   );
+
+  const handleSelectAll = () => {
+    setSelectedWordIds(new Set(filteredWords.map((w) => w.id)));
+  };
+
+  const handleDeselectAll = () => {
+    setSelectedWordIds(new Set());
+  };
 
   return (
     <View style={styles.container}>
@@ -451,13 +563,50 @@ export const Dashboard = () => {
         onSearchChange={setSearchText}
         filteredCount={filteredWords.length}
         totalCount={words.length}
+        selectionMode={selectionMode}
+        selectedWordIds={selectedWordIds}
+        onToggleSelection={handleToggleSelection}
+        onEnterSelectionMode={handleEnterSelectionMode}
+        onSelectAll={handleSelectAll}
+        onDeselectAll={handleDeselectAll}
+        onExitSelectionMode={handleExitSelectionMode}
       />
+
+      {selectionMode && selectedWordIds.size > 0 && (
+        <View style={styles.bulkActionBar}>
+          <Pressable
+            style={[styles.bulkActionButton, styles.bulkDeleteButton]}
+            onPress={handleBulkDelete}
+          >
+            <Ionicons name="trash-outline" size={18} color={colors.surface} />
+            <Text style={styles.bulkDeleteButtonText}>
+              Delete ({selectedWordIds.size})
+            </Text>
+          </Pressable>
+          <Pressable
+            style={[styles.bulkActionButton, styles.bulkMoveButton]}
+            onPress={handleBulkMoveDifficulty}
+          >
+            <Ionicons name="swap-horizontal-outline" size={18} color={colors.surface} />
+            <Text style={styles.bulkMoveButtonText}>
+              Move Difficulty ({selectedWordIds.size})
+            </Text>
+          </Pressable>
+        </View>
+      )}
 
       <DifficultyDrawer
         visible={isDifficultyDrawerVisible}
         onClose={handleCloseDifficultyDrawer}
         onSelect={handleSelectDifficulty}
         current={difficultyTargetWord?.difficulty}
+      />
+
+      <DifficultyDrawer
+        visible={isBulkDifficultyDrawerVisible}
+        onClose={() => setIsBulkDifficultyDrawerVisible(false)}
+        onSelect={handleBulkSelectDifficulty}
+        current={undefined}
       />
 
       <AddWordModal
@@ -527,6 +676,38 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primary,
   },
   addButtonText: {
+    color: colors.surface,
+    fontWeight: "600",
+  },
+  bulkActionBar: {
+    flexDirection: "row",
+    padding: spacing.md,
+    backgroundColor: colors.surface,
+    borderTopWidth: 1,
+    borderTopColor: colors.neutral200,
+    gap: spacing.sm,
+    ...shadows.md,
+  },
+  bulkActionButton: {
+    flex: 1,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    paddingVertical: spacing.md,
+    borderRadius: borderRadius.md,
+    gap: spacing.sm,
+  },
+  bulkDeleteButton: {
+    backgroundColor: colors.danger,
+  },
+  bulkDeleteButtonText: {
+    color: colors.surface,
+    fontWeight: "600",
+  },
+  bulkMoveButton: {
+    backgroundColor: colors.primary,
+  },
+  bulkMoveButtonText: {
     color: colors.surface,
     fontWeight: "600",
   },
