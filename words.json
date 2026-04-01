@@ -260,5 +260,64 @@
     "english": "balance / equilibrium",
     "examples": "Trouver l'équilibre entre le travail et la vie personnelle est important.",
     "gender": "masculine"
+  },
+  {
+    "french": "la sévérité",
+    "english": "strictness / severity",
+    "examples": "La sévérité des parents peut parfois créer un sentiment d'injustice chez les enfants.",
+    "gender": "feminine"
+  },
+  {
+    "french": "la permissivité",
+    "english": "permissiveness / leniency",
+    "examples": "Trop de permissivité peut entraîner un manque de repères chez l'enfant.",
+    "gender": "feminine"
+  },
+  {
+    "french": "un repère",
+    "english": "a reference point / a guideline / a landmark",
+    "examples": "Les enfants ont besoin de repères pour se sentir en sécurité.",
+    "gender": "masculine"
+  },
+  {
+    "french": "entraîner",
+    "english": "to lead to / to cause / to train",
+    "examples": "L'absence de règles peut entraîner des difficultés d'adaptation.",
+    "conjugation": "j'entraîne\ntu entraînes\nil entraîne\nnous entraînons\nvous entraînez\nils entraînent",
+    "past_particle": "entraîné"
+  },
+  {
+    "french": "sereinement",
+    "english": "serenely / calmly / peacefully",
+    "examples": "Les enfants ont besoin de limites claires pour grandir sereinement."
+  },
+  {
+    "french": "l'autonomie",
+    "english": "autonomy / independence",
+    "examples": "À l'âge adulte, l'autonomie devient nécessaire pour réussir dans la vie.",
+    "gender": "feminine"
+  },
+  {
+    "french": "harmonieux",
+    "english": "harmonious / balanced",
+    "examples": "Une éducation équilibrée est essentielle pour le développement harmonieux d'un enfant."
+  },
+  {
+    "french": "un témoignage",
+    "english": "a testimony / an account / a witness statement",
+    "examples": "Le témoignage de cette jeune fille révèle un sentiment de frustration.",
+    "gender": "masculine"
+  },
+  {
+    "french": "toutefois",
+    "english": "however / nevertheless",
+    "examples": "Il aime sa liberté ; toutefois, il comprend l'importance des règles."
+  },
+  {
+    "french": "accompagner",
+    "english": "to accompany / to support / to guide",
+    "examples": "Cette approche permet d'accompagner l'enfant vers la responsabilité.",
+    "conjugation": "j'accompagne\ntu accompagnes\nil accompagne\nnous accompagnons\nvous accompagnez\nils accompagnent",
+    "past_particle": "accompagné"
   }
 ]
