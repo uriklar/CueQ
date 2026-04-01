@@ -237,5 +237,11 @@
     "french": "auparavant",
     "english": "previously / before / formerly",
     "examples": "Auparavant, je travaillais à Tel Aviv, mais maintenant je vis au Canada."
+  },
+  {
+    "french": "un montant",
+    "english": "an amount / a sum",
+    "examples": "Le montant total de la facture s'élève à trois cents euros.",
+    "gender": "masculine"
   }
 ]
