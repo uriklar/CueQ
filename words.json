@@ -319,5 +319,10 @@
     "examples": "Cette approche permet d'accompagner l'enfant vers la responsabilité.",
     "conjugation": "j'accompagne\ntu accompagnes\nil accompagne\nnous accompagnons\nvous accompagnez\nils accompagnent",
     "past_particle": "accompagné"
+  },
+  {
+    "french": "emplacement",
+    "english": "location / spot / place",
+    "examples": "Cet emplacement est idéal pour ouvrir un petit café près de la gare."
   }
 ]
