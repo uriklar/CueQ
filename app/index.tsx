@@ -1,5 +1,5 @@
 import { View, StyleSheet, Pressable, Text } from "react-native";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { MaterialIcons } from "@expo/vector-icons";
 import { router } from "expo-router";
@@ -76,6 +76,12 @@ export default function Page() {
           <Dashboard />
           <View style={styles.floatingButtons}>
             <Pressable
+              style={styles.secondaryActionButton}
+              onPress={() => router.push("/crossword-setup")}
+            >
+              <Text style={styles.secondaryActionButtonText}>Crossword</Text>
+            </Pressable>
+            <Pressable
               style={styles.conjugationButton}
               onPress={() => router.push("/conjugation-setup")}
             >
@@ -124,6 +130,18 @@ const styles = StyleSheet.create({
     right: 20,
     alignItems: "flex-end",
     gap: spacing.sm,
+  },
+  secondaryActionButton: {
+    backgroundColor: colors.primarySurface,
+    paddingHorizontal: spacing.xl,
+    paddingVertical: spacing.md,
+    borderRadius: borderRadius.full,
+    ...shadows.lg,
+  },
+  secondaryActionButtonText: {
+    color: colors.primary,
+    fontSize: 15,
+    fontWeight: "600",
   },
   conjugationButton: {
     backgroundColor: colors.accentLight,
