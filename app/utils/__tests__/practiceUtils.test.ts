@@ -1,6 +1,12 @@
 import { Word, Difficulty } from "../../types";
 import { selectPracticeWords } from "../practiceUtils";
 
+jest.mock("@react-native-async-storage/async-storage", () => ({
+  setItem: jest.fn(() => Promise.resolve()),
+  getItem: jest.fn(() => Promise.resolve(null)),
+  removeItem: jest.fn(() => Promise.resolve()),
+}));
+
 describe("selectPracticeWords", () => {
   // Helper function to create test words
   const createTestWord = (id: string, difficulty?: Difficulty): Word => ({
@@ -31,7 +37,7 @@ describe("selectPracticeWords", () => {
       ...Array(50)
         .fill(null)
         .map((_, i) => createTestWord(`hard${i}`, "hard")),
-      ...Array(50)
+      ...Array(70)
         .fill(null)
         .map((_, i) => createTestWord(`new${i}`)), // no difficulty = new
     ];

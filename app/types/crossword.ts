@@ -1,6 +1,7 @@
 import { Difficulty, Word } from "./index";
 
 export type CrosswordDirection = "across" | "down";
+export type CrosswordCheckState = "unchecked" | "correct" | "incorrect" | "revealed";
 
 export interface CrosswordEntrySource extends Word {
   normalizedAnswer: string;
@@ -43,4 +44,6 @@ export interface CrosswordGenerationOptions {
   targetEntryCount: number;
   maxSize?: number;
   minSize?: number;
+  attemptsPerSize?: number;
+  random?: () => number;
 }

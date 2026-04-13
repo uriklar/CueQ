@@ -11,10 +11,13 @@ import {
 } from "react-native";
 import { router, useLocalSearchParams } from "expo-router";
 import { colors, spacing } from "../theme";
-import { CrosswordCell, CrosswordPlacedEntry, CrosswordPuzzle } from "../types/crossword";
+import { CrosswordCell, CrosswordCheckState, CrosswordPlacedEntry, CrosswordPuzzle } from "../types/crossword";
 import {
   buildCrosswordPuzzle,
+  getCrosswordCellCheckState,
+  getCrosswordEntryCheckState,
   getCrosswordEligibleWords,
+  isCrosswordEntrySolved,
   normalizeCrosswordAnswer,
 } from "../utils/crosswordUtils";
 import { getStoredWords, loadAndMergeWords } from "../utils/wordUtils";
@@ -29,7 +32,9 @@ export function CrosswordPractice() {
   const [entryDirection, setEntryDirection] = useState<"across" | "down">("across");
   const [answersByCell, setAnswersByCell] = useState<Record<string, string>>(EMPTY_STATE);
   const [checkedCells, setCheckedCells] = useState<Set<string>>(new Set());
+  const [checkedEntryIds, setCheckedEntryIds] = useState<Set<string>>(new Set());
   const [revealedCells, setRevealedCells] = useState<Set<string>>(new Set());
+  const [revealedEntryIds, setRevealedEntryIds] = useState<Set<string>>(new Set());
   const [isLoading, setIsLoading] = useState(true);
   const hiddenInputRef = useRef<TextInput | null>(null);
   const { width } = useWindowDimensions();
@@ -69,13 +74,14 @@ export function CrosswordPractice() {
     const nextPuzzle = buildCrosswordPuzzle(eligible, {
       targetEntryCount: targetWordCount,
       minSize: 7,
-      maxSize: 11,
     });
 
     setPuzzle(nextPuzzle);
     setAnswersByCell({});
     setCheckedCells(new Set());
+    setCheckedEntryIds(new Set());
     setRevealedCells(new Set());
+    setRevealedEntryIds(new Set());
     setActiveEntryId(nextPuzzle?.entries[0]?.id ?? null);
     setEntryDirection(nextPuzzle?.entries[0]?.direction ?? "across");
     setIsLoading(false);
@@ -97,9 +103,14 @@ export function CrosswordPractice() {
 
   const completion = useMemo(() => {
     if (!puzzle) return { solved: 0, total: 0 };
-    const solved = puzzle.entries.filter((entry) => isEntrySolved(entry, answersByCell)).length;
+    const solved = puzzle.entries.filter((entry) => isCrosswordEntrySolved(entry, answersByCell)).length;
     return { solved, total: puzzle.entries.length };
   }, [answersByCell, puzzle]);
+
+  const activeEntryState = useMemo(() => {
+    if (!activeEntry) return "unchecked" as CrosswordCheckState;
+    return getCrosswordEntryCheckState(activeEntry, answersByCell, checkedEntryIds, revealedEntryIds);
+  }, [activeEntry, answersByCell, checkedEntryIds, revealedEntryIds]);
 
   const handleCellPress = (cell: CrosswordCell) => {
     if (!puzzle) return;
@@ -145,24 +156,31 @@ export function CrosswordPractice() {
     const nextChecked = new Set(checkedCells);
     activeEntryCells.forEach((cell) => nextChecked.add(getCellKey(cell.row, cell.col)));
     setCheckedCells(nextChecked);
+    setCheckedEntryIds((current) => new Set(current).add(activeEntry.id));
   };
 
   const handleRevealEntry = () => {
     if (!activeEntry) return;
     const nextAnswers = { ...answersByCell };
     const nextRevealed = new Set(revealedCells);
+    const nextChecked = new Set(checkedCells);
     activeEntryCells.forEach((cell, index) => {
       const key = getCellKey(cell.row, cell.col);
       nextAnswers[key] = activeEntry.answer[index];
       nextRevealed.add(key);
+      nextChecked.add(key);
     });
     setAnswersByCell(nextAnswers);
+    setCheckedCells(nextChecked);
     setRevealedCells(nextRevealed);
+    setCheckedEntryIds((current) => new Set(current).add(activeEntry.id));
+    setRevealedEntryIds((current) => new Set(current).add(activeEntry.id));
   };
 
   const handleCheckPuzzle = () => {
     if (!puzzle) return;
     setCheckedCells(new Set(puzzle.cells.map((cell) => getCellKey(cell.row, cell.col))));
+    setCheckedEntryIds(new Set(puzzle.entries.map((entry) => entry.id)));
   };
 
   const handleRevealPuzzle = () => {
@@ -175,13 +193,18 @@ export function CrosswordPractice() {
         onPress: () => {
           const nextAnswers = { ...answersByCell };
           const nextRevealed = new Set(revealedCells);
+          const nextChecked = new Set(checkedCells);
           puzzle.cells.forEach((cell) => {
             const key = getCellKey(cell.row, cell.col);
             nextAnswers[key] = cell.solution;
             nextRevealed.add(key);
+            nextChecked.add(key);
           });
           setAnswersByCell(nextAnswers);
+          setCheckedCells(nextChecked);
           setRevealedCells(nextRevealed);
+          setCheckedEntryIds(new Set(puzzle.entries.map((entry) => entry.id)));
+          setRevealedEntryIds(new Set(puzzle.entries.map((entry) => entry.id)));
         },
       },
     ]);
@@ -235,8 +258,7 @@ export function CrosswordPractice() {
                 const key = getCellKey(row, col);
                 const value = answersByCell[key] ?? "";
                 const isActive = activeEntry ? cellBelongsToEntry(cell, activeEntry) : false;
-                const isCheckedWrong = checkedCells.has(key) && value && value !== cell.solution;
-                const isRevealed = revealedCells.has(key);
+                const cellState = getCrosswordCellCheckState(cell, answersByCell, checkedCells, revealedCells);
 
                 return (
                   <Pressable
@@ -246,8 +268,9 @@ export function CrosswordPractice() {
                       styles.cell,
                       { width: gridSize, height: gridSize },
                       isActive && styles.cellActive,
-                      isCheckedWrong && styles.cellWrong,
-                      isRevealed && styles.cellRevealed,
+                      cellState === "correct" && styles.cellCorrect,
+                      cellState === "incorrect" && styles.cellWrong,
+                      cellState === "revealed" && styles.cellRevealed,
                     ]}
                   >
                     {cell.number ? <Text style={styles.cellNumber}>{cell.number}</Text> : null}
@@ -275,12 +298,22 @@ export function CrosswordPractice() {
               placeholderTextColor={colors.neutral300}
               style={styles.answerInput}
             />
+            <Text
+              style={[
+                styles.answerStatus,
+                activeEntryState === "correct" && styles.answerStatusCorrect,
+                activeEntryState === "incorrect" && styles.answerStatusIncorrect,
+                activeEntryState === "revealed" && styles.answerStatusRevealed,
+              ]}
+            >
+              {getEntryStatusCopy(activeEntryState)}
+            </Text>
             <View style={styles.editorActions}>
               <Pressable onPress={handleCheckEntry} style={styles.secondaryButton}>
-                <Text style={styles.secondaryButtonText}>Check clue</Text>
+                <Text style={styles.secondaryButtonText}>Check answer</Text>
               </Pressable>
               <Pressable onPress={handleRevealEntry} style={styles.secondaryButton}>
-                <Text style={styles.secondaryButtonText}>Reveal clue</Text>
+                <Text style={styles.secondaryButtonText}>Reveal answer</Text>
               </Pressable>
             </View>
           </View>
@@ -301,9 +334,19 @@ export function CrosswordPractice() {
             <Pressable
               key={entry.id}
               onPress={() => handleEntryPress(entry)}
-              style={[styles.clueRow, activeEntry?.id === entry.id && styles.clueRowActive]}
+              style={[
+                styles.clueRow,
+                getEntryRowStyle(entry, activeEntry, answersByCell, checkedEntryIds, revealedEntryIds),
+              ]}
             >
-              <Text style={styles.clueNumber}>{entry.number}.</Text>
+              <Text
+                style={[
+                  styles.clueNumber,
+                  getEntryNumberStyle(entry, answersByCell, checkedEntryIds, revealedEntryIds),
+                ]}
+              >
+                {entry.number}.
+              </Text>
               <View style={styles.clueTextWrap}>
                 <Text style={styles.clueText}>{entry.clue}</Text>
                 <Text style={styles.clueMeta}>{entry.length} letters</Text>
@@ -316,9 +359,19 @@ export function CrosswordPractice() {
             <Pressable
               key={entry.id}
               onPress={() => handleEntryPress(entry)}
-              style={[styles.clueRow, activeEntry?.id === entry.id && styles.clueRowActive]}
+              style={[
+                styles.clueRow,
+                getEntryRowStyle(entry, activeEntry, answersByCell, checkedEntryIds, revealedEntryIds),
+              ]}
             >
-              <Text style={styles.clueNumber}>{entry.number}.</Text>
+              <Text
+                style={[
+                  styles.clueNumber,
+                  getEntryNumberStyle(entry, answersByCell, checkedEntryIds, revealedEntryIds),
+                ]}
+              >
+                {entry.number}.
+              </Text>
               <View style={styles.clueTextWrap}>
                 <Text style={styles.clueText}>{entry.clue}</Text>
                 <Text style={styles.clueMeta}>{entry.length} letters</Text>
@@ -349,16 +402,49 @@ function getCellsForEntry(puzzle: CrosswordPuzzle | null, entry: CrosswordPlaced
     .sort((a, b) => (entry.direction === "across" ? a.col - b.col : a.row - b.row));
 }
 
-function isEntrySolved(entry: CrosswordPlacedEntry, answersByCell: Record<string, string>) {
-  for (let index = 0; index < entry.length; index += 1) {
-    const row = entry.direction === "across" ? entry.row : entry.row + index;
-    const col = entry.direction === "across" ? entry.col + index : entry.col;
-    const key = getCellKey(row, col);
-    if ((answersByCell[key] ?? "") !== entry.answer[index]) {
-      return false;
-    }
+function getEntryStatusCopy(state: CrosswordCheckState) {
+  switch (state) {
+    case "correct":
+      return "Correct";
+    case "incorrect":
+      return "Not correct yet";
+    case "revealed":
+      return "Revealed";
+    default:
+      return "Check this answer to verify it.";
   }
-  return true;
+}
+
+function getEntryRowStyle(
+  entry: CrosswordPlacedEntry,
+  activeEntry: CrosswordPlacedEntry | null,
+  answersByCell: Record<string, string>,
+  checkedEntryIds: Set<string>,
+  revealedEntryIds: Set<string>
+) {
+  const state = getCrosswordEntryCheckState(entry, answersByCell, checkedEntryIds, revealedEntryIds);
+
+  return [
+    activeEntry?.id === entry.id && styles.clueRowActive,
+    state === "correct" && styles.clueRowCorrect,
+    state === "incorrect" && styles.clueRowIncorrect,
+    state === "revealed" && styles.clueRowRevealed,
+  ];
+}
+
+function getEntryNumberStyle(
+  entry: CrosswordPlacedEntry,
+  answersByCell: Record<string, string>,
+  checkedEntryIds: Set<string>,
+  revealedEntryIds: Set<string>
+) {
+  const state = getCrosswordEntryCheckState(entry, answersByCell, checkedEntryIds, revealedEntryIds);
+
+  return [
+    state === "correct" && styles.clueNumberCorrect,
+    state === "incorrect" && styles.clueNumberIncorrect,
+    state === "revealed" && styles.clueNumberRevealed,
+  ];
 }
 
 const styles = StyleSheet.create({
@@ -378,6 +464,7 @@ const styles = StyleSheet.create({
   blockCell: { backgroundColor: colors.neutral700, borderWidth: 1, borderColor: colors.neutral700 },
   cell: { backgroundColor: colors.surface, borderWidth: 1, borderColor: colors.neutral200, justifyContent: "center", alignItems: "center", position: "relative" },
   cellActive: { backgroundColor: colors.primarySurface },
+  cellCorrect: { backgroundColor: colors.successLight, borderColor: colors.success },
   cellWrong: { backgroundColor: colors.dangerLight, borderColor: colors.danger },
   cellRevealed: { backgroundColor: colors.accentLight },
   cellNumber: { position: "absolute", left: 2, top: 1, fontSize: 9, color: colors.neutral500 },
@@ -386,6 +473,10 @@ const styles = StyleSheet.create({
   editorTitle: { fontSize: 14, fontWeight: "700", color: colors.neutral500, textTransform: "uppercase", letterSpacing: 0.5 },
   editorClue: { fontSize: 20, fontWeight: "700", color: colors.neutral900, marginTop: spacing.sm },
   answerInput: { marginTop: spacing.md, borderWidth: 1.5, borderColor: colors.neutral200, borderRadius: 12, padding: spacing.lg, fontSize: 24, letterSpacing: 6, color: colors.neutral900, backgroundColor: colors.neutral50 },
+  answerStatus: { marginTop: spacing.sm, fontSize: 14, color: colors.neutral500 },
+  answerStatusCorrect: { color: colors.success, fontWeight: "600" },
+  answerStatusIncorrect: { color: colors.danger, fontWeight: "600" },
+  answerStatusRevealed: { color: colors.accent, fontWeight: "600" },
   editorActions: { flexDirection: "row", gap: spacing.sm, marginTop: spacing.md },
   globalActions: { flexDirection: "row", gap: spacing.sm },
   primaryButton: { flex: 1, backgroundColor: colors.primary, padding: spacing.lg, borderRadius: 12, alignItems: "center" },
@@ -398,7 +489,13 @@ const styles = StyleSheet.create({
   sectionLabel: { fontSize: 14, fontWeight: "700", color: colors.neutral500, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: spacing.sm, marginTop: spacing.sm },
   clueRow: { flexDirection: "row", gap: spacing.sm, paddingVertical: spacing.sm, borderBottomWidth: 1, borderColor: colors.neutral100 },
   clueRowActive: { backgroundColor: colors.primarySurface, marginHorizontal: -spacing.sm, paddingHorizontal: spacing.sm, borderRadius: 10 },
+  clueRowCorrect: { backgroundColor: colors.successLight, marginHorizontal: -spacing.sm, paddingHorizontal: spacing.sm, borderRadius: 10 },
+  clueRowIncorrect: { backgroundColor: colors.dangerLight, marginHorizontal: -spacing.sm, paddingHorizontal: spacing.sm, borderRadius: 10 },
+  clueRowRevealed: { backgroundColor: colors.accentLight, marginHorizontal: -spacing.sm, paddingHorizontal: spacing.sm, borderRadius: 10 },
   clueNumber: { width: 28, fontSize: 16, fontWeight: "700", color: colors.primary },
+  clueNumberCorrect: { color: colors.success },
+  clueNumberIncorrect: { color: colors.danger },
+  clueNumberRevealed: { color: colors.accent },
   clueTextWrap: { flex: 1 },
   clueText: { fontSize: 15, color: colors.neutral900 },
   clueMeta: { marginTop: 2, fontSize: 12, color: colors.neutral500 },

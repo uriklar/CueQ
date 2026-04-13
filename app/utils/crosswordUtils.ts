@@ -1,6 +1,7 @@
 import { Difficulty, Word } from "../types";
 import {
   CrosswordCell,
+  CrosswordCheckState,
   CrosswordDirection,
   CrosswordEntrySource,
   CrosswordGenerationOptions,
@@ -9,12 +10,15 @@ import {
 } from "../types/crossword";
 
 const ALLOWED_PATTERN = /^[A-Z]+$/;
+const MIN_ENTRY_LENGTH = 3;
+const MAX_SOURCE_WORDS = 2;
 
 interface PlacementCandidate {
   row: number;
   col: number;
   direction: CrosswordDirection;
   intersections: number;
+  score: number;
 }
 
 interface WorkingEntry {
@@ -24,12 +28,65 @@ interface WorkingEntry {
   direction: CrosswordDirection;
 }
 
+type RandomFn = () => number;
+
 export function normalizeCrosswordAnswer(value: string): string {
   return value
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .replace(/[^a-zA-Z]/g, "")
     .toUpperCase();
+}
+
+export function isCrosswordEntrySolved(
+  entry: CrosswordPlacedEntry,
+  answersByCell: Record<string, string>
+): boolean {
+  for (let index = 0; index < entry.length; index += 1) {
+    const row = entry.direction === "across" ? entry.row : entry.row + index;
+    const col = entry.direction === "across" ? entry.col + index : entry.col;
+    if ((answersByCell[toCellKey(row, col)] ?? "") !== entry.answer[index]) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+export function getCrosswordEntryCheckState(
+  entry: CrosswordPlacedEntry,
+  answersByCell: Record<string, string>,
+  checkedEntryIds: Set<string>,
+  revealedEntryIds: Set<string>
+): CrosswordCheckState {
+  if (revealedEntryIds.has(entry.id)) {
+    return "revealed";
+  }
+
+  if (!checkedEntryIds.has(entry.id)) {
+    return "unchecked";
+  }
+
+  return isCrosswordEntrySolved(entry, answersByCell) ? "correct" : "incorrect";
+}
+
+export function getCrosswordCellCheckState(
+  cell: Pick<CrosswordCell, "row" | "col" | "solution">,
+  answersByCell: Record<string, string>,
+  checkedCells: Set<string>,
+  revealedCells: Set<string>
+): CrosswordCheckState {
+  const key = toCellKey(cell.row, cell.col);
+
+  if (revealedCells.has(key)) {
+    return "revealed";
+  }
+
+  if (!checkedCells.has(key)) {
+    return "unchecked";
+  }
+
+  return (answersByCell[key] ?? "") === cell.solution ? "correct" : "incorrect";
 }
 
 export function getCrosswordEligibleWords(
@@ -51,8 +108,14 @@ export function getCrosswordEligibleWords(
 
     const normalizedAnswer = normalizeCrosswordAnswer(word.french);
     const clue = word.english?.trim();
+    const sourceWordCount = countCrosswordSourceWords(word.french);
 
-    if (!clue || normalizedAnswer.length < 3 || normalizedAnswer.length > 10) {
+    if (
+      !clue ||
+      sourceWordCount === 0 ||
+      sourceWordCount > MAX_SOURCE_WORDS ||
+      normalizedAnswer.length < MIN_ENTRY_LENGTH
+    ) {
       return false;
     }
 
@@ -75,33 +138,65 @@ export function buildCrosswordPuzzle(
   options: CrosswordGenerationOptions
 ): CrosswordPuzzle | null {
   const targetEntryCount = Math.max(3, options.targetEntryCount);
-  const maxSize = options.maxSize ?? 11;
-  const minSize = options.minSize ?? 7;
-
+  const random = options.random ?? Math.random;
+  const attemptsPerSize = Math.max(1, options.attemptsPerSize ?? 6);
   const candidates = sourceWords.filter(
-    (word) => word.normalizedAnswer.length <= maxSize
+    (word) => options.maxSize == null || word.normalizedAnswer.length <= options.maxSize
   );
 
   if (candidates.length < 3) {
     return null;
   }
 
-  for (let size = minSize; size <= maxSize; size += 1) {
-    const puzzle = tryBuildForSize(candidates, targetEntryCount, size);
-    if (puzzle) {
-      return puzzle;
+  const longestEntryLength = Math.max(...candidates.map((word) => word.normalizedAnswer.length));
+  const averageEntryLength =
+    candidates.reduce(
+      (total, word) => total + Math.min(word.normalizedAnswer.length, 9),
+      0
+    ) / candidates.length;
+  const preferredLetterCount = averageEntryLength * Math.max(targetEntryCount, 4);
+  const preferredSize = Math.max(
+    options.minSize ?? 7,
+    Math.ceil(Math.sqrt(Math.max(preferredLetterCount, MIN_ENTRY_LENGTH) * 1.8))
+  );
+  const minSize = options.minSize ?? 7;
+  const maxSize = Math.max(
+    minSize,
+    options.maxSize ?? Math.max(preferredSize + 4, Math.min(longestEntryLength + 2, preferredSize + 6))
+  );
+  const sizeOrder = buildSizeSearchOrder(minSize, maxSize, clamp(preferredSize, minSize, maxSize));
+
+  let bestPuzzle: CrosswordPuzzle | null = null;
+  let bestScore = Number.NEGATIVE_INFINITY;
+
+  for (const size of sizeOrder) {
+    for (let attempt = 0; attempt < attemptsPerSize; attempt += 1) {
+      const puzzle = tryBuildForSize(candidates, targetEntryCount, size, random);
+      if (!puzzle) continue;
+
+      const score = scorePuzzle(puzzle);
+      if (score > bestScore) {
+        bestPuzzle = puzzle;
+        bestScore = score;
+      }
+
+      if (puzzle.entries.length >= targetEntryCount) {
+        return puzzle;
+      }
     }
   }
 
-  return null;
+  return bestPuzzle;
 }
 
 function tryBuildForSize(
   words: CrosswordEntrySource[],
   targetEntryCount: number,
-  size: number
+  size: number,
+  random: RandomFn
 ): CrosswordPuzzle | null {
-  const limitedWords = words.slice(0, Math.min(words.length, 28));
+  const limitedWords = selectWordPool(words, size, targetEntryCount, random);
+  let best: WorkingEntry[] = [];
 
   for (const seed of limitedWords) {
     if (seed.normalizedAnswer.length > size) continue;
@@ -121,13 +216,16 @@ function tryBuildForSize(
     ];
 
     const remaining = limitedWords.filter((word) => word.id !== seed.id);
-    const success = backtrackPlace(grid, placed, remaining, targetEntryCount, size);
-    if (success.length >= Math.min(targetEntryCount, 3)) {
+    const success = backtrackPlace(grid, placed, remaining, targetEntryCount, size, random);
+    if (scoreWorkingEntries(success) > scoreWorkingEntries(best)) {
+      best = success;
+    }
+    if (success.length >= targetEntryCount) {
       return finalizePuzzle(success, size);
     }
   }
 
-  return null;
+  return best.length >= Math.min(targetEntryCount, 3) ? finalizePuzzle(best, size) : null;
 }
 
 function backtrackPlace(
@@ -135,7 +233,8 @@ function backtrackPlace(
   placed: WorkingEntry[],
   remaining: CrosswordEntrySource[],
   targetEntryCount: number,
-  size: number
+  size: number,
+  random: RandomFn
 ): WorkingEntry[] {
   let best = [...placed];
 
@@ -144,12 +243,26 @@ function backtrackPlace(
   }
 
   const orderedWords = remaining
-    .map((word) => ({ word, placements: getPlacements(grid, word, size) }))
-    .filter((item) => item.placements.length > 0)
-    .sort((a, b) => b.placements[0].intersections - a.placements[0].intersections);
+    .map((word) => {
+      const placements = getPlacements(grid, word, size, random);
+      if (placements.length === 0) return null;
 
-  for (const { word, placements } of orderedWords.slice(0, 12)) {
-    for (const placement of placements.slice(0, 6)) {
+      return {
+        word,
+        placements,
+        score:
+          placements[0].intersections * 14 +
+          word.normalizedAnswer.length * 2 +
+          countUniqueLetters(word.normalizedAnswer) +
+          random(),
+      };
+    })
+    .filter((item): item is { word: CrosswordEntrySource; placements: PlacementCandidate[]; score: number } => item !== null)
+    .filter((item) => item.placements.length > 0)
+    .sort((a, b) => b.score - a.score);
+
+  for (const { word, placements } of orderedWords.slice(0, 16)) {
+    for (const placement of placements.slice(0, 8)) {
       const nextGrid = cloneGrid(grid);
       placeWord(nextGrid, word, placement.row, placement.col, placement.direction);
       const nextPlaced: WorkingEntry[] = [
@@ -168,10 +281,11 @@ function backtrackPlace(
         nextPlaced,
         nextRemaining,
         targetEntryCount,
-        size
+        size,
+        random
       );
 
-      if (result.length > best.length) {
+      if (scoreWorkingEntries(result) > scoreWorkingEntries(best)) {
         best = result;
       }
       if (best.length >= targetEntryCount) {
@@ -186,7 +300,8 @@ function backtrackPlace(
 function getPlacements(
   grid: (string | null)[][],
   word: CrosswordEntrySource,
-  size: number
+  size: number,
+  random: RandomFn
 ): PlacementCandidate[] {
   const placements: PlacementCandidate[] = [];
 
@@ -205,6 +320,7 @@ function getPlacements(
             col: acrossStartCol,
             direction: "across",
             intersections: countIntersections(grid, word.normalizedAnswer, row, acrossStartCol, "across"),
+            score: 0,
           });
         }
 
@@ -215,6 +331,7 @@ function getPlacements(
             col,
             direction: "down",
             intersections: countIntersections(grid, word.normalizedAnswer, downStartRow, col, "down"),
+            score: 0,
           });
         }
       }
@@ -223,7 +340,11 @@ function getPlacements(
 
   return dedupePlacements(placements)
     .filter((placement) => placement.intersections > 0)
-    .sort((a, b) => b.intersections - a.intersections);
+    .map((placement) => ({
+      ...placement,
+      score: scorePlacement(placement, word.normalizedAnswer.length, size, random),
+    }))
+    .sort((a, b) => b.score - a.score);
 }
 
 function dedupePlacements(placements: PlacementCandidate[]): PlacementCandidate[] {
@@ -234,6 +355,163 @@ function dedupePlacements(placements: PlacementCandidate[]): PlacementCandidate[
     seen.add(key);
     return true;
   });
+}
+
+function selectWordPool(
+  words: CrosswordEntrySource[],
+  size: number,
+  targetEntryCount: number,
+  random: RandomFn
+): CrosswordEntrySource[] {
+  const wordsThatFit = words.filter((word) => word.normalizedAnswer.length <= size);
+  const poolSize = Math.min(wordsThatFit.length, Math.max(24, targetEntryCount * 6));
+  const buckets = {
+    short: wordsThatFit.filter((word) => word.normalizedAnswer.length <= 5),
+    medium: wordsThatFit.filter((word) => word.normalizedAnswer.length >= 6 && word.normalizedAnswer.length <= 8),
+    long: wordsThatFit.filter((word) => word.normalizedAnswer.length >= 9),
+  };
+  const quotaEntries: Array<{ key: keyof typeof buckets; ratio: number }> = [
+    { key: "short", ratio: 0.35 },
+    { key: "medium", ratio: 0.45 },
+    { key: "long", ratio: 0.2 },
+  ];
+
+  const selected = new Map<string, CrosswordEntrySource>();
+
+  quotaEntries.forEach(({ key, ratio }) => {
+    const targetForBucket = Math.ceil(poolSize * ratio);
+    scoreWordsForPool(buckets[key], random)
+      .slice(0, targetForBucket)
+      .forEach((word) => selected.set(word.id, word));
+  });
+
+  if (selected.size < poolSize) {
+    scoreWordsForPool(wordsThatFit, random)
+      .forEach((word) => {
+        if (selected.size < poolSize) {
+          selected.set(word.id, word);
+        }
+      });
+  }
+
+  return Array.from(selected.values())
+    .map((word) => ({
+      word,
+      score: seedScore(word, random),
+    }))
+    .sort((a, b) => b.score - a.score)
+    .map(({ word }) => word);
+}
+
+function seedScore(word: CrosswordEntrySource, random: RandomFn): number {
+  return (
+    getLengthBalanceScore(word.normalizedAnswer.length) * 2 +
+    countUniqueLetters(word.normalizedAnswer) * 1.5 +
+    random() * 5
+  );
+}
+
+function scorePlacement(
+  placement: PlacementCandidate,
+  wordLength: number,
+  size: number,
+  random: RandomFn
+): number {
+  const center = (size - 1) / 2;
+  const midRow =
+    placement.direction === "down" ? placement.row + (wordLength - 1) / 2 : placement.row;
+  const midCol =
+    placement.direction === "across" ? placement.col + (wordLength - 1) / 2 : placement.col;
+  const distanceFromCenter = Math.abs(midRow - center) + Math.abs(midCol - center);
+
+  return (
+    placement.intersections * 14 +
+    getLengthBalanceScore(wordLength) -
+    distanceFromCenter * 0.35 +
+    random() * 2
+  );
+}
+
+function scoreWorkingEntries(entries: WorkingEntry[]): number {
+  if (entries.length === 0) return Number.NEGATIVE_INFINITY;
+
+  const totalLetters = entries.reduce(
+    (sum, entry) => sum + entry.source.normalizedAnswer.length,
+    0
+  );
+  const uniqueLengths = new Set(entries.map((entry) => entry.source.normalizedAnswer.length)).size;
+
+  return entries.length * 100 + totalLetters * 2 + uniqueLengths * 6;
+}
+
+function scorePuzzle(puzzle: CrosswordPuzzle): number {
+  const totalLetters = puzzle.entries.reduce((sum, entry) => sum + entry.length, 0);
+  const intersections = totalLetters - puzzle.cells.length;
+  const uniqueLengths = new Set(puzzle.entries.map((entry) => entry.length)).size;
+  const area = puzzle.width * puzzle.height;
+  const density = puzzle.cells.length / Math.max(area, 1);
+
+  return (
+    puzzle.entries.length * 1000 +
+    intersections * 40 +
+    uniqueLengths * 20 +
+    density * 100 -
+    area
+  );
+}
+
+function buildSizeSearchOrder(minSize: number, maxSize: number, preferredSize: number): number[] {
+  const sizes: number[] = [];
+
+  for (let offset = 0; sizes.length < maxSize - minSize + 1; offset += 1) {
+    const smaller = preferredSize - offset;
+    if (smaller >= minSize && !sizes.includes(smaller)) {
+      sizes.push(smaller);
+    }
+
+    const larger = preferredSize + offset;
+    if (larger <= maxSize && !sizes.includes(larger)) {
+      sizes.push(larger);
+    }
+  }
+
+  return sizes;
+}
+
+function countUniqueLetters(answer: string): number {
+  return new Set(answer).size;
+}
+
+function countCrosswordSourceWords(value: string): number {
+  return value
+    .trim()
+    .split(/\s+/)
+    .filter((token) => /[A-Za-zÀ-ÿ]/.test(token))
+    .length;
+}
+
+function scoreWordsForPool(words: CrosswordEntrySource[], random: RandomFn): CrosswordEntrySource[] {
+  return words
+    .map((word) => ({
+      word,
+      score:
+        getLengthBalanceScore(word.normalizedAnswer.length) * 2 +
+        countUniqueLetters(word.normalizedAnswer) +
+        random() * 4,
+    }))
+    .sort((a, b) => b.score - a.score)
+    .map(({ word }) => word);
+}
+
+function getLengthBalanceScore(length: number): number {
+  if (length <= 5) return 9;
+  if (length <= 8) return 12;
+  if (length <= 11) return 7;
+  return 3;
+}
+
+function clamp(value: number, min: number, max: number): number {
+  return Math.min(max, Math.max(min, value));
 }
 
 function canPlaceWord(
@@ -414,4 +692,8 @@ function createGrid(size: number): (string | null)[][] {
 
 function cloneGrid(grid: (string | null)[][]) {
   return grid.map((row) => [...row]);
+}
+
+function toCellKey(row: number, col: number) {
+  return `${row}:${col}`;
 }
