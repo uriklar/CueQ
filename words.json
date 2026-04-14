@@ -423,5 +423,48 @@
     "french": "retrouvailles",
     "english": "reunion / reunion with loved ones",
     "examples": "Nos retrouvailles à l'aéroport étaient très émouvantes."
+  },
+  {
+    "french": "la campagne",
+    "english": "the countryside",
+    "examples": "J'aime passer le week-end à la campagne pour me reposer.",
+    "gender": "feminine"
+  },
+  {
+    "french": "à proximité",
+    "english": "nearby / close by",
+    "examples": "Il y a une pharmacie à proximité de la gare."
+  },
+  {
+    "french": "habituellement",
+    "english": "usually / normally",
+    "examples": "Habituellement, je prends un café avant de commencer à travailler."
+  },
+  {
+    "french": "aurai",
+    "english": "will have",
+    "examples": "Demain, j'aurai plus de temps pour finir ce projet."
+  },
+  {
+    "french": "les voitures autonomes",
+    "english": "self-driving cars",
+    "examples": "Les voitures autonomes pourraient changer notre façon de voyager."
+  },
+  {
+    "french": "c’est la raison pour laquelle",
+    "english": "that is the reason why",
+    "examples": "J'étais malade, c’est la raison pour laquelle je suis resté chez moi."
+  },
+  {
+    "french": "se passer de quelque chose",
+    "english": "to do without something",
+    "examples": "Il est difficile de se passer de son téléphone pendant une journée entière.",
+    "conjugation": "(présent):\nje me passe de\ntu te passes de\nil/elle/on se passe de\nnous nous passons de\nvous vous passez de\nils/elles se passent de",
+    "past_particle": "passé"
+  },
+  {
+    "french": "nombreuses",
+    "english": "numerous / many (feminine plural)",
+    "examples": "Il existe de nombreuses solutions à ce problème."
   }
 ]
