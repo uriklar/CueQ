@@ -341,5 +341,87 @@
     "french": "pas de souci",
     "english": "no problem / no worries",
     "examples": "Pas de souci, je peux t'aider avec ça après le travail."
+  },
+  {
+    "french": "autrefois",
+    "english": "in the past / formerly",
+    "examples": "Autrefois, les gens écrivaient souvent des lettres à la main."
+  },
+  {
+    "french": "à mi-chemin",
+    "english": "halfway / midway",
+    "examples": "Nous nous sommes arrêtés à mi-chemin pour boire un café."
+  },
+  {
+    "french": "l'effet de serre",
+    "english": "greenhouse effect",
+    "examples": "L'effet de serre augmente avec certaines émissions polluantes."
+  },
+  {
+    "french": "climatosceptique",
+    "english": "climate change skeptic",
+    "examples": "Un politicien climatosceptique a remis en question les données scientifiques."
+  },
+  {
+    "french": "cambriolage",
+    "english": "burglary / break-in",
+    "examples": "La police enquête sur le cambriolage de la maison voisine.",
+    "gender": "masculine"
+  },
+  {
+    "french": "avertir",
+    "english": "to warn / to inform",
+    "examples": "Je veux t'avertir avant que le problème ne devienne plus grave.",
+    "conjugation": "(présent):\nj'avertis\ntu avertis\nil/elle/on avertit\nnous avertissons\nvous avertissez\nils/elles avertissent",
+    "past_particle": "averti"
+  },
+  {
+    "french": "embaucher",
+    "english": "to hire",
+    "examples": "L'entreprise veut embaucher deux développeurs avant l'été.",
+    "conjugation": "(présent):\nj'embauche\ntu embauches\nil/elle/on embauche\nnous embauchons\nvous embauchez\nils/elles embauchent",
+    "past_particle": "embauché"
+  },
+  {
+    "french": "croissance",
+    "english": "growth",
+    "examples": "La croissance de cette entreprise a été très rapide cette année.",
+    "gender": "feminine"
+  },
+  {
+    "french": "délocalisation",
+    "english": "relocation offshore / offshoring",
+    "examples": "La délocalisation de l'usine a provoqué beaucoup d'inquiétude.",
+    "gender": "feminine"
+  },
+  {
+    "french": "logiciel",
+    "english": "software",
+    "examples": "Ce logiciel aide les étudiants à apprendre le français plus vite.",
+    "gender": "masculine"
+  },
+  {
+    "french": "hotte",
+    "english": "hood / extractor hood",
+    "examples": "La hotte de la cuisine ne fonctionne plus très bien.",
+    "gender": "feminine"
+  },
+  {
+    "french": "amertume",
+    "english": "bitterness",
+    "examples": "Il a parlé avec amertume après cette grande déception.",
+    "gender": "feminine"
+  },
+  {
+    "french": "flâner",
+    "english": "to stroll / to wander",
+    "examples": "J'aime flâner dans les rues du centre-ville le dimanche.",
+    "conjugation": "(présent):\nje flâne\ntu flânes\nil/elle/on flâne\nnous flânons\nvous flânez\nils/elles flânent",
+    "past_particle": "flâné"
+  },
+  {
+    "french": "retrouvailles",
+    "english": "reunion / reunion with loved ones",
+    "examples": "Nos retrouvailles à l'aéroport étaient très émouvantes."
   }
 ]
