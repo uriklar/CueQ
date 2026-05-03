@@ -8,11 +8,12 @@ import { AddWordModal } from "../components/AddWordModal";
 import { AddWordAIModal } from "../components/AddWordAIModal";
 import { BulkImportModal } from "../components/BulkImportModal";
 import { SettingsModal } from "../components/SettingsModal";
-import { Word, Difficulty } from "../types";
+import { Word, Difficulty, PracticeScope } from "../types";
 import {
   getStoredWords,
   loadAndMergeWords,
   deleteWord,
+  isVerb,
 } from "../utils/wordUtils";
 import { runMigrations } from "../utils/migrations";
 import {
@@ -35,7 +36,15 @@ import { colors, shadows, spacing, borderRadius } from "../theme";
 
 const STORAGE_KEY = "@french_cards_words";
 
-export const Dashboard = () => {
+interface DashboardProps {
+  practiceScope: PracticeScope;
+  onPracticeScopeChange: (scope: PracticeScope) => void;
+}
+
+export const Dashboard = ({
+  practiceScope,
+  onPracticeScopeChange,
+}: DashboardProps) => {
   const [words, setWords] = useState<Word[]>([]);
   const [backlogCount, setBacklogCount] = useState(0);
   const [selectedDifficulty, setSelectedDifficulty] = useState<
@@ -498,13 +507,17 @@ export const Dashboard = () => {
     }
   };
 
-  // Compute filtered words count
+  const scopeFilteredWords =
+    practiceScope === "verbs" ? words.filter(isVerb) : words;
+
   const filteredWords = (
     selectedDifficulty === "all"
-      ? words
+      ? scopeFilteredWords
       : selectedDifficulty === "new"
-      ? words.filter((word) => !word.difficulty)
-      : words.filter((word) => word.difficulty === selectedDifficulty)
+      ? scopeFilteredWords.filter((word) => !word.difficulty)
+      : scopeFilteredWords.filter(
+          (word) => word.difficulty === selectedDifficulty
+        )
   ).filter(
     (word) =>
       word.french.toLowerCase().includes(searchText.toLowerCase()) ||
@@ -553,16 +566,18 @@ export const Dashboard = () => {
       </View>
 
       <WordList
-        words={words}
+        words={scopeFilteredWords}
         selectedDifficulty={selectedDifficulty}
         onDifficultySelect={setSelectedDifficulty}
+        practiceScope={practiceScope}
+        onPracticeScopeChange={onPracticeScopeChange}
         onEditWord={handleOpenEditModal}
         onDeleteWord={handleDeleteWord}
         onPressDifficulty={handleOpenDifficultyDrawer}
         searchText={searchText}
         onSearchChange={setSearchText}
         filteredCount={filteredWords.length}
-        totalCount={words.length}
+        totalCount={scopeFilteredWords.length}
         selectionMode={selectionMode}
         selectedWordIds={selectedWordIds}
         onToggleSelection={handleToggleSelection}

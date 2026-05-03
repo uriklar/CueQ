@@ -7,7 +7,7 @@ import {
   Pressable,
   TouchableOpacity,
 } from "react-native";
-import { Word, Difficulty } from "../types";
+import { Word, Difficulty, PracticeScope } from "../types";
 import { SearchInput } from "./SearchInput";
 import { Swipeable } from "react-native-gesture-handler";
 import { colors, shadows, spacing, borderRadius } from "../theme";
@@ -16,6 +16,8 @@ interface WordListProps {
   words: Word[];
   selectedDifficulty: Difficulty | "all" | "new";
   onDifficultySelect: (difficulty: Difficulty | "all" | "new") => void;
+  practiceScope: PracticeScope;
+  onPracticeScopeChange: (scope: PracticeScope) => void;
   onEditWord: (word: Word) => void;
   onDeleteWord: (wordId: string) => void;
   onPressDifficulty: (word: Word) => void;
@@ -69,10 +71,46 @@ const DifficultyFilter: React.FC<{
   );
 };
 
+const ScopeFilter: React.FC<{
+  selected: PracticeScope;
+  onSelect: (scope: PracticeScope) => void;
+}> = ({ selected, onSelect }) => {
+  const filters: { value: PracticeScope; label: string }[] = [
+    { value: "all", label: "All words" },
+    { value: "verbs", label: "Verbs only" },
+  ];
+
+  return (
+    <View style={styles.scopeContainer}>
+      {filters.map((filter) => (
+        <Pressable
+          key={filter.value}
+          style={[
+            styles.scopeButton,
+            selected === filter.value && styles.scopeButtonSelected,
+          ]}
+          onPress={() => onSelect(filter.value)}
+        >
+          <Text
+            style={[
+              styles.scopeButtonText,
+              selected === filter.value && styles.scopeButtonTextSelected,
+            ]}
+          >
+            {filter.label}
+          </Text>
+        </Pressable>
+      ))}
+    </View>
+  );
+};
+
 export const WordList: React.FC<WordListProps> = ({
   words,
   selectedDifficulty,
   onDifficultySelect,
+  practiceScope,
+  onPracticeScopeChange,
   onEditWord,
   onDeleteWord,
   onPressDifficulty,
@@ -245,6 +283,10 @@ export const WordList: React.FC<WordListProps> = ({
           </Pressable>
         </View>
       )}
+      <ScopeFilter
+        selected={practiceScope}
+        onSelect={onPracticeScopeChange}
+      />
       <DifficultyFilter
         selected={selectedDifficulty}
         onSelect={onDifficultySelect}
@@ -271,6 +313,33 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: "100%",
+  },
+  scopeContainer: {
+    flexDirection: "row",
+    paddingHorizontal: spacing.lg,
+    paddingTop: spacing.md,
+    paddingBottom: spacing.xs,
+    backgroundColor: colors.surface,
+    gap: spacing.sm,
+  },
+  scopeButton: {
+    paddingHorizontal: spacing.lg,
+    paddingVertical: spacing.sm,
+    borderRadius: borderRadius.full,
+    backgroundColor: colors.neutral100,
+    borderWidth: 1,
+    borderColor: colors.neutral200,
+  },
+  scopeButtonSelected: {
+    backgroundColor: colors.accentLight,
+    borderColor: colors.accent,
+  },
+  scopeButtonText: {
+    color: colors.neutral500,
+    fontWeight: "600",
+  },
+  scopeButtonTextSelected: {
+    color: colors.neutral900,
   },
   filterContainer: {
     flexDirection: "row",
