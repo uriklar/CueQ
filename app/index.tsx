@@ -5,13 +5,14 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { router } from "expo-router";
 import { CardStack } from "./components/CardStack";
 import { Dashboard } from "./screens/Dashboard";
-import { Word, SwipeDirection } from "./types";
+import { PracticeScope, Word, SwipeDirection } from "./types";
 import {
   saveWordWithDifficulty,
   getSwipeDifficulty,
   getStoredWords,
   updateStoredWord,
   deleteWord,
+  isVerb,
 } from "./utils/wordUtils";
 import { selectPracticeWords } from "./utils/practiceUtils";
 import { colors, shadows, borderRadius, spacing } from "./theme";
@@ -19,16 +20,20 @@ import { colors, shadows, borderRadius, spacing } from "./theme";
 export default function Page() {
   const [showDashboard, setShowDashboard] = useState(true);
   const [practiceWords, setPracticeWords] = useState<Word[]>([]);
+  const [practiceScope, setPracticeScope] = useState<PracticeScope>("all");
 
   const loadPracticeWords = async () => {
     const allWords = await getStoredWords();
-    if (allWords.length === 0) {
+    const scopedWords =
+      practiceScope === "verbs" ? allWords.filter(isVerb) : allWords;
+
+    if (scopedWords.length === 0) {
       setPracticeWords([]);
       return;
     }
 
     // Select 20 words based on our distribution algorithm
-    const selectedWords = await selectPracticeWords(allWords, 20);
+    const selectedWords = await selectPracticeWords(scopedWords, 20);
     setPracticeWords(selectedWords);
   };
 
@@ -73,7 +78,10 @@ export default function Page() {
     <SafeAreaView style={styles.container}>
       {showDashboard ? (
         <>
-          <Dashboard />
+          <Dashboard
+            practiceScope={practiceScope}
+            onPracticeScopeChange={setPracticeScope}
+          />
           <View style={styles.floatingButtons}>
             <Pressable
               style={styles.secondaryActionButton}
@@ -88,13 +96,12 @@ export default function Page() {
               <Text style={styles.conjugationButtonText}>Conjugation</Text>
             </Pressable>
             <Pressable
-              style={[
-                styles.floatingButton,
-                practiceWords.length === 0 && styles.floatingButtonDisabled,
-              ]}
+              style={styles.floatingButton}
               onPress={handleStartPractice}
             >
-              <Text style={styles.floatingButtonText}>Start Practice</Text>
+              <Text style={styles.floatingButtonText}>
+                {practiceScope === "verbs" ? "Practice Verbs" : "Start Practice"}
+              </Text>
             </Pressable>
           </View>
         </>
@@ -161,9 +168,6 @@ const styles = StyleSheet.create({
     paddingVertical: spacing.md,
     borderRadius: borderRadius.full,
     ...shadows.lg,
-  },
-  floatingButtonDisabled: {
-    backgroundColor: colors.neutral300,
   },
   floatingButtonText: {
     color: colors.surface,

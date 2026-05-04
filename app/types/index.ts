@@ -1,5 +1,7 @@
 export type Difficulty = "hard" | "medium" | "easy";
 
+export type PracticeScope = "all" | "verbs";
+
 export type WordInfoMode =
   | "examples"
   | "conjugation"
