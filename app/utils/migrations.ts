@@ -11,6 +11,8 @@ interface Migration {
 const WORDS_KEY = "@french_cards_words";
 const BACKLOG_KEY = "@french_cards_backlog";
 const DELETED_WORDS_KEY = "@french_cards_deleted_words";
+const REMOTE_WORDS_CACHE_KEY = "@cueq_remote_words_cache";
+const REMOTE_WORDS_LAST_MODIFIED_KEY = "@cueq_remote_words_last_modified";
 
 const migrations: Migration[] = [
   {
@@ -103,6 +105,19 @@ const migrations: Migration[] = [
       }
 
       await AsyncStorage.setItem(DELETED_WORDS_KEY, JSON.stringify(newDeleted));
+    },
+  },
+  {
+    version: 4,
+    name: "fresh_start_empty_word_deck",
+    run: async () => {
+      await AsyncStorage.multiRemove([
+        WORDS_KEY,
+        BACKLOG_KEY,
+        DELETED_WORDS_KEY,
+        REMOTE_WORDS_CACHE_KEY,
+        REMOTE_WORDS_LAST_MODIFIED_KEY,
+      ]);
     },
   },
 ];
