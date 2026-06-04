@@ -5,5 +5,10 @@
     "examples": "Je me rends compte de mes progrès en français chaque semaine.",
     "conjugation": "je me rends compte de\ntu te rends compte de\nil/elle/on se rend compte de\nnous nous rendons compte de\nvous vous rendez compte de\nils/elles se rendent compte de",
     "past_particle": "rendu compte"
+  },
+  {
+    "french": "faire partie de",
+    "english": "to be part of / to belong to",
+    "examples": "Elle fait partie d'une équipe qui développe des applications pour les étudiants."
   }
 ]
