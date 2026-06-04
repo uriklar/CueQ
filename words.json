@@ -319,5 +319,12 @@
     "examples": "Cette approche permet d'accompagner l'enfant vers la responsabilité.",
     "conjugation": "j'accompagne\ntu accompagnes\nil accompagne\nnous accompagnons\nvous accompagnez\nils accompagnent",
     "past_particle": "accompagné"
+  },
+  {
+    "french": "faire partie de",
+    "english": "to be part of / to belong to",
+    "examples": "Elle fait partie d'une équipe qui travaille sur un projet international.",
+    "conjugation": "(présent):\nje fais partie de\ntu fais partie de\nil/elle/on fait partie de\nnous faisons partie de\nvous faites partie de\nils/elles font partie de",
+    "past_particle": "fait partie de"
   }
 ]
