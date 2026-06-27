@@ -4,7 +4,7 @@
     "english": "to realize; to become aware of",
     "examples": "Je me rends compte de mes progrès en français chaque semaine.",
     "conjugation": "je me rends compte de\ntu te rends compte de\nil/elle/on se rend compte de\nnous nous rendons compte de\nvous vous rendez compte de\nils/elles se rendent compte de",
-    "past_particle": "rendu compte"
+    "past_participle": "rendu compte"
   },
   {
     "french": "faire partie de",
@@ -41,1218 +41,1218 @@
     "english": "to lead to; to succeed",
     "examples": "Le projet va aboutir après plusieurs mois de travail sérieux.",
     "conjugation": "j'aboutis\ntu aboutis\nil aboutit\nnous aboutissons\nvous aboutissez\nils aboutissent",
-    "past_particle": "abouti"
+    "past_participle": "abouti"
   },
   {
     "french": "accéder",
     "english": "to access; to reach",
     "examples": "Les étudiants peuvent accéder aux ressources depuis la bibliothèque en ligne.",
     "conjugation": "j'accède\ntu accèdes\nil accède\nnous accédons\nvous accédez\nils accèdent",
-    "past_particle": "accédé"
+    "past_participle": "accédé"
   },
   {
     "french": "acheter",
     "english": "to buy",
     "examples": "Elle achète du pain frais chaque matin au marché.",
     "conjugation": "j'achète\ntu achètes\nil achète\nnous achetons\nvous achetez\nils achètent",
-    "past_particle": "acheté"
+    "past_participle": "acheté"
   },
   {
     "french": "adresser",
     "english": "to address; to send",
     "examples": "Veuillez adresser votre demande au service responsable avant vendredi.",
     "conjugation": "j'adresse\ntu adresses\nil adresse\nnous adressons\nvous adressez\nils adressent",
-    "past_particle": "adressé"
+    "past_participle": "adressé"
   },
   {
     "french": "affecter",
     "english": "to affect; to assign",
     "examples": "Cette décision peut affecter le budget de toute l'équipe.",
     "conjugation": "j'affecte\ntu affectes\nil affecte\nnous affectons\nvous affectez\nils affectent",
-    "past_particle": "affecté"
+    "past_participle": "affecté"
   },
   {
     "french": "agir",
     "english": "to act",
     "examples": "Il faut agir rapidement pour éviter un problème plus grave.",
     "conjugation": "j'agis\ntu agis\nil agit\nnous agissons\nvous agissez\nils agissent",
-    "past_particle": "agi"
+    "past_participle": "agi"
   },
   {
     "french": "agrandir",
     "english": "to enlarge; to expand",
     "examples": "Ils veulent agrandir la cuisine pour accueillir toute la famille.",
     "conjugation": "j'agrandis\ntu agrandis\nil agrandit\nnous agrandissons\nvous agrandissez\nils agrandissent",
-    "past_particle": "agrandi"
+    "past_participle": "agrandi"
   },
   {
     "french": "alléger",
     "english": "to lighten; to reduce",
     "examples": "Nous devons alléger le programme pour les nouveaux employés.",
     "conjugation": "j'allège\ntu allèges\nil allège\nnous allégeons\nvous allégez\nils allègent",
-    "past_particle": "allégé"
+    "past_participle": "allégé"
   },
   {
     "french": "améliorer",
     "english": "to improve",
     "examples": "Cette méthode aide vraiment à améliorer la qualité du travail.",
     "conjugation": "j'améliore\ntu améliores\nil améliore\nnous améliorons\nvous améliorez\nils améliorent",
-    "past_particle": "amélioré"
+    "past_participle": "amélioré"
   },
   {
     "french": "annoncer",
     "english": "to announce",
     "examples": "Le directeur va annoncer les résultats pendant la réunion.",
     "conjugation": "j'annonce\ntu annonces\nil annonce\nnous annonçons\nvous annoncez\nils annoncent",
-    "past_particle": "annoncé"
+    "past_participle": "annoncé"
   },
   {
     "french": "annuler",
     "english": "to cancel",
     "examples": "Ils doivent annuler le voyage à cause de la tempête.",
     "conjugation": "j'annule\ntu annules\nil annule\nnous annulons\nvous annulez\nils annulent",
-    "past_particle": "annulé"
+    "past_participle": "annulé"
   },
   {
     "french": "apparaître",
     "english": "to appear",
     "examples": "Une erreur peut apparaître si le formulaire est incomplet.",
     "conjugation": "j'apparais\ntu apparais\nil apparaît\nnous apparaissons\nvous apparaissez\nils apparaissent",
-    "past_particle": "apparu"
+    "past_participle": "apparu"
   },
   {
     "french": "assurer",
     "english": "to ensure; to assure",
     "examples": "Ce contrôle permet d'assurer la sécurité des passagers.",
     "conjugation": "j'assure\ntu assures\nil assure\nnous assurons\nvous assurez\nils assurent",
-    "past_particle": "assuré"
+    "past_participle": "assuré"
   },
   {
     "french": "attendre",
     "english": "to wait; to expect",
     "examples": "Nous devons attendre le bus devant la gare centrale.",
     "conjugation": "j'attends\ntu attends\nil attend\nnous attendons\nvous attendez\nils attendent",
-    "past_particle": "attendu"
+    "past_participle": "attendu"
   },
   {
     "french": "attraper",
     "english": "to catch; to grab",
     "examples": "Elle court pour attraper le train avant son départ.",
     "conjugation": "j'attrape\ntu attrapes\nil attrape\nnous attrapons\nvous attrapez\nils attrapent",
-    "past_particle": "attrapé"
+    "past_participle": "attrapé"
   },
   {
     "french": "augmenter",
     "english": "to increase; to raise",
     "examples": "Les prix risquent d'augmenter pendant la haute saison touristique.",
     "conjugation": "j'augmente\ntu augmentes\nil augmente\nnous augmentons\nvous augmentez\nils augmentent",
-    "past_particle": "augmenté"
+    "past_participle": "augmenté"
   },
   {
     "french": "autoproclamer",
     "english": "to proclaim oneself; to self-proclaim",
     "examples": "Il aime s'autoproclamer expert après seulement quelques lectures.",
     "conjugation": "je m'autoproclame\ntu t'autoproclames\nil s'autoproclame\nnous nous autoproclamons\nvous vous autoproclamez\nils s'autoproclament",
-    "past_particle": "autoproclamé"
+    "past_participle": "autoproclamé"
   },
   {
     "french": "balayer",
     "english": "to sweep; to brush aside",
     "examples": "Chaque soir, Paul doit balayer l'entrée du petit restaurant.",
     "conjugation": "je balaie\ntu balaies\nil balaie\nnous balayons\nvous balayez\nils balaient",
-    "past_particle": "balayé"
+    "past_participle": "balayé"
   },
   {
     "french": "bâtir",
     "english": "to build",
     "examples": "Ils espèrent bâtir une maison près du lac cet été.",
     "conjugation": "je bâtis\ntu bâtis\nil bâtit\nnous bâtissons\nvous bâtissez\nils bâtissent",
-    "past_particle": "bâti"
+    "past_participle": "bâti"
   },
   {
     "french": "battre",
     "english": "to beat; to defeat",
     "examples": "Notre équipe veut battre le champion lors du prochain match.",
     "conjugation": "je bats\ntu bats\nil bat\nnous battons\nvous battez\nils battent",
-    "past_particle": "battu"
+    "past_participle": "battu"
   },
   {
     "french": "bénéficier",
     "english": "to benefit",
     "examples": "Les familles peuvent bénéficier d'une aide financière cette année.",
     "conjugation": "je bénéficie\ntu bénéficies\nil bénéficie\nnous bénéficions\nvous bénéficiez\nils bénéficient",
-    "past_particle": "bénéficié"
+    "past_participle": "bénéficié"
   },
   {
     "french": "boucler",
     "english": "to close; to finish; to buckle",
     "examples": "Nous devons boucler le dossier avant la fin du mois.",
     "conjugation": "je boucle\ntu boucles\nil boucle\nnous bouclons\nvous bouclez\nils bouclent",
-    "past_particle": "bouclé"
+    "past_participle": "bouclé"
   },
   {
     "french": "caler",
     "english": "to stall; to wedge; to schedule",
     "examples": "On peut caler une réunion rapide demain matin si possible.",
     "conjugation": "je cale\ntu cales\nil cale\nnous calons\nvous calez\nils calent",
-    "past_particle": "calé"
+    "past_participle": "calé"
   },
   {
     "french": "causer",
     "english": "to cause; to chat",
     "examples": "Le bruit peut causer beaucoup de stress aux voisins.",
     "conjugation": "je cause\ntu causes\nil cause\nnous causons\nvous causez\nils causent",
-    "past_particle": "causé"
+    "past_participle": "causé"
   },
   {
     "french": "certifier",
     "english": "to certify",
     "examples": "Un expert doit certifier la conformité de cette installation électrique.",
     "conjugation": "je certifie\ntu certifies\nil certifie\nnous certifions\nvous certifiez\nils certifient",
-    "past_particle": "certifié"
+    "past_participle": "certifié"
   },
   {
     "french": "cesser",
     "english": "to stop; to cease",
     "examples": "Il faut cesser de reporter les décisions importantes chaque semaine.",
     "conjugation": "je cesse\ntu cesses\nil cesse\nnous cessons\nvous cessez\nils cessent",
-    "past_particle": "cessé"
+    "past_participle": "cessé"
   },
   {
     "french": "chasser",
     "english": "to hunt; to chase away",
     "examples": "Le gardien essaie de chasser les oiseaux du terrain.",
     "conjugation": "je chasse\ntu chasses\nil chasse\nnous chassons\nvous chassez\nils chassent",
-    "past_particle": "chassé"
+    "past_participle": "chassé"
   },
   {
     "french": "choisir",
     "english": "to choose",
     "examples": "Vous devez choisir une date pour votre prochain rendez-vous.",
     "conjugation": "je choisis\ntu choisis\nil choisit\nnous choisissons\nvous choisissez\nils choisissent",
-    "past_particle": "choisi"
+    "past_participle": "choisi"
   },
   {
     "french": "circuler",
     "english": "to circulate; to move around",
     "examples": "Les voitures peuvent circuler librement après la fin des travaux.",
     "conjugation": "je circule\ntu circules\nil circule\nnous circulons\nvous circulez\nils circulent",
-    "past_particle": "circulé"
+    "past_participle": "circulé"
   },
   {
     "french": "coller",
     "english": "to stick; to glue",
     "examples": "Les enfants veulent coller des images sur leur cahier.",
     "conjugation": "je colle\ntu colles\nil colle\nnous collons\nvous collez\nils collent",
-    "past_particle": "collé"
+    "past_participle": "collé"
   },
   {
     "french": "compter",
     "english": "to count; to intend",
     "examples": "Je compte vérifier les documents avant de les envoyer.",
     "conjugation": "je compte\ntu comptes\nil compte\nnous comptons\nvous comptez\nils comptent",
-    "past_particle": "compté"
+    "past_participle": "compté"
   },
   {
     "french": "concentrer",
     "english": "to concentrate; to focus",
     "examples": "Elle essaie de concentrer son énergie sur un seul objectif.",
     "conjugation": "je concentre\ntu concentres\nil concentre\nnous concentrons\nvous concentrez\nils concentrent",
-    "past_particle": "concentré"
+    "past_participle": "concentré"
   },
   {
     "french": "concerner",
     "english": "to concern; to relate to",
     "examples": "Cette annonce peut concerner tous les employés du service.",
     "conjugation": "je concerne\ntu concernes\nil concerne\nnous concernons\nvous concernez\nils concernent",
-    "past_particle": "concerné"
+    "past_participle": "concerné"
   },
   {
     "french": "concevoir",
     "english": "to design; to conceive",
     "examples": "L'architecte doit concevoir un bâtiment moderne et écologique.",
     "conjugation": "je conçois\ntu conçois\nil conçoit\nnous concevons\nvous concevez\nils conçoivent",
-    "past_particle": "conçu"
+    "past_participle": "conçu"
   },
   {
     "french": "concrétiser",
     "english": "to make concrete; to bring to fruition",
     "examples": "Nous voulons concrétiser cette idée avant la fin d'année.",
     "conjugation": "je concrétise\ntu concrétises\nil concrétise\nnous concrétisons\nvous concrétisez\nils concrétisent",
-    "past_particle": "concrétisé"
+    "past_participle": "concrétisé"
   },
   {
     "french": "confier",
     "english": "to entrust; to confide",
     "examples": "Elle préfère confier cette mission à une personne expérimentée.",
     "conjugation": "je confie\ntu confies\nil confie\nnous confions\nvous confiez\nils confient",
-    "past_particle": "confié"
+    "past_participle": "confié"
   },
   {
     "french": "connaître",
     "english": "to know; to be familiar with",
     "examples": "Il veut connaître la vérité avant de prendre une décision.",
     "conjugation": "je connais\ntu connais\nil connaît\nnous connaissons\nvous connaissez\nils connaissent",
-    "past_particle": "connu"
+    "past_participle": "connu"
   },
   {
     "french": "conserver",
     "english": "to keep; to preserve",
     "examples": "Il faut conserver les reçus pendant au moins deux ans.",
     "conjugation": "je conserve\ntu conserves\nil conserve\nnous conservons\nvous conservez\nils conservent",
-    "past_particle": "conservé"
+    "past_participle": "conservé"
   },
   {
     "french": "considérer",
     "english": "to consider",
     "examples": "Nous devons considérer toutes les options avant de choisir.",
     "conjugation": "je considère\ntu considères\nil considère\nnous considérons\nvous considérez\nils considèrent",
-    "past_particle": "considéré"
+    "past_participle": "considéré"
   },
   {
     "french": "constituer",
     "english": "to constitute; to form",
     "examples": "Ces documents peuvent constituer une preuve importante pour le dossier.",
     "conjugation": "je constitue\ntu constitues\nil constitue\nnous constituons\nvous constituez\nils constituent",
-    "past_particle": "constitué"
+    "past_participle": "constitué"
   },
   {
     "french": "contacter",
     "english": "to contact",
     "examples": "Vous pouvez contacter le bureau si vous avez des questions.",
     "conjugation": "je contacte\ntu contactes\nil contacte\nnous contactons\nvous contactez\nils contactent",
-    "past_particle": "contacté"
+    "past_participle": "contacté"
   },
   {
     "french": "contribuer",
     "english": "to contribute",
     "examples": "Chaque bénévole peut contribuer au succès de l'événement local.",
     "conjugation": "je contribue\ntu contribues\nil contribue\nnous contribuons\nvous contribuez\nils contribuent",
-    "past_particle": "contribué"
+    "past_participle": "contribué"
   },
   {
     "french": "correspondre",
     "english": "to correspond; to match",
     "examples": "Cette offre semble correspondre exactement à vos besoins actuels.",
     "conjugation": "je corresponds\ntu corresponds\nil correspond\nnous correspondons\nvous correspondez\nils correspondent",
-    "past_particle": "correspondu"
+    "past_participle": "correspondu"
   },
   {
     "french": "coter",
     "english": "to quote; to rate; to list on the stock exchange",
     "examples": "La société veut coter ses actions sur le marché européen.",
     "conjugation": "je cote\ntu cotes\nil cote\nnous cotons\nvous cotez\nils cotent",
-    "past_particle": "coté"
+    "past_participle": "coté"
   },
   {
     "french": "débuter",
     "english": "to begin; to start",
     "examples": "Le cours va débuter à neuf heures précises demain.",
     "conjugation": "je débute\ntu débutes\nil débute\nnous débutons\nvous débutez\nils débutent",
-    "past_particle": "débuté"
+    "past_participle": "débuté"
   },
   {
     "french": "découvrir",
     "english": "to discover",
     "examples": "Nous aimons découvrir de nouveaux quartiers pendant nos promenades.",
     "conjugation": "je découvre\ntu découvres\nil découvre\nnous découvrons\nvous découvrez\nils découvrent",
-    "past_particle": "découvert"
+    "past_participle": "découvert"
   },
   {
     "french": "décrire",
     "english": "to describe",
     "examples": "Peux-tu décrire la scène avec quelques détails importants ?",
     "conjugation": "je décris\ntu décris\nil décrit\nnous décrivons\nvous décrivez\nils décrivent",
-    "past_particle": "décrit"
+    "past_participle": "décrit"
   },
   {
     "french": "déménager",
     "english": "to move house",
     "examples": "Ils vont déménager dans un appartement plus lumineux en juillet.",
     "conjugation": "je déménage\ntu déménages\nil déménage\nnous déménageons\nvous déménagez\nils déménagent",
-    "past_particle": "déménagé"
+    "past_participle": "déménagé"
   },
   {
     "french": "démolir",
     "english": "to demolish",
     "examples": "La ville prévoit de démolir l'ancien garage abandonné bientôt.",
     "conjugation": "je démolis\ntu démolis\nil démolit\nnous démolissons\nvous démolissez\nils démolissent",
-    "past_particle": "démoli"
+    "past_participle": "démoli"
   },
   {
     "french": "démontrer",
     "english": "to demonstrate; to prove",
     "examples": "Cette étude peut démontrer l'importance d'un sommeil régulier.",
     "conjugation": "je démontre\ntu démontres\nil démontre\nnous démontrons\nvous démontrez\nils démontrent",
-    "past_particle": "démontré"
+    "past_participle": "démontré"
   },
   {
     "french": "dépeindre",
     "english": "to depict; to portray",
     "examples": "Le roman cherche à dépeindre la vie dans un village isolé.",
     "conjugation": "je dépeins\ntu dépeins\nil dépeint\nnous dépeignons\nvous dépeignez\nils dépeignent",
-    "past_particle": "dépeint"
+    "past_participle": "dépeint"
   },
   {
     "french": "dépendre",
     "english": "to depend",
     "examples": "Le résultat va dépendre de votre préparation et de votre calme.",
     "conjugation": "je dépends\ntu dépends\nil dépend\nnous dépendons\nvous dépendez\nils dépendent",
-    "past_particle": "dépendu"
+    "past_participle": "dépendu"
   },
   {
     "french": "dérouler",
     "english": "to unroll; to carry out",
     "examples": "L'équipe va dérouler le plan étape par étape demain.",
     "conjugation": "je déroule\ntu déroules\nil déroule\nnous déroulons\nvous déroulez\nils déroulent",
-    "past_particle": "déroulé"
+    "past_participle": "déroulé"
   },
   {
     "french": "déséquilibrer",
     "english": "to unbalance; to destabilize",
     "examples": "Une dépense imprévue peut déséquilibrer le budget familial rapidement.",
     "conjugation": "je déséquilibre\ntu déséquilibres\nil déséquilibre\nnous déséquilibrons\nvous déséquilibrez\nils déséquilibrent",
-    "past_particle": "déséquilibré"
+    "past_participle": "déséquilibré"
   },
   {
     "french": "détenir",
     "english": "to hold, to possess, to detain",
     "examples": "Cette entreprise détient plusieurs brevets importants dans le domaine médical.",
     "conjugation": "je détiens\ntu détiens\nil/elle détient\nnous détenons\nvous détenez\nils/elles détiennent",
-    "past_particle": "détenu"
+    "past_participle": "détenu"
   },
   {
     "french": "dévaster",
     "english": "to devastate, to ravage",
     "examples": "La tempête a dévasté plusieurs villages près de la côte.",
     "conjugation": "je dévaste\ntu dévastes\nil/elle dévaste\nnous dévastons\nvous dévastez\nils/elles dévastent",
-    "past_particle": "dévasté"
+    "past_participle": "dévasté"
   },
   {
     "french": "développer",
     "english": "to develop",
     "examples": "Nous développons une nouvelle application pour aider les étudiants.",
     "conjugation": "je développe\ntu développes\nil/elle développe\nnous développons\nvous développez\nils/elles développent",
-    "past_particle": "développé"
+    "past_participle": "développé"
   },
   {
     "french": "dévoiler",
     "english": "to reveal, to unveil",
     "examples": "Le journaliste dévoile des informations importantes dans son article.",
     "conjugation": "je dévoile\ntu dévoiles\nil/elle dévoile\nnous dévoilons\nvous dévoilez\nils/elles dévoilent",
-    "past_particle": "dévoilé"
+    "past_participle": "dévoilé"
   },
   {
     "french": "devoir",
     "english": "to have to, must; to owe",
     "examples": "Je dois finir ce rapport avant la réunion de demain.",
     "conjugation": "je dois\ntu dois\nil/elle doit\nnous devons\nvous devez\nils/elles doivent",
-    "past_particle": "dû"
+    "past_participle": "dû"
   },
   {
     "french": "dévorer",
     "english": "to devour",
     "examples": "Les enfants dévorent le gâteau dès la fin du repas.",
     "conjugation": "je dévore\ntu dévores\nil/elle dévore\nnous dévorons\nvous dévorez\nils/elles dévorent",
-    "past_particle": "dévoré"
+    "past_participle": "dévoré"
   },
   {
     "french": "différer",
     "english": "to differ; to postpone",
     "examples": "Nos opinions diffèrent souvent, mais nous restons bons amis.",
     "conjugation": "je diffère\ntu diffères\nil/elle diffère\nnous différons\nvous différez\nils/elles diffèrent",
-    "past_particle": "différé"
+    "past_participle": "différé"
   },
   {
     "french": "diminuer",
     "english": "to decrease, to reduce",
     "examples": "La consommation d'énergie diminue grâce aux nouvelles habitudes.",
     "conjugation": "je diminue\ntu diminues\nil/elle diminue\nnous diminuons\nvous diminuez\nils/elles diminuent",
-    "past_particle": "diminué"
+    "past_participle": "diminué"
   },
   {
     "french": "disposer",
     "english": "to have available; to arrange",
     "examples": "Nous disposons de deux heures pour préparer la présentation.",
     "conjugation": "je dispose\ntu disposes\nil/elle dispose\nnous disposons\nvous disposez\nils/elles disposent",
-    "past_particle": "disposé"
+    "past_participle": "disposé"
   },
   {
     "french": "doubler",
     "english": "to double; to overtake",
     "examples": "Le prix du logement double dans certains quartiers populaires.",
     "conjugation": "je double\ntu doubles\nil/elle double\nnous doublons\nvous doublez\nils/elles doublent",
-    "past_particle": "doublé"
+    "past_participle": "doublé"
   },
   {
     "french": "douter",
     "english": "to doubt",
     "examples": "Elle doute de sa réponse malgré ses bonnes connaissances.",
     "conjugation": "je doute\ntu doutes\nil/elle doute\nnous doutons\nvous doutez\nils/elles doutent",
-    "past_particle": "douté"
+    "past_participle": "douté"
   },
   {
     "french": "dresser",
     "english": "to draw up; to set up; to train",
     "examples": "Le maire dresse une liste des problèmes urgents.",
     "conjugation": "je dresse\ntu dresses\nil/elle dresse\nnous dressons\nvous dressez\nils/elles dressent",
-    "past_particle": "dressé"
+    "past_participle": "dressé"
   },
   {
     "french": "effectuer",
     "english": "to carry out, to perform",
     "examples": "Le technicien effectue une vérification complète du système.",
     "conjugation": "j'effectue\ntu effectues\nil/elle effectue\nnous effectuons\nvous effectuez\nils/elles effectuent",
-    "past_particle": "effectué"
+    "past_participle": "effectué"
   },
   {
     "french": "efforcer",
     "english": "to strive, to make an effort",
     "examples": "Il s'efforce de parler plus clairement pendant l'entretien.",
     "conjugation": "j'efforce\ntu efforces\nil/elle efforce\nnous efforçons\nvous efforcez\nils/elles efforcent",
-    "past_particle": "efforcé"
+    "past_participle": "efforcé"
   },
   {
     "french": "élaborer",
     "english": "to develop, to draw up",
     "examples": "Les chercheurs élaborent une méthode plus simple et efficace.",
     "conjugation": "j'élabore\ntu élabores\nil/elle élabore\nnous élaborons\nvous élaborez\nils/elles élaborent",
-    "past_particle": "élaboré"
+    "past_participle": "élaboré"
   },
   {
     "french": "emmener",
     "english": "to take someone along",
     "examples": "Je t'emmène au marché après le déjeuner.",
     "conjugation": "j'emmène\ntu emmènes\nil/elle emmène\nnous emmenons\nvous emmenez\nils/elles emmènent",
-    "past_particle": "emmené"
+    "past_participle": "emmené"
   },
   {
     "french": "empiler",
     "english": "to stack, to pile up",
     "examples": "Il empile les livres sur la table du salon.",
     "conjugation": "j'empile\ntu empiles\nil/elle empile\nnous empilons\nvous empilez\nils/elles empilent",
-    "past_particle": "empilé"
+    "past_participle": "empilé"
   },
   {
     "french": "enfourner",
     "english": "to put in the oven",
     "examples": "Elle enfourne le pain quand le four est chaud.",
     "conjugation": "j'enfourne\ntu enfournes\nil/elle enfourne\nnous enfournons\nvous enfournez\nils/elles enfournent",
-    "past_particle": "enfourné"
+    "past_participle": "enfourné"
   },
   {
     "french": "entreprendre",
     "english": "to undertake, to start",
     "examples": "Nous entreprenons des travaux pour rénover la vieille maison.",
     "conjugation": "j'entreprends\ntu entreprends\nil/elle entreprend\nnous entreprenons\nvous entreprenez\nils/elles entreprennent",
-    "past_particle": "entrepris"
+    "past_participle": "entrepris"
   },
   {
     "french": "envoyer",
     "english": "to send",
     "examples": "Tu envoies un message dès que tu arrives.",
     "conjugation": "j'envoie\ntu envoies\nil/elle envoie\nnous envoyons\nvous envoyez\nils/elles envoient",
-    "past_particle": "envoyé"
+    "past_participle": "envoyé"
   },
   {
     "french": "espérer",
     "english": "to hope",
     "examples": "J'espère réussir l'examen avec un peu plus de pratique.",
     "conjugation": "j'espère\ntu espères\nil/elle espère\nnous espérons\nvous espérez\nils/elles espèrent",
-    "past_particle": "espéré"
+    "past_participle": "espéré"
   },
   {
     "french": "éveiller",
     "english": "to awaken, to arouse",
     "examples": "Cette histoire éveille la curiosité des jeunes lecteurs.",
     "conjugation": "j'éveille\ntu éveilles\nil/elle éveille\nnous éveillons\nvous éveillez\nils/elles éveillent",
-    "past_particle": "éveillé"
+    "past_participle": "éveillé"
   },
   {
     "french": "éviter",
     "english": "to avoid",
     "examples": "Nous évitons les rues bruyantes pendant la promenade.",
     "conjugation": "j'évite\ntu évites\nil/elle évite\nnous évitons\nvous évitez\nils/elles évitent",
-    "past_particle": "évité"
+    "past_participle": "évité"
   },
   {
     "french": "excuser",
     "english": "to excuse, to forgive",
     "examples": "Elle excuse son retard avec une explication honnête.",
     "conjugation": "j'excuse\ntu excuses\nil/elle excuse\nnous excusons\nvous excusez\nils/elles excusent",
-    "past_particle": "excusé"
+    "past_participle": "excusé"
   },
   {
     "french": "exiger",
     "english": "to demand, to require",
     "examples": "Ce poste exige une grande attention aux détails.",
     "conjugation": "j'exige\ntu exiges\nil/elle exige\nnous exigeons\nvous exigez\nils/elles exigent",
-    "past_particle": "exigé"
+    "past_participle": "exigé"
   },
   {
     "french": "exister",
     "english": "to exist",
     "examples": "Des solutions simples existent pour réduire les déchets quotidiens.",
     "conjugation": "j'existe\ntu existes\nil/elle existe\nnous existons\nvous existez\nils/elles existent",
-    "past_particle": "existé"
+    "past_participle": "existé"
   },
   {
     "french": "expatrier",
     "english": "to expatriate, to move abroad",
     "examples": "La famille s'expatrie pour découvrir une nouvelle culture.",
     "conjugation": "j'expatrie\ntu expatries\nil/elle expatrie\nnous expatrions\nvous expatriez\nils/elles expatrient",
-    "past_particle": "expatrié"
+    "past_participle": "expatrié"
   },
   {
     "french": "exposer",
     "english": "to expose; to exhibit",
     "examples": "Le musée expose des photos rares de la ville.",
     "conjugation": "j'expose\ntu exposes\nil/elle expose\nnous exposons\nvous exposez\nils/elles exposent",
-    "past_particle": "exposé"
+    "past_participle": "exposé"
   },
   {
     "french": "falloir",
     "english": "to be necessary, to have to",
     "examples": "Il faut vérifier les informations avant de partager l'article.",
     "conjugation": "il faut\n(forme impersonnelle; pas de je/tu/nous/vous/ils au présent)",
-    "past_particle": "fallu"
+    "past_participle": "fallu"
   },
   {
     "french": "financer",
     "english": "to finance, to fund",
     "examples": "La ville finance un programme pour aider les familles.",
     "conjugation": "je finance\ntu finances\nil/elle finance\nnous finançons\nvous financez\nils/elles financent",
-    "past_particle": "financé"
+    "past_participle": "financé"
   },
   {
     "french": "fournir",
     "english": "to provide, to supply",
     "examples": "Le guide fournit des conseils utiles aux nouveaux arrivants.",
     "conjugation": "je fournis\ntu fournis\nil/elle fournit\nnous fournissons\nvous fournissez\nils/elles fournissent",
-    "past_particle": "fourni"
+    "past_participle": "fourni"
   },
   {
     "french": "garder",
     "english": "to keep; to look after",
     "examples": "Tu gardes les documents importants dans ce dossier.",
     "conjugation": "je garde\ntu gardes\nil/elle garde\nnous gardons\nvous gardez\nils/elles gardent",
-    "past_particle": "gardé"
+    "past_participle": "gardé"
   },
   {
     "french": "glisser",
     "english": "to slip, to slide",
     "examples": "Le papier glisse sous la porte sans bruit.",
     "conjugation": "je glisse\ntu glisses\nil/elle glisse\nnous glissons\nvous glissez\nils/elles glissent",
-    "past_particle": "glissé"
+    "past_participle": "glissé"
   },
   {
     "french": "habiliter",
     "english": "to authorize, to empower",
     "examples": "La loi habilite le comité à prendre cette décision.",
     "conjugation": "j'habilite\ntu habilites\nil/elle habilite\nnous habilitons\nvous habilitez\nils/elles habilitent",
-    "past_particle": "habilité"
+    "past_participle": "habilité"
   },
   {
     "french": "hésiter",
     "english": "to hesitate",
     "examples": "N'hésite pas à demander de l'aide si nécessaire.",
     "conjugation": "j'hésite\ntu hésites\nil/elle hésite\nnous hésitons\nvous hésitez\nils/elles hésitent",
-    "past_particle": "hésité"
+    "past_participle": "hésité"
   },
   {
     "french": "heurter",
     "english": "to hit, to collide with; to offend",
     "examples": "La voiture heurte doucement le mur du garage.",
     "conjugation": "je heurte\ntu heurtes\nil/elle heurte\nnous heurtons\nvous heurtez\nils/elles heurtent",
-    "past_particle": "heurté"
+    "past_participle": "heurté"
   },
   {
     "french": "imprimer",
     "english": "to print",
     "examples": "J'imprime les billets avant de partir à la gare.",
     "conjugation": "j'imprime\ntu imprimes\nil/elle imprime\nnous imprimons\nvous imprimez\nils/elles impriment",
-    "past_particle": "imprimé"
+    "past_participle": "imprimé"
   },
   {
     "french": "informer",
     "english": "to inform",
     "examples": "Le médecin informe le patient des résultats du test.",
     "conjugation": "j'informe\ntu informes\nil/elle informe\nnous informons\nvous informez\nils/elles informent",
-    "past_particle": "informé"
+    "past_participle": "informé"
   },
   {
     "french": "intéresser",
     "english": "to interest",
     "examples": "Ce sujet intéresse beaucoup les étudiants en histoire.",
     "conjugation": "j'intéresse\ntu intéresses\nil/elle intéresse\nnous intéressons\nvous intéressez\nils/elles intéressent",
-    "past_particle": "intéressé"
+    "past_participle": "intéressé"
   },
   {
     "french": "inventer",
     "english": "to invent, to make up",
     "examples": "Les enfants inventent une histoire drôle pendant le trajet.",
     "conjugation": "j'invente\ntu inventes\nil/elle invente\nnous inventons\nvous inventez\nils/elles inventent",
-    "past_particle": "inventé"
+    "past_participle": "inventé"
   },
   {
     "french": "investir",
     "english": "to invest",
     "examples": "Elle investit du temps dans sa formation professionnelle.",
     "conjugation": "j'investis\ntu investis\nil/elle investit\nnous investissons\nvous investissez\nils/elles investissent",
-    "past_particle": "investi"
+    "past_participle": "investi"
   },
   {
     "french": "lancer",
     "english": "to throw; to launch",
     "examples": "L'entreprise lance un nouveau service pour ses clients.",
     "conjugation": "je lance\ntu lances\nil/elle lance\nnous lançons\nvous lancez\nils/elles lancent",
-    "past_particle": "lancé"
+    "past_participle": "lancé"
   },
   {
     "french": "maintenir",
     "english": "to maintain, to keep",
     "examples": "Ils maintiennent le contact malgré la distance.",
     "conjugation": "je maintiens\ntu maintiens\nil/elle maintient\nnous maintenons\nvous maintenez\nils/elles maintiennent",
-    "past_particle": "maintenu"
+    "past_participle": "maintenu"
   },
   {
     "french": "manier",
     "english": "to handle, to wield",
     "examples": "Ce chef manie le couteau avec une grande précision.",
     "conjugation": "je manie\ntu manies\nil/elle manie\nnous manions\nvous maniez\nils/elles manient",
-    "past_particle": "manié"
+    "past_participle": "manié"
   },
   {
     "french": "manipuler",
     "english": "to handle; to manipulate",
     "examples": "Il manipule les outils avec beaucoup de prudence.",
     "conjugation": "je manipule\ntu manipules\nil/elle manipule\nnous manipulons\nvous manipulez\nils/elles manipulent",
-    "past_particle": "manipulé"
+    "past_participle": "manipulé"
   },
   {
     "french": "méconnaître",
     "english": "to misunderstand, to be unaware of",
     "examples": "Beaucoup de visiteurs méconnaissent l'histoire de ce quartier.",
     "conjugation": "je méconnais\ntu méconnais\nil/elle méconnaît\nnous méconnaissons\nvous méconnaissez\nils/elles méconnaissent",
-    "past_particle": "méconnu"
+    "past_participle": "méconnu"
   },
   {
     "french": "mentionner",
     "english": "to mention",
     "examples": "Elle mentionne son expérience dans la lettre de motivation.",
     "conjugation": "je mentionne\ntu mentionnes\nil/elle mentionne\nnous mentionnons\nvous mentionnez\nils/elles mentionnent",
-    "past_particle": "mentionné"
+    "past_participle": "mentionné"
   },
   {
     "french": "mettre",
     "english": "to put, to place",
     "examples": "Je mets les clés dans le tiroir de l'entrée.",
     "conjugation": "je mets\ntu mets\nil/elle met\nnous mettons\nvous mettez\nils/elles mettent",
-    "past_particle": "mis"
+    "past_participle": "mis"
   },
   {
     "french": "mobiliser",
     "english": "to mobilize, to rally",
     "examples": "L'association mobilise des bénévoles pour aider les familles.",
     "conjugation": "je mobilise\ntu mobilises\nil/elle mobilise\nnous mobilisons\nvous mobilisez\nils/elles mobilisent",
-    "past_particle": "mobilisé"
+    "past_participle": "mobilisé"
   },
   {
     "french": "modérer",
     "english": "to moderate, to restrain",
     "examples": "Le professeur modère la discussion entre les étudiants.",
     "conjugation": "je modère\ntu modères\nil/elle modère\nnous modérons\nvous modérez\nils/elles modèrent",
-    "past_particle": "modéré"
+    "past_participle": "modéré"
   },
   {
     "french": "montrer",
     "english": "to show",
     "examples": "Peux-tu montrer le chemin aux nouveaux voisins ?",
     "conjugation": "je montre\ntu montres\nil/elle montre\nnous montrons\nvous montrez\nils/elles montrent",
-    "past_particle": "montré"
+    "past_participle": "montré"
   },
   {
     "french": "moquer",
     "english": "to mock, to make fun of",
     "examples": "Il se moque gentiment de son propre accent.",
     "conjugation": "je moque\ntu moques\nil/elle moque\nnous moquons\nvous moquez\nils/elles moquent",
-    "past_particle": "moqué"
+    "past_participle": "moqué"
   },
   {
     "french": "multiplier",
     "english": "to multiply, to increase",
     "examples": "La ville multiplie les pistes cyclables dans le centre.",
     "conjugation": "je multiplie\ntu multiplies\nil/elle multiplie\nnous multiplions\nvous multipliez\nils/elles multiplient",
-    "past_particle": "multiplié"
+    "past_participle": "multiplié"
   },
   {
     "french": "naître",
     "english": "to be born, to arise",
     "examples": "Une belle amitié naît après ce voyage scolaire.",
     "conjugation": "je nais\ntu nais\nil/elle naît\nnous naissons\nvous naissez\nils/elles naissent",
-    "past_particle": "né"
+    "past_participle": "né"
   },
   {
     "french": "nécessiter",
     "english": "to require, to necessitate",
     "examples": "Ce projet nécessite beaucoup de patience et une bonne organisation.",
     "conjugation": "je nécessite\ntu nécessites\nil/elle/on nécessite\nnous nécessitons\nvous nécessitez\nils/elles nécessitent",
-    "past_particle": "nécessité"
+    "past_participle": "nécessité"
   },
   {
     "french": "noter",
     "english": "to note, to write down",
     "examples": "Je note les idées importantes pendant la réunion.",
     "conjugation": "je note\ntu notes\nil/elle/on note\nnous notons\nvous notez\nils/elles notent",
-    "past_particle": "noté"
+    "past_participle": "noté"
   },
   {
     "french": "observer",
     "english": "to observe, to watch",
     "examples": "Les élèves observent les oiseaux dans le parc voisin.",
     "conjugation": "j'observe\ntu observes\nil/elle/on observe\nnous observons\nvous observez\nils/elles observent",
-    "past_particle": "observé"
+    "past_participle": "observé"
   },
   {
     "french": "obtenir",
     "english": "to obtain, to get",
     "examples": "Elle obtient enfin une réponse claire après plusieurs appels.",
     "conjugation": "j'obtiens\ntu obtiens\nil/elle/on obtient\nnous obtenons\nvous obtenez\nils/elles obtiennent",
-    "past_particle": "obtenu"
+    "past_participle": "obtenu"
   },
   {
     "french": "occuper",
     "english": "to occupy, to keep busy",
     "examples": "Ce travail occupe mes soirées depuis deux semaines.",
     "conjugation": "j'occupe\ntu occupes\nil/elle/on occupe\nnous occupons\nvous occupez\nils/elles occupent",
-    "past_particle": "occupé"
+    "past_participle": "occupé"
   },
   {
     "french": "orchestrer",
     "english": "to orchestrate, to coordinate",
     "examples": "Le chef orchestre chaque détail de la cérémonie officielle.",
     "conjugation": "j'orchestre\ntu orchestres\nil/elle/on orchestre\nnous orchestrons\nvous orchestrez\nils/elles orchestrent",
-    "past_particle": "orchestré"
+    "past_participle": "orchestré"
   },
   {
     "french": "pallier",
     "english": "to compensate for, to remedy",
     "examples": "Nous devons pallier le manque de temps par une meilleure méthode.",
     "conjugation": "je pallie\ntu pallies\nil/elle/on pallie\nnous pallions\nvous palliez\nils/elles pallient",
-    "past_particle": "pallié"
+    "past_participle": "pallié"
   },
   {
     "french": "paraître",
     "english": "to seem, to appear",
     "examples": "Cette solution paraît simple, mais elle demande beaucoup d'efforts.",
     "conjugation": "je parais\ntu parais\nil/elle/on paraît\nnous paraissons\nvous paraissez\nils/elles paraissent",
-    "past_particle": "paru"
+    "past_participle": "paru"
   },
   {
     "french": "parcourir",
     "english": "to travel through, to browse",
     "examples": "Ils parcourent la ville à vélo pendant tout l'après-midi.",
     "conjugation": "je parcours\ntu parcours\nil/elle/on parcourt\nnous parcourons\nvous parcourez\nils/elles parcourent",
-    "past_particle": "parcouru"
+    "past_participle": "parcouru"
   },
   {
     "french": "parvenir",
     "english": "to manage, to reach",
     "examples": "Nous parvenons à finir le dossier avant la date limite.",
     "conjugation": "je parviens\ntu parviens\nil/elle/on parvient\nnous parvenons\nvous parvenez\nils/elles parviennent",
-    "past_particle": "parvenu"
+    "past_participle": "parvenu"
   },
   {
     "french": "percevoir",
     "english": "to perceive, to receive",
     "examples": "Elle perçoit une différence nette dans son niveau de français.",
     "conjugation": "je perçois\ntu perçois\nil/elle/on perçoit\nnous percevons\nvous percevez\nils/elles perçoivent",
-    "past_particle": "perçu"
+    "past_participle": "perçu"
   },
   {
     "french": "perdre",
     "english": "to lose",
     "examples": "Tu perds souvent tes clés quand tu es pressé.",
     "conjugation": "je perds\ntu perds\nil/elle/on perd\nnous perdons\nvous perdez\nils/elles perdent",
-    "past_particle": "perdu"
+    "past_participle": "perdu"
   },
   {
     "french": "permettre",
     "english": "to allow, to permit",
     "examples": "Cette application permet aux étudiants de réviser chaque jour.",
     "conjugation": "je permets\ntu permets\nil/elle/on permet\nnous permettons\nvous permettez\nils/elles permettent",
-    "past_particle": "permis"
+    "past_participle": "permis"
   },
   {
     "french": "persister",
     "english": "to persist, to continue",
     "examples": "Si le problème persiste, appelez le service technique demain matin.",
     "conjugation": "je persiste\ntu persistes\nil/elle/on persiste\nnous persistons\nvous persistez\nils/elles persistent",
-    "past_particle": "persisté"
+    "past_participle": "persisté"
   },
   {
     "french": "perturber",
     "english": "to disturb, to disrupt",
     "examples": "Le bruit perturbe la concentration des enfants en classe.",
     "conjugation": "je perturbe\ntu perturbes\nil/elle/on perturbe\nnous perturbons\nvous perturbez\nils/elles perturbent",
-    "past_particle": "perturbé"
+    "past_participle": "perturbé"
   },
   {
     "french": "pervertir",
     "english": "to corrupt, to distort",
     "examples": "Cette pression peut pervertir le sens initial du projet.",
     "conjugation": "je pervertis\ntu pervertis\nil/elle/on pervertit\nnous pervertissons\nvous pervertissez\nils/elles pervertissent",
-    "past_particle": "perverti"
+    "past_participle": "perverti"
   },
   {
     "french": "plaire",
     "english": "to please, to be liked",
     "examples": "Ce film plaît beaucoup aux adolescents de mon quartier.",
     "conjugation": "je plais\ntu plais\nil/elle/on plaît\nnous plaisons\nvous plaisez\nils/elles plaisent",
-    "past_particle": "plu"
+    "past_participle": "plu"
   },
   {
     "french": "porter",
     "english": "to wear, to carry",
     "examples": "Elle porte un manteau rouge quand il fait froid.",
     "conjugation": "je porte\ntu portes\nil/elle/on porte\nnous portons\nvous portez\nils/elles portent",
-    "past_particle": "porté"
+    "past_participle": "porté"
   },
   {
     "french": "pouvoir",
     "english": "to be able to, can",
     "examples": "Nous pouvons partir plus tôt si tout le monde est prêt.",
     "conjugation": "je peux\ntu peux\nil/elle/on peut\nnous pouvons\nvous pouvez\nils/elles peuvent",
-    "past_particle": "pu"
+    "past_participle": "pu"
   },
   {
     "french": "prévoir",
     "english": "to plan, to foresee",
     "examples": "Ils prévoient une pause courte après la présentation principale.",
     "conjugation": "je prévois\ntu prévois\nil/elle/on prévoit\nnous prévoyons\nvous prévoyez\nils/elles prévoient",
-    "past_particle": "prévu"
+    "past_participle": "prévu"
   },
   {
     "french": "privilégier",
     "english": "to prioritize, to favor",
     "examples": "Le professeur privilégie les exercices pratiques pendant le cours.",
     "conjugation": "je privilégie\ntu privilégies\nil/elle/on privilégie\nnous privilégions\nvous privilégiez\nils/elles privilégient",
-    "past_particle": "privilégié"
+    "past_participle": "privilégié"
   },
   {
     "french": "produire",
     "english": "to produce, to generate",
     "examples": "Cette usine produit des pièces pour plusieurs entreprises locales.",
     "conjugation": "je produis\ntu produis\nil/elle/on produit\nnous produisons\nvous produisez\nils/elles produisent",
-    "past_particle": "produit"
+    "past_participle": "produit"
   },
   {
     "french": "prolonger",
     "english": "to extend, to prolong",
     "examples": "La mairie prolonge l'exposition jusqu'à la fin du mois.",
     "conjugation": "je prolonge\ntu prolonges\nil/elle/on prolonge\nnous prolongeons\nvous prolongez\nils/elles prolongent",
-    "past_particle": "prolongé"
+    "past_participle": "prolongé"
   },
   {
     "french": "provoquer",
     "english": "to cause, to provoke",
     "examples": "Une mauvaise communication provoque souvent des malentendus inutiles.",
     "conjugation": "je provoque\ntu provoques\nil/elle/on provoque\nnous provoquons\nvous provoquez\nils/elles provoquent",
-    "past_particle": "provoqué"
+    "past_participle": "provoqué"
   },
   {
     "french": "publier",
     "english": "to publish, to post",
     "examples": "Elle publie un nouvel article sur son blog chaque semaine.",
     "conjugation": "je publie\ntu publies\nil/elle/on publie\nnous publions\nvous publiez\nils/elles publient",
-    "past_particle": "publié"
+    "past_participle": "publié"
   },
   {
     "french": "raconter",
     "english": "to tell, to recount",
     "examples": "Mon grand-père raconte souvent des histoires de son enfance.",
     "conjugation": "je raconte\ntu racontes\nil/elle/on raconte\nnous racontons\nvous racontez\nils/elles racontent",
-    "past_particle": "raconté"
+    "past_participle": "raconté"
   },
   {
     "french": "réaliser",
     "english": "to realize, to carry out",
     "examples": "Je réalise maintenant l'importance de parler régulièrement français.",
     "conjugation": "je réalise\ntu réalises\nil/elle/on réalise\nnous réalisons\nvous réalisez\nils/elles réalisent",
-    "past_particle": "réalisé"
+    "past_participle": "réalisé"
   },
   {
     "french": "recevoir",
     "english": "to receive",
     "examples": "Nous recevons les résultats par courriel demain matin.",
     "conjugation": "je reçois\ntu reçois\nil/elle/on reçoit\nnous recevons\nvous recevez\nils/elles reçoivent",
-    "past_particle": "reçu"
+    "past_participle": "reçu"
   },
   {
     "french": "rechercher",
     "english": "to search for, to look for",
     "examples": "Ils recherchent un appartement calme près du métro.",
     "conjugation": "je recherche\ntu recherches\nil/elle/on recherche\nnous recherchons\nvous recherchez\nils/elles recherchent",
-    "past_particle": "recherché"
+    "past_participle": "recherché"
   },
   {
     "french": "récolter",
     "english": "to harvest, to collect",
     "examples": "Les bénévoles récoltent des fonds pour aider les familles locales.",
     "conjugation": "je récolte\ntu récoltes\nil/elle/on récolte\nnous récoltons\nvous récoltez\nils/elles récoltent",
-    "past_particle": "récolté"
+    "past_participle": "récolté"
   },
   {
     "french": "reconnaître",
     "english": "to recognize, to admit",
     "examples": "Il reconnaît son erreur et présente des excuses sincères.",
     "conjugation": "je reconnais\ntu reconnais\nil/elle/on reconnaît\nnous reconnaissons\nvous reconnaissez\nils/elles reconnaissent",
-    "past_particle": "reconnu"
+    "past_participle": "reconnu"
   },
   {
     "french": "reconstruire",
     "english": "to rebuild, to reconstruct",
     "examples": "La ville reconstruit le pont après la grande tempête.",
     "conjugation": "je reconstruis\ntu reconstruis\nil/elle/on reconstruit\nnous reconstruisons\nvous reconstruisez\nils/elles reconstruisent",
-    "past_particle": "reconstruit"
+    "past_participle": "reconstruit"
   },
   {
     "french": "refaire",
     "english": "to redo, to remake",
     "examples": "Tu refais l'exercice pour mieux comprendre la règle.",
     "conjugation": "je refais\ntu refais\nil/elle/on refait\nnous refaisons\nvous refaites\nils/elles refont",
-    "past_particle": "refait"
+    "past_participle": "refait"
   },
   {
     "french": "régler",
     "english": "to settle, to adjust",
     "examples": "Le technicien règle la machine avant le début du service.",
     "conjugation": "je règle\ntu règles\nil/elle/on règle\nnous réglons\nvous réglez\nils/elles règlent",
-    "past_particle": "réglé"
+    "past_participle": "réglé"
   },
   {
     "french": "réhabiliter",
     "english": "to rehabilitate, to restore",
     "examples": "La commune réhabilite un ancien bâtiment pour les associations.",
     "conjugation": "je réhabilite\ntu réhabilites\nil/elle/on réhabilite\nnous réhabilitons\nvous réhabilitez\nils/elles réhabilitent",
-    "past_particle": "réhabilité"
+    "past_participle": "réhabilité"
   },
   {
     "french": "remettre",
     "english": "to put back, to submit",
     "examples": "Les étudiants remettent leur devoir avant midi aujourd'hui.",
     "conjugation": "je remets\ntu remets\nil/elle/on remet\nnous remettons\nvous remettez\nils/elles remettent",
-    "past_particle": "remis"
+    "past_participle": "remis"
   },
   {
     "french": "remodeler",
     "english": "to reshape, to remodel",
     "examples": "L'architecte remodèle l'espace pour créer une cuisine ouverte.",
     "conjugation": "je remodèle\ntu remodèles\nil/elle/on remodèle\nnous remodelons\nvous remodelez\nils/elles remodèlent",
-    "past_particle": "remodelé"
+    "past_participle": "remodelé"
   },
   {
     "french": "remplacer",
     "english": "to replace",
     "examples": "Nous remplaçons les vieilles chaises par des modèles plus confortables.",
     "conjugation": "je remplace\ntu remplaces\nil/elle/on remplace\nnous remplaçons\nvous remplacez\nils/elles remplacent",
-    "past_particle": "remplacé"
+    "past_participle": "remplacé"
   },
   {
     "french": "rencontrer",
     "english": "to meet, to encounter",
     "examples": "Elle rencontre ses collègues au café après le travail.",
     "conjugation": "je rencontre\ntu rencontres\nil/elle/on rencontre\nnous rencontrons\nvous rencontrez\nils/elles rencontrent",
-    "past_particle": "rencontré"
+    "past_participle": "rencontré"
   },
   {
     "french": "rendre",
     "english": "to return, to make",
     "examples": "Ce logiciel rend le travail plus rapide et plus simple.",
     "conjugation": "je rends\ntu rends\nil/elle/on rend\nnous rendons\nvous rendez\nils/elles rendent",
-    "past_particle": "rendu"
+    "past_participle": "rendu"
   },
   {
     "french": "renforcer",
     "english": "to strengthen, to reinforce",
     "examples": "Ces exercices renforcent la confiance des apprenants débutants.",
     "conjugation": "je renforce\ntu renforces\nil/elle/on renforce\nnous renforçons\nvous renforcez\nils/elles renforcent",
-    "past_particle": "renforcé"
+    "past_participle": "renforcé"
   },
   {
     "french": "rentabiliser",
     "english": "to make profitable, to optimize returns",
     "examples": "L'entreprise veut rentabiliser ses investissements grâce à une meilleure stratégie.",
     "conjugation": "je rentabilise\ntu rentabilises\nil/elle/on rentabilise\nnous rentabilisons\nvous rentabilisez\nils/elles rentabilisent",
-    "past_particle": "rentabilisé"
+    "past_participle": "rentabilisé"
   },
   {
     "french": "rentrer",
     "english": "to return home, to go back in",
     "examples": "Nous rentrons à la maison avant le début de l'orage.",
     "conjugation": "je rentre\ntu rentres\nil/elle/on rentre\nnous rentrons\nvous rentrez\nils/elles rentrent",
-    "past_particle": "rentré"
+    "past_participle": "rentré"
   },
   {
     "french": "reprendre",
     "english": "to resume, to take back",
     "examples": "Elle reprend ses études après une année de pause.",
     "conjugation": "je reprends\ntu reprends\nil/elle/on reprend\nnous reprenons\nvous reprenez\nils/elles reprennent",
-    "past_particle": "repris"
+    "past_participle": "repris"
   },
   {
     "french": "représenter",
     "english": "to represent",
     "examples": "Cette image représente bien l'esprit du nouveau projet.",
     "conjugation": "je représente\ntu représentes\nil/elle/on représente\nnous représentons\nvous représentez\nils/elles représentent",
-    "past_particle": "représenté"
+    "past_participle": "représenté"
   },
   {
     "french": "retrouver",
     "english": "to find again, to meet up with",
     "examples": "Je retrouve mes amis devant le cinéma à dix-neuf heures.",
     "conjugation": "je retrouve\ntu retrouves\nil/elle/on retrouve\nnous retrouvons\nvous retrouvez\nils/elles retrouvent",
-    "past_particle": "retrouvé"
+    "past_participle": "retrouvé"
   },
   {
     "french": "révéler",
     "english": "to reveal",
     "examples": "Le rapport révèle des informations importantes sur la situation actuelle.",
     "conjugation": "je révèle\ntu révèles\nil/elle/on révèle\nnous révélons\nvous révélez\nils/elles révèlent",
-    "past_particle": "révélé"
+    "past_participle": "révélé"
   },
   {
     "french": "risquer",
     "english": "to risk, to be likely to",
     "examples": "Tu risques de manquer le train si tu pars tard.",
     "conjugation": "je risque\ntu risques\nil/elle/on risque\nnous risquons\nvous risquez\nils/elles risquent",
-    "past_particle": "risqué"
+    "past_participle": "risqué"
   },
   {
     "french": "saisir",
     "english": "to seize, to grasp, to understand",
     "examples": "Elle saisit rapidement le sens de la conversation.",
     "conjugation": "je saisis\ntu saisis\nil/elle/on saisit\nnous saisissons\nvous saisissez\nils/elles saisissent",
-    "past_particle": "saisi"
+    "past_participle": "saisi"
   },
   {
     "french": "sauver",
     "english": "to save, to rescue",
     "examples": "Les pompiers sauvent le chat coincé dans l'arbre.",
     "conjugation": "je sauve\ntu sauves\nil/elle/on sauve\nnous sauvons\nvous sauvez\nils/elles sauvent",
-    "past_particle": "sauvé"
+    "past_participle": "sauvé"
   },
   {
     "french": "sembler",
     "english": "to seem; to look like",
     "examples": "Cette explication semble claire pour la plupart des étudiants.",
     "conjugation": "je semble\ntu sembles\nil/elle/on semble\nnous semblons\nvous semblez\nils/elles semblent",
-    "past_particle": "semblé"
+    "past_participle": "semblé"
   },
   {
     "french": "sensibiliser",
     "english": "to raise awareness, to sensitize",
     "examples": "La campagne sensibilise les jeunes aux dangers du tabac.",
     "conjugation": "je sensibilise\ntu sensibilises\nil/elle/on sensibilise\nnous sensibilisons\nvous sensibilisez\nils/elles sensibilisent",
-    "past_particle": "sensibilisé"
+    "past_participle": "sensibilisé"
   },
   {
     "french": "servir",
     "english": "to serve, to be useful",
     "examples": "Ce guide sert à préparer les nouveaux employés rapidement.",
     "conjugation": "je sers\ntu sers\nil/elle/on sert\nnous servons\nvous servez\nils/elles servent",
-    "past_particle": "servi"
+    "past_participle": "servi"
   },
   {
     "french": "soigner",
     "english": "to treat, to care for",
     "examples": "Le médecin soigne les patients avec attention et patience.",
     "conjugation": "je soigne\ntu soignes\nil/elle/on soigne\nnous soignons\nvous soignez\nils/elles soignent",
-    "past_particle": "soigné"
+    "past_participle": "soigné"
   },
   {
     "french": "souffrir",
     "english": "to suffer",
     "examples": "Il souffre souvent du dos après une longue journée de travail.",
     "conjugation": "je souffre\ntu souffres\nil/elle/on souffre\nnous souffrons\nvous souffrez\nils/elles souffrent",
-    "past_particle": "souffert"
+    "past_participle": "souffert"
   },
   {
     "french": "soutenir",
     "english": "to support",
     "examples": "Ses amis le soutiennent pendant cette période difficile.",
     "conjugation": "je soutiens\ntu soutiens\nil/elle/on soutient\nnous soutenons\nvous soutenez\nils/elles soutiennent",
-    "past_particle": "soutenu"
+    "past_participle": "soutenu"
   },
   {
     "french": "substituer",
     "english": "to substitute",
     "examples": "On peut substituer le lait par une boisson végétale.",
     "conjugation": "je substitue\ntu substitues\nil/elle/on substitue\nnous substituons\nvous substituez\nils/elles substituent",
-    "past_particle": "substitué"
+    "past_participle": "substitué"
   },
   {
     "french": "subventionner",
     "english": "to subsidize, to fund",
     "examples": "La ville subventionne plusieurs projets culturels chaque année.",
     "conjugation": "je subventionne\ntu subventionnes\nil/elle/on subventionne\nnous subventionnons\nvous subventionnez\nils/elles subventionnent",
-    "past_particle": "subventionné"
+    "past_participle": "subventionné"
   },
   {
     "french": "supprimer",
     "english": "to delete, to remove",
     "examples": "Tu dois supprimer les fichiers inutiles de ton ordinateur.",
     "conjugation": "je supprime\ntu supprimes\nil/elle/on supprime\nnous supprimons\nvous supprimez\nils/elles suppriment",
-    "past_particle": "supprimé"
+    "past_participle": "supprimé"
   },
   {
     "french": "tendre",
     "english": "to hold out, to stretch",
     "examples": "Elle tend la main pour aider son voisin âgé.",
     "conjugation": "je tends\ntu tends\nil/elle/on tend\nnous tendons\nvous tendez\nils/elles tendent",
-    "past_particle": "tendu"
+    "past_participle": "tendu"
   },
   {
     "french": "tourner",
     "english": "to turn",
     "examples": "Le bus tourne à droite devant la gare centrale.",
     "conjugation": "je tourne\ntu tournes\nil/elle/on tourne\nnous tournons\nvous tournez\nils/elles tournent",
-    "past_particle": "tourné"
+    "past_participle": "tourné"
   },
   {
     "french": "transformer",
     "english": "to transform",
     "examples": "Cette expérience transforme sa façon de voir le monde.",
     "conjugation": "je transforme\ntu transformes\nil/elle/on transforme\nnous transformons\nvous transformez\nils/elles transforment",
-    "past_particle": "transformé"
+    "past_participle": "transformé"
   },
   {
     "french": "travailler",
     "english": "to work",
     "examples": "Nous travaillons ensemble sur un projet important cette semaine.",
     "conjugation": "je travaille\ntu travailles\nil/elle/on travaille\nnous travaillons\nvous travaillez\nils/elles travaillent",
-    "past_particle": "travaillé"
+    "past_participle": "travaillé"
   },
   {
     "french": "tromper",
     "english": "to deceive, to mislead",
     "examples": "Cette publicité trompe souvent les clients avec ses promesses.",
     "conjugation": "je trompe\ntu trompes\nil/elle/on trompe\nnous trompons\nvous trompez\nils/elles trompent",
-    "past_particle": "trompé"
+    "past_participle": "trompé"
   },
   {
     "french": "tuer",
     "english": "to kill",
     "examples": "La pollution peut tuer de nombreux poissons dans la rivière.",
     "conjugation": "je tue\ntu tues\nil/elle/on tue\nnous tuons\nvous tuez\nils/elles tuent",
-    "past_particle": "tué"
+    "past_participle": "tué"
   },
   {
     "french": "valoriser",
     "english": "to value, to promote",
     "examples": "L'école valorise les efforts autant que les résultats.",
     "conjugation": "je valorise\ntu valorises\nil/elle/on valorise\nnous valorisons\nvous valorisez\nils/elles valorisent",
-    "past_particle": "valorisé"
+    "past_participle": "valorisé"
   },
   {
     "french": "accompagnateur",
