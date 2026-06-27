@@ -35,5 +35,2687 @@
     "french": "un tas de",
     "english": "a lot of; a bunch of",
     "examples": "J'ai un tas de choses à faire avant le week-end."
+  },
+  {
+    "french": "aboutir",
+    "english": "to lead to; to succeed",
+    "examples": "Le projet va aboutir après plusieurs mois de travail sérieux.",
+    "conjugation": "j'aboutis\ntu aboutis\nil aboutit\nnous aboutissons\nvous aboutissez\nils aboutissent",
+    "past_particle": "abouti"
+  },
+  {
+    "french": "accéder",
+    "english": "to access; to reach",
+    "examples": "Les étudiants peuvent accéder aux ressources depuis la bibliothèque en ligne.",
+    "conjugation": "j'accède\ntu accèdes\nil accède\nnous accédons\nvous accédez\nils accèdent",
+    "past_particle": "accédé"
+  },
+  {
+    "french": "acheter",
+    "english": "to buy",
+    "examples": "Elle achète du pain frais chaque matin au marché.",
+    "conjugation": "j'achète\ntu achètes\nil achète\nnous achetons\nvous achetez\nils achètent",
+    "past_particle": "acheté"
+  },
+  {
+    "french": "adresser",
+    "english": "to address; to send",
+    "examples": "Veuillez adresser votre demande au service responsable avant vendredi.",
+    "conjugation": "j'adresse\ntu adresses\nil adresse\nnous adressons\nvous adressez\nils adressent",
+    "past_particle": "adressé"
+  },
+  {
+    "french": "affecter",
+    "english": "to affect; to assign",
+    "examples": "Cette décision peut affecter le budget de toute l'équipe.",
+    "conjugation": "j'affecte\ntu affectes\nil affecte\nnous affectons\nvous affectez\nils affectent",
+    "past_particle": "affecté"
+  },
+  {
+    "french": "agir",
+    "english": "to act",
+    "examples": "Il faut agir rapidement pour éviter un problème plus grave.",
+    "conjugation": "j'agis\ntu agis\nil agit\nnous agissons\nvous agissez\nils agissent",
+    "past_particle": "agi"
+  },
+  {
+    "french": "agrandir",
+    "english": "to enlarge; to expand",
+    "examples": "Ils veulent agrandir la cuisine pour accueillir toute la famille.",
+    "conjugation": "j'agrandis\ntu agrandis\nil agrandit\nnous agrandissons\nvous agrandissez\nils agrandissent",
+    "past_particle": "agrandi"
+  },
+  {
+    "french": "alléger",
+    "english": "to lighten; to reduce",
+    "examples": "Nous devons alléger le programme pour les nouveaux employés.",
+    "conjugation": "j'allège\ntu allèges\nil allège\nnous allégeons\nvous allégez\nils allègent",
+    "past_particle": "allégé"
+  },
+  {
+    "french": "améliorer",
+    "english": "to improve",
+    "examples": "Cette méthode aide vraiment à améliorer la qualité du travail.",
+    "conjugation": "j'améliore\ntu améliores\nil améliore\nnous améliorons\nvous améliorez\nils améliorent",
+    "past_particle": "amélioré"
+  },
+  {
+    "french": "annoncer",
+    "english": "to announce",
+    "examples": "Le directeur va annoncer les résultats pendant la réunion.",
+    "conjugation": "j'annonce\ntu annonces\nil annonce\nnous annonçons\nvous annoncez\nils annoncent",
+    "past_particle": "annoncé"
+  },
+  {
+    "french": "annuler",
+    "english": "to cancel",
+    "examples": "Ils doivent annuler le voyage à cause de la tempête.",
+    "conjugation": "j'annule\ntu annules\nil annule\nnous annulons\nvous annulez\nils annulent",
+    "past_particle": "annulé"
+  },
+  {
+    "french": "apparaître",
+    "english": "to appear",
+    "examples": "Une erreur peut apparaître si le formulaire est incomplet.",
+    "conjugation": "j'apparais\ntu apparais\nil apparaît\nnous apparaissons\nvous apparaissez\nils apparaissent",
+    "past_particle": "apparu"
+  },
+  {
+    "french": "assurer",
+    "english": "to ensure; to assure",
+    "examples": "Ce contrôle permet d'assurer la sécurité des passagers.",
+    "conjugation": "j'assure\ntu assures\nil assure\nnous assurons\nvous assurez\nils assurent",
+    "past_particle": "assuré"
+  },
+  {
+    "french": "attendre",
+    "english": "to wait; to expect",
+    "examples": "Nous devons attendre le bus devant la gare centrale.",
+    "conjugation": "j'attends\ntu attends\nil attend\nnous attendons\nvous attendez\nils attendent",
+    "past_particle": "attendu"
+  },
+  {
+    "french": "attraper",
+    "english": "to catch; to grab",
+    "examples": "Elle court pour attraper le train avant son départ.",
+    "conjugation": "j'attrape\ntu attrapes\nil attrape\nnous attrapons\nvous attrapez\nils attrapent",
+    "past_particle": "attrapé"
+  },
+  {
+    "french": "augmenter",
+    "english": "to increase; to raise",
+    "examples": "Les prix risquent d'augmenter pendant la haute saison touristique.",
+    "conjugation": "j'augmente\ntu augmentes\nil augmente\nnous augmentons\nvous augmentez\nils augmentent",
+    "past_particle": "augmenté"
+  },
+  {
+    "french": "autoproclamer",
+    "english": "to proclaim oneself; to self-proclaim",
+    "examples": "Il aime s'autoproclamer expert après seulement quelques lectures.",
+    "conjugation": "je m'autoproclame\ntu t'autoproclames\nil s'autoproclame\nnous nous autoproclamons\nvous vous autoproclamez\nils s'autoproclament",
+    "past_particle": "autoproclamé"
+  },
+  {
+    "french": "balayer",
+    "english": "to sweep; to brush aside",
+    "examples": "Chaque soir, Paul doit balayer l'entrée du petit restaurant.",
+    "conjugation": "je balaie\ntu balaies\nil balaie\nnous balayons\nvous balayez\nils balaient",
+    "past_particle": "balayé"
+  },
+  {
+    "french": "bâtir",
+    "english": "to build",
+    "examples": "Ils espèrent bâtir une maison près du lac cet été.",
+    "conjugation": "je bâtis\ntu bâtis\nil bâtit\nnous bâtissons\nvous bâtissez\nils bâtissent",
+    "past_particle": "bâti"
+  },
+  {
+    "french": "battre",
+    "english": "to beat; to defeat",
+    "examples": "Notre équipe veut battre le champion lors du prochain match.",
+    "conjugation": "je bats\ntu bats\nil bat\nnous battons\nvous battez\nils battent",
+    "past_particle": "battu"
+  },
+  {
+    "french": "bénéficier",
+    "english": "to benefit",
+    "examples": "Les familles peuvent bénéficier d'une aide financière cette année.",
+    "conjugation": "je bénéficie\ntu bénéficies\nil bénéficie\nnous bénéficions\nvous bénéficiez\nils bénéficient",
+    "past_particle": "bénéficié"
+  },
+  {
+    "french": "boucler",
+    "english": "to close; to finish; to buckle",
+    "examples": "Nous devons boucler le dossier avant la fin du mois.",
+    "conjugation": "je boucle\ntu boucles\nil boucle\nnous bouclons\nvous bouclez\nils bouclent",
+    "past_particle": "bouclé"
+  },
+  {
+    "french": "caler",
+    "english": "to stall; to wedge; to schedule",
+    "examples": "On peut caler une réunion rapide demain matin si possible.",
+    "conjugation": "je cale\ntu cales\nil cale\nnous calons\nvous calez\nils calent",
+    "past_particle": "calé"
+  },
+  {
+    "french": "causer",
+    "english": "to cause; to chat",
+    "examples": "Le bruit peut causer beaucoup de stress aux voisins.",
+    "conjugation": "je cause\ntu causes\nil cause\nnous causons\nvous causez\nils causent",
+    "past_particle": "causé"
+  },
+  {
+    "french": "certifier",
+    "english": "to certify",
+    "examples": "Un expert doit certifier la conformité de cette installation électrique.",
+    "conjugation": "je certifie\ntu certifies\nil certifie\nnous certifions\nvous certifiez\nils certifient",
+    "past_particle": "certifié"
+  },
+  {
+    "french": "cesser",
+    "english": "to stop; to cease",
+    "examples": "Il faut cesser de reporter les décisions importantes chaque semaine.",
+    "conjugation": "je cesse\ntu cesses\nil cesse\nnous cessons\nvous cessez\nils cessent",
+    "past_particle": "cessé"
+  },
+  {
+    "french": "chasser",
+    "english": "to hunt; to chase away",
+    "examples": "Le gardien essaie de chasser les oiseaux du terrain.",
+    "conjugation": "je chasse\ntu chasses\nil chasse\nnous chassons\nvous chassez\nils chassent",
+    "past_particle": "chassé"
+  },
+  {
+    "french": "choisir",
+    "english": "to choose",
+    "examples": "Vous devez choisir une date pour votre prochain rendez-vous.",
+    "conjugation": "je choisis\ntu choisis\nil choisit\nnous choisissons\nvous choisissez\nils choisissent",
+    "past_particle": "choisi"
+  },
+  {
+    "french": "circuler",
+    "english": "to circulate; to move around",
+    "examples": "Les voitures peuvent circuler librement après la fin des travaux.",
+    "conjugation": "je circule\ntu circules\nil circule\nnous circulons\nvous circulez\nils circulent",
+    "past_particle": "circulé"
+  },
+  {
+    "french": "coller",
+    "english": "to stick; to glue",
+    "examples": "Les enfants veulent coller des images sur leur cahier.",
+    "conjugation": "je colle\ntu colles\nil colle\nnous collons\nvous collez\nils collent",
+    "past_particle": "collé"
+  },
+  {
+    "french": "compter",
+    "english": "to count; to intend",
+    "examples": "Je compte vérifier les documents avant de les envoyer.",
+    "conjugation": "je compte\ntu comptes\nil compte\nnous comptons\nvous comptez\nils comptent",
+    "past_particle": "compté"
+  },
+  {
+    "french": "concentrer",
+    "english": "to concentrate; to focus",
+    "examples": "Elle essaie de concentrer son énergie sur un seul objectif.",
+    "conjugation": "je concentre\ntu concentres\nil concentre\nnous concentrons\nvous concentrez\nils concentrent",
+    "past_particle": "concentré"
+  },
+  {
+    "french": "concerner",
+    "english": "to concern; to relate to",
+    "examples": "Cette annonce peut concerner tous les employés du service.",
+    "conjugation": "je concerne\ntu concernes\nil concerne\nnous concernons\nvous concernez\nils concernent",
+    "past_particle": "concerné"
+  },
+  {
+    "french": "concevoir",
+    "english": "to design; to conceive",
+    "examples": "L'architecte doit concevoir un bâtiment moderne et écologique.",
+    "conjugation": "je conçois\ntu conçois\nil conçoit\nnous concevons\nvous concevez\nils conçoivent",
+    "past_particle": "conçu"
+  },
+  {
+    "french": "concrétiser",
+    "english": "to make concrete; to bring to fruition",
+    "examples": "Nous voulons concrétiser cette idée avant la fin d'année.",
+    "conjugation": "je concrétise\ntu concrétises\nil concrétise\nnous concrétisons\nvous concrétisez\nils concrétisent",
+    "past_particle": "concrétisé"
+  },
+  {
+    "french": "confier",
+    "english": "to entrust; to confide",
+    "examples": "Elle préfère confier cette mission à une personne expérimentée.",
+    "conjugation": "je confie\ntu confies\nil confie\nnous confions\nvous confiez\nils confient",
+    "past_particle": "confié"
+  },
+  {
+    "french": "connaître",
+    "english": "to know; to be familiar with",
+    "examples": "Il veut connaître la vérité avant de prendre une décision.",
+    "conjugation": "je connais\ntu connais\nil connaît\nnous connaissons\nvous connaissez\nils connaissent",
+    "past_particle": "connu"
+  },
+  {
+    "french": "conserver",
+    "english": "to keep; to preserve",
+    "examples": "Il faut conserver les reçus pendant au moins deux ans.",
+    "conjugation": "je conserve\ntu conserves\nil conserve\nnous conservons\nvous conservez\nils conservent",
+    "past_particle": "conservé"
+  },
+  {
+    "french": "considérer",
+    "english": "to consider",
+    "examples": "Nous devons considérer toutes les options avant de choisir.",
+    "conjugation": "je considère\ntu considères\nil considère\nnous considérons\nvous considérez\nils considèrent",
+    "past_particle": "considéré"
+  },
+  {
+    "french": "constituer",
+    "english": "to constitute; to form",
+    "examples": "Ces documents peuvent constituer une preuve importante pour le dossier.",
+    "conjugation": "je constitue\ntu constitues\nil constitue\nnous constituons\nvous constituez\nils constituent",
+    "past_particle": "constitué"
+  },
+  {
+    "french": "contacter",
+    "english": "to contact",
+    "examples": "Vous pouvez contacter le bureau si vous avez des questions.",
+    "conjugation": "je contacte\ntu contactes\nil contacte\nnous contactons\nvous contactez\nils contactent",
+    "past_particle": "contacté"
+  },
+  {
+    "french": "contribuer",
+    "english": "to contribute",
+    "examples": "Chaque bénévole peut contribuer au succès de l'événement local.",
+    "conjugation": "je contribue\ntu contribues\nil contribue\nnous contribuons\nvous contribuez\nils contribuent",
+    "past_particle": "contribué"
+  },
+  {
+    "french": "correspondre",
+    "english": "to correspond; to match",
+    "examples": "Cette offre semble correspondre exactement à vos besoins actuels.",
+    "conjugation": "je corresponds\ntu corresponds\nil correspond\nnous correspondons\nvous correspondez\nils correspondent",
+    "past_particle": "correspondu"
+  },
+  {
+    "french": "coter",
+    "english": "to quote; to rate; to list on the stock exchange",
+    "examples": "La société veut coter ses actions sur le marché européen.",
+    "conjugation": "je cote\ntu cotes\nil cote\nnous cotons\nvous cotez\nils cotent",
+    "past_particle": "coté"
+  },
+  {
+    "french": "débuter",
+    "english": "to begin; to start",
+    "examples": "Le cours va débuter à neuf heures précises demain.",
+    "conjugation": "je débute\ntu débutes\nil débute\nnous débutons\nvous débutez\nils débutent",
+    "past_particle": "débuté"
+  },
+  {
+    "french": "découvrir",
+    "english": "to discover",
+    "examples": "Nous aimons découvrir de nouveaux quartiers pendant nos promenades.",
+    "conjugation": "je découvre\ntu découvres\nil découvre\nnous découvrons\nvous découvrez\nils découvrent",
+    "past_particle": "découvert"
+  },
+  {
+    "french": "décrire",
+    "english": "to describe",
+    "examples": "Peux-tu décrire la scène avec quelques détails importants ?",
+    "conjugation": "je décris\ntu décris\nil décrit\nnous décrivons\nvous décrivez\nils décrivent",
+    "past_particle": "décrit"
+  },
+  {
+    "french": "déménager",
+    "english": "to move house",
+    "examples": "Ils vont déménager dans un appartement plus lumineux en juillet.",
+    "conjugation": "je déménage\ntu déménages\nil déménage\nnous déménageons\nvous déménagez\nils déménagent",
+    "past_particle": "déménagé"
+  },
+  {
+    "french": "démolir",
+    "english": "to demolish",
+    "examples": "La ville prévoit de démolir l'ancien garage abandonné bientôt.",
+    "conjugation": "je démolis\ntu démolis\nil démolit\nnous démolissons\nvous démolissez\nils démolissent",
+    "past_particle": "démoli"
+  },
+  {
+    "french": "démontrer",
+    "english": "to demonstrate; to prove",
+    "examples": "Cette étude peut démontrer l'importance d'un sommeil régulier.",
+    "conjugation": "je démontre\ntu démontres\nil démontre\nnous démontrons\nvous démontrez\nils démontrent",
+    "past_particle": "démontré"
+  },
+  {
+    "french": "dépeindre",
+    "english": "to depict; to portray",
+    "examples": "Le roman cherche à dépeindre la vie dans un village isolé.",
+    "conjugation": "je dépeins\ntu dépeins\nil dépeint\nnous dépeignons\nvous dépeignez\nils dépeignent",
+    "past_particle": "dépeint"
+  },
+  {
+    "french": "dépendre",
+    "english": "to depend",
+    "examples": "Le résultat va dépendre de votre préparation et de votre calme.",
+    "conjugation": "je dépends\ntu dépends\nil dépend\nnous dépendons\nvous dépendez\nils dépendent",
+    "past_particle": "dépendu"
+  },
+  {
+    "french": "dérouler",
+    "english": "to unroll; to carry out",
+    "examples": "L'équipe va dérouler le plan étape par étape demain.",
+    "conjugation": "je déroule\ntu déroules\nil déroule\nnous déroulons\nvous déroulez\nils déroulent",
+    "past_particle": "déroulé"
+  },
+  {
+    "french": "déséquilibrer",
+    "english": "to unbalance; to destabilize",
+    "examples": "Une dépense imprévue peut déséquilibrer le budget familial rapidement.",
+    "conjugation": "je déséquilibre\ntu déséquilibres\nil déséquilibre\nnous déséquilibrons\nvous déséquilibrez\nils déséquilibrent",
+    "past_particle": "déséquilibré"
+  },
+  {
+    "french": "détenir",
+    "english": "to hold, to possess, to detain",
+    "examples": "Cette entreprise détient plusieurs brevets importants dans le domaine médical.",
+    "conjugation": "je détiens\ntu détiens\nil/elle détient\nnous détenons\nvous détenez\nils/elles détiennent",
+    "past_particle": "détenu"
+  },
+  {
+    "french": "dévaster",
+    "english": "to devastate, to ravage",
+    "examples": "La tempête a dévasté plusieurs villages près de la côte.",
+    "conjugation": "je dévaste\ntu dévastes\nil/elle dévaste\nnous dévastons\nvous dévastez\nils/elles dévastent",
+    "past_particle": "dévasté"
+  },
+  {
+    "french": "développer",
+    "english": "to develop",
+    "examples": "Nous développons une nouvelle application pour aider les étudiants.",
+    "conjugation": "je développe\ntu développes\nil/elle développe\nnous développons\nvous développez\nils/elles développent",
+    "past_particle": "développé"
+  },
+  {
+    "french": "dévoiler",
+    "english": "to reveal, to unveil",
+    "examples": "Le journaliste dévoile des informations importantes dans son article.",
+    "conjugation": "je dévoile\ntu dévoiles\nil/elle dévoile\nnous dévoilons\nvous dévoilez\nils/elles dévoilent",
+    "past_particle": "dévoilé"
+  },
+  {
+    "french": "devoir",
+    "english": "to have to, must; to owe",
+    "examples": "Je dois finir ce rapport avant la réunion de demain.",
+    "conjugation": "je dois\ntu dois\nil/elle doit\nnous devons\nvous devez\nils/elles doivent",
+    "past_particle": "dû"
+  },
+  {
+    "french": "dévorer",
+    "english": "to devour",
+    "examples": "Les enfants dévorent le gâteau dès la fin du repas.",
+    "conjugation": "je dévore\ntu dévores\nil/elle dévore\nnous dévorons\nvous dévorez\nils/elles dévorent",
+    "past_particle": "dévoré"
+  },
+  {
+    "french": "différer",
+    "english": "to differ; to postpone",
+    "examples": "Nos opinions diffèrent souvent, mais nous restons bons amis.",
+    "conjugation": "je diffère\ntu diffères\nil/elle diffère\nnous différons\nvous différez\nils/elles diffèrent",
+    "past_particle": "différé"
+  },
+  {
+    "french": "diminuer",
+    "english": "to decrease, to reduce",
+    "examples": "La consommation d'énergie diminue grâce aux nouvelles habitudes.",
+    "conjugation": "je diminue\ntu diminues\nil/elle diminue\nnous diminuons\nvous diminuez\nils/elles diminuent",
+    "past_particle": "diminué"
+  },
+  {
+    "french": "disposer",
+    "english": "to have available; to arrange",
+    "examples": "Nous disposons de deux heures pour préparer la présentation.",
+    "conjugation": "je dispose\ntu disposes\nil/elle dispose\nnous disposons\nvous disposez\nils/elles disposent",
+    "past_particle": "disposé"
+  },
+  {
+    "french": "doubler",
+    "english": "to double; to overtake",
+    "examples": "Le prix du logement double dans certains quartiers populaires.",
+    "conjugation": "je double\ntu doubles\nil/elle double\nnous doublons\nvous doublez\nils/elles doublent",
+    "past_particle": "doublé"
+  },
+  {
+    "french": "douter",
+    "english": "to doubt",
+    "examples": "Elle doute de sa réponse malgré ses bonnes connaissances.",
+    "conjugation": "je doute\ntu doutes\nil/elle doute\nnous doutons\nvous doutez\nils/elles doutent",
+    "past_particle": "douté"
+  },
+  {
+    "french": "dresser",
+    "english": "to draw up; to set up; to train",
+    "examples": "Le maire dresse une liste des problèmes urgents.",
+    "conjugation": "je dresse\ntu dresses\nil/elle dresse\nnous dressons\nvous dressez\nils/elles dressent",
+    "past_particle": "dressé"
+  },
+  {
+    "french": "effectuer",
+    "english": "to carry out, to perform",
+    "examples": "Le technicien effectue une vérification complète du système.",
+    "conjugation": "j'effectue\ntu effectues\nil/elle effectue\nnous effectuons\nvous effectuez\nils/elles effectuent",
+    "past_particle": "effectué"
+  },
+  {
+    "french": "efforcer",
+    "english": "to strive, to make an effort",
+    "examples": "Il s'efforce de parler plus clairement pendant l'entretien.",
+    "conjugation": "j'efforce\ntu efforces\nil/elle efforce\nnous efforçons\nvous efforcez\nils/elles efforcent",
+    "past_particle": "efforcé"
+  },
+  {
+    "french": "élaborer",
+    "english": "to develop, to draw up",
+    "examples": "Les chercheurs élaborent une méthode plus simple et efficace.",
+    "conjugation": "j'élabore\ntu élabores\nil/elle élabore\nnous élaborons\nvous élaborez\nils/elles élaborent",
+    "past_particle": "élaboré"
+  },
+  {
+    "french": "emmener",
+    "english": "to take someone along",
+    "examples": "Je t'emmène au marché après le déjeuner.",
+    "conjugation": "j'emmène\ntu emmènes\nil/elle emmène\nnous emmenons\nvous emmenez\nils/elles emmènent",
+    "past_particle": "emmené"
+  },
+  {
+    "french": "empiler",
+    "english": "to stack, to pile up",
+    "examples": "Il empile les livres sur la table du salon.",
+    "conjugation": "j'empile\ntu empiles\nil/elle empile\nnous empilons\nvous empilez\nils/elles empilent",
+    "past_particle": "empilé"
+  },
+  {
+    "french": "enfourner",
+    "english": "to put in the oven",
+    "examples": "Elle enfourne le pain quand le four est chaud.",
+    "conjugation": "j'enfourne\ntu enfournes\nil/elle enfourne\nnous enfournons\nvous enfournez\nils/elles enfournent",
+    "past_particle": "enfourné"
+  },
+  {
+    "french": "entreprendre",
+    "english": "to undertake, to start",
+    "examples": "Nous entreprenons des travaux pour rénover la vieille maison.",
+    "conjugation": "j'entreprends\ntu entreprends\nil/elle entreprend\nnous entreprenons\nvous entreprenez\nils/elles entreprennent",
+    "past_particle": "entrepris"
+  },
+  {
+    "french": "envoyer",
+    "english": "to send",
+    "examples": "Tu envoies un message dès que tu arrives.",
+    "conjugation": "j'envoie\ntu envoies\nil/elle envoie\nnous envoyons\nvous envoyez\nils/elles envoient",
+    "past_particle": "envoyé"
+  },
+  {
+    "french": "espérer",
+    "english": "to hope",
+    "examples": "J'espère réussir l'examen avec un peu plus de pratique.",
+    "conjugation": "j'espère\ntu espères\nil/elle espère\nnous espérons\nvous espérez\nils/elles espèrent",
+    "past_particle": "espéré"
+  },
+  {
+    "french": "éveiller",
+    "english": "to awaken, to arouse",
+    "examples": "Cette histoire éveille la curiosité des jeunes lecteurs.",
+    "conjugation": "j'éveille\ntu éveilles\nil/elle éveille\nnous éveillons\nvous éveillez\nils/elles éveillent",
+    "past_particle": "éveillé"
+  },
+  {
+    "french": "éviter",
+    "english": "to avoid",
+    "examples": "Nous évitons les rues bruyantes pendant la promenade.",
+    "conjugation": "j'évite\ntu évites\nil/elle évite\nnous évitons\nvous évitez\nils/elles évitent",
+    "past_particle": "évité"
+  },
+  {
+    "french": "excuser",
+    "english": "to excuse, to forgive",
+    "examples": "Elle excuse son retard avec une explication honnête.",
+    "conjugation": "j'excuse\ntu excuses\nil/elle excuse\nnous excusons\nvous excusez\nils/elles excusent",
+    "past_particle": "excusé"
+  },
+  {
+    "french": "exiger",
+    "english": "to demand, to require",
+    "examples": "Ce poste exige une grande attention aux détails.",
+    "conjugation": "j'exige\ntu exiges\nil/elle exige\nnous exigeons\nvous exigez\nils/elles exigent",
+    "past_particle": "exigé"
+  },
+  {
+    "french": "exister",
+    "english": "to exist",
+    "examples": "Des solutions simples existent pour réduire les déchets quotidiens.",
+    "conjugation": "j'existe\ntu existes\nil/elle existe\nnous existons\nvous existez\nils/elles existent",
+    "past_particle": "existé"
+  },
+  {
+    "french": "expatrier",
+    "english": "to expatriate, to move abroad",
+    "examples": "La famille s'expatrie pour découvrir une nouvelle culture.",
+    "conjugation": "j'expatrie\ntu expatries\nil/elle expatrie\nnous expatrions\nvous expatriez\nils/elles expatrient",
+    "past_particle": "expatrié"
+  },
+  {
+    "french": "exposer",
+    "english": "to expose; to exhibit",
+    "examples": "Le musée expose des photos rares de la ville.",
+    "conjugation": "j'expose\ntu exposes\nil/elle expose\nnous exposons\nvous exposez\nils/elles exposent",
+    "past_particle": "exposé"
+  },
+  {
+    "french": "falloir",
+    "english": "to be necessary, to have to",
+    "examples": "Il faut vérifier les informations avant de partager l'article.",
+    "conjugation": "il faut\n(forme impersonnelle; pas de je/tu/nous/vous/ils au présent)",
+    "past_particle": "fallu"
+  },
+  {
+    "french": "financer",
+    "english": "to finance, to fund",
+    "examples": "La ville finance un programme pour aider les familles.",
+    "conjugation": "je finance\ntu finances\nil/elle finance\nnous finançons\nvous financez\nils/elles financent",
+    "past_particle": "financé"
+  },
+  {
+    "french": "fournir",
+    "english": "to provide, to supply",
+    "examples": "Le guide fournit des conseils utiles aux nouveaux arrivants.",
+    "conjugation": "je fournis\ntu fournis\nil/elle fournit\nnous fournissons\nvous fournissez\nils/elles fournissent",
+    "past_particle": "fourni"
+  },
+  {
+    "french": "garder",
+    "english": "to keep; to look after",
+    "examples": "Tu gardes les documents importants dans ce dossier.",
+    "conjugation": "je garde\ntu gardes\nil/elle garde\nnous gardons\nvous gardez\nils/elles gardent",
+    "past_particle": "gardé"
+  },
+  {
+    "french": "glisser",
+    "english": "to slip, to slide",
+    "examples": "Le papier glisse sous la porte sans bruit.",
+    "conjugation": "je glisse\ntu glisses\nil/elle glisse\nnous glissons\nvous glissez\nils/elles glissent",
+    "past_particle": "glissé"
+  },
+  {
+    "french": "habiliter",
+    "english": "to authorize, to empower",
+    "examples": "La loi habilite le comité à prendre cette décision.",
+    "conjugation": "j'habilite\ntu habilites\nil/elle habilite\nnous habilitons\nvous habilitez\nils/elles habilitent",
+    "past_particle": "habilité"
+  },
+  {
+    "french": "hésiter",
+    "english": "to hesitate",
+    "examples": "N'hésite pas à demander de l'aide si nécessaire.",
+    "conjugation": "j'hésite\ntu hésites\nil/elle hésite\nnous hésitons\nvous hésitez\nils/elles hésitent",
+    "past_particle": "hésité"
+  },
+  {
+    "french": "heurter",
+    "english": "to hit, to collide with; to offend",
+    "examples": "La voiture heurte doucement le mur du garage.",
+    "conjugation": "je heurte\ntu heurtes\nil/elle heurte\nnous heurtons\nvous heurtez\nils/elles heurtent",
+    "past_particle": "heurté"
+  },
+  {
+    "french": "imprimer",
+    "english": "to print",
+    "examples": "J'imprime les billets avant de partir à la gare.",
+    "conjugation": "j'imprime\ntu imprimes\nil/elle imprime\nnous imprimons\nvous imprimez\nils/elles impriment",
+    "past_particle": "imprimé"
+  },
+  {
+    "french": "informer",
+    "english": "to inform",
+    "examples": "Le médecin informe le patient des résultats du test.",
+    "conjugation": "j'informe\ntu informes\nil/elle informe\nnous informons\nvous informez\nils/elles informent",
+    "past_particle": "informé"
+  },
+  {
+    "french": "intéresser",
+    "english": "to interest",
+    "examples": "Ce sujet intéresse beaucoup les étudiants en histoire.",
+    "conjugation": "j'intéresse\ntu intéresses\nil/elle intéresse\nnous intéressons\nvous intéressez\nils/elles intéressent",
+    "past_particle": "intéressé"
+  },
+  {
+    "french": "inventer",
+    "english": "to invent, to make up",
+    "examples": "Les enfants inventent une histoire drôle pendant le trajet.",
+    "conjugation": "j'invente\ntu inventes\nil/elle invente\nnous inventons\nvous inventez\nils/elles inventent",
+    "past_particle": "inventé"
+  },
+  {
+    "french": "investir",
+    "english": "to invest",
+    "examples": "Elle investit du temps dans sa formation professionnelle.",
+    "conjugation": "j'investis\ntu investis\nil/elle investit\nnous investissons\nvous investissez\nils/elles investissent",
+    "past_particle": "investi"
+  },
+  {
+    "french": "lancer",
+    "english": "to throw; to launch",
+    "examples": "L'entreprise lance un nouveau service pour ses clients.",
+    "conjugation": "je lance\ntu lances\nil/elle lance\nnous lançons\nvous lancez\nils/elles lancent",
+    "past_particle": "lancé"
+  },
+  {
+    "french": "maintenir",
+    "english": "to maintain, to keep",
+    "examples": "Ils maintiennent le contact malgré la distance.",
+    "conjugation": "je maintiens\ntu maintiens\nil/elle maintient\nnous maintenons\nvous maintenez\nils/elles maintiennent",
+    "past_particle": "maintenu"
+  },
+  {
+    "french": "manier",
+    "english": "to handle, to wield",
+    "examples": "Ce chef manie le couteau avec une grande précision.",
+    "conjugation": "je manie\ntu manies\nil/elle manie\nnous manions\nvous maniez\nils/elles manient",
+    "past_particle": "manié"
+  },
+  {
+    "french": "manipuler",
+    "english": "to handle; to manipulate",
+    "examples": "Il manipule les outils avec beaucoup de prudence.",
+    "conjugation": "je manipule\ntu manipules\nil/elle manipule\nnous manipulons\nvous manipulez\nils/elles manipulent",
+    "past_particle": "manipulé"
+  },
+  {
+    "french": "méconnaître",
+    "english": "to misunderstand, to be unaware of",
+    "examples": "Beaucoup de visiteurs méconnaissent l'histoire de ce quartier.",
+    "conjugation": "je méconnais\ntu méconnais\nil/elle méconnaît\nnous méconnaissons\nvous méconnaissez\nils/elles méconnaissent",
+    "past_particle": "méconnu"
+  },
+  {
+    "french": "mentionner",
+    "english": "to mention",
+    "examples": "Elle mentionne son expérience dans la lettre de motivation.",
+    "conjugation": "je mentionne\ntu mentionnes\nil/elle mentionne\nnous mentionnons\nvous mentionnez\nils/elles mentionnent",
+    "past_particle": "mentionné"
+  },
+  {
+    "french": "mettre",
+    "english": "to put, to place",
+    "examples": "Je mets les clés dans le tiroir de l'entrée.",
+    "conjugation": "je mets\ntu mets\nil/elle met\nnous mettons\nvous mettez\nils/elles mettent",
+    "past_particle": "mis"
+  },
+  {
+    "french": "mobiliser",
+    "english": "to mobilize, to rally",
+    "examples": "L'association mobilise des bénévoles pour aider les familles.",
+    "conjugation": "je mobilise\ntu mobilises\nil/elle mobilise\nnous mobilisons\nvous mobilisez\nils/elles mobilisent",
+    "past_particle": "mobilisé"
+  },
+  {
+    "french": "modérer",
+    "english": "to moderate, to restrain",
+    "examples": "Le professeur modère la discussion entre les étudiants.",
+    "conjugation": "je modère\ntu modères\nil/elle modère\nnous modérons\nvous modérez\nils/elles modèrent",
+    "past_particle": "modéré"
+  },
+  {
+    "french": "montrer",
+    "english": "to show",
+    "examples": "Peux-tu montrer le chemin aux nouveaux voisins ?",
+    "conjugation": "je montre\ntu montres\nil/elle montre\nnous montrons\nvous montrez\nils/elles montrent",
+    "past_particle": "montré"
+  },
+  {
+    "french": "moquer",
+    "english": "to mock, to make fun of",
+    "examples": "Il se moque gentiment de son propre accent.",
+    "conjugation": "je moque\ntu moques\nil/elle moque\nnous moquons\nvous moquez\nils/elles moquent",
+    "past_particle": "moqué"
+  },
+  {
+    "french": "multiplier",
+    "english": "to multiply, to increase",
+    "examples": "La ville multiplie les pistes cyclables dans le centre.",
+    "conjugation": "je multiplie\ntu multiplies\nil/elle multiplie\nnous multiplions\nvous multipliez\nils/elles multiplient",
+    "past_particle": "multiplié"
+  },
+  {
+    "french": "naître",
+    "english": "to be born, to arise",
+    "examples": "Une belle amitié naît après ce voyage scolaire.",
+    "conjugation": "je nais\ntu nais\nil/elle naît\nnous naissons\nvous naissez\nils/elles naissent",
+    "past_particle": "né"
+  },
+  {
+    "french": "nécessiter",
+    "english": "to require, to necessitate",
+    "examples": "Ce projet nécessite beaucoup de patience et une bonne organisation.",
+    "conjugation": "je nécessite\ntu nécessites\nil/elle/on nécessite\nnous nécessitons\nvous nécessitez\nils/elles nécessitent",
+    "past_particle": "nécessité"
+  },
+  {
+    "french": "noter",
+    "english": "to note, to write down",
+    "examples": "Je note les idées importantes pendant la réunion.",
+    "conjugation": "je note\ntu notes\nil/elle/on note\nnous notons\nvous notez\nils/elles notent",
+    "past_particle": "noté"
+  },
+  {
+    "french": "observer",
+    "english": "to observe, to watch",
+    "examples": "Les élèves observent les oiseaux dans le parc voisin.",
+    "conjugation": "j'observe\ntu observes\nil/elle/on observe\nnous observons\nvous observez\nils/elles observent",
+    "past_particle": "observé"
+  },
+  {
+    "french": "obtenir",
+    "english": "to obtain, to get",
+    "examples": "Elle obtient enfin une réponse claire après plusieurs appels.",
+    "conjugation": "j'obtiens\ntu obtiens\nil/elle/on obtient\nnous obtenons\nvous obtenez\nils/elles obtiennent",
+    "past_particle": "obtenu"
+  },
+  {
+    "french": "occuper",
+    "english": "to occupy, to keep busy",
+    "examples": "Ce travail occupe mes soirées depuis deux semaines.",
+    "conjugation": "j'occupe\ntu occupes\nil/elle/on occupe\nnous occupons\nvous occupez\nils/elles occupent",
+    "past_particle": "occupé"
+  },
+  {
+    "french": "orchestrer",
+    "english": "to orchestrate, to coordinate",
+    "examples": "Le chef orchestre chaque détail de la cérémonie officielle.",
+    "conjugation": "j'orchestre\ntu orchestres\nil/elle/on orchestre\nnous orchestrons\nvous orchestrez\nils/elles orchestrent",
+    "past_particle": "orchestré"
+  },
+  {
+    "french": "pallier",
+    "english": "to compensate for, to remedy",
+    "examples": "Nous devons pallier le manque de temps par une meilleure méthode.",
+    "conjugation": "je pallie\ntu pallies\nil/elle/on pallie\nnous pallions\nvous palliez\nils/elles pallient",
+    "past_particle": "pallié"
+  },
+  {
+    "french": "paraître",
+    "english": "to seem, to appear",
+    "examples": "Cette solution paraît simple, mais elle demande beaucoup d'efforts.",
+    "conjugation": "je parais\ntu parais\nil/elle/on paraît\nnous paraissons\nvous paraissez\nils/elles paraissent",
+    "past_particle": "paru"
+  },
+  {
+    "french": "parcourir",
+    "english": "to travel through, to browse",
+    "examples": "Ils parcourent la ville à vélo pendant tout l'après-midi.",
+    "conjugation": "je parcours\ntu parcours\nil/elle/on parcourt\nnous parcourons\nvous parcourez\nils/elles parcourent",
+    "past_particle": "parcouru"
+  },
+  {
+    "french": "parvenir",
+    "english": "to manage, to reach",
+    "examples": "Nous parvenons à finir le dossier avant la date limite.",
+    "conjugation": "je parviens\ntu parviens\nil/elle/on parvient\nnous parvenons\nvous parvenez\nils/elles parviennent",
+    "past_particle": "parvenu"
+  },
+  {
+    "french": "percevoir",
+    "english": "to perceive, to receive",
+    "examples": "Elle perçoit une différence nette dans son niveau de français.",
+    "conjugation": "je perçois\ntu perçois\nil/elle/on perçoit\nnous percevons\nvous percevez\nils/elles perçoivent",
+    "past_particle": "perçu"
+  },
+  {
+    "french": "perdre",
+    "english": "to lose",
+    "examples": "Tu perds souvent tes clés quand tu es pressé.",
+    "conjugation": "je perds\ntu perds\nil/elle/on perd\nnous perdons\nvous perdez\nils/elles perdent",
+    "past_particle": "perdu"
+  },
+  {
+    "french": "permettre",
+    "english": "to allow, to permit",
+    "examples": "Cette application permet aux étudiants de réviser chaque jour.",
+    "conjugation": "je permets\ntu permets\nil/elle/on permet\nnous permettons\nvous permettez\nils/elles permettent",
+    "past_particle": "permis"
+  },
+  {
+    "french": "persister",
+    "english": "to persist, to continue",
+    "examples": "Si le problème persiste, appelez le service technique demain matin.",
+    "conjugation": "je persiste\ntu persistes\nil/elle/on persiste\nnous persistons\nvous persistez\nils/elles persistent",
+    "past_particle": "persisté"
+  },
+  {
+    "french": "perturber",
+    "english": "to disturb, to disrupt",
+    "examples": "Le bruit perturbe la concentration des enfants en classe.",
+    "conjugation": "je perturbe\ntu perturbes\nil/elle/on perturbe\nnous perturbons\nvous perturbez\nils/elles perturbent",
+    "past_particle": "perturbé"
+  },
+  {
+    "french": "pervertir",
+    "english": "to corrupt, to distort",
+    "examples": "Cette pression peut pervertir le sens initial du projet.",
+    "conjugation": "je pervertis\ntu pervertis\nil/elle/on pervertit\nnous pervertissons\nvous pervertissez\nils/elles pervertissent",
+    "past_particle": "perverti"
+  },
+  {
+    "french": "plaire",
+    "english": "to please, to be liked",
+    "examples": "Ce film plaît beaucoup aux adolescents de mon quartier.",
+    "conjugation": "je plais\ntu plais\nil/elle/on plaît\nnous plaisons\nvous plaisez\nils/elles plaisent",
+    "past_particle": "plu"
+  },
+  {
+    "french": "porter",
+    "english": "to wear, to carry",
+    "examples": "Elle porte un manteau rouge quand il fait froid.",
+    "conjugation": "je porte\ntu portes\nil/elle/on porte\nnous portons\nvous portez\nils/elles portent",
+    "past_particle": "porté"
+  },
+  {
+    "french": "pouvoir",
+    "english": "to be able to, can",
+    "examples": "Nous pouvons partir plus tôt si tout le monde est prêt.",
+    "conjugation": "je peux\ntu peux\nil/elle/on peut\nnous pouvons\nvous pouvez\nils/elles peuvent",
+    "past_particle": "pu"
+  },
+  {
+    "french": "prévoir",
+    "english": "to plan, to foresee",
+    "examples": "Ils prévoient une pause courte après la présentation principale.",
+    "conjugation": "je prévois\ntu prévois\nil/elle/on prévoit\nnous prévoyons\nvous prévoyez\nils/elles prévoient",
+    "past_particle": "prévu"
+  },
+  {
+    "french": "privilégier",
+    "english": "to prioritize, to favor",
+    "examples": "Le professeur privilégie les exercices pratiques pendant le cours.",
+    "conjugation": "je privilégie\ntu privilégies\nil/elle/on privilégie\nnous privilégions\nvous privilégiez\nils/elles privilégient",
+    "past_particle": "privilégié"
+  },
+  {
+    "french": "produire",
+    "english": "to produce, to generate",
+    "examples": "Cette usine produit des pièces pour plusieurs entreprises locales.",
+    "conjugation": "je produis\ntu produis\nil/elle/on produit\nnous produisons\nvous produisez\nils/elles produisent",
+    "past_particle": "produit"
+  },
+  {
+    "french": "prolonger",
+    "english": "to extend, to prolong",
+    "examples": "La mairie prolonge l'exposition jusqu'à la fin du mois.",
+    "conjugation": "je prolonge\ntu prolonges\nil/elle/on prolonge\nnous prolongeons\nvous prolongez\nils/elles prolongent",
+    "past_particle": "prolongé"
+  },
+  {
+    "french": "provoquer",
+    "english": "to cause, to provoke",
+    "examples": "Une mauvaise communication provoque souvent des malentendus inutiles.",
+    "conjugation": "je provoque\ntu provoques\nil/elle/on provoque\nnous provoquons\nvous provoquez\nils/elles provoquent",
+    "past_particle": "provoqué"
+  },
+  {
+    "french": "publier",
+    "english": "to publish, to post",
+    "examples": "Elle publie un nouvel article sur son blog chaque semaine.",
+    "conjugation": "je publie\ntu publies\nil/elle/on publie\nnous publions\nvous publiez\nils/elles publient",
+    "past_particle": "publié"
+  },
+  {
+    "french": "raconter",
+    "english": "to tell, to recount",
+    "examples": "Mon grand-père raconte souvent des histoires de son enfance.",
+    "conjugation": "je raconte\ntu racontes\nil/elle/on raconte\nnous racontons\nvous racontez\nils/elles racontent",
+    "past_particle": "raconté"
+  },
+  {
+    "french": "réaliser",
+    "english": "to realize, to carry out",
+    "examples": "Je réalise maintenant l'importance de parler régulièrement français.",
+    "conjugation": "je réalise\ntu réalises\nil/elle/on réalise\nnous réalisons\nvous réalisez\nils/elles réalisent",
+    "past_particle": "réalisé"
+  },
+  {
+    "french": "recevoir",
+    "english": "to receive",
+    "examples": "Nous recevons les résultats par courriel demain matin.",
+    "conjugation": "je reçois\ntu reçois\nil/elle/on reçoit\nnous recevons\nvous recevez\nils/elles reçoivent",
+    "past_particle": "reçu"
+  },
+  {
+    "french": "rechercher",
+    "english": "to search for, to look for",
+    "examples": "Ils recherchent un appartement calme près du métro.",
+    "conjugation": "je recherche\ntu recherches\nil/elle/on recherche\nnous recherchons\nvous recherchez\nils/elles recherchent",
+    "past_particle": "recherché"
+  },
+  {
+    "french": "récolter",
+    "english": "to harvest, to collect",
+    "examples": "Les bénévoles récoltent des fonds pour aider les familles locales.",
+    "conjugation": "je récolte\ntu récoltes\nil/elle/on récolte\nnous récoltons\nvous récoltez\nils/elles récoltent",
+    "past_particle": "récolté"
+  },
+  {
+    "french": "reconnaître",
+    "english": "to recognize, to admit",
+    "examples": "Il reconnaît son erreur et présente des excuses sincères.",
+    "conjugation": "je reconnais\ntu reconnais\nil/elle/on reconnaît\nnous reconnaissons\nvous reconnaissez\nils/elles reconnaissent",
+    "past_particle": "reconnu"
+  },
+  {
+    "french": "reconstruire",
+    "english": "to rebuild, to reconstruct",
+    "examples": "La ville reconstruit le pont après la grande tempête.",
+    "conjugation": "je reconstruis\ntu reconstruis\nil/elle/on reconstruit\nnous reconstruisons\nvous reconstruisez\nils/elles reconstruisent",
+    "past_particle": "reconstruit"
+  },
+  {
+    "french": "refaire",
+    "english": "to redo, to remake",
+    "examples": "Tu refais l'exercice pour mieux comprendre la règle.",
+    "conjugation": "je refais\ntu refais\nil/elle/on refait\nnous refaisons\nvous refaites\nils/elles refont",
+    "past_particle": "refait"
+  },
+  {
+    "french": "régler",
+    "english": "to settle, to adjust",
+    "examples": "Le technicien règle la machine avant le début du service.",
+    "conjugation": "je règle\ntu règles\nil/elle/on règle\nnous réglons\nvous réglez\nils/elles règlent",
+    "past_particle": "réglé"
+  },
+  {
+    "french": "réhabiliter",
+    "english": "to rehabilitate, to restore",
+    "examples": "La commune réhabilite un ancien bâtiment pour les associations.",
+    "conjugation": "je réhabilite\ntu réhabilites\nil/elle/on réhabilite\nnous réhabilitons\nvous réhabilitez\nils/elles réhabilitent",
+    "past_particle": "réhabilité"
+  },
+  {
+    "french": "remettre",
+    "english": "to put back, to submit",
+    "examples": "Les étudiants remettent leur devoir avant midi aujourd'hui.",
+    "conjugation": "je remets\ntu remets\nil/elle/on remet\nnous remettons\nvous remettez\nils/elles remettent",
+    "past_particle": "remis"
+  },
+  {
+    "french": "remodeler",
+    "english": "to reshape, to remodel",
+    "examples": "L'architecte remodèle l'espace pour créer une cuisine ouverte.",
+    "conjugation": "je remodèle\ntu remodèles\nil/elle/on remodèle\nnous remodelons\nvous remodelez\nils/elles remodèlent",
+    "past_particle": "remodelé"
+  },
+  {
+    "french": "remplacer",
+    "english": "to replace",
+    "examples": "Nous remplaçons les vieilles chaises par des modèles plus confortables.",
+    "conjugation": "je remplace\ntu remplaces\nil/elle/on remplace\nnous remplaçons\nvous remplacez\nils/elles remplacent",
+    "past_particle": "remplacé"
+  },
+  {
+    "french": "rencontrer",
+    "english": "to meet, to encounter",
+    "examples": "Elle rencontre ses collègues au café après le travail.",
+    "conjugation": "je rencontre\ntu rencontres\nil/elle/on rencontre\nnous rencontrons\nvous rencontrez\nils/elles rencontrent",
+    "past_particle": "rencontré"
+  },
+  {
+    "french": "rendre",
+    "english": "to return, to make",
+    "examples": "Ce logiciel rend le travail plus rapide et plus simple.",
+    "conjugation": "je rends\ntu rends\nil/elle/on rend\nnous rendons\nvous rendez\nils/elles rendent",
+    "past_particle": "rendu"
+  },
+  {
+    "french": "renforcer",
+    "english": "to strengthen, to reinforce",
+    "examples": "Ces exercices renforcent la confiance des apprenants débutants.",
+    "conjugation": "je renforce\ntu renforces\nil/elle/on renforce\nnous renforçons\nvous renforcez\nils/elles renforcent",
+    "past_particle": "renforcé"
+  },
+  {
+    "french": "rentabiliser",
+    "english": "to make profitable, to optimize returns",
+    "examples": "L'entreprise veut rentabiliser ses investissements grâce à une meilleure stratégie.",
+    "conjugation": "je rentabilise\ntu rentabilises\nil/elle/on rentabilise\nnous rentabilisons\nvous rentabilisez\nils/elles rentabilisent",
+    "past_particle": "rentabilisé"
+  },
+  {
+    "french": "rentrer",
+    "english": "to return home, to go back in",
+    "examples": "Nous rentrons à la maison avant le début de l'orage.",
+    "conjugation": "je rentre\ntu rentres\nil/elle/on rentre\nnous rentrons\nvous rentrez\nils/elles rentrent",
+    "past_particle": "rentré"
+  },
+  {
+    "french": "reprendre",
+    "english": "to resume, to take back",
+    "examples": "Elle reprend ses études après une année de pause.",
+    "conjugation": "je reprends\ntu reprends\nil/elle/on reprend\nnous reprenons\nvous reprenez\nils/elles reprennent",
+    "past_particle": "repris"
+  },
+  {
+    "french": "représenter",
+    "english": "to represent",
+    "examples": "Cette image représente bien l'esprit du nouveau projet.",
+    "conjugation": "je représente\ntu représentes\nil/elle/on représente\nnous représentons\nvous représentez\nils/elles représentent",
+    "past_particle": "représenté"
+  },
+  {
+    "french": "retrouver",
+    "english": "to find again, to meet up with",
+    "examples": "Je retrouve mes amis devant le cinéma à dix-neuf heures.",
+    "conjugation": "je retrouve\ntu retrouves\nil/elle/on retrouve\nnous retrouvons\nvous retrouvez\nils/elles retrouvent",
+    "past_particle": "retrouvé"
+  },
+  {
+    "french": "révéler",
+    "english": "to reveal",
+    "examples": "Le rapport révèle des informations importantes sur la situation actuelle.",
+    "conjugation": "je révèle\ntu révèles\nil/elle/on révèle\nnous révélons\nvous révélez\nils/elles révèlent",
+    "past_particle": "révélé"
+  },
+  {
+    "french": "risquer",
+    "english": "to risk, to be likely to",
+    "examples": "Tu risques de manquer le train si tu pars tard.",
+    "conjugation": "je risque\ntu risques\nil/elle/on risque\nnous risquons\nvous risquez\nils/elles risquent",
+    "past_particle": "risqué"
+  },
+  {
+    "french": "saisir",
+    "english": "to seize, to grasp, to understand",
+    "examples": "Elle saisit rapidement le sens de la conversation.",
+    "conjugation": "je saisis\ntu saisis\nil/elle/on saisit\nnous saisissons\nvous saisissez\nils/elles saisissent",
+    "past_particle": "saisi"
+  },
+  {
+    "french": "sauver",
+    "english": "to save, to rescue",
+    "examples": "Les pompiers sauvent le chat coincé dans l'arbre.",
+    "conjugation": "je sauve\ntu sauves\nil/elle/on sauve\nnous sauvons\nvous sauvez\nils/elles sauvent",
+    "past_particle": "sauvé"
+  },
+  {
+    "french": "sembler",
+    "english": "to seem; to look like",
+    "examples": "Cette explication semble claire pour la plupart des étudiants.",
+    "conjugation": "je semble\ntu sembles\nil/elle/on semble\nnous semblons\nvous semblez\nils/elles semblent",
+    "past_particle": "semblé"
+  },
+  {
+    "french": "sensibiliser",
+    "english": "to raise awareness, to sensitize",
+    "examples": "La campagne sensibilise les jeunes aux dangers du tabac.",
+    "conjugation": "je sensibilise\ntu sensibilises\nil/elle/on sensibilise\nnous sensibilisons\nvous sensibilisez\nils/elles sensibilisent",
+    "past_particle": "sensibilisé"
+  },
+  {
+    "french": "servir",
+    "english": "to serve, to be useful",
+    "examples": "Ce guide sert à préparer les nouveaux employés rapidement.",
+    "conjugation": "je sers\ntu sers\nil/elle/on sert\nnous servons\nvous servez\nils/elles servent",
+    "past_particle": "servi"
+  },
+  {
+    "french": "soigner",
+    "english": "to treat, to care for",
+    "examples": "Le médecin soigne les patients avec attention et patience.",
+    "conjugation": "je soigne\ntu soignes\nil/elle/on soigne\nnous soignons\nvous soignez\nils/elles soignent",
+    "past_particle": "soigné"
+  },
+  {
+    "french": "souffrir",
+    "english": "to suffer",
+    "examples": "Il souffre souvent du dos après une longue journée de travail.",
+    "conjugation": "je souffre\ntu souffres\nil/elle/on souffre\nnous souffrons\nvous souffrez\nils/elles souffrent",
+    "past_particle": "souffert"
+  },
+  {
+    "french": "soutenir",
+    "english": "to support",
+    "examples": "Ses amis le soutiennent pendant cette période difficile.",
+    "conjugation": "je soutiens\ntu soutiens\nil/elle/on soutient\nnous soutenons\nvous soutenez\nils/elles soutiennent",
+    "past_particle": "soutenu"
+  },
+  {
+    "french": "substituer",
+    "english": "to substitute",
+    "examples": "On peut substituer le lait par une boisson végétale.",
+    "conjugation": "je substitue\ntu substitues\nil/elle/on substitue\nnous substituons\nvous substituez\nils/elles substituent",
+    "past_particle": "substitué"
+  },
+  {
+    "french": "subventionner",
+    "english": "to subsidize, to fund",
+    "examples": "La ville subventionne plusieurs projets culturels chaque année.",
+    "conjugation": "je subventionne\ntu subventionnes\nil/elle/on subventionne\nnous subventionnons\nvous subventionnez\nils/elles subventionnent",
+    "past_particle": "subventionné"
+  },
+  {
+    "french": "supprimer",
+    "english": "to delete, to remove",
+    "examples": "Tu dois supprimer les fichiers inutiles de ton ordinateur.",
+    "conjugation": "je supprime\ntu supprimes\nil/elle/on supprime\nnous supprimons\nvous supprimez\nils/elles suppriment",
+    "past_particle": "supprimé"
+  },
+  {
+    "french": "tendre",
+    "english": "to hold out, to stretch",
+    "examples": "Elle tend la main pour aider son voisin âgé.",
+    "conjugation": "je tends\ntu tends\nil/elle/on tend\nnous tendons\nvous tendez\nils/elles tendent",
+    "past_particle": "tendu"
+  },
+  {
+    "french": "tourner",
+    "english": "to turn",
+    "examples": "Le bus tourne à droite devant la gare centrale.",
+    "conjugation": "je tourne\ntu tournes\nil/elle/on tourne\nnous tournons\nvous tournez\nils/elles tournent",
+    "past_particle": "tourné"
+  },
+  {
+    "french": "transformer",
+    "english": "to transform",
+    "examples": "Cette expérience transforme sa façon de voir le monde.",
+    "conjugation": "je transforme\ntu transformes\nil/elle/on transforme\nnous transformons\nvous transformez\nils/elles transforment",
+    "past_particle": "transformé"
+  },
+  {
+    "french": "travailler",
+    "english": "to work",
+    "examples": "Nous travaillons ensemble sur un projet important cette semaine.",
+    "conjugation": "je travaille\ntu travailles\nil/elle/on travaille\nnous travaillons\nvous travaillez\nils/elles travaillent",
+    "past_particle": "travaillé"
+  },
+  {
+    "french": "tromper",
+    "english": "to deceive, to mislead",
+    "examples": "Cette publicité trompe souvent les clients avec ses promesses.",
+    "conjugation": "je trompe\ntu trompes\nil/elle/on trompe\nnous trompons\nvous trompez\nils/elles trompent",
+    "past_particle": "trompé"
+  },
+  {
+    "french": "tuer",
+    "english": "to kill",
+    "examples": "La pollution peut tuer de nombreux poissons dans la rivière.",
+    "conjugation": "je tue\ntu tues\nil/elle/on tue\nnous tuons\nvous tuez\nils/elles tuent",
+    "past_particle": "tué"
+  },
+  {
+    "french": "valoriser",
+    "english": "to value, to promote",
+    "examples": "L'école valorise les efforts autant que les résultats.",
+    "conjugation": "je valorise\ntu valorises\nil/elle/on valorise\nnous valorisons\nvous valorisez\nils/elles valorisent",
+    "past_particle": "valorisé"
+  },
+  {
+    "french": "accompagnateur",
+    "english": "guide, companion, accompanying person",
+    "examples": "L'accompagnateur aide les enfants pendant la sortie scolaire.",
+    "gender": "masculine"
+  },
+  {
+    "french": "accueil",
+    "english": "welcome, reception",
+    "examples": "L'accueil de cet hôtel est toujours chaleureux et professionnel.",
+    "gender": "masculine"
+  },
+  {
+    "french": "affiche",
+    "english": "poster",
+    "examples": "Une affiche colorée annonce le concert de samedi soir.",
+    "gender": "feminine"
+  },
+  {
+    "french": "an",
+    "english": "year",
+    "examples": "Mon fils a six ans depuis le mois dernier.",
+    "gender": "masculine"
+  },
+  {
+    "french": "après-midi",
+    "english": "afternoon",
+    "examples": "Nous passerons l'après-midi au parc avec les enfants.",
+    "gender": "masculine"
+  },
+  {
+    "french": "araignée",
+    "english": "spider",
+    "examples": "Une petite araignée traverse lentement le mur du salon.",
+    "gender": "feminine"
+  },
+  {
+    "french": "arrière",
+    "english": "back, rear",
+    "examples": "Les valises sont rangées à l'arrière de la voiture.",
+    "gender": "masculine"
+  },
+  {
+    "french": "bateau",
+    "english": "boat",
+    "examples": "Le bateau quitte le port tôt demain matin.",
+    "gender": "masculine"
+  },
+  {
+    "french": "bâtiment",
+    "english": "building",
+    "examples": "Ce bâtiment moderne abrite une bibliothèque et plusieurs bureaux.",
+    "gender": "masculine"
+  },
+  {
+    "french": "besoin",
+    "english": "need",
+    "examples": "J'ai besoin de silence pour bien préparer mon examen.",
+    "gender": "masculine"
+  },
+  {
+    "french": "bibliothèque",
+    "english": "library",
+    "examples": "La bibliothèque ferme plus tôt pendant les vacances d'été.",
+    "gender": "feminine"
+  },
+  {
+    "french": "billet",
+    "english": "ticket, note",
+    "examples": "Il a acheté un billet pour le train de midi.",
+    "gender": "masculine"
+  },
+  {
+    "french": "bise",
+    "english": "kiss on the cheek",
+    "examples": "Elle fait la bise à ses collègues chaque matin.",
+    "gender": "feminine"
+  },
+  {
+    "french": "bisou",
+    "english": "kiss",
+    "examples": "Le petit garçon envoie un bisou à sa grand-mère.",
+    "gender": "masculine"
+  },
+  {
+    "french": "bouche",
+    "english": "mouth",
+    "examples": "Il garde la bouche fermée pendant toute la réunion.",
+    "gender": "feminine"
+  },
+  {
+    "french": "bruit",
+    "english": "noise",
+    "examples": "Le bruit des travaux commence très tôt le matin.",
+    "gender": "masculine"
+  },
+  {
+    "french": "but",
+    "english": "goal, aim",
+    "examples": "Son but est de trouver un emploi stable rapidement.",
+    "gender": "masculine"
+  },
+  {
+    "french": "chercheur",
+    "english": "researcher",
+    "examples": "Le chercheur présente ses résultats devant toute l'équipe.",
+    "gender": "masculine"
+  },
+  {
+    "french": "choix",
+    "english": "choice",
+    "examples": "Ce choix difficile demande du temps et de la réflexion.",
+    "gender": "masculine"
+  },
+  {
+    "french": "citoyen",
+    "english": "citizen",
+    "examples": "Chaque citoyen peut participer aux décisions de sa ville.",
+    "gender": "masculine"
+  },
+  {
+    "french": "classeur",
+    "english": "binder, file folder",
+    "examples": "Elle range ses documents importants dans un classeur bleu.",
+    "gender": "masculine"
+  },
+  {
+    "french": "connaissance",
+    "english": "knowledge, acquaintance",
+    "examples": "Sa connaissance du français s'améliore grâce à la pratique.",
+    "gender": "feminine"
+  },
+  {
+    "french": "constat",
+    "english": "observation, finding",
+    "examples": "Le constat est clair après plusieurs semaines d'analyse.",
+    "gender": "masculine"
+  },
+  {
+    "french": "conte",
+    "english": "tale, story",
+    "examples": "La grand-mère raconte un conte aux enfants avant de dormir.",
+    "gender": "masculine"
+  },
+  {
+    "french": "copain",
+    "english": "friend, boyfriend",
+    "examples": "Mon copain vient dîner chez nous ce soir.",
+    "gender": "masculine"
+  },
+  {
+    "french": "copine",
+    "english": "friend, girlfriend",
+    "examples": "Sa copine l'attend devant le cinéma à dix-neuf heures.",
+    "gender": "feminine"
+  },
+  {
+    "french": "côté",
+    "english": "side",
+    "examples": "Le café se trouve de l'autre côté de la rue.",
+    "gender": "masculine"
+  },
+  {
+    "french": "cuisinier",
+    "english": "cook, chef",
+    "examples": "Le cuisinier prépare une soupe chaude pour les clients.",
+    "gender": "masculine"
+  },
+  {
+    "french": "déchet",
+    "english": "waste, trash",
+    "examples": "Chaque déchet doit être trié dans la bonne poubelle.",
+    "gender": "masculine"
+  },
+  {
+    "french": "découverte",
+    "english": "discovery",
+    "examples": "Cette découverte change notre compréhension de la maladie.",
+    "gender": "feminine"
+  },
+  {
+    "french": "déménagement",
+    "english": "move, relocation",
+    "examples": "Le déménagement commence samedi avec l'aide de nos amis.",
+    "gender": "masculine"
+  },
+  {
+    "french": "déroulement",
+    "english": "progress, sequence, course",
+    "examples": "Le professeur explique le déroulement de l'examen aux étudiants.",
+    "gender": "masculine"
+  },
+  {
+    "french": "deuil",
+    "english": "grief, mourning",
+    "examples": "La famille traverse un deuil très difficile cette année.",
+    "gender": "masculine"
+  },
+  {
+    "french": "disparition",
+    "english": "disappearance",
+    "examples": "La disparition de son chat inquiète tout le quartier.",
+    "gender": "feminine"
+  },
+  {
+    "french": "dizaine",
+    "english": "about ten, dozen",
+    "examples": "Une dizaine de personnes attendent devant la salle.",
+    "gender": "feminine"
+  },
+  {
+    "french": "donnée",
+    "english": "data, piece of information",
+    "examples": "Cette donnée est importante pour comprendre le résultat final.",
+    "gender": "feminine"
+  },
+  {
+    "french": "droit",
+    "english": "right, law",
+    "examples": "Chaque employé a le droit de poser des questions.",
+    "gender": "masculine"
+  },
+  {
+    "french": "eau",
+    "english": "water",
+    "examples": "L'eau froide coule doucement dans le petit ruisseau.",
+    "gender": "feminine"
+  },
+  {
+    "french": "échec",
+    "english": "failure",
+    "examples": "Cet échec lui apprend à mieux préparer ses projets.",
+    "gender": "masculine"
+  },
+  {
+    "french": "écriture",
+    "english": "writing",
+    "examples": "Son écriture devient plus claire avec un peu d'entraînement.",
+    "gender": "feminine"
+  },
+  {
+    "french": "écrivain",
+    "english": "writer",
+    "examples": "Cet écrivain publie un nouveau roman tous les deux ans.",
+    "gender": "masculine"
+  },
+  {
+    "french": "église",
+    "english": "church",
+    "examples": "L'église du village sonne à midi chaque dimanche.",
+    "gender": "feminine"
+  },
+  {
+    "french": "élève",
+    "english": "student, pupil",
+    "examples": "Chaque élève prépare une question avant le début du cours."
+  },
+  {
+    "french": "encre",
+    "english": "ink",
+    "examples": "L'encre bleue sèche rapidement sur cette feuille de papier.",
+    "gender": "feminine"
+  },
+  {
+    "french": "endroit",
+    "english": "place, spot",
+    "examples": "Nous avons trouvé un endroit calme pour parler tranquillement.",
+    "gender": "masculine"
+  },
+  {
+    "french": "enseignement",
+    "english": "teaching, education",
+    "examples": "L'enseignement en ligne demande beaucoup d'organisation et de patience.",
+    "gender": "masculine"
+  },
+  {
+    "french": "entraînement",
+    "english": "training, practice",
+    "examples": "Son entraînement quotidien l'aide à courir plus longtemps sans fatigue.",
+    "gender": "masculine"
+  },
+  {
+    "french": "espagnol",
+    "english": "Spanish language; Spanish person",
+    "examples": "Mon frère apprend l'espagnol pour voyager en Argentine.",
+    "gender": "masculine"
+  },
+  {
+    "french": "étage",
+    "english": "floor, storey",
+    "examples": "Notre bureau se trouve au troisième étage du bâtiment.",
+    "gender": "masculine"
+  },
+  {
+    "french": "étal",
+    "english": "stall, market stand",
+    "examples": "Le marchand arrange ses fruits colorés sur l'étal du marché.",
+    "gender": "masculine"
+  },
+  {
+    "french": "faiblesse",
+    "english": "weakness",
+    "examples": "Après la grippe, elle ressent encore une grande faiblesse.",
+    "gender": "feminine"
+  },
+  {
+    "french": "faim",
+    "english": "hunger",
+    "examples": "Les enfants ont faim après une longue promenade au parc.",
+    "gender": "feminine"
+  },
+  {
+    "french": "fait",
+    "english": "fact",
+    "examples": "Ce fait important change notre manière de comprendre l'histoire.",
+    "gender": "masculine"
+  },
+  {
+    "french": "femme",
+    "english": "woman; wife",
+    "examples": "Cette femme dirige une petite entreprise dans le quartier.",
+    "gender": "feminine"
+  },
+  {
+    "french": "fer-blanc",
+    "english": "tinplate",
+    "examples": "La boîte en fer-blanc protège bien les biscuits de l'humidité.",
+    "gender": "masculine"
+  },
+  {
+    "french": "fil",
+    "english": "thread, wire",
+    "examples": "Elle coupe un fil rouge pour réparer son vieux pull.",
+    "gender": "masculine"
+  },
+  {
+    "french": "filière",
+    "english": "track, sector, field",
+    "examples": "Cette filière professionnelle offre de nombreux stages en entreprise.",
+    "gender": "feminine"
+  },
+  {
+    "french": "fille",
+    "english": "girl; daughter",
+    "examples": "La fille de mon voisin joue du violon chaque soir.",
+    "gender": "feminine"
+  },
+  {
+    "french": "fond",
+    "english": "bottom, background, depth",
+    "examples": "Au fond du jardin, il y a un vieux banc.",
+    "gender": "masculine"
+  },
+  {
+    "french": "formateur",
+    "english": "trainer, instructor",
+    "examples": "Le formateur explique clairement les règles de sécurité aux employés.",
+    "gender": "masculine"
+  },
+  {
+    "french": "fourneau",
+    "english": "stove, furnace",
+    "examples": "Le cuisinier nettoie le fourneau avant le service du soir.",
+    "gender": "masculine"
+  },
+  {
+    "french": "frais",
+    "english": "costs, expenses",
+    "examples": "Les frais de transport augmentent pendant la saison touristique.",
+    "gender": "masculine"
+  },
+  {
+    "french": "français",
+    "english": "French language; French person",
+    "examples": "Elle pratique le français avec ses collègues tous les matins.",
+    "gender": "masculine"
+  },
+  {
+    "french": "garde-chasse",
+    "english": "gamekeeper",
+    "examples": "Le garde-chasse surveille les animaux dans la forêt protégée.",
+    "gender": "masculine"
+  },
+  {
+    "french": "gestion",
+    "english": "management",
+    "examples": "La gestion du temps devient essentielle pendant les examens.",
+    "gender": "feminine"
+  },
+  {
+    "french": "grenier",
+    "english": "attic",
+    "examples": "Ils gardent les vieux jouets dans le grenier familial.",
+    "gender": "masculine"
+  },
+  {
+    "french": "grillon",
+    "english": "cricket",
+    "examples": "Un grillon chante près de la fenêtre pendant la nuit.",
+    "gender": "masculine"
+  },
+  {
+    "french": "heure",
+    "english": "hour, time",
+    "examples": "À cette heure, le métro est souvent très rempli.",
+    "gender": "feminine"
+  },
+  {
+    "french": "homme",
+    "english": "man",
+    "examples": "Un homme attend son bus devant la boulangerie fermée.",
+    "gender": "masculine"
+  },
+  {
+    "french": "horaire",
+    "english": "schedule, timetable",
+    "examples": "L'horaire du train change pendant les travaux sur la ligne.",
+    "gender": "masculine"
+  },
+  {
+    "french": "îlot",
+    "english": "small island, block",
+    "examples": "Un îlot de verdure sépare les deux grandes avenues.",
+    "gender": "masculine"
+  },
+  {
+    "french": "imprimante",
+    "english": "printer",
+    "examples": "L'imprimante du bureau manque encore de papier ce matin.",
+    "gender": "feminine"
+  },
+  {
+    "french": "incendie",
+    "english": "fire, blaze",
+    "examples": "Les pompiers ont maîtrisé l'incendie avant la nuit.",
+    "gender": "masculine"
+  },
+  {
+    "french": "joueuse",
+    "english": "female player",
+    "examples": "La joueuse marque un point décisif pendant le match.",
+    "gender": "feminine"
+  },
+  {
+    "french": "jour",
+    "english": "day",
+    "examples": "Chaque jour, il écrit trois phrases dans son cahier.",
+    "gender": "masculine"
+  },
+  {
+    "french": "langue",
+    "english": "language; tongue",
+    "examples": "Cette langue est utile pour travailler avec des clients étrangers.",
+    "gender": "feminine"
+  },
+  {
+    "french": "lapin",
+    "english": "rabbit",
+    "examples": "Le lapin mange une carotte près de la porte.",
+    "gender": "masculine"
+  },
+  {
+    "french": "lieu",
+    "english": "place, location",
+    "examples": "Ce lieu historique attire des visiteurs toute l'année.",
+    "gender": "masculine"
+  },
+  {
+    "french": "livre",
+    "english": "book",
+    "examples": "Elle lit un livre passionnant dans le train du matin.",
+    "gender": "masculine"
+  },
+  {
+    "french": "logement",
+    "english": "housing, accommodation",
+    "examples": "Ils cherchent un logement proche de leur nouvelle école.",
+    "gender": "masculine"
+  },
+  {
+    "french": "longueur",
+    "english": "length",
+    "examples": "La longueur de cette table convient parfaitement à la salle.",
+    "gender": "feminine"
+  },
+  {
+    "french": "lutte",
+    "english": "struggle, fight, wrestling",
+    "examples": "La lutte contre la pollution demande des efforts collectifs.",
+    "gender": "feminine"
+  },
+  {
+    "french": "lycée",
+    "english": "high school",
+    "examples": "Mon cousin entre au lycée à la rentrée prochaine.",
+    "gender": "masculine"
+  },
+  {
+    "french": "madame",
+    "english": "madam, Mrs.",
+    "examples": "Madame Dupont accueille les parents devant la classe.",
+    "gender": "feminine"
+  },
+  {
+    "french": "main",
+    "english": "hand",
+    "examples": "Il lève la main pour poser une question simple.",
+    "gender": "feminine"
+  },
+  {
+    "french": "maison",
+    "english": "house, home",
+    "examples": "Notre maison se trouve près d'un grand parc public.",
+    "gender": "feminine"
+  },
+  {
+    "french": "maître",
+    "english": "teacher, master",
+    "examples": "Le maître corrige les cahiers pendant la récréation.",
+    "gender": "masculine"
+  },
+  {
+    "french": "maman",
+    "english": "mom, mum",
+    "examples": "Ma maman prépare une soupe chaude pour toute la famille.",
+    "gender": "feminine"
+  },
+  {
+    "french": "manette",
+    "english": "controller, lever",
+    "examples": "La manette ne fonctionne plus après plusieurs heures de jeu.",
+    "gender": "feminine"
+  },
+  {
+    "french": "mangeur",
+    "english": "eater",
+    "examples": "Ce mangeur rapide finit son assiette avant tout le monde.",
+    "gender": "masculine"
+  },
+  {
+    "french": "manque",
+    "english": "lack, shortage",
+    "examples": "Le manque de sommeil réduit sa concentration au travail.",
+    "gender": "masculine"
+  },
+  {
+    "french": "mer",
+    "english": "sea",
+    "examples": "La mer est calme ce matin près du petit port.",
+    "gender": "feminine"
+  },
+  {
+    "french": "métier",
+    "english": "job, trade, profession",
+    "examples": "Il apprend un métier manuel dans un centre de formation.",
+    "gender": "masculine"
+  },
+  {
+    "french": "meuble",
+    "english": "piece of furniture",
+    "examples": "Ce meuble ancien prend trop de place dans l'entrée.",
+    "gender": "masculine"
+  },
+  {
+    "french": "mise",
+    "english": "putting, placing; stake",
+    "examples": "La mise en place commence une heure avant l'événement.",
+    "gender": "feminine"
+  },
+  {
+    "french": "mois",
+    "english": "month",
+    "examples": "Le mois prochain, nous visiterons nos amis à Montréal.",
+    "gender": "masculine"
+  },
+  {
+    "french": "moitié",
+    "english": "half",
+    "examples": "J'ai gardé la moitié du gâteau pour demain.",
+    "gender": "feminine"
+  },
+  {
+    "french": "montant",
+    "english": "amount, sum",
+    "examples": "Le montant de la facture semble plus élevé que prévu.",
+    "gender": "masculine"
+  },
+  {
+    "french": "montée",
+    "english": "rise, climb, ascent",
+    "examples": "La montée jusqu'au village fatigue tous les cyclistes.",
+    "gender": "feminine"
+  },
+  {
+    "french": "mort",
+    "english": "death",
+    "examples": "La mort de son chien l'a beaucoup attristée.",
+    "gender": "feminine"
+  },
+  {
+    "french": "mouche",
+    "english": "fly",
+    "examples": "Une mouche tournait autour des fruits sur la table.",
+    "gender": "feminine"
+  },
+  {
+    "french": "moyen",
+    "english": "means, way, method",
+    "examples": "Il cherche un moyen simple de réduire ses dépenses.",
+    "gender": "masculine"
+  },
+  {
+    "french": "nord",
+    "english": "north",
+    "examples": "Le vent vient du nord et refroidit la ville.",
+    "gender": "masculine"
+  },
+  {
+    "french": "nourriture",
+    "english": "food",
+    "examples": "La nourriture maison coûte souvent moins cher au quotidien.",
+    "gender": "feminine"
+  },
+  {
+    "french": "œil",
+    "english": "eye",
+    "examples": "Il a fermé un œil pour mieux viser la cible.",
+    "gender": "masculine"
+  },
+  {
+    "french": "ouvrage",
+    "english": "work, book, construction",
+    "examples": "Cet ouvrage explique clairement l'histoire de la région.",
+    "gender": "masculine"
+  },
+  {
+    "french": "palmarès",
+    "english": "record of achievements, prize list",
+    "examples": "Son palmarès impressionne les jeunes sportifs du club.",
+    "gender": "masculine"
+  },
+  {
+    "french": "partage",
+    "english": "sharing",
+    "examples": "Le partage des tâches rend la maison plus agréable.",
+    "gender": "masculine"
+  },
+  {
+    "french": "paupière",
+    "english": "eyelid",
+    "examples": "Sa paupière tremblait après une longue nuit sans sommeil.",
+    "gender": "feminine"
+  },
+  {
+    "french": "pays",
+    "english": "country",
+    "examples": "Ce pays attire beaucoup de visiteurs pendant l'été.",
+    "gender": "masculine"
+  },
+  {
+    "french": "paysan",
+    "english": "peasant, farmer",
+    "examples": "Le paysan vend ses légumes chaque samedi au marché.",
+    "gender": "masculine"
+  },
+  {
+    "french": "peau",
+    "english": "skin",
+    "examples": "Sa peau devient sèche quand l'hiver arrive au Canada.",
+    "gender": "feminine"
+  },
+  {
+    "french": "pêche",
+    "english": "fishing; peach",
+    "examples": "La pêche au bord du lac commence tôt le matin.",
+    "gender": "feminine"
+  },
+  {
+    "french": "pêcheur",
+    "english": "fisherman, angler",
+    "examples": "Le pêcheur prépare ses filets avant le lever du soleil.",
+    "gender": "masculine"
+  },
+  {
+    "french": "pensée",
+    "english": "thought",
+    "examples": "Une pensée positive peut changer le début de la journée.",
+    "gender": "feminine"
+  },
+  {
+    "french": "perte",
+    "english": "loss",
+    "examples": "La perte de ses clés l'a mis très en retard.",
+    "gender": "feminine"
+  },
+  {
+    "french": "porte",
+    "english": "door",
+    "examples": "La porte de l'appartement reste fermée pendant la nuit.",
+    "gender": "feminine"
+  },
+  {
+    "french": "profondeur",
+    "english": "depth",
+    "examples": "La profondeur du lac surprend les nouveaux visiteurs.",
+    "gender": "feminine"
+  },
+  {
+    "french": "propos",
+    "english": "remark, words, statement",
+    "examples": "Ses propos ont calmé la discussion entre les voisins.",
+    "gender": "masculine"
+  },
+  {
+    "french": "quotidien",
+    "english": "daily life, everyday routine",
+    "examples": "Le sport fait maintenant partie de son quotidien.",
+    "gender": "masculine"
+  },
+  {
+    "french": "randonnée",
+    "english": "hike, walk",
+    "examples": "Nous avons prévu une randonnée facile dimanche matin.",
+    "gender": "feminine"
+  },
+  {
+    "french": "rayon",
+    "english": "ray, shelf, aisle",
+    "examples": "Un rayon de soleil traverse la fenêtre du salon.",
+    "gender": "masculine"
+  },
+  {
+    "french": "réaménagement",
+    "english": "redevelopment, rearrangement",
+    "examples": "Le réaménagement du parc commencera après les vacances.",
+    "gender": "masculine"
+  },
+  {
+    "french": "recette",
+    "english": "recipe; revenue",
+    "examples": "Cette recette de soupe demande peu d'ingrédients frais.",
+    "gender": "feminine"
+  },
+  {
+    "french": "réchauffement",
+    "english": "warming",
+    "examples": "Le réchauffement climatique inquiète de nombreux scientifiques aujourd'hui.",
+    "gender": "masculine"
+  },
+  {
+    "french": "recueil",
+    "english": "collection, anthology",
+    "examples": "Elle lit un recueil de poèmes chaque soir.",
+    "gender": "masculine"
+  },
+  {
+    "french": "rentrée",
+    "english": "return, back-to-school period",
+    "examples": "La rentrée scolaire approche et les enfants préparent leurs sacs.",
+    "gender": "feminine"
+  },
+  {
+    "french": "retombée",
+    "english": "consequence, impact, fallout",
+    "examples": "Cette décision aura une retombée positive sur le quartier.",
+    "gender": "feminine"
+  },
+  {
+    "french": "riverain",
+    "english": "local resident, riverside resident",
+    "examples": "Un riverain a signalé le bruit près du chantier.",
+    "gender": "masculine"
+  },
+  {
+    "french": "roi",
+    "english": "king",
+    "examples": "Le roi visite la capitale pendant la cérémonie officielle.",
+    "gender": "masculine"
+  },
+  {
+    "french": "romarin",
+    "english": "rosemary",
+    "examples": "Le romarin parfume très bien les pommes de terre.",
+    "gender": "masculine"
+  },
+  {
+    "french": "séjour",
+    "english": "stay, visit",
+    "examples": "Son séjour à Montréal a duré presque trois semaines.",
+    "gender": "masculine"
+  },
+  {
+    "french": "siècle",
+    "english": "century",
+    "examples": "Ce château date du dix-septième siècle selon le guide.",
+    "gender": "masculine"
+  },
+  {
+    "french": "sommeil",
+    "english": "sleep",
+    "examples": "Le manque de sommeil affecte sa concentration au travail.",
+    "gender": "masculine"
+  },
+  {
+    "french": "surgelé",
+    "english": "frozen food item",
+    "examples": "Ce surgelé se prépare rapidement après une longue journée.",
+    "gender": "masculine"
+  },
+  {
+    "french": "travaux",
+    "english": "works, construction work, repairs",
+    "examples": "Les travaux devant l'école ralentissent la circulation ce matin.",
+    "gender": "masculine"
+  },
+  {
+    "french": "turc",
+    "english": "Turk; Turkish person",
+    "examples": "Un Turc du quartier tient cette petite boulangerie familiale.",
+    "gender": "masculine"
+  },
+  {
+    "french": "verre",
+    "english": "glass",
+    "examples": "Elle boit un verre d'eau avant de partir.",
+    "gender": "masculine"
+  },
+  {
+    "french": "vide-grenier",
+    "english": "garage sale, yard sale",
+    "examples": "Le vide-grenier du village attire beaucoup de familles.",
+    "gender": "masculine"
+  },
+  {
+    "french": "voie",
+    "english": "way, route, lane, track",
+    "examples": "Cette voie réservée facilite le passage des autobus.",
+    "gender": "feminine"
+  },
+  {
+    "french": "volonté",
+    "english": "will, willingness",
+    "examples": "Sa volonté de progresser impressionne tous ses professeurs.",
+    "gender": "feminine"
+  },
+  {
+    "french": "yeux",
+    "english": "eyes",
+    "examples": "Ses yeux brillent quand il parle de ses projets.",
+    "gender": "masculine"
+  },
+  {
+    "french": "ébloui",
+    "english": "dazzled, blinded",
+    "examples": "Ébloui par le soleil, il a ralenti brusquement."
+  },
+  {
+    "french": "éclatant",
+    "english": "bright, dazzling, radiant",
+    "examples": "Le ciel éclatant donne envie de sortir marcher."
+  },
+  {
+    "french": "épais",
+    "english": "thick",
+    "examples": "Un brouillard épais couvrait la route ce matin."
+  },
+  {
+    "french": "fermé",
+    "english": "closed",
+    "examples": "Le magasin fermé n'affichait aucune heure d'ouverture."
+  },
+  {
+    "french": "grinçant",
+    "english": "creaky, squeaky",
+    "examples": "L'escalier grinçant réveille souvent les enfants la nuit."
+  },
+  {
+    "french": "haut",
+    "english": "high, tall",
+    "examples": "Ce mur haut protège le jardin du vent."
+  },
+  {
+    "french": "inespéré",
+    "english": "unexpected, unhoped-for",
+    "examples": "Ce succès inespéré a redonné confiance à l'équipe."
+  },
+  {
+    "french": "jeune",
+    "english": "young",
+    "examples": "Une jeune artiste expose ses tableaux dans le café."
+  },
+  {
+    "french": "lent",
+    "english": "slow",
+    "examples": "Le train est lent quand il traverse les petits villages."
+  },
+  {
+    "french": "lisse",
+    "english": "smooth",
+    "examples": "La table est lisse après plusieurs couches de vernis."
+  },
+  {
+    "french": "mauvais",
+    "english": "bad",
+    "examples": "Ce mauvais temps nous oblige à rester à la maison."
+  },
+  {
+    "french": "nantais",
+    "english": "from Nantes",
+    "examples": "Le chef nantais prépare souvent du poisson frais."
+  },
+  {
+    "french": "neuf",
+    "english": "new; unused",
+    "examples": "J'ai acheté un manteau neuf pour l'hiver prochain."
+  },
+  {
+    "french": "ouvert",
+    "english": "open",
+    "examples": "Le musée reste ouvert jusqu'à vingt heures ce soir."
+  },
+  {
+    "french": "percutant",
+    "english": "striking; impactful",
+    "examples": "Son discours percutant a convaincu toute l'équipe rapidement."
+  },
+  {
+    "french": "perdu",
+    "english": "lost",
+    "examples": "Le touriste perdu cherche la gare dans le quartier."
+  },
+  {
+    "french": "prêt",
+    "english": "ready",
+    "examples": "Je suis prêt à commencer le projet dès demain."
+  },
+  {
+    "french": "récolté",
+    "english": "harvested; collected",
+    "examples": "Le blé récolté sera vendu au marché régional."
+  },
+  {
+    "french": "répandu",
+    "english": "widespread; common",
+    "examples": "Ce problème est répandu dans les grandes villes modernes."
+  },
+  {
+    "french": "soigné",
+    "english": "careful; well-groomed",
+    "examples": "Son travail soigné impressionne toujours ses professeurs."
+  },
+  {
+    "french": "soumis",
+    "english": "submitted; submissive",
+    "examples": "Le dossier soumis hier sera examiné lundi matin."
+  },
+  {
+    "french": "sourd",
+    "english": "deaf",
+    "examples": "Cet homme sourd lit très bien sur les lèvres."
+  },
+  {
+    "french": "sûr",
+    "english": "sure; safe",
+    "examples": "Es-tu sûr de vouloir prendre cette route isolée ?"
+  },
+  {
+    "french": "timbré",
+    "english": "stamped; crazy",
+    "examples": "Le courrier timbré partira avec la levée du soir."
+  },
+  {
+    "french": "tiré",
+    "english": "pulled; drawn",
+    "examples": "Le rideau tiré protège la chambre du soleil."
+  },
+  {
+    "french": "vert",
+    "english": "green",
+    "examples": "Le feu vert permet aux voitures d'avancer doucement."
+  },
+  {
+    "french": "vingtième",
+    "english": "twentieth",
+    "examples": "Elle habite au vingtième étage de cette grande tour."
+  },
+  {
+    "french": "voisin",
+    "english": "neighboring; nearby",
+    "examples": "Le village voisin organise une fête samedi prochain."
+  },
+  {
+    "french": "vrai",
+    "english": "true; real",
+    "examples": "C'est un vrai plaisir de te revoir aujourd'hui."
+  },
+  {
+    "french": "assez",
+    "english": "enough; quite",
+    "examples": "Nous avons assez de temps pour finir calmement."
+  },
+  {
+    "french": "autant",
+    "english": "as much; as many",
+    "examples": "Je n'ai jamais vu autant de monde ici."
+  },
+  {
+    "french": "bientôt",
+    "english": "soon",
+    "examples": "Nous partirons bientôt en vacances au bord de la mer."
+  },
+  {
+    "french": "enfin",
+    "english": "finally; at last",
+    "examples": "Après deux heures d'attente, le bus arrive enfin."
+  },
+  {
+    "french": "mal",
+    "english": "badly; poorly",
+    "examples": "Il dort mal quand il boit du café tard."
+  },
+  {
+    "french": "malgré",
+    "english": "despite",
+    "examples": "Malgré la pluie, les enfants jouent dans le parc."
+  },
+  {
+    "french": "mieux",
+    "english": "better",
+    "examples": "Elle comprend mieux la leçon après plusieurs exercices."
+  },
+  {
+    "french": "presque",
+    "english": "almost",
+    "examples": "Il est presque minuit, mais la rue reste animée."
+  },
+  {
+    "french": "puis",
+    "english": "then",
+    "examples": "Nous dînerons ensemble, puis nous regarderons un film."
+  },
+  {
+    "french": "toutefois",
+    "english": "however; nevertheless",
+    "examples": "Le plan est intéressant, toutefois il manque de détails."
+  },
+  {
+    "french": "animateur",
+    "english": "host; facilitator",
+    "examples": "L'animateur explique les règles avant le début du jeu.",
+    "gender": "masculine"
+  },
+  {
+    "french": "aspirateur",
+    "english": "vacuum cleaner",
+    "examples": "L'aspirateur fait trop de bruit dans le couloir.",
+    "gender": "masculine"
+  },
+  {
+    "french": "bande",
+    "english": "strip; group; gang",
+    "examples": "Une bande d'amis se retrouve au café chaque vendredi.",
+    "gender": "feminine"
+  },
+  {
+    "french": "bourse",
+    "english": "scholarship; stock exchange",
+    "examples": "Elle a obtenu une bourse pour étudier à Montréal.",
+    "gender": "feminine"
+  },
+  {
+    "french": "brevet",
+    "english": "patent; certificate",
+    "examples": "Son invention a reçu un brevet l'année dernière.",
+    "gender": "masculine"
+  },
+  {
+    "french": "cadre",
+    "english": "frame; executive; setting",
+    "examples": "Ce cadre en bois met bien la photo en valeur.",
+    "gender": "masculine"
+  },
+  {
+    "french": "changement",
+    "english": "change",
+    "examples": "Ce changement d'horaire surprend beaucoup les employés.",
+    "gender": "masculine"
+  },
+  {
+    "french": "citron",
+    "english": "lemon",
+    "examples": "Ajoute un citron frais dans la salade de fruits.",
+    "gender": "masculine"
+  },
+  {
+    "french": "compte",
+    "english": "account; count",
+    "examples": "Elle vérifie son compte bancaire chaque dimanche soir.",
+    "gender": "masculine"
+  },
+  {
+    "french": "concours",
+    "english": "competition; exam",
+    "examples": "Il prépare un concours important pour devenir professeur.",
+    "gender": "masculine"
+  },
+  {
+    "french": "constatation",
+    "english": "observation; finding",
+    "examples": "Cette constatation simple change notre manière de travailler.",
+    "gender": "feminine"
+  },
+  {
+    "french": "corps",
+    "english": "body",
+    "examples": "Le corps a besoin de repos après un effort.",
+    "gender": "masculine"
+  },
+  {
+    "french": "coup",
+    "english": "blow; hit; sudden action",
+    "examples": "Un coup de vent a fermé la fenêtre brusquement.",
+    "gender": "masculine"
+  },
+  {
+    "french": "courrier",
+    "english": "mail; correspondence",
+    "examples": "Le facteur apporte le courrier vers dix heures.",
+    "gender": "masculine"
+  },
+  {
+    "french": "défaut",
+    "english": "fault; defect",
+    "examples": "Ce téléphone a un défaut dans son écran.",
+    "gender": "masculine"
+  },
+  {
+    "french": "demande",
+    "english": "request; application",
+    "examples": "Sa demande de visa est encore en cours.",
+    "gender": "feminine"
+  },
+  {
+    "french": "diplômé",
+    "english": "graduate",
+    "examples": "Le jeune diplômé cherche son premier emploi stable.",
+    "gender": "masculine"
+  },
+  {
+    "french": "doute",
+    "english": "doubt",
+    "examples": "Un doute sérieux reste dans son esprit ce soir.",
+    "gender": "masculine"
+  },
+  {
+    "french": "ensemble",
+    "english": "set; group; whole",
+    "examples": "Cet ensemble de règles aide les nouveaux employés.",
+    "gender": "masculine"
+  },
+  {
+    "french": "épouse",
+    "english": "wife",
+    "examples": "Son épouse travaille dans une école du quartier.",
+    "gender": "feminine"
+  },
+  {
+    "french": "état",
+    "english": "state; condition",
+    "examples": "L'état de la route devient dangereux en hiver.",
+    "gender": "masculine"
+  },
+  {
+    "french": "étude",
+    "english": "study",
+    "examples": "Cette étude montre des résultats très encourageants.",
+    "gender": "feminine"
+  },
+  {
+    "french": "étudiant",
+    "english": "student",
+    "examples": "Chaque étudiant doit rendre son devoir avant vendredi.",
+    "gender": "masculine"
+  },
+  {
+    "french": "fiche",
+    "english": "card; sheet; form",
+    "examples": "Remplis cette fiche avant de commencer ton inscription en ligne.",
+    "gender": "feminine"
+  },
+  {
+    "french": "formation",
+    "english": "training; education",
+    "examples": "Cette formation aide les adultes à changer de métier rapidement.",
+    "gender": "feminine"
+  },
+  {
+    "french": "informatique",
+    "english": "computer science; IT",
+    "examples": "Il suit des cours d'informatique pour réparer son ordinateur.",
+    "gender": "feminine"
+  },
+  {
+    "french": "internaute",
+    "english": "internet user",
+    "examples": "Chaque internaute doit protéger ses mots de passe personnels."
+  },
+  {
+    "french": "intoxication",
+    "english": "poisoning; intoxication",
+    "examples": "Une intoxication alimentaire peut provoquer une forte douleur au ventre.",
+    "gender": "feminine"
+  },
+  {
+    "french": "lecture",
+    "english": "reading",
+    "examples": "La lecture quotidienne améliore beaucoup le vocabulaire en français.",
+    "gender": "feminine"
+  },
+  {
+    "french": "libraire",
+    "english": "bookseller",
+    "examples": "Le libraire conseille souvent des romans aux jeunes lecteurs."
+  },
+  {
+    "french": "librairie",
+    "english": "bookstore",
+    "examples": "J'ai trouvé ce dictionnaire dans une petite librairie du quartier.",
+    "gender": "feminine"
+  },
+  {
+    "french": "lien",
+    "english": "link; connection",
+    "examples": "Envoie-moi le lien pour rejoindre la réunion vidéo.",
+    "gender": "masculine"
+  },
+  {
+    "french": "local",
+    "english": "premises; local room",
+    "examples": "L'association cherche un local plus grand pour ses activités.",
+    "gender": "masculine"
+  },
+  {
+    "french": "locuteur",
+    "english": "speaker",
+    "examples": "Un locuteur natif peut expliquer les expressions très naturellement.",
+    "gender": "masculine"
+  },
+  {
+    "french": "milieu",
+    "english": "middle; environment",
+    "examples": "Il travaille dans un milieu calme et très organisé.",
+    "gender": "masculine"
+  },
+  {
+    "french": "mobilier",
+    "english": "furniture",
+    "examples": "Le nouveau mobilier rend la salle plus moderne et confortable.",
+    "gender": "masculine"
+  },
+  {
+    "french": "ouverture",
+    "english": "opening",
+    "examples": "L'ouverture du magasin est prévue lundi matin à neuf heures.",
+    "gender": "feminine"
+  },
+  {
+    "french": "pain",
+    "english": "bread",
+    "examples": "Elle achète du pain frais à la boulangerie chaque matin.",
+    "gender": "masculine"
+  },
+  {
+    "french": "patrimoine",
+    "english": "heritage; assets",
+    "examples": "Ce château fait partie du patrimoine historique de la région.",
+    "gender": "masculine"
+  },
+  {
+    "french": "personnage",
+    "english": "character; figure",
+    "examples": "Ce personnage du roman semble mystérieux dès le premier chapitre.",
+    "gender": "masculine"
+  },
+  {
+    "french": "place",
+    "english": "place; seat; square",
+    "examples": "Garde-moi une place près de la fenêtre, s'il te plaît.",
+    "gender": "feminine"
+  },
+  {
+    "french": "plat",
+    "english": "dish; course",
+    "examples": "Ce plat traditionnel se prépare avec des légumes de saison.",
+    "gender": "masculine"
+  },
+  {
+    "french": "pointe",
+    "english": "tip; point",
+    "examples": "La pointe du crayon est cassée après plusieurs exercices.",
+    "gender": "feminine"
+  },
+  {
+    "french": "politique",
+    "english": "politics; policy",
+    "examples": "La politique municipale influence directement la vie du quartier.",
+    "gender": "feminine"
+  },
+  {
+    "french": "prestation",
+    "english": "service; performance; benefit",
+    "examples": "La prestation du musicien a beaucoup impressionné le public.",
+    "gender": "feminine"
+  },
+  {
+    "french": "puissance",
+    "english": "power; strength",
+    "examples": "La puissance du moteur permet de monter cette côte facilement.",
+    "gender": "feminine"
+  },
+  {
+    "french": "quartier",
+    "english": "neighborhood; district",
+    "examples": "Notre quartier devient plus animé pendant les soirées d'été.",
+    "gender": "masculine"
+  },
+  {
+    "french": "rappel",
+    "english": "reminder; recall",
+    "examples": "J'ai mis un rappel pour appeler le médecin demain.",
+    "gender": "masculine"
+  },
+  {
+    "french": "regard",
+    "english": "look; gaze",
+    "examples": "Son regard sérieux montre qu'il écoute vraiment la conversation.",
+    "gender": "masculine"
+  },
+  {
+    "french": "réparateur",
+    "english": "repairer; technician",
+    "examples": "Le réparateur arrive cet après-midi pour vérifier la machine.",
+    "gender": "masculine"
+  },
+  {
+    "french": "répartition",
+    "english": "distribution; allocation",
+    "examples": "La répartition des tâches doit rester claire pour toute l'équipe.",
+    "gender": "feminine"
+  },
+  {
+    "french": "restauration",
+    "english": "catering; restoration; food service",
+    "examples": "La restauration du vieux tableau demande beaucoup de patience.",
+    "gender": "feminine"
+  },
+  {
+    "french": "retraite",
+    "english": "retirement",
+    "examples": "Après sa retraite, elle veut voyager avec ses amis.",
+    "gender": "feminine"
+  },
+  {
+    "french": "réunion",
+    "english": "meeting; reunion",
+    "examples": "La réunion commence à dix heures dans la grande salle.",
+    "gender": "feminine"
+  },
+  {
+    "french": "roman",
+    "english": "novel",
+    "examples": "Ce roman raconte l'histoire d'une famille pendant la guerre.",
+    "gender": "masculine"
+  },
+  {
+    "french": "scénariste",
+    "english": "screenwriter",
+    "examples": "La scénariste prépare une nouvelle série pour la télévision."
+  },
+  {
+    "french": "société",
+    "english": "society; company",
+    "examples": "Cette société développe des applications utiles pour les étudiants.",
+    "gender": "feminine"
+  },
+  {
+    "french": "stage",
+    "english": "internship; training course",
+    "examples": "Il fait un stage dans une entreprise de communication.",
+    "gender": "masculine"
+  },
+  {
+    "french": "terminale",
+    "english": "final year of high school",
+    "examples": "En terminale, les élèves préparent souvent leur orientation universitaire.",
+    "gender": "feminine"
+  },
+  {
+    "french": "tour",
+    "english": "turn; tour",
+    "examples": "C'est ton tour de présenter le projet devant la classe.",
+    "gender": "masculine"
+  },
+  {
+    "french": "travers",
+    "english": "fault; flaw",
+    "examples": "Son principal travers est de répondre trop vite aux messages.",
+    "gender": "masculine"
+  },
+  {
+    "french": "accru",
+    "english": "increased; greater",
+    "examples": "Le trafic accru complique les déplacements en centre-ville."
+  },
+  {
+    "french": "actuel",
+    "english": "current; present",
+    "examples": "Le contexte actuel rend cette décision particulièrement importante."
+  },
+  {
+    "french": "célébrissime",
+    "english": "extremely famous",
+    "examples": "Ce chanteur célébrissime attire des milliers de personnes à chaque concert."
+  },
+  {
+    "french": "consacré",
+    "english": "devoted; dedicated",
+    "examples": "Un article consacré au climat paraît dans le journal aujourd'hui."
+  },
+  {
+    "french": "court",
+    "english": "short",
+    "examples": "Son message court explique clairement la raison de son absence."
+  },
+  {
+    "french": "élevé",
+    "english": "high; raised",
+    "examples": "Le prix élevé de ce billet surprend beaucoup les voyageurs."
+  },
+  {
+    "french": "libre",
+    "english": "free; available",
+    "examples": "Je suis libre demain après-midi pour discuter du dossier."
+  },
+  {
+    "french": "rentable",
+    "english": "profitable; cost-effective",
+    "examples": "Ce projet devient rentable après seulement quelques mois d'activité."
+  },
+  {
+    "french": "vivant",
+    "english": "living; lively",
+    "examples": "Le marché vivant attire les habitants dès le samedi matin."
+  },
+  {
+    "french": "actuellement",
+    "english": "currently; at present",
+    "examples": "Elle travaille actuellement sur un rapport pour son équipe."
+  },
+  {
+    "french": "juste",
+    "english": "just; exactly; only",
+    "examples": "Je veux juste vérifier l'adresse avant de partir."
   }
 ]
