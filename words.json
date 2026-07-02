@@ -2765,5 +2765,10 @@
     "french": "cela devrait",
     "english": "this/that should",
     "examples": "Cela devrait améliorer ton français si tu pratiques chaque jour."
+  },
+  {
+    "french": "auquel",
+    "english": "to which; for which",
+    "examples": "C'est le problème auquel je pense depuis hier."
   }
 ]
