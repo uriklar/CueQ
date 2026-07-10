@@ -2792,5 +2792,23 @@
     "examples": "Peux-tu me prêter ton stylo pendant quelques minutes ?",
     "conjugation": "je prête\ntu prêtes\nil/elle/on prête\nnous prêtons\nvous prêtez\nils/elles prêtent",
     "past_particle": "prêté"
+  },
+  {
+    "french": "survenir",
+    "english": "to occur; to happen unexpectedly",
+    "examples": "Un problème peut survenir pendant le voyage sans prévenir.",
+    "conjugation": "je surviens\ntu surviens\nil/elle/on survient\nnous survenons\nvous survenez\nils/elles surviennent",
+    "past_particle": "survenu"
+  },
+  {
+    "french": "de la vaisselle",
+    "english": "dishes; tableware",
+    "examples": "Il reste encore de la vaisselle sale dans l'évier.",
+    "gender": "feminine"
+  },
+  {
+    "french": "en vieillissant",
+    "english": "as one gets older; while aging",
+    "examples": "En vieillissant, il préfère passer plus de temps avec sa famille."
   }
 ]
