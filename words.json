@@ -2785,5 +2785,12 @@
     "french": "déroulés",
     "english": "unfolded; carried out; taken place (masculine plural past participle)",
     "examples": "Les événements se sont déroulés sans problème pendant toute la journée."
+  },
+  {
+    "french": "prêter",
+    "english": "to lend",
+    "examples": "Peux-tu me prêter ton stylo pendant quelques minutes ?",
+    "conjugation": "je prête\ntu prêtes\nil/elle/on prête\nnous prêtons\nvous prêtez\nils/elles prêtent",
+    "past_particle": "prêté"
   }
 ]
