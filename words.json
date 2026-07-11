@@ -2810,5 +2810,11 @@
     "french": "en vieillissant",
     "english": "as one gets older; while aging",
     "examples": "En vieillissant, il préfère passer plus de temps avec sa famille."
+  },
+  {
+    "french": "une astuce",
+    "english": "a tip; a trick; a helpful hint",
+    "examples": "J'ai trouvé une astuce pour mémoriser les verbes irréguliers plus facilement.",
+    "gender": "feminine"
   }
 ]
