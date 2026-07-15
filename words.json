@@ -2816,5 +2816,76 @@
     "english": "a tip; a trick; a helpful hint",
     "examples": "J'ai trouvé une astuce pour mémoriser les verbes irréguliers plus facilement.",
     "gender": "feminine"
+  },
+  {
+    "french": "dans le cadre de",
+    "english": "as part of; within the framework of",
+    "examples": "Dans le cadre de ce projet, nous allons comparer plusieurs solutions."
+  },
+  {
+    "french": "le lancement",
+    "english": "launch; introduction",
+    "examples": "Le lancement du nouveau service aura lieu la semaine prochaine.",
+    "gender": "masculine"
+  },
+  {
+    "french": "une cellule",
+    "english": "cell; small unit; group",
+    "examples": "Chaque cellule du corps joue un rôle important dans la santé.",
+    "gender": "feminine"
+  },
+  {
+    "french": "à la fois",
+    "english": "at the same time; both",
+    "examples": "Ce travail est à la fois difficile et très intéressant."
+  },
+  {
+    "french": "affronter",
+    "english": "to face; to confront",
+    "examples": "Il faut affronter ce problème avec courage et patience.",
+    "conjugation": "j'affronte\ntu affrontes\nil/elle affronte\nnous affrontons\nvous affrontez\nils/elles affrontent",
+    "past_particle": "affronté"
+  },
+  {
+    "french": "taille",
+    "english": "size; height; waist",
+    "examples": "Cette veste n'est pas disponible dans ma taille habituelle.",
+    "gender": "feminine"
+  },
+  {
+    "french": "désormais",
+    "english": "from now on; henceforth",
+    "examples": "Désormais, les réunions auront lieu le lundi matin."
+  },
+  {
+    "french": "détruire",
+    "english": "to destroy",
+    "examples": "La tempête peut détruire des maisons près de la côte.",
+    "conjugation": "je détruis\ntu détruis\nil/elle détruit\nnous détruisons\nvous détruisez\nils/elles détruisent",
+    "past_particle": "détruit"
+  },
+  {
+    "french": "se dérouler",
+    "english": "to take place; to unfold",
+    "examples": "La cérémonie va se dérouler dans la grande salle.",
+    "conjugation": "je me déroule\ntu te déroules\nil/elle se déroule\nnous nous déroulons\nvous vous déroulez\nils/elles se déroulent",
+    "past_particle": "déroulé"
+  },
+  {
+    "french": "parvenir à",
+    "english": "to manage to; to succeed in",
+    "examples": "Elle est parvenue à terminer son rapport avant midi.",
+    "conjugation": "je parviens\ntu parviens\nil/elle parvient\nnous parvenons\nvous parvenez\nils/elles parviennent",
+    "past_particle": "parvenu"
+  },
+  {
+    "french": "mener une étude",
+    "english": "to conduct a study",
+    "examples": "Les chercheurs vont mener une étude sur le sommeil des adolescents."
+  },
+  {
+    "french": "quels que soient",
+    "english": "whatever; regardless of",
+    "examples": "Quels que soient les résultats, nous continuerons à travailler ensemble."
   }
 ]
