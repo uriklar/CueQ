@@ -19,7 +19,10 @@ jobs:
         with:
           node-version: 22
 
-      - run: npm install --legacy-peer-deps
+      - run: npm ci
+      - run: npm test -- --watchAll=false --runInBand
+      - run: npm run typecheck
+      - run: npx expo-doctor
 
       - uses: expo/expo-github-action@v8
         with:
@@ -30,16 +33,21 @@ jobs:
         id: eas-update
         env:
           EXPO_PUBLIC_GEMINI_API_KEY: ${{ secrets.EXPO_PUBLIC_GEMINI_API_KEY }}
+          UPDATE_MESSAGE: ${{ github.event.head_commit.message }}
         run: |
-          OUTPUT=$(eas update --branch production --message "${{ github.event.head_commit.message }}" --non-interactive --json)
+          OUTPUT=$(eas update --branch production --environment production --platform all --message "$UPDATE_MESSAGE" --non-interactive --json)
           echo "$OUTPUT"
           GROUP_ID=$(echo "$OUTPUT" | jq -r '.[0].group')
           echo "group_id=$GROUP_ID" >> "$GITHUB_OUTPUT"
+          RUNTIME_VERSION=$(echo "$OUTPUT" | jq -r '.[0].runtimeVersion')
+          echo "runtime_version=$RUNTIME_VERSION" >> "$GITHUB_OUTPUT"
+          eas update:view "$GROUP_ID" --json
+          eas channel:view production --json
 
       - name: Update redirect page
         run: |
           GROUP_ID="${{ steps.eas-update.outputs.group_id }}"
-          PREVIEW_URL="https://expo.dev/preview/update?message=CueQ&updateRuntimeVersion=1.0.0&createdAt=$(date -u +%Y-%m-%dT%H:%M:%S.000Z)&slug=CueQ&projectId=d74f216f-55c5-49e6-8109-d8b5cbab162a&group=${GROUP_ID}"
+          PREVIEW_URL="https://expo.dev/preview/update?message=CueQ&updateRuntimeVersion=${{ steps.eas-update.outputs.runtime_version }}&createdAt=$(date -u +%Y-%m-%dT%H:%M:%S.000Z)&slug=CueQ&projectId=d74f216f-55c5-49e6-8109-d8b5cbab162a&group=${GROUP_ID}"
 
           mkdir -p docs
           cat > docs/index.html <<EOF

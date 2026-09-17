@@ -89,7 +89,7 @@ export const DifficultyDrawer: React.FC<DifficultyDrawerProps> = ({
 const styles = StyleSheet.create({
   container: { flex: 1, justifyContent: "flex-end" },
   backdrop: {
-    ...StyleSheet.absoluteFillObject,
+    ...StyleSheet.absoluteFill,
     backgroundColor: colors.overlay,
   },
   sheet: {

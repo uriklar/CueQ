@@ -2,6 +2,47 @@
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
+## Expo SDK 57
+
+CueQ targets Expo SDK 57 (`expo` 57.0.23), React Native 0.86.3, and
+React 19.2.3. Use Node.js 22.13+ and install the lockfile with `npm ci`.
+Open the project with an Expo Go build that supports SDK 57.
+
+Validation commands:
+
+```bash
+npm test -- --watchAll=false --runInBand
+npm run typecheck
+npm run lint
+npx expo install --check
+npx expo-doctor
+npx expo export --platform all
+```
+
+SDK 57's newer ESLint rules report existing effect/state patterns in the app
+(`react-hooks/set-state-in-effect` and `react-hooks/immutability`); these are
+not suppressed by this upgrade. The older lint configuration reported 29
+warnings and no errors. The upgraded configuration reports those warnings
+and 11 errors in unchanged application code. Effect refactoring is separate
+from this SDK compatibility change.
+
+### Publishing
+
+Pushes to `main` publish through the existing **EAS Update** GitHub Actions
+workflow, using the repository's `EXPO_TOKEN` and Gemini configuration. The
+workflow installs the lockfile, runs tests, typechecks, and runs Expo Doctor
+before publishing Android and iOS updates to the existing `production` branch
+in `@uriklar/CueQ` (project `d74f216f-55c5-49e6-8109-d8b5cbab162a`).
+SDK 57 requires an explicit EAS environment; the workflow uses `production`.
+It reads the published update back and refreshes the existing preview redirect.
+
+The `appVersion` runtime policy is preserved, with the app version bumped to
+**1.1.0** so SDK 54 binaries on runtime 1.0.0 cannot download an incompatible
+SDK 57 update. Standalone/development builds need rebuilding for the new native
+runtime; an EAS Update does not upgrade their native code. No native build is
+started by this workflow. Physical Expo Go testing is still required for
+end-to-end device verification.
+
 ## Get started
 
 1. Install dependencies
