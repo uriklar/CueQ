@@ -2887,5 +2887,78 @@
     "french": "quels que soient",
     "english": "whatever; regardless of",
     "examples": "Quels que soient les résultats, nous continuerons à travailler ensemble."
+  },
+  {
+    "french": "fêter",
+    "english": "to celebrate",
+    "examples": "Nous allons fêter son anniversaire samedi.",
+    "conjugation": "je fête\ntu fêtes\nil/elle/on fête\nnous fêtons\nvous fêtez\nils/elles fêtent",
+    "past_participle": "fêté"
+  },
+  {
+    "french": "à partir de",
+    "english": "starting from; from … onward",
+    "examples": "Le magasin sera ouvert à partir de neuf heures."
+  },
+  {
+    "french": "afin de",
+    "english": "in order to",
+    "examples": "Je révise chaque jour afin de progresser en français."
+  },
+  {
+    "french": "lors de",
+    "english": "during; at the time of",
+    "examples": "Nous avons discuté de ce problème lors de la réunion."
+  },
+  {
+    "french": "relâcher",
+    "english": "to release; to let go",
+    "examples": "Ils vont relâcher cet oiseau après l’avoir soigné.",
+    "conjugation": "je relâche\ntu relâches\nil/elle/on relâche\nnous relâchons\nvous relâchez\nils/elles relâchent",
+    "past_participle": "relâché"
+  },
+  {
+    "french": "loyer",
+    "english": "rent",
+    "gender": "masculine",
+    "examples": "Le loyer de cet appartement comprend le chauffage."
+  },
+  {
+    "french": "convenir",
+    "english": "to suit; to be suitable",
+    "examples": "Cet horaire me convient parfaitement.",
+    "conjugation": "je conviens\ntu conviens\nil/elle/on convient\nnous convenons\nvous convenez\nils/elles conviennent",
+    "past_participle": "convenu"
+  },
+  {
+    "french": "convenir de",
+    "english": "to agree on; to agree to",
+    "examples": "Nous devons convenir d’une date pour notre prochaine réunion.",
+    "conjugation": "je conviens de\ntu conviens de\nil/elle/on convient de\nnous convenons de\nvous convenez de\nils/elles conviennent de",
+    "past_participle": "convenu"
+  },
+  {
+    "french": "convenir que",
+    "english": "to admit that; to acknowledge that",
+    "examples": "Je conviens que cette solution est plus simple.",
+    "conjugation": "je conviens que\ntu conviens que\nil/elle/on convient que\nnous convenons que\nvous convenez que\nils/elles conviennent que",
+    "past_participle": "convenu"
+  },
+  {
+    "french": "coordonnées",
+    "english": "contact details; contact information",
+    "gender": "feminine",
+    "examples": "Pourriez-vous me laisser vos coordonnées afin que je puisse vous rappeler ?"
+  },
+  {
+    "french": "déplacements",
+    "english": "travel; trips; journeys",
+    "gender": "masculine",
+    "examples": "Mon travail exige de fréquents déplacements à Montréal."
+  },
+  {
+    "french": "imprévu",
+    "english": "unexpected; unforeseen",
+    "examples": "Un changement imprévu nous oblige à modifier nos plans."
   }
 ]
