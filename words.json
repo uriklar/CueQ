@@ -2987,5 +2987,11 @@
     "french": "Doucement",
     "english": "slowly; gently; softly",
     "examples": "Parlez doucement, le bébé dort. — Speak softly; the baby is sleeping.\nMarche doucement pour ne pas tomber. — Walk slowly so you do not fall."
+  },
+  {
+    "french": "Verdure",
+    "english": "greenery; green vegetation",
+    "gender": "feminine",
+    "examples": "Ce parc est un havre de verdure au cœur de la ville. — This park is a haven of greenery in the heart of the city."
   }
 ]
