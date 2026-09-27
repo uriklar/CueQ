@@ -2998,5 +2998,19 @@
     "french": "quoi de plus",
     "english": "what more; what else",
     "examples": "Que demander de plus ? Un bon repas et des amis, quoi de plus agréable ? — What more could you ask for? A good meal and friends—what could be more enjoyable?"
+  },
+  {
+    "french": "baisser",
+    "english": "to lower; to go down; to decrease",
+    "examples": "Peux-tu baisser le volume ? — Can you turn down the volume?",
+    "conjugation": "je baisse\ntu baisses\nil/elle/on baisse\nnous baissons\nvous baissez\nils/elles baissent",
+    "past_participle": "baissé"
+  },
+  {
+    "french": "réduire",
+    "english": "to reduce; to cut down",
+    "examples": "Nous devons réduire nos dépenses. — We need to reduce our expenses.",
+    "conjugation": "je réduis\ntu réduis\nil/elle/on réduit\nnous réduisons\nvous réduisez\nils/elles réduisent",
+    "past_participle": "réduit"
   }
 ]
