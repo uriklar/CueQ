@@ -3012,5 +3012,11 @@
     "examples": "Nous devons réduire nos dépenses. — We need to reduce our expenses.",
     "conjugation": "je réduis\ntu réduis\nil/elle/on réduit\nnous réduisons\nvous réduisez\nils/elles réduisent",
     "past_participle": "réduit"
+  },
+  {
+    "french": "embouteillages",
+    "english": "traffic jams; traffic congestion",
+    "gender": "masculine",
+    "examples": "Il y a souvent des embouteillages aux heures de pointe. — There are often traffic jams during rush hour."
   }
 ]
